@@ -36,3 +36,14 @@ slf-xxx.jar 是 ehcache 所需
 3. 执行 build.sh 进行项目编译  
 4. 运行多个 runtest.sh 
 5. 直接在 runtest 输入多个命令进行测试
+
+运行时所需 jar 包：
+
+1. lib/commons-beanutils-1.8.2.jar  
+2. lib/commons-lang-2.4.jar
+3. lib/commons-logging-1.1.1.jar  
+4. lib/commons-pool-1.6.jar  
+5. lib/ehcache-2.7.5.jar  
+6. lib/jedis-2.2.1.jar  
+7. lib/jgroups-3.4.0.Final.jar  
+8. lib/slf4j-*.jar
