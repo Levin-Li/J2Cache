@@ -159,6 +159,7 @@ public class CacheChannel extends ReceiverAdapter implements CacheExpiredListene
 	 */
 	protected void onDeleteCacheKey(String region, String key){
 		CacheManager.evict(LEVEL_1, region, key);
+		log.debug("Received cache evict message, region="+region+",key="+key);
 	}
 
 	/**
