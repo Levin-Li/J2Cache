@@ -29,4 +29,10 @@ A2 接收到广播，从 L1_2 中清除指定的缓存信息
 slf-xxx.jar 是 ehcache 所需
 
 
- 
+测试方法：
+
+1. 安装 Redis  
+2. 修改 src/redis.properties  配置使用已安装的 Redis 服务器
+3. 执行 build.sh 进行项目编译  
+4. 运行多个 runtest.sh 
+5. 直接在 runtest 输入多个命令进行测试
