@@ -15,6 +15,9 @@ import org.apache.commons.lang.StringUtils;
 public class CacheTester {
 
 	public static void main(String[] args) {
+		
+		System.setProperty("java.net.preferIPv4Stack", "true"); //Disable IPv6 in JVM
+		
 		CacheChannel cache = CacheChannel.getInstance();
 		BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
 
