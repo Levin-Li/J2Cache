@@ -60,17 +60,6 @@ public class CacheChannel extends ReceiverAdapter implements CacheExpiredListene
 		}
 	}
 
-	/**
-	 * 获取缓存中的数据
-	 * @param level
-	 * @param region
-	 * @param key
-	 * @return
-	 */
-	public String get(String region, String key) {
-        return get(String.class, region, key);
-    }
-
     /**
 	 * 获取缓存中的数据
 	 * @param <T>
@@ -80,16 +69,21 @@ public class CacheChannel extends ReceiverAdapter implements CacheExpiredListene
 	 * @param key
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public <T extends Serializable> T get(Class<T> resultClass, String region, String key){
-        T obj = null;
+	public CacheObject get(String region, String key){
+		CacheObject obj = new CacheObject();
+		obj.setRegion(region);
+		obj.setKey(key);
         if(region!=null && key != null){
-            obj = (T)CacheManager.get(LEVEL_1, region, key);
-            if(obj == null) {
-                obj = (T)CacheManager.get(LEVEL_2, region, key);
-                if(obj != null)
-                    CacheManager.set(LEVEL_1, region, key, obj);
+        	obj.setValue(CacheManager.get(LEVEL_1, region, key));
+            if(obj.getValue() == null) {
+            	obj.setValue(CacheManager.get(LEVEL_2, region, key));
+                if(obj.getValue() != null){
+                	obj.setLevel(LEVEL_2);
+                    CacheManager.set(LEVEL_1, region, key, (Serializable)obj.getValue());
+                }
             }
+            else
+            	obj.setLevel(LEVEL_1);
         }
         return obj;
 	}

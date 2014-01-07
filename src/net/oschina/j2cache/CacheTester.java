@@ -32,8 +32,8 @@ public class CacheTester {
 
 	            String[] cmds = StringUtils.split(line);
 	            if("get".equalsIgnoreCase(cmds[0])){
-	            	String value = cache.get(cmds[1], cmds[2]);
-	            	System.out.printf("[%s,%s]=>%s\n",cmds[1], cmds[2], value);
+	            	CacheObject obj = cache.get(cmds[1], cmds[2]);
+	            	System.out.printf("[%s,%s,L%d]=>%s\n", obj.getRegion(), obj.getKey(), obj.getLevel(), obj.getValue());
 	            }
 	            else
 	            if("set".equalsIgnoreCase(cmds[0])){
