@@ -24,9 +24,9 @@
         maxElementsInMemory="1000"
         eternal="false"
         timeToIdleSeconds="5"
-        timeToLiveSeconds="120"
+        timeToLiveSeconds="60"
         overflowToDisk="true">
-        <cacheEventListenerFactory class="net.oschina.j2cache.ehcache.EhCacheEventListenerFactory"/>
+        <!--  cacheEventListenerFactory class="net.oschina.j2cache.ehcache.EhCacheEventListenerFactory"/-->
     </defaultCache>
 
     <!--Predefined caches.  Add your cache configuration settings here.

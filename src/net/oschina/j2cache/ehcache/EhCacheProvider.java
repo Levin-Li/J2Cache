@@ -16,7 +16,6 @@
  */
 package net.oschina.j2cache.ehcache;
 
-import java.util.Hashtable;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.slf4j.Logger;
