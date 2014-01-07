@@ -91,7 +91,7 @@ public class EhCacheProvider implements CacheProvider {
                     " If this behaviour is required, consider using net.sf.ehcache.hibernate.SingletonEhCacheProvider.");
             return;
         }
-        manager = new CacheManager();
+        manager = new CacheManager(EhCacheProvider.class.getResource("/ehcache.xml"));
         _CacheManager = new ConcurrentHashMap<String, EhCache>();
 	}
 
