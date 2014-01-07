@@ -52,7 +52,7 @@ public class CacheChannel extends ReceiverAdapter implements CacheExpiredListene
 			channel = new JChannel(xml);
 			channel.setReceiver(this);
 			channel.connect(this.name);
-			
+
 			CacheManager.initCacheProvider(this);
 			
 		}catch(Exception e){
@@ -67,17 +67,11 @@ public class CacheChannel extends ReceiverAdapter implements CacheExpiredListene
 	 * @param key
 	 * @return
 	 */
-	public Object get(String region, Serializable key){
-		Object obj = null;
-		if(region!=null && key != null){
-			obj = CacheManager.get(LEVEL_1, region, key);
-			if(obj == null)
-				obj = CacheManager.get(LEVEL_2, region, key);
-		}
-		return obj;
-	}
-	
-	/**
+	public String get(String region, String key) {
+        return get(String.class, region, key);
+    }
+
+    /**
 	 * 获取缓存中的数据
 	 * @param <T>
 	 * @param level
@@ -87,11 +81,17 @@ public class CacheChannel extends ReceiverAdapter implements CacheExpiredListene
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> T get(Class<T> resultClass, String region, Serializable key){
-		//System.out.println("GET2 => " + name+":"+key);
-		if(region!=null && key != null)
-			return (T)get(region, key);
-		return null;
+	public <T extends Serializable> T get(Class<T> resultClass, String region, String key){
+        T obj = null;
+        if(region!=null && key != null){
+            obj = (T)CacheManager.get(LEVEL_1, region, key);
+            if(obj == null) {
+                obj = (T)CacheManager.get(LEVEL_2, region, key);
+                if(obj != null)
+                    CacheManager.set(LEVEL_1, region, key, obj);
+            }
+        }
+        return obj;
 	}
 	
 	/**
@@ -101,7 +101,7 @@ public class CacheChannel extends ReceiverAdapter implements CacheExpiredListene
 	 * @param key
 	 * @param value
 	 */
-	public void set(String region, String key, Serializable value){		
+	public void set(String region, String key, Serializable value){
 		if(region!=null && key != null){
 			if(value == null)
 				evict(region, key);

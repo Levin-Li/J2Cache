@@ -29,7 +29,7 @@ public class CacheTester {
 
 	            String[] cmds = StringUtils.split(line);
 	            if("get".equalsIgnoreCase(cmds[0])){
-	            	String value = (String)cache.get(cmds[1], cmds[2]);
+	            	String value = cache.get(cmds[1], cmds[2]);
 	            	System.out.println(value);
 	            }
 	            else

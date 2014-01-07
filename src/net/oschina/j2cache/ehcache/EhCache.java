@@ -63,7 +63,7 @@ public class EhCache implements Cache, CacheEventListener {
 			if ( key == null ) 
 				return null;
 			else {
-				Element element = cache.get( key );
+                Element element = cache.get( key );
 				if ( element != null )
 					return element.getObjectValue();				
 			}

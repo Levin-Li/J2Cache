@@ -28,7 +28,6 @@ public class RedisCache implements Cache {
 			if (null == key)
 				return null;
 			byte[] b = cache.get(String.valueOf(region + ":" + key).getBytes());
-			RedisPool.me().returnResource(cache);
 			return b == null ? null : SerializationUtils.deserialize(b);
 		} catch (CacheException e) {
 			return null;
@@ -41,7 +40,6 @@ public class RedisCache implements Cache {
 			cache.set(
 					String.valueOf(region + ":" + key).getBytes(),
 					value == null ? null : SerializationUtils.serialize((Serializable) value));
-			RedisPool.me().returnResource(cache);
 		} catch (CacheException e) {
 		}
 	}
@@ -61,7 +59,6 @@ public class RedisCache implements Cache {
 			for (byte[] bs : list) {
 				keys.add(bs == null ? null : SerializationUtils.deserialize(bs));
 			}
-			RedisPool.me().returnResource(cache);
 			return keys;
 		} catch (CacheException e) {
 			return null;
@@ -71,8 +68,7 @@ public class RedisCache implements Cache {
 	@Override
 	public void remove(Object key) throws CacheException {
 		try {
-			cache.expire(String.valueOf(region + ":" + key).getBytes(), 1);
-			RedisPool.me().returnResource(cache);
+			cache.expire(String.valueOf(region + ":" + key).getBytes(), 0);
 		} catch (CacheException e) {
 		}
 	}

@@ -17,6 +17,7 @@
 package net.oschina.j2cache.ehcache;
 
 import java.util.Hashtable;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +38,7 @@ public class EhCacheProvider implements CacheProvider {
 	private final static Logger log = LoggerFactory.getLogger(EhCacheProvider.class);
 
 	private CacheManager manager;
-	private Hashtable<String, EhCache> _CacheManager ;
+	private ConcurrentHashMap<String, EhCache> _CacheManager ;
 
     /**
      * Builds a Cache.
@@ -92,7 +93,7 @@ public class EhCacheProvider implements CacheProvider {
             return;
         }
         manager = new CacheManager();
-        _CacheManager = new Hashtable<String, EhCache>();
+        _CacheManager = new ConcurrentHashMap<String, EhCache>();
 	}
 
 	/**

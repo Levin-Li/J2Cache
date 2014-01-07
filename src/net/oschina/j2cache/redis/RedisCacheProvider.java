@@ -20,7 +20,7 @@ public class RedisCacheProvider implements CacheProvider {
 	public Cache buildCache(String regionName, boolean autoCreate, CacheExpiredListener listener) throws CacheException {
 		try {
 			RedisCache cache = _CacheManager.get(regionName);
-			if(cache == null){
+			if(cache == null && autoCreate){
 				BinaryJedis jedis = RedisPool.me().getResource();
 				cache = new RedisCache(regionName, jedis);
 				_CacheManager.put(regionName, cache);
@@ -33,6 +33,7 @@ public class RedisCacheProvider implements CacheProvider {
 
 	@Override
 	public void start() throws CacheException {
+        _CacheManager = new ConcurrentHashMap<String, RedisCache>();
 	}
 
 	@Override
