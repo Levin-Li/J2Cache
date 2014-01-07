@@ -12,7 +12,7 @@ import net.sf.ehcache.event.CacheEventListener;
  * Date: 14-1-3
  * Time: 上午10:15
  */
-public class EhCacheEventListener implements CacheEventListener {
+public class EhcacheEventListener implements CacheEventListener {
     @Override
     public void notifyElementRemoved(Ehcache ehcache, Element element) throws CacheException {
         
