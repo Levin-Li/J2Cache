@@ -12,6 +12,10 @@ import net.oschina.j2cache.CacheException;
 
 import redis.clients.jedis.BinaryJedis;
 
+/**
+ * Redis 缓存实现
+ * @author winterlau
+ */
 public class RedisCache implements Cache {
 
 	private String region;
@@ -36,18 +40,14 @@ public class RedisCache implements Cache {
 
 	@Override
 	public void put(Object key, Object value) throws CacheException {
-		try {
-			cache.set(
-					String.valueOf(region + ":" + key).getBytes(),
-					value == null ? null : SerializationUtils.serialize((Serializable) value));
-		} catch (CacheException e) {
-		}
+		cache.set(
+				String.valueOf(region + ":" + key).getBytes(),
+				value == null ? null : SerializationUtils.serialize((Serializable) value));
 	}
 
 	@Override
 	public void update(Object key, Object value) throws CacheException {
 		put(key, value);
-
 	}
 
 	@Override
@@ -67,21 +67,15 @@ public class RedisCache implements Cache {
 
 	@Override
 	public void remove(Object key) throws CacheException {
-		try {
-			cache.expire(String.valueOf(region + ":" + key).getBytes(), 0);
-		} catch (CacheException e) {
-		}
+		cache.expire(String.valueOf(region + ":" + key).getBytes(), 0);
 	}
 
 	@Override
 	@SuppressWarnings("rawtypes")
 	public void clear() throws CacheException {
-		try {
-			List keys = this.keys();
-			for (Object key : keys) {
-				this.remove(key);
-			}
-		} catch (CacheException e) {
+		List keys = this.keys();
+		for (Object key : keys) {
+			this.remove(key);
 		}
 	}
 
