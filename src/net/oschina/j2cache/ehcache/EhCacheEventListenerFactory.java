@@ -11,9 +11,9 @@ import java.util.Properties;
  * Date: 14-1-3
  * Time: 上午11:15
  */
-public class EhcacheEventListenerFactory extends CacheEventListenerFactory {
+public class EhCacheEventListenerFactory extends CacheEventListenerFactory {
     @Override
     public CacheEventListener createCacheEventListener(Properties properties) {
-        return new EhcacheEventListener();
+        return new EhCacheEventListener();
     }
 }
