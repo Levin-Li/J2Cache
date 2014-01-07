@@ -63,6 +63,8 @@ public class CacheTester {
 	        }
 	    }while(true);
 	    
+	    cache.close();
+	    
 	    System.exit(0);
 	}
 	
