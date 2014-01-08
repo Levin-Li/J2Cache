@@ -1,0 +1,81 @@
+UDP
+mcast_port	多播配置的端口，默认是7600
+tos	单播和多播数据报的传输类型，默认是8
+ucast_recv_buf_size	单播socket通信的接受缓存区大小，默认64'000 byte
+ucast_send_buf_size	单播socket通信的发送缓存区大小，默认100'000 byte
+mcast_recv_buf_size	多播socket通信的接受缓存区大小，默认500'000 byte
+mcast_send_buf_size	多播socket通信的发送缓存区大小，默认100'000 byte
+loopback	如果为true，则发送时会立即回显
+max_bundle_size	消息发送的最大排队等待字节数
+max_bundle_timeout	消息发送的最大排队等待时间
+ip_ttl	多播数据包中的TTL值，默认8
+enable_diagnostics	如果是true，则切换支持诊断检测的模式
+thread_naming_pattern	在这个channel中的线程命名模式，默认：cl
+
+timer_type	被使用的计时器类型,"old" (DefaultTimeScheduler, used up to 2.10), "new" or "new2" (TimeScheduler2), "new3" (TimeScheduler3) and "wheel".
+timer.min_threads	计时器线程池的最小大小
+timer.max_threads	计时器线程池的最大大小
+timer.keep_alive_time	多少毫秒之后移除空闲的线程
+timer.queue_max_size	计时器队列的最大大小
+
+thread_pool.enabled	如果为true，常规消息将支持线程池，默认为true
+thread_pool.min_threads	常规消息的最小线程池大小
+thread_pool.max_threads	常规消息的最大线程池大小
+thread_pool.keep_alive_time 多少毫秒后超时移除空闲的线程从常规消息线程池中
+thread_pool.queue_enabled	如果是true，则使用队列来管理进去常规消息池
+thread_pool.queue_max_size	常规消息池的队列的最大的队列大小,默认500
+thread_pool.rejection_policy	线程拒绝策略 Abort,Discard,DiscardOldest,Run 默认:Discard
+
+oob_thread_pool.enabled	如果是true，则OOB消息支持线程池，默认为true
+oob_thread_pool.min_threads	OOB消息的最小线程池大小
+oob_thread_pool.max_threads	OOB消息的最大线程池大小
+oob_thread_pool.keep_alive_time	多少毫秒后超时移除空闲的线程从OOB消息线程池中
+oob_thread_pool.queue_enabled	如果所和itrue，则使用队列来管理进入OOB消息池
+oob_thread_pool.queue_max_size	OOB消息池的队列的最大队列大小，默认500
+oob_thread_pool.rejection_policy	现车功能拒绝策略 Abort,Discard,DiscardOldest,Run 默认:Discard
+
+
+PING
+timeout	初始化成员的时候超时等待的时间，默认3000毫秒
+num_initial_members	初始化成员的时候从得到响应的最小数，默认2
+
+
+MERGE2
+max_interval	系统运行到发现其他的集群的最大时间（毫秒）
+min_interval	系统运行到发现其他的集群的最小时间（毫秒）
+
+
+VERIFY_SUSPECT
+timeout	等待从疑似成员那得到消息的时间（毫秒）
+
+
+pbcast.NAKACK
+use_mcast_xmit	如果是true，使用多播来重发消息，否则使用单播
+retransmit_timeouts	多少毫秒后重新请求消息，默认 600, 1200, 2400, 4800
+discard_delivered_msgs	消息的舍弃是否交给应用程序管理
+
+
+pbcast.STABLE
+stability_delay	延迟多少毫秒后发送稳定的消息，默认6000
+desired_avg_gossip	平均多少毫秒去发送稳定的消息，默认20000
+max_bytes	在发送一个稳定消息之前，最大的接受的字节数
+
+
+pbcast.GMS
+print_local_addr	当成员连接上时打印出当前的本地地址，默认true 
+join_timeout	成员加入的超时时间
+view_bundling	查看捆绑切换
+
+
+UFC
+max_credits	每一个接收器直到一个ack必须收到处理时最大发送的字节数
+min_threshold	每一个接收器发送更多的credits给接收者的一个阈 
+
+
+MFC
+max_credits	每一个接收器直到一个ack必须收到处理时最大发送的字节数
+min_threshold	每一个接收器发送更多的credits给接收者的一个阈 
+
+
+FRAG2
+frag_size	消息的最大字节数，更大的则会被分离，默认8192byte
