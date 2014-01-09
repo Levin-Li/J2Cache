@@ -16,6 +16,7 @@
  */
 package net.oschina.j2cache.ehcache;
 
+import java.net.URL;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.slf4j.Logger;
@@ -35,6 +36,7 @@ import net.sf.ehcache.CacheManager;
 public class EhCacheProvider implements CacheProvider {
 
 	private final static Logger log = LoggerFactory.getLogger(EhCacheProvider.class);
+	private final static String CONFIG_XML = "/ehcache.xml";
 
 	private CacheManager manager;
 	private ConcurrentHashMap<String, EhCache> _CacheManager ;
@@ -91,7 +93,10 @@ public class EhCacheProvider implements CacheProvider {
                     " If this behaviour is required, consider using net.sf.ehcache.hibernate.SingletonEhCacheProvider.");
             return;
         }
-        manager = new CacheManager(EhCacheProvider.class.getClassLoader().getResource("/ehcache.xml"));
+		URL xml = getClass().getResource(CONFIG_XML);
+		if(xml == null)
+			xml = getClass().getClassLoader().getParent().getResource(CONFIG_XML);
+        manager = new CacheManager();
         _CacheManager = new ConcurrentHashMap<String, EhCache>();
 	}
 

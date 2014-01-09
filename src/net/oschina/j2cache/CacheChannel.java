@@ -1,7 +1,7 @@
 package net.oschina.j2cache;
 
-import java.io.InputStream;
 import java.io.Serializable;
+import java.net.URL;
 
 import org.jgroups.JChannel;
 import org.jgroups.Message;
@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 public class CacheChannel extends ReceiverAdapter implements CacheExpiredListener {
 	
 	private final static Logger log = LoggerFactory.getLogger(CacheChannel.class);
+	private final static String CONFIG_XML = "/network.xml";
 
 	private final static byte OPT_DELETE_KEY = 0x01;
 	public final static byte LEVEL_1 = 1;
@@ -48,7 +49,9 @@ public class CacheChannel extends ReceiverAdapter implements CacheExpiredListene
 	private CacheChannel(String name) throws CacheException {
 		this.name = name;
 		try{
-			InputStream xml = CacheChannel.class.getClassLoader().getResourceAsStream("/network.xml");
+			URL xml = CacheChannel.class.getResource(CONFIG_XML);
+			if(xml == null)
+				xml = getClass().getClassLoader().getParent().getResource(CONFIG_XML);
 			channel = new JChannel(xml);
 			channel.setReceiver(this);
 			channel.connect(this.name);
