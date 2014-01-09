@@ -29,8 +29,9 @@ public class RedisCache implements Cache {
 			if (null == key)
 				return null;
 			byte[] b = cache.get((region + ":" + key).getBytes());
+            RedisPool.me().returnResource(cache);
 			return b == null ? null : byte2obj(b);
-		} catch (CacheException e) {
+        } catch (CacheException e) {
 			return null;
 		}
 	}
@@ -39,9 +40,11 @@ public class RedisCache implements Cache {
 	public void put(Object key, Object value) throws CacheException {
 		if(value == null)
 			remove(key);
-		else
+		else {
 			cache.set((region + ":" + key).getBytes(),
 				value == null ? null : obj2byte(value));
+        RedisPool.me().returnResource(cache);
+        }
 	}
 
 	@Override
@@ -67,6 +70,7 @@ public class RedisCache implements Cache {
 	@Override
 	public void remove(Object key) throws CacheException {
 		cache.expire(String.valueOf(region + ":" + key).getBytes(), 0);
+        RedisPool.me().returnResource(cache);
 	}
 
 	@Override
