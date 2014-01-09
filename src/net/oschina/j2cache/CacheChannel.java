@@ -48,7 +48,7 @@ public class CacheChannel extends ReceiverAdapter implements CacheExpiredListene
 	private CacheChannel(String name) throws CacheException {
 		this.name = name;
 		try{
-			InputStream xml = CacheChannel.class.getResourceAsStream("/network.xml");
+			InputStream xml = CacheChannel.class.getClassLoader().getResourceAsStream("/network.xml");
 			channel = new JChannel(xml);
 			channel.setReceiver(this);
 			channel.connect(this.name);
