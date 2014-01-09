@@ -6,8 +6,6 @@ package net.oschina.j2cache;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import org.apache.commons.lang.StringUtils;
-
 /**
  * 缓存测试入口
  * @author Winter Lau
@@ -30,7 +28,7 @@ public class CacheTester {
 	            if(line.equalsIgnoreCase("quit") || line.equalsIgnoreCase("exit"))
 	                break;
 
-	            String[] cmds = StringUtils.split(line);
+	            String[] cmds = line.split(" ");
 	            if("get".equalsIgnoreCase(cmds[0])){
 	            	CacheObject obj = cache.get(cmds[1], cmds[2]);
 	            	System.out.printf("[%s,%s,L%d]=>%s\n", obj.getRegion(), obj.getKey(), obj.getLevel(), obj.getValue());
