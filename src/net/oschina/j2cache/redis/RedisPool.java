@@ -29,10 +29,10 @@ public class RedisPool extends JedisPool {
 	static {
 		Properties properties = new Properties();
 		try {
-			InputStream config = RedisPool.class.getResourceAsStream(CONFIG_FILE);
-			if(config == null)
-				config = RedisPool.class.getClassLoader().getParent().getResourceAsStream(CONFIG_FILE);
-			properties.load(config);
+			InputStream in= RedisPool.class.getResourceAsStream(CONFIG_FILE);
+			if(in == null)
+				in = RedisPool.class.getClassLoader().getParent().getResourceAsStream(CONFIG_FILE);
+			properties.load(in);
 			BeanUtils.populate(config, properties);
 
 			host = properties.getProperty("host");
@@ -40,7 +40,8 @@ public class RedisPool extends JedisPool {
 			timeout = Integer.valueOf(properties.getProperty("timeout","2000"));
 			password = properties.getProperty("password");
 			database = Integer.valueOf(properties.getProperty("database", "0"));
-			config.close();
+			if(null != in)
+				in.close();
 		} catch (Exception e) {
 			throw new CacheException(
 					"CahceException:RedisConfig init failed cause by:", e);
