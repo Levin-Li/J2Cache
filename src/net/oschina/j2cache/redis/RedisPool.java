@@ -44,7 +44,7 @@ public class RedisPool extends JedisPool {
 				in.close();
 		} catch (Exception e) {
 			throw new CacheException(
-					"CahceException:RedisConfig init failed cause by:", e);
+					"CacheException:RedisConfig init failed cause by:", e);
 		}
 	}
 
