@@ -115,7 +115,7 @@ public class CacheChannel extends ReceiverAdapter implements CacheExpiredListene
 				CacheManager.set(LEVEL_2, region, key, value);
 			}
 		}
-		log.info("write data to cache region="+region+",key="+key+",value="+value);
+		//log.info("write data to cache region="+region+",key="+key+",value="+value);
 	}
 	
 	/**
@@ -140,7 +140,7 @@ public class CacheChannel extends ReceiverAdapter implements CacheExpiredListene
 	@Override
 	public void notifyElementExpired(String region, String key) {
 
-		log.info("Cache data expired, region="+region+",key="+key);
+		log.debug("Cache data expired, region="+region+",key="+key);
 		
 		//删除二级缓存
 		CacheManager.evict(LEVEL_2, region, key);
@@ -172,7 +172,7 @@ public class CacheChannel extends ReceiverAdapter implements CacheExpiredListene
 	 */
 	protected void onDeleteCacheKey(String region, String key){
 		CacheManager.evict(LEVEL_1, region, key);
-		log.info("Received cache evict message, region="+region+",key="+key);
+		log.debug("Received cache evict message, region="+region+",key="+key);
 	}
 
 	/**
