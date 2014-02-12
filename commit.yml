@@ -1,0 +1,152 @@
+!revision
+branches: {
+  }
+fileChange:
+  /.classpath:
+    newFile: !uuid 'ece68e3f38367de4bf52ad6e5836da1624448b1c'
+    oldFile: null
+  /.project:
+    newFile: !uuid '23f939e39c82d8aba6874b962dc53dba92c95ed2'
+    oldFile: null
+  /.settings:
+    newFile: !uuid 'e195345b4947d9dc8fbe96fb1c626f2e4d743940'
+    oldFile: null
+  /.settings/org.eclipse.core.resources.prefs:
+    newFile: !uuid 'f9fe34593fcd3624a964478aeb438b0d44fe7237'
+    oldFile: null
+  /.settings/org.eclipse.jdt.core.prefs:
+    newFile: !uuid 'f527c8154214d876a28c1eed4c9a5fe2a8cf0172'
+    oldFile: null
+  /.settings/org.eclipse.m2e.core.prefs:
+    newFile: !uuid 'f897a7f1cb2389f85fe6381425d29f0a9866fb65'
+    oldFile: null
+  /build.xml:
+    newFile: !uuid 'fe265de788f557ccd6c7e9cdb88a5507dadade26'
+    oldFile: null
+  /lib:
+    newFile: !uuid '91594d93034c9509216126d9cb92dbb7697f3965'
+    oldFile: null
+  /lib/commons-logging-1.1.1.jar:
+    newFile: !uuid '1deef144cb17ed2c11c6cdcdcb2d9530fa8d0b47'
+    oldFile: null
+  /lib/commons-pool-1.6.jar:
+    newFile: !uuid '72ca75a3e6eca2158a8c607b18572f3bd87bf24e'
+    oldFile: null
+  /lib/ehcache-2.7.5.jar:
+    newFile: !uuid '8ff576fd2dedbd76d37f83c2730ac26e7a4a5b70'
+    oldFile: null
+  /lib/jedis-2.2.1.jar:
+    newFile: !uuid '0b33177ac97f9a7a8c406c8a47f5751b774f48fd'
+    oldFile: null
+  /lib/jgroups-3.4.0.Final.jar:
+    newFile: !uuid '46176a46dfbabbebe06eb55b26c6723a65182c33'
+    oldFile: null
+  /lib/junit-3.8.1.jar:
+    newFile: !uuid '674d71e89ea154dbe2e3cd032821c22b39e8fd68'
+    oldFile: null
+  /lib/slf4j-api-1.6.6.jar:
+    newFile: !uuid '4c03fa6bb21496873cc90e5442f89905c95e7316'
+    oldFile: null
+  /lib/slf4j-jdk14-1.6.6.jar:
+    newFile: !uuid 'b16db2e5ba65168cb1e44da8e689610bbaca399d'
+    oldFile: null
+  /pom.xml:
+    newFile: !uuid '4db4376eb8c2577d700e056619a446aea4302628'
+    oldFile: null
+  /src:
+    newFile: !uuid '3991ff94914980123161167e5be0d7bf63b6846f'
+    oldFile: null
+  /src/main:
+    newFile: !uuid '5769003c6b9f4eea270f4c837aacf03a0dce80fa'
+    oldFile: null
+  /src/main/java:
+    newFile: !uuid '1942b18c7f78cb24def7cf7b6fa645338a65fe4c'
+    oldFile: null
+  /src/main/java/ehcache.xml:
+    newFile: !uuid '269360caa56b4cad60c17d88eba0db715f67bfcf'
+    oldFile: null
+  /src/main/java/j2cache.properties:
+    newFile: !uuid 'e68cb74633bd6c2c06eec618fff93824789945ad'
+    oldFile: null
+  /src/main/java/net:
+    newFile: !uuid '4a4eca0e4bc70e2ea3282dd5747b2d6f4547449d'
+    oldFile: null
+  /src/main/java/net/oschina:
+    newFile: !uuid 'c9a13dc27cb4c189025008c36cf0983ff4b8b02e'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache:
+    newFile: !uuid '17fed02d601b27e94dd223f56825f84ef18bcfed'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/Cache.java:
+    newFile: !uuid '64598f1f5e17071ef64edf2e4f5a8a2b5d191ff9'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/CacheChannel.java:
+    newFile: !uuid 'b3240b1cf7ef0b21b806ef6932cbe02b7e364960'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/CacheException.java:
+    newFile: !uuid '63db898a458145f34ba782018a057002d8b60a35'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/CacheExpiredListener.java:
+    newFile: !uuid '1c948802ced0749179bc4a13f3bba33c15d717b6'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/CacheManager.java:
+    newFile: !uuid '8ff7cdcbd0871c74501e4f4da9ddb5ab4a997388'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/CacheObject.java:
+    newFile: !uuid '02ae2a2de7830b2a9f7936048b2c4a5e7c700f0e'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/CacheProvider.java:
+    newFile: !uuid '7cb3961aadb2f289fe50bc74614869b31cf7e165'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/CacheTester.java:
+    newFile: !uuid 'e391cec748c2c708a938d120a172edf655c42d45'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/NullCache.java:
+    newFile: !uuid '339e44b4ff4ed89dfbaeedf7fe2640a612a0c49f'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/NullCacheProvider.java:
+    newFile: !uuid 'fb183a6153d3acd35647459fd9768a0216417c3d'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/ehcache:
+    newFile: !uuid '60069334c7cd912b6bc64d3ddbb599ba3620ee5d'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/ehcache/EhCache.java:
+    newFile: !uuid 'cca567732a96a44a35de9f57244b3c7a472b7853'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/ehcache/EhCacheProvider.java:
+    newFile: !uuid 'b33c5af255c9f87e2c37c85d2a50148411c43ddc'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/redis:
+    newFile: !uuid '8b9b0524e5be29c26c5c8a2cb67938cd006b1d0c'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/redis/RedisCache.java:
+    newFile: !uuid '8887b931733ccae3c47f085fba2324932c4e436a'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/redis/RedisCacheProvider.java:
+    newFile: !uuid 'bc4c9e9f84dbca2f6805f93098db551d0af8d39b'
+    oldFile: null
+  /src/main/java/network.xml:
+    newFile: !uuid 'd2f35890c1a58e1de48ce66f4bceb0189009c5f8'
+    oldFile: null
+  /src/test:
+    newFile: !uuid 'dfdb81501cec0c934537bef91b32c854bcf8aeca'
+    oldFile: null
+  /src/test/java:
+    newFile: !uuid 'cd0369d53a66753b496609f3c33097b3871a90d9'
+    oldFile: null
+  /src/test/java/net:
+    newFile: !uuid '45c75b0e5ec5d88a52fe0f2092e24e7cf0feea53'
+    oldFile: null
+  /src/test/java/net/oschina:
+    newFile: !uuid 'af8c548dfc4ddcbe4a68ec5f62266fc2c19726cd'
+    oldFile: null
+  /src/test/java/net/oschina/j2cache:
+    newFile: !uuid 'a5d2f95409d0e897e7edad762d143f2dc1e7fd9a'
+    oldFile: null
+  /src/test/java/net/oschina/j2cache/AppTest.java:
+    newFile: !uuid '52381ae1cfca98366027fc841bf09f37df6bb8b0'
+    oldFile: null
+gitCommitId: !uuid 'cbea590505b9ff54926f9f24a3d1b8c41241c499'
+renames: {
+  }
+revisionId: 1
