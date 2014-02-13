@@ -2,25 +2,16 @@
 branches: {
   }
 fileChange:
-  /LICENSE:
-    newFile: !uuid '271dfec2874b9566cbce4af4113a9779b4f25ce1'
+  /lib:
+    newFile: !uuid '73d8f6f8aa5276d372fabe3462db9899c89e76a1'
+    oldFile: !uuid '91594d93034c9509216126d9cb92dbb7697f3965'
+  /lib/ant-launcher.jar:
+    newFile: !uuid '052fc4ed7673b97e5fe6b76be731c42dfc29d35a'
     oldFile: null
-  /build.bat:
-    newFile: !uuid '536fe36eb054a266eafd2b7f6d8de7db40b1a7dd'
+  /lib/ant.jar:
+    newFile: !uuid '3a676072ae2c48b0bcfc5f423ddfa41cd0ca9af6'
     oldFile: null
-  /build.sh:
-    newFile: !uuid '0dd2f01e3078db6943e1b5293e31834a6d09c44b'
-    oldFile: null
-  /pom.xml:
-    newFile: !uuid '053e395eb0e0aec3802f4396a5eeaa3f5a9cdb53'
-    oldFile: !uuid '4db4376eb8c2577d700e056619a446aea4302628'
-  /runtest.bat:
-    newFile: !uuid '7318d94c5dbe14d1ff84cc8a714815c8ea73999e'
-    oldFile: null
-  /runtest.sh:
-    newFile: !uuid '7318d94c5dbe14d1ff84cc8a714815c8ea73999e'
-    oldFile: null
-gitCommitId: !uuid 'f26dc535f177c9227e9b8cac351fc29eaf2fed86'
+gitCommitId: !uuid '88e1a522ef705ee17eaa033e9547d0da0a237523'
 renames: {
   }
-revisionId: 6
+revisionId: 7
