@@ -2,31 +2,19 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '367f26c19fbe880031b76c443814fd1765ec9245'
-    oldFile: !uuid '046d2351f221ce74dbb15314f2c8868aa7546261'
-  /src/main:
-    newFile: !uuid '927151c073b18c5465baa7cf3dacb92d3ba392e4'
-    oldFile: !uuid 'd35bdb1e597bb7b38abd0262f18ec16d13969583'
-  /src/main/java:
-    newFile: !uuid '8af4ea377d2faed790deb75c117d9b7f748a4f47'
-    oldFile: !uuid 'db15ccb074e7719eb6df166dbc9c2c08caff0ade'
-  /src/main/java/net:
-    newFile: !uuid '902398af7fcd4b61337e2e11c9d11df4c829e55e'
-    oldFile: !uuid '1065b791feaf867a2972eee49a0f52e02ef35a5b'
-  /src/main/java/net/oschina:
-    newFile: !uuid '9ef118ba5aaf8c7c902a5553f131f72051474166'
-    oldFile: !uuid '968f63cbc598b8662b1624689c4d8c5402987b18'
-  /src/main/java/net/oschina/j2cache:
-    newFile: !uuid '9710347df1da76cc7343b825a10e611c3ef3a624'
-    oldFile: !uuid 'b6c78e036fa99240d6c10ed53f68998815f5ad10'
-  /src/main/java/net/oschina/j2cache/util:
-    newFile: !uuid '88b1857371991680c638cfa1ed51ce373236dfdc'
-    oldFile: !uuid '580e93ec250302c9f462674fdf779875f30f6945'
-  /src/main/java/net/oschina/j2cache/util/SerializationUtils.java:
-    newFile: !uuid 'd8ca2bf6d378c1fa250ad3f01abaa49ccfa91fff'
-    oldFile: !uuid 'a79f8572c23fa920c98207961e4e82a292fde176'
-gitCommitId: !uuid '04e2130ac35ea121fa4626cea01fe98b34413dcc'
-renames: {
-  }
-revisionId: 38
+  /lib:
+    newFile: !uuid 'bb932ddd87b3f6e6c58f3f471277392846443d91'
+    oldFile: !uuid '43581fecd22f42c5dc3972ad23edf6cb17d406de'
+  /lib/jgroups-3.4.3.Final.jar:
+    newFile: null
+    oldFile: !uuid '37a9c8a55287a6f4a7a9c54ddcee31677bc02ad5'
+  /lib/jgroups-3.4.5.Final.jar:
+    newFile: !uuid '35e6be4eaeb43b5ae4132d3f6a203c3aa555e89e'
+    oldFile: null
+  /pom.xml:
+    newFile: !uuid '0adf339a6ade69e53f7cfb0c5fa11fb87aa7dd76'
+    oldFile: !uuid '06c7060648dde8a08949b4f7f1155d7cc9c729f9'
+gitCommitId: !uuid 'fbe0c8dc8d6b3b036cdb2cdaa5ef5a7d4cc40f60'
+renames:
+  /lib/jgroups-3.4.5.Final.jar: /lib/jgroups-3.4.3.Final.jar
+revisionId: 39
