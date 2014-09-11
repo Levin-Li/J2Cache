@@ -3,18 +3,18 @@ branches: {
   }
 fileChange:
   /lib:
-    newFile: !uuid 'bb932ddd87b3f6e6c58f3f471277392846443d91'
-    oldFile: !uuid '43581fecd22f42c5dc3972ad23edf6cb17d406de'
-  /lib/jgroups-3.4.3.Final.jar:
-    newFile: null
-    oldFile: !uuid '37a9c8a55287a6f4a7a9c54ddcee31677bc02ad5'
+    newFile: !uuid 'e06090c0d72deb407320466e28c93a8347e2e9fe'
+    oldFile: !uuid 'bb932ddd87b3f6e6c58f3f471277392846443d91'
   /lib/jgroups-3.4.5.Final.jar:
-    newFile: !uuid '35e6be4eaeb43b5ae4132d3f6a203c3aa555e89e'
+    newFile: null
+    oldFile: !uuid '35e6be4eaeb43b5ae4132d3f6a203c3aa555e89e'
+  /lib/jgroups-3.5.0.Final.jar:
+    newFile: !uuid '897caf1dc5aa6b10f01b42dce279e62b2d477abe'
     oldFile: null
   /pom.xml:
-    newFile: !uuid '0adf339a6ade69e53f7cfb0c5fa11fb87aa7dd76'
-    oldFile: !uuid '06c7060648dde8a08949b4f7f1155d7cc9c729f9'
-gitCommitId: !uuid 'fbe0c8dc8d6b3b036cdb2cdaa5ef5a7d4cc40f60'
-renames:
-  /lib/jgroups-3.4.5.Final.jar: /lib/jgroups-3.4.3.Final.jar
-revisionId: 39
+    newFile: !uuid '74b131064a5f68470aced42e701ad4af4455af9b'
+    oldFile: !uuid '0adf339a6ade69e53f7cfb0c5fa11fb87aa7dd76'
+gitCommitId: !uuid '9f8c0af320ab96c57f8261c914b40ca4041eec82'
+renames: {
+  }
+revisionId: 40
