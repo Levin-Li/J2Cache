@@ -1,9 +1,32 @@
 !revision
 branches: {
   }
-fileChange: {
-  }
-gitCommitId: !uuid '94eed357e98df143325b438bcbdd75adc5eef8e7'
+fileChange:
+  /src:
+    newFile: !uuid '8552db990abf09d0ebf52c2aa73191e5ee62103e'
+    oldFile: !uuid '62c34fd405927c889410de4129816c640f293f40'
+  /src/main:
+    newFile: !uuid 'cf56fbb116a9c00e22b266da171fc116e3957722'
+    oldFile: !uuid '43a2fcce1614e3cb253b9e22f0aa5e10f9c159f9'
+  /src/main/java:
+    newFile: !uuid 'c6b13f5e4c376046b534d2fb068131a215416aa4'
+    oldFile: !uuid '50fc97078b19b3efbe76adabb34577e6ea175684'
+  /src/main/java/net:
+    newFile: !uuid 'f484cf4422e7c0b9333570372f619b07c8a7cac5'
+    oldFile: !uuid '74f908300c629c8a476426d2321b956afd599cd8'
+  /src/main/java/net/oschina:
+    newFile: !uuid '3ee7ec0b5084578941c6dec42d8a71793770c4ca'
+    oldFile: !uuid '615967bdd795f120b629e82a892757ecab99173e'
+  /src/main/java/net/oschina/j2cache:
+    newFile: !uuid '759bbad2a0d6fb0a388c2d1055424cc2bc148e54'
+    oldFile: !uuid 'b8596e75474181eda5c08839abee7179701a5308'
+  /src/main/java/net/oschina/j2cache/util:
+    newFile: !uuid '50e33900240697fd94fa6318690065dd56be109c'
+    oldFile: !uuid '5eccf67b2d2ccb26a5d6ec091fe4cfa960c13dab'
+  /src/main/java/net/oschina/j2cache/util/Serializer.java:
+    newFile: !uuid 'f17de08b8e5a0dc0b2f9e739d07f16933fcb5c80'
+    oldFile: null
+gitCommitId: !uuid '7af1e501a9fd3e624c2853d1769ca872a767596b'
 renames: {
   }
-revisionId: 45
+revisionId: 46
