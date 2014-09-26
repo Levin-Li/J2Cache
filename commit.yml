@@ -1,20 +1,9 @@
 !revision
 branches: {
   }
-fileChange:
-  /lib:
-    newFile: !uuid 'e4a58831d22939c06bcf33b41e72788648549d49'
-    oldFile: !uuid '9521dd8b6dbcdd8d4cf11ec7189ae930f607e073'
-  /lib/jgroups-3.4.6.Final.jar:
-    newFile: !uuid '91c6c659194476f3f2292efb39f9e36ddb9c3f19'
-    oldFile: null
-  /lib/jgroups-3.5.0.Final.jar:
-    newFile: null
-    oldFile: !uuid '897caf1dc5aa6b10f01b42dce279e62b2d477abe'
-  /pom.xml:
-    newFile: !uuid '8346dfd9b6cae7874074ab1ce860104b8dea6ac5'
-    oldFile: !uuid '712b77de6919681f043daf3ab6916fd4a471f3e1'
-gitCommitId: !uuid '2e8ae3c34b9db111c1d15449c867f9c56ce85d60'
+fileChange: {
+  }
+gitCommitId: !uuid '94eed357e98df143325b438bcbdd75adc5eef8e7'
 renames: {
   }
-revisionId: 44
+revisionId: 45
