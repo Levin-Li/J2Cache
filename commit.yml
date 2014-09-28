@@ -3,33 +3,39 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '34d5ecabb437b144a8b4f0b0a15d6480ff61325d'
-    oldFile: !uuid '66334b7e276757ccf41ff4be156db6ed7f04dd2a'
+    newFile: !uuid '0cb2d40f89642b11dfe94b14621d83f35a89e611'
+    oldFile: !uuid '34d5ecabb437b144a8b4f0b0a15d6480ff61325d'
   /src/main:
-    newFile: !uuid '7b6c04e5b396bc5b5468ef514a7cb4feb3e39f6b'
-    oldFile: !uuid 'f5da4c9cf6e5c18dfeea2e38a7523e9aeae8d371'
+    newFile: !uuid '5252c7530f5d3d4cb4ea36e81ff924b6b549838e'
+    oldFile: !uuid '7b6c04e5b396bc5b5468ef514a7cb4feb3e39f6b'
   /src/main/java:
-    newFile: !uuid '28ac96eeec7bcba37d7beb0f662ccc8bac785256'
-    oldFile: !uuid '777550325793b5e9e96b48003a057eebbff1703f'
-  /src/main/java/j2cache.properties:
-    newFile: !uuid 'fb1b12c1c1978dd0e04913635346a02b3132471e'
-    oldFile: !uuid '50a47b3d66055904ca1321a4f572db06b24188e6'
+    newFile: !uuid 'fac480b8f9e356de1ec73f00d10020a2e7f91996'
+    oldFile: !uuid '28ac96eeec7bcba37d7beb0f662ccc8bac785256'
   /src/main/java/net:
-    newFile: !uuid '2862f167c70f901dea3cba1231e434a757013902'
-    oldFile: !uuid '37a55b301959f26a66f25616a0b3334b103a357a'
+    newFile: !uuid '14b4b0cd49adae93edf07d05124cdbb3095c8c02'
+    oldFile: !uuid '2862f167c70f901dea3cba1231e434a757013902'
   /src/main/java/net/oschina:
-    newFile: !uuid '68222f9c642f70edc7e2df29c5c6628f23c4c141'
-    oldFile: !uuid '364432054aa88a3b0fd6b804390cabddef3f7c0f'
+    newFile: !uuid '42d109feb3eb1190316595a1507d20e0511303ee'
+    oldFile: !uuid '68222f9c642f70edc7e2df29c5c6628f23c4c141'
   /src/main/java/net/oschina/j2cache:
-    newFile: !uuid 'f0e817c9591876319c366e336348ec3f907cd70d'
-    oldFile: !uuid 'ebd577bc1f14b23325f2064185b66e7bff17bff5'
+    newFile: !uuid 'de651add0758a827f248289dcaf97bdc5ba39d97'
+    oldFile: !uuid 'f0e817c9591876319c366e336348ec3f907cd70d'
   /src/main/java/net/oschina/j2cache/util:
-    newFile: !uuid '0c46a6f5db62310e436062544b9f93abd6545251'
-    oldFile: !uuid '9355cf4aa496d108eb1cd7c0ff019064736ba936'
+    newFile: !uuid '3f65ecab6de318c81dc4531dcd13dea3c7894643'
+    oldFile: !uuid '0c46a6f5db62310e436062544b9f93abd6545251'
+  /src/main/java/net/oschina/j2cache/util/FSTSerializer.java:
+    newFile: !uuid '5d5a508e9badf68fa934b51903f78ce3b18e0189'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/util/JavaSerializer.java:
+    newFile: !uuid '6463a84650e20e17ff2bf046eaaa8b32cd095622'
+    oldFile: null
+  /src/main/java/net/oschina/j2cache/util/KryoSerializer.java:
+    newFile: !uuid '96bc2d8219a25d3bbdf06d7b11ccf34602edd584'
+    oldFile: null
   /src/main/java/net/oschina/j2cache/util/SerializationUtils.java:
-    newFile: !uuid '476eb06ba98da95356f36ef03234cd134f257eee'
-    oldFile: !uuid 'a89c2cbf07ae46b201205f0c90ed4973fbded856'
-gitCommitId: !uuid 'a285ec0bc3e5ac5d6523f17afac8430d96b1df0a'
+    newFile: !uuid '3382c15ea4c77b471e43a8fd8b843ebf9feb9d55'
+    oldFile: !uuid '476eb06ba98da95356f36ef03234cd134f257eee'
+gitCommitId: !uuid 'f7e6b8848f4293fb7d8a91725e6902070a087109'
 renames: {
   }
-revisionId: 50
+revisionId: 51
