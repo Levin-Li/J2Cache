@@ -2,34 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '661848e179e9a290b386da998915ef40f22ab02b'
-    oldFile: !uuid 'bab1996363f3fb693ea9c42da322b7554c6f6040'
-  /src/main:
-    newFile: !uuid '8a571c3205e50a448ca08f61184b7f489de4aa85'
-    oldFile: !uuid 'be0d07c0b0a1cbf8743c8a378b231c1589d1b082'
-  /src/main/java:
-    newFile: !uuid '7a6263e3065f3af3fe4b3612966bdd21e5c0deec'
-    oldFile: !uuid '23708a4539f51088a29336dda793677572a5d460'
-  /src/main/java/net:
-    newFile: !uuid '17668e0935dc271c97dc74c841e399e1b0ff329b'
-    oldFile: !uuid 'ffd7e4d555c5ecf98ce4d9de666bb44989619ea6'
-  /src/main/java/net/oschina:
-    newFile: !uuid '307d64f1a8534a146c218121fa03fe223618199f'
-    oldFile: !uuid '08e08b0389d8946fb8f249770315eb9765bc5a7e'
-  /src/main/java/net/oschina/j2cache:
-    newFile: !uuid '65919f0e7d340309a7e0a619f4826759bdd6a019'
-    oldFile: !uuid '8b0991079b39cc63d31f10b144ef02c1b5d3f4c6'
-  /src/main/java/net/oschina/j2cache/hibernate:
-    newFile: !uuid 'ecfbd04acabc740cec698afaca2cb93983963c58'
-    oldFile: null
-  /src/main/java/net/oschina/j2cache/hibernate/J2CacheRegion.java:
-    newFile: !uuid 'a9ab662aab6b76265686103d466ebebbe51e34cb'
-    oldFile: null
-  /src/main/java/net/oschina/j2cache/hibernate/J2CacheRegionFactory.java:
-    newFile: !uuid 'e6217717a5ecb50ced09d9be0791b9c1f89df8b4'
-    oldFile: null
-gitCommitId: !uuid 'd94ecc86e6305d3d351437441476dc98097d12bd'
+  /pom.xml:
+    newFile: !uuid 'fd57054391a6ef7c1de9fea791a1d16b78132e9d'
+    oldFile: !uuid '51ce105ba300620b8871e83a79c67b78874987f6'
+gitCommitId: !uuid '6253b40f558a9d69b3ac1a571eb9d9cfc6375d1b'
 renames: {
   }
-revisionId: 58
+revisionId: 59
