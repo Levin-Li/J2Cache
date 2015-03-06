@@ -58,6 +58,7 @@ public class J2CacheProvider implements CacheProvider {
      */
     @Override
     public void stop() {
+        //channel.close();
     }
 
     /*

@@ -90,19 +90,19 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>3.6.10.Final</version>
+			<version>3.3.2.GA</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-ehcache</artifactId>
-			<version>3.6.10.Final</version>
+			<version>3.3.2.GA</version>
 			<scope>test</scope>
 		</dependency>		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-testing</artifactId>
-			<version>3.6.10.Final</version>
+			<version>3.3.2.GA</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

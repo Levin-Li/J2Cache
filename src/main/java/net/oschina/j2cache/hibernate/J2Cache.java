@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import net.oschina.j2cache.CacheChannel;
+import net.oschina.j2cache.CacheObject;
 
 import org.hibernate.cache.Cache;
 import org.hibernate.cache.CacheException;
@@ -43,7 +44,8 @@ public class J2Cache implements Cache {
             return null;
         } else {
             try {
-                return cache.get(getRegionName(), key);
+                CacheObject cacheObject = cache.get(getRegionName(), key);
+                return cacheObject == null ? null : cacheObject.getValue();
             } catch (net.oschina.j2cache.CacheException e) {
                 throw new CacheException(e);
             }
@@ -134,7 +136,7 @@ public class J2Cache implements Cache {
                 Iterator iter = keys.iterator();
                 while (iter.hasNext()) {
                     Object key = iter.next();
-                    result.put(key, cache.get(getRegionName(), key));
+                    result.put(key, get(key));
                 }
             }
             return result;
