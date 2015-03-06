@@ -8,12 +8,12 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.cache.ReadWriteCache;
 import org.hibernate.cfg.Environment;
-import org.hibernate.junit.functional.FunctionalTestClassTestSuite;
 import org.hibernate.stat.SecondLevelCacheStatistics;
 import org.hibernate.stat.Statistics;
-import org.hibernate.test.cache.BaseCacheProviderTestCase;
-import org.hibernate.test.cache.Item;
-import org.hibernate.test.cache.VersionedItem;
+import org.hibernate.testing.cache.BaseCacheProviderTestCase;
+import org.hibernate.testing.cache.Item;
+import org.hibernate.testing.cache.VersionedItem;
+import org.hibernate.testing.junit.functional.FunctionalTestClassTestSuite;
 
 public class J2CacheProviderTest extends BaseCacheProviderTestCase {
 
