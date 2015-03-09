@@ -6,7 +6,6 @@ import java.util.Properties;
 
 import net.oschina.j2cache.CacheChannel;
 import net.oschina.j2cache.CacheExpiredListener;
-import net.oschina.j2cache.J2Cache;
 import net.oschina.j2cache.NullCacheProvider;
 import net.oschina.j2cache.ehcache.EhCacheProvider;
 import net.oschina.j2cache.redis.RedisCacheProvider;
@@ -21,12 +20,8 @@ import org.slf4j.LoggerFactory;
 public class J2CacheProvider implements CacheProvider {
 	
 	private final static Logger log = LoggerFactory.getLogger(J2CacheProvider.class);
-	private final static String CONFIG_FILE = "/j2cache.properties";
 	
-	private static net.oschina.j2cache.CacheProvider l1_provider;
-	private static net.oschina.j2cache.CacheProvider l2_provider;
-	
-	private static CacheExpiredListener listener;
+	private CacheChannel cacheChannel;
 	
 	private static String serializer ;
 	
@@ -38,7 +33,8 @@ public class J2CacheProvider implements CacheProvider {
 
 	@Override
 	public void start(Properties properties) throws CacheException {
-		InputStream configStream = J2CacheProvider.class.getClassLoader().getParent().getResourceAsStream(CONFIG_FILE);
+		this.cacheChannel = CacheChannel.getInstance();
+		/*InputStream configStream = J2CacheProvider.class.getClassLoader().getParent().getResourceAsStream(CONFIG_FILE);
 		if(configStream == null)
 			configStream = J2CacheProvider.class.getResourceAsStream(CONFIG_FILE);
 		if(configStream == null)
@@ -63,7 +59,7 @@ public class J2CacheProvider implements CacheProvider {
 			
 		}catch(Exception e){
 			throw new CacheException("Unabled to initialize cache providers", e);
-		}
+		}*/
 	}
 
 	@Override
@@ -81,7 +77,10 @@ public class J2CacheProvider implements CacheProvider {
 	@Override
 	public Cache buildCache(String regionName, Properties properties)
 			throws CacheException {
-		return new J2Cache();	//TODO:参数
+		if(regionName!=null)
+			return new J2Cache(regionName, cacheChannel);
+		
+		return new J2Cache();
 	}
 	
 	private final static net.oschina.j2cache.CacheProvider getProviderInstance(String value) throws Exception {

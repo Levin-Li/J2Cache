@@ -1,54 +1,65 @@
-package net.oschina.j2cache;
+package net.oschina.j2cache.hibernate;
 
 import java.util.Map;
+
+import net.oschina.j2cache.CacheChannel;
+import net.oschina.j2cache.CacheObject;
 
 import org.hibernate.cache.CacheException;
 
 @SuppressWarnings("deprecation")
 public class J2Cache implements org.hibernate.cache.Cache {
 
-	CacheChannel cacheChannel = CacheChannel.getInstance();
+	private CacheChannel cacheChannel;
+	private String REGION_NAME = "defaltRegion";
+	
+	public J2Cache() { }
+	
+	public J2Cache(String regionName, CacheChannel cacheChannel) {
+		this.REGION_NAME = regionName;
+		this.cacheChannel = cacheChannel;
+	}
+	
 
 	@Override
 	public Object read(Object key) throws CacheException {
-		// TODO Auto-generated method stub
-		return null;
+		return get(key);
 	}
 
 	@Override
 	public Object get(Object key) throws CacheException {
-		// TODO Auto-generated method stub
-		return null;
+		CacheObject cacheObject = cacheChannel.get(REGION_NAME, key);
+		if(cacheObject!=null) {
+			return cacheObject.getValue();
+		}
+		return key;
 	}
 
 	@Override
 	public void put(Object key, Object value) throws CacheException {
-		// TODO Auto-generated method stub
-		
+		cacheChannel.set(REGION_NAME, key, value);
 	}
 
 	@Override
 	public void update(Object key, Object value) throws CacheException {
-		// TODO Auto-generated method stub
+		cacheChannel.set(REGION_NAME, key, value);
 		
 	}
 
 	@Override
 	public void remove(Object key) throws CacheException {
-		// TODO Auto-generated method stub
+		cacheChannel.evict(REGION_NAME, key);
 		
 	}
 
 	@Override
 	public void clear() throws CacheException {
-		// TODO Auto-generated method stub
-		
+		cacheChannel.clear(REGION_NAME);
 	}
 
 	@Override
 	public void destroy() throws CacheException {
-		// TODO Auto-generated method stub
-		
+		cacheChannel.close();
 	}
 
 	@Override
@@ -65,7 +76,7 @@ public class J2Cache implements org.hibernate.cache.Cache {
 
 	@Override
 	public long nextTimestamp() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
 		return 0;
 	}
 
@@ -77,25 +88,21 @@ public class J2Cache implements org.hibernate.cache.Cache {
 
 	@Override
 	public String getRegionName() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.REGION_NAME;
 	}
 
 	@Override
 	public long getSizeInMemory() {
-		// TODO Auto-generated method stub
-		return 0;
+		return -1;
 	}
 
 	@Override
 	public long getElementCountInMemory() {
-		// TODO Auto-generated method stub
-		return 0;
+		return cacheChannel.keys(this.REGION_NAME).size();
 	}
 
 	@Override
 	public long getElementCountOnDisk() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
