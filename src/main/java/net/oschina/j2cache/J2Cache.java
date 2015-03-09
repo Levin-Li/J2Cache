@@ -4,7 +4,6 @@ import java.util.Map;
 
 import org.hibernate.cache.CacheException;
 
-@SuppressWarnings("deprecation")
 public class J2Cache implements org.hibernate.cache.Cache {
 
 	CacheChannel cacheChannel = CacheChannel.getInstance();
