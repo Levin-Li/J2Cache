@@ -1,11 +1,9 @@
 package net.oschina.j2cache.hibernate;
 
-import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.Properties;
 
 import net.oschina.j2cache.CacheChannel;
-import net.oschina.j2cache.CacheExpiredListener;
 import net.oschina.j2cache.NullCacheProvider;
 import net.oschina.j2cache.ehcache.EhCacheProvider;
 import net.oschina.j2cache.redis.RedisCacheProvider;

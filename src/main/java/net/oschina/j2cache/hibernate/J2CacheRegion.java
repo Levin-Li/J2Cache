@@ -27,8 +27,8 @@ import org.hibernate.cache.access.EntityRegionAccessStrategy;
  */
 public class J2CacheRegion implements GeneralDataRegion {
 	
-	private String regionName;
-	private CacheChannel cache;
+	protected String regionName;
+	protected CacheChannel cache;
 	
 	public J2CacheRegion(String name, CacheChannel cache){
 		this.regionName = name;
@@ -162,6 +162,10 @@ public class J2CacheRegion implements GeneralDataRegion {
 
 		@Override
 		public EntityRegionAccessStrategy buildAccessStrategy(AccessType accessType) throws CacheException {
+			// 只支持只读模式
+			if(accessType==AccessType.READ_ONLY){
+				return new J2CacheEntityRegionAccessStrategy(this);
+			}
 			return null;
 		}
 		
