@@ -55,6 +55,19 @@ EntityRegionAccessStrategy在EhCache里是ReadOnlyEhcacheEntityRegionAccessStrat
 有属性region，调用的是region的get等方法操作缓存，对应我们的J2CacheRegion类
 
 
+Hibernate二级缓存接口：
+RegionFactory
+EntityRegion
+Region
+EntityRegionAccessStrategy
+
+
+
+http://wenku.baidu.com/link?url=hCoQm0ODlxe_TLfcD20zcEIy-BPuD24pBMf8Rto1pjjpdPmZy3Xn79XeR_mH_PdC3ayQ-EAWvXJEIer8DL4YjkOhnqZH1bS8pvzpSRUlNXO
+
+http://my.oschina.net/yybear/blog/102216
+
+
 
 
 

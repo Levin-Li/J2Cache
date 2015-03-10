@@ -1,5 +1,7 @@
 package net.oschina.j2cache.hibernate;
 
+import net.oschina.j2cache.CacheChannel;
+
 import org.hibernate.cache.CacheException;
 import org.hibernate.cache.EntityRegion;
 import org.hibernate.cache.access.EntityRegionAccessStrategy;
@@ -10,20 +12,19 @@ public class ReadOnlyJ2CacheEntityRegionAccessStrategy implements EntityRegionAc
 
 	private final EntityRegion region;
 	
-	private final Settings settings;
+	private CacheChannel cache;
 	
 	
 	
 	public ReadOnlyJ2CacheEntityRegionAccessStrategy(EntityRegion region,
-			Settings settings) {
+			CacheChannel cache) {
 		this.region = region;
-		this.settings = settings;
+		this.cache = cache;
 	}
 
 	@Override
 	public EntityRegion getRegion() {
-		// TODO Auto-generated method stub
-		return null;
+		return region;
 	}
 
 	@Override
@@ -35,7 +36,7 @@ public class ReadOnlyJ2CacheEntityRegionAccessStrategy implements EntityRegionAc
 	@Override
 	public boolean putFromLoad(Object key, Object value, long txTimestamp,
 			Object version) throws CacheException {
-		return putFromLoad(key, value, txTimestamp, version, settings.isMinimalPutsEnabled());
+		return false;
 	}
 
 	@Override
