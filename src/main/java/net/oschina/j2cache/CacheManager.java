@@ -200,4 +200,47 @@ public class CacheManager {
 		return (cache!=null)?cache.keys():null;
 	}
 	
+	/**
+	 * destroy this cache
+	 * @param level Cache level
+	 * @param name cache region name
+	 */
+	public final static void destroy(int level,String name) {
+		Cache cache = _GetCache(level,name,false);
+		if(cache != null)
+			cache.destroy();
+	}
+	
+	public final static Object getInternalContext(int level,String name) {
+		Cache cache = _GetCache(level, name, false);
+		if(cache != null){
+			return cache.getInternalContext();
+		}
+		return null;
+	}
+
+	public static long getSizeInMemory(int level, String region) {
+		Cache cache = _GetCache(level,region,false);
+		if(cache != null){
+			return cache.getSizeInMemory();
+		}
+		return -1;
+	}
+
+	public static long getElementCountInMemory(byte level, String region) {
+		Cache cache = _GetCache(level, region, false);
+		if(cache != null){
+			return cache.getElementCountInMemory();
+		}
+		return 0;
+	}
+
+	public static long getElementCountOnDisk(byte level, String region) {
+		Cache cache = _GetCache(level, region, false);
+		if(cache != null){
+			return cache.getElementCountOnDisk();
+		}
+		return 0;
+	}
+
 }

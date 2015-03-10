@@ -56,4 +56,15 @@ public interface Cache {
 	 */
 	public void destroy() throws CacheException;
 	
+	/**
+	 * get internal context
+	 */
+	public Object getInternalContext();
+	
+	public long getSizeInMemory();
+
+	public long getElementCountInMemory();
+
+	public long getElementCountOnDisk();
+	
 }

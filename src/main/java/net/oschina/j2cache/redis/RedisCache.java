@@ -173,4 +173,24 @@ public class RedisCache implements Cache {
 	public void destroy() throws CacheException {
 		this.clear();
 	}
+
+	@Override
+	public Object getInternalContext() {
+		return null;
+	}
+
+	@Override
+	public long getSizeInMemory() {
+		return -1;
+	}
+
+	@Override
+	public long getElementCountInMemory() {
+		return 0;
+	}
+
+	@Override
+	public long getElementCountOnDisk() {
+		return 0;
+	}
 }

@@ -159,6 +159,44 @@ public class CacheChannel extends ReceiverAdapter implements CacheExpiredListene
 	}
 	
 	/**
+	 * destroy this cache
+	 * @param region Cache region name
+	 */
+	public void destroy(String region) {
+		CacheManager.destroy(LEVEL_1, region);
+		CacheManager.destroy(LEVEL_2, region);
+	}
+	
+	
+	public Object getInternalContext(String region) {
+		return CacheManager.getInternalContext(LEVEL_1, region);
+	}
+	
+	/**
+	 * return local level 1 , ehcache's memory size
+	 * @return
+	 */
+	public long getSizeInMemory(String region){
+		return CacheManager.getSizeInMemory(LEVEL_1, region);
+	}
+	
+	/**
+	 * return local level 1, ehcache's element count
+	 * @return
+	 */
+	public long getElementCountInMemory(String region){
+		return CacheManager.getElementCountInMemory(LEVEL_1, region);
+	}
+	
+	/**
+	 * return local level 1, ehcache's element count on disk
+	 * @return
+	 */
+	public long getElementCountOnDisk(String region){
+		return CacheManager.getElementCountOnDisk(LEVEL_1, region);
+	}
+	
+	/**
 	 * 为了保证每个节点缓存的一致，当某个缓存对象因为超时被清除时，应该通知群组其他成员
 	 * @param region: Cache region name
 	 * @param key: cache key

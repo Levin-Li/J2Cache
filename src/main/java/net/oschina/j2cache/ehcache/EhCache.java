@@ -204,4 +204,31 @@ public class EhCache implements Cache, CacheEventListener {
 	@Override
 	public void notifyRemoveAll(Ehcache arg0) {}
 
+	public Object getInternalContext() {
+		return cache.getInternalContext();
+	}
+
+	@Override
+	public long getSizeInMemory() {
+		try {
+            return cache.getStatistics().getLocalHeapSizeInBytes();
+        } catch (Throwable t) {
+            return -1;
+        }
+	}
+
+	@Override
+	public long getElementCountInMemory() {
+		try {
+            return cache.getSize();
+        } catch (net.sf.ehcache.CacheException ce) {
+            throw new CacheException(ce);
+        }
+	}
+
+	@Override
+	public long getElementCountOnDisk() {
+		return -1L;
+	}
+
 }
