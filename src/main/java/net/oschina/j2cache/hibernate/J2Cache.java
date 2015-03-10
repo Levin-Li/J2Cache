@@ -7,7 +7,6 @@ import net.oschina.j2cache.CacheObject;
 
 import org.hibernate.cache.CacheException;
 
-@SuppressWarnings("deprecation")
 public class J2Cache implements org.hibernate.cache.Cache {
 
 	private CacheChannel cacheChannel;
