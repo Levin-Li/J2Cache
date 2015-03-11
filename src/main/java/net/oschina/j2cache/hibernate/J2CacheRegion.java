@@ -23,26 +23,31 @@ import org.hibernate.cache.access.EntityRegionAccessStrategy;
 
 /**
  * J2Cache implements Hibernate Cache Region
+ * 
  * @author winterlau
  */
 public class J2CacheRegion implements GeneralDataRegion {
-	
+
 	protected String regionName;
 	protected CacheChannel cache;
-	
-	public J2CacheRegion(String name, CacheChannel cache){
+
+	public J2CacheRegion(String name, CacheChannel cache) {
 		this.regionName = name;
 		this.cache = cache;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.hibernate.cache.Region#destroy()
 	 */
 	@Override
 	public void destroy() throws CacheException {
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.hibernate.cache.Region#getElementCountInMemory()
 	 */
 	@Override
@@ -50,7 +55,9 @@ public class J2CacheRegion implements GeneralDataRegion {
 		return -1;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.hibernate.cache.Region#getElementCountOnDisk()
 	 */
 	@Override
@@ -58,7 +65,9 @@ public class J2CacheRegion implements GeneralDataRegion {
 		return -1;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.hibernate.cache.Region#getName()
 	 */
 	@Override
@@ -66,7 +75,9 @@ public class J2CacheRegion implements GeneralDataRegion {
 		return regionName;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.hibernate.cache.Region#getSizeInMemory()
 	 */
 	@Override
@@ -74,7 +85,9 @@ public class J2CacheRegion implements GeneralDataRegion {
 		return -1;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.hibernate.cache.Region#getTimeout()
 	 */
 	@Override
@@ -82,7 +95,9 @@ public class J2CacheRegion implements GeneralDataRegion {
 		return -1;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.hibernate.cache.Region#nextTimestamp()
 	 */
 	@Override
@@ -90,24 +105,26 @@ public class J2CacheRegion implements GeneralDataRegion {
 		return Timestamper.next();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.hibernate.cache.Region#toMap()
 	 */
 	@Override
 	@SuppressWarnings("rawtypes")
 	public Map toMap() {
-        try {
-            Map<Object, Object> result = new HashMap<Object, Object>();
-            for (Object key : cache.keys(this.regionName)) {
-                Object e = cache.get(this.regionName, key);
-                if (e != null) {
-                    result.put(key, e);
-                }
-            }
-            return result;
-        } catch (Exception e) {
-            throw new CacheException(e);
-        }
+		try {
+			Map<Object, Object> result = new HashMap<Object, Object>();
+			for (Object key : cache.keys(this.regionName)) {
+				Object e = cache.get(this.regionName, key);
+				if (e != null) {
+					result.put(key, e);
+				}
+			}
+			return result;
+		} catch (Exception e) {
+			throw new CacheException(e);
+		}
 	}
 
 	@Override
@@ -122,7 +139,8 @@ public class J2CacheRegion implements GeneralDataRegion {
 
 	@Override
 	public Object get(Object key) throws CacheException {
-		return cache.get(this.regionName, key);
+		Object result = cache.get(this.regionName, key).getValue();
+		return result;
 	}
 
 	@Override
@@ -130,7 +148,8 @@ public class J2CacheRegion implements GeneralDataRegion {
 		cache.set(this.regionName, key, value);
 	}
 
-	private static class Transactional extends J2CacheRegion implements TransactionalDataRegion {
+	private static class Transactional extends J2CacheRegion implements
+			TransactionalDataRegion {
 
 		public Transactional(String name, CacheChannel cache) {
 			super(name, cache);
@@ -145,15 +164,16 @@ public class J2CacheRegion implements GeneralDataRegion {
 		public boolean isTransactionAware() {
 			return false;
 		}
-		
+
 	}
-	
-	final static class QueryResults extends J2CacheRegion implements QueryResultsRegion {
+
+	final static class QueryResults extends J2CacheRegion implements
+			QueryResultsRegion {
 		public QueryResults(String name, CacheChannel cache) {
 			super(name, cache);
 		}
 	}
-	
+
 	final static class Entity extends Transactional implements EntityRegion {
 
 		public Entity(String name, CacheChannel cache) {
@@ -161,17 +181,19 @@ public class J2CacheRegion implements GeneralDataRegion {
 		}
 
 		@Override
-		public EntityRegionAccessStrategy buildAccessStrategy(AccessType accessType) throws CacheException {
+		public EntityRegionAccessStrategy buildAccessStrategy(
+				AccessType accessType) throws CacheException {
 			// 只支持只读模式
-			if(accessType==AccessType.READ_ONLY){
+			if (accessType == AccessType.READ_WRITE) {
 				return new J2CacheEntityRegionAccessStrategy(this);
 			}
 			return null;
 		}
-		
+
 	}
-	
-	final static class Collection extends Transactional implements CollectionRegion {
+
+	final static class Collection extends Transactional implements
+			CollectionRegion {
 
 		public Collection(String name, CacheChannel cache) {
 			super(name, cache);
@@ -179,18 +201,20 @@ public class J2CacheRegion implements GeneralDataRegion {
 		}
 
 		@Override
-		public CollectionRegionAccessStrategy buildAccessStrategy(AccessType accessType) throws CacheException {
+		public CollectionRegionAccessStrategy buildAccessStrategy(
+				AccessType accessType) throws CacheException {
 			return null;
 		}
-		
+
 	}
-	
-	final static class Timestamps extends J2CacheRegion implements TimestampsRegion {
+
+	final static class Timestamps extends J2CacheRegion implements
+			TimestampsRegion {
 
 		public Timestamps(String name, CacheChannel cache) {
 			super(name, cache);
 		}
-		
+
 	}
-	
+
 }

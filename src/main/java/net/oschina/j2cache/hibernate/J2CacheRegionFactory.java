@@ -25,6 +25,12 @@ public class J2CacheRegionFactory implements RegionFactory {
 
 	private CacheChannel channel = CacheChannel.getInstance();
 	
+	
+	
+	public J2CacheRegionFactory(Properties roperties) {
+		
+	}
+
 	@Override
 	public CollectionRegion buildCollectionRegion(String regionName, Properties properties, CacheDataDescription metadata) throws CacheException {
 		return new J2CacheRegion.Collection(regionName, channel);
@@ -59,6 +65,7 @@ public class J2CacheRegionFactory implements RegionFactory {
 	public void start(Settings settings, Properties properties) throws CacheException {
 		
 	}
+	
 
 	@Override
 	public void stop() {

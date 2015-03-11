@@ -32,7 +32,11 @@ public class J2CacheEntityRegionAccessStrategy extends AbstractJ2CacheRegionAcce
 	@Override
 	public boolean putFromLoad(Object key, Object value, long txTimestamp,
 			Object version, boolean minimalPutOverride) throws CacheException {
-		return false;
+		if(minimalPutOverride && region.get(key)!=null)
+			return false;
+		
+		region.put(key, value);
+		return true;
 	}
 
 	@Override
