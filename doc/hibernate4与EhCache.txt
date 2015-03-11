@@ -68,6 +68,10 @@ http://wenku.baidu.com/link?url=hCoQm0ODlxe_TLfcD20zcEIy-BPuD24pBMf8Rto1pjjpdPmZ
 http://my.oschina.net/yybear/blog/102216
 
 
+// TODO: 1、有个警告，说没有对应User的配置，使用了default，看能不能优化
+		 2、只写了Entity的，其他的还没实现
+		
+
 
 
 
