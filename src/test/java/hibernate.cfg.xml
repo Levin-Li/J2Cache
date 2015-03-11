@@ -32,7 +32,7 @@
 			true
 		</property>
 		<property name="hibernate.cache.use_query_cache">
-			false
+			true
 		</property>
 
 		<!-- 注解配置 -->

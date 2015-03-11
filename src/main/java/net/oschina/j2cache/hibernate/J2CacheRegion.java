@@ -139,8 +139,7 @@ public class J2CacheRegion implements GeneralDataRegion {
 
 	@Override
 	public Object get(Object key) throws CacheException {
-		Object result = cache.get(this.regionName, key).getValue();
-		return result;
+		return cache.get(this.regionName, key).getValue();
 	}
 
 	@Override
@@ -184,7 +183,7 @@ public class J2CacheRegion implements GeneralDataRegion {
 		public EntityRegionAccessStrategy buildAccessStrategy(
 				AccessType accessType) throws CacheException {
 			// 只支持只读模式
-			if (accessType == AccessType.READ_WRITE) {
+			if (accessType == AccessType.READ_ONLY) {
 				return new J2CacheEntityRegionAccessStrategy(this);
 			}
 			return null;
@@ -197,12 +196,14 @@ public class J2CacheRegion implements GeneralDataRegion {
 
 		public Collection(String name, CacheChannel cache) {
 			super(name, cache);
-			// TODO Auto-generated constructor stub
 		}
 
 		@Override
 		public CollectionRegionAccessStrategy buildAccessStrategy(
 				AccessType accessType) throws CacheException {
+			if (accessType == AccessType.READ_ONLY) {
+				return new J2CacheCollectionRegionAccessStrategy(this);
+			}
 			return null;
 		}
 

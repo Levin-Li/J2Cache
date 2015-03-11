@@ -5,7 +5,13 @@ import org.hibernate.cache.EntityRegion;
 import org.hibernate.cache.access.EntityRegionAccessStrategy;
 import org.hibernate.cache.access.SoftLock;
 
-// TODO: 把与其他Strategy相同的方法放到抽象父类中去，然后写其他访问策略类代码
+/**
+ * 
+ * Region Access strategy for entity
+ * @author honganan
+ * @date   2015年3月11日22:59:40
+ *
+ */
 public class J2CacheEntityRegionAccessStrategy extends AbstractJ2CacheRegionAccessStrategy<J2CacheRegion.Entity> implements EntityRegionAccessStrategy {
 
 	
@@ -26,7 +32,8 @@ public class J2CacheEntityRegionAccessStrategy extends AbstractJ2CacheRegionAcce
 	@Override
 	public boolean putFromLoad(Object key, Object value, long txTimestamp,
 			Object version) throws CacheException {
-		return false;
+		region.put(key, value);
+		return true;
 	}
 
 	@Override
@@ -37,30 +44,6 @@ public class J2CacheEntityRegionAccessStrategy extends AbstractJ2CacheRegionAcce
 		
 		region.put(key, value);
 		return true;
-	}
-
-	@Override
-	public SoftLock lockItem(Object key, Object version) throws CacheException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public SoftLock lockRegion() throws CacheException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void unlockItem(Object key, SoftLock lock) throws CacheException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void unlockRegion(SoftLock lock) throws CacheException {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
