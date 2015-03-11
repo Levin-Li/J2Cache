@@ -68,4 +68,28 @@ public class NullCache implements Cache {
 	public void destroy() throws CacheException {
 	}
 
+	@Override
+	public Object getInternalContext() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long getSizeInMemory() {
+		// TODO Auto-generated method stub
+		return -1;
+	}
+
+	@Override
+	public long getElementCountInMemory() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public long getElementCountOnDisk() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
