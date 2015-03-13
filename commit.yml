@@ -2,10 +2,97 @@
 branches: {
   }
 fileChange:
-  /dependency-reduced-pom.xml:
-    newFile: !uuid 'bce448c1f0de74bbed1f1d346e1a5b75b4a9085c'
+  /:
+    newFile: !uuid '248438aa5a1f968daca5dc34315cb49cdfee993a'
+    oldFile: !uuid 'da3e8d90b78efb29556ce5edad1f58ae571ad427'
+  /.classpath:
+    newFile: !uuid '7a39381778cecc8fc89438db7b0932331a14ad04'
+    oldFile: !uuid 'c832ecdc62b93195ed344e54382736b438edfd2d'
+  /.gitignore:
+    newFile: !uuid 'be68894e282434e41a22f1668df6441e6ab4393b'
+    oldFile: !uuid 'ba7ec6ca8e16486866b385938f02f62c04170129'
+  /.project:
+    newFile: !uuid '65f9b7897086f68ca495d40044094143f79e48f5'
+    oldFile: !uuid '23f939e39c82d8aba6874b962dc53dba92c95ed2'
+  /pom.xml:
+    newFile: !uuid 'f9754f5e0f1079f4158657fe3a7692aea4e1446d'
+    oldFile: !uuid '6dda0bbc887c6fb00a4fc05b51595250162400b3'
+  /src:
+    newFile: !uuid '4aa03305bd58d5c8125c13e6b6d80c9310c6ea83'
+    oldFile: !uuid 'a9e317fe0bfd5b5d6d08cacf98d70d4c0eb91b45'
+  /src/main:
+    newFile: !uuid 'e0fd2e9d4ab00cb7f4fafc67c7290f461ad8ef67'
+    oldFile: !uuid 'd3da34dc39274832f7a2728c80e398dcbfdaf99f'
+  /src/main/java:
+    newFile: !uuid 'd2d81ef3f8031e4bd40a6b6ba2a8a2fb823f3ee8'
+    oldFile: !uuid 'cd951774788756d90b4bbae68dbbeee8823bcbda'
+  /src/main/java/net:
+    newFile: !uuid '32f97c4ab2742f5f5eb3a410421b8e63732c2a7d'
+    oldFile: !uuid '4c05f1f3b25d602f99f617c69a36a82fcb68816b'
+  /src/main/java/net/oschina:
+    newFile: !uuid '95169ac0234851d7a7d1f61164b16419f8daa236'
+    oldFile: !uuid '805a1c683af5eaa5928bb606595b6b385b24ab2c'
+  /src/main/java/net/oschina/j2cache:
+    newFile: !uuid '4caecc402bb7fcdb514a9763e80dc5066f8a6f43'
+    oldFile: !uuid 'e3b6da6189fcc528b3e096663534d6e885f7fc69'
+  /src/main/java/net/oschina/j2cache/hibernate:
+    newFile: !uuid 'c17f206d90c6c414ef633788ed2fdf2ec79e8455'
+    oldFile: !uuid 'ecfbd04acabc740cec698afaca2cb93983963c58'
+  /src/main/java/net/oschina/j2cache/hibernate/J2CacheProvider.java:
+    newFile: !uuid '4cb65984267c7aaa9f0f1ce8b65fc4b7bbda9aa8'
     oldFile: null
-gitCommitId: !uuid 'b98c5a210196a455f9dd173e00f11d5d0a9f2f9f'
+  /src/main/java/net/oschina/j2cache/hibernate/J2HibernateCache.java:
+    newFile: !uuid '19298192eaef797a3e9ce3d25d9cfe633afba0e2'
+    oldFile: null
+  /src/test:
+    newFile: !uuid 'e5b00d26e7c48b953e618fe8f522b2e781c04d5b'
+    oldFile: !uuid 'cad23b3742c57e286f9d7f190a3dd6b0d0930b5b'
+  /src/test/java:
+    newFile: !uuid '86c58d16ca6d441ac9563818dfd4f4af4f7923bb'
+    oldFile: !uuid 'a7eb9e913271cdf04d02299c2055791339166bc9'
+  /src/test/java/net:
+    newFile: !uuid '5892681de43e4f07bd6a784aea1921e2052e1cf1'
+    oldFile: !uuid '961b1e851f63da3ffa2074a1f1bd6109b5a3e902'
+  /src/test/java/net/oschina:
+    newFile: !uuid '75d72e3e5d76a3f62bbc0b1865630322de22c297'
+    oldFile: !uuid 'af702b160c458c26188b104f51356eac4fa9e196'
+  /src/test/java/net/oschina/j2cache:
+    newFile: !uuid 'dfd7cfae76cc56619864f05545af5e2a541774b4'
+    oldFile: !uuid 'f47c45764d24aad4ad33133f3dac81e6d768ae73'
+  /src/test/java/net/oschina/j2cache/hibernate:
+    newFile: !uuid '60edec7a753a89becca86df9be15fba7a659996c'
+    oldFile: null
+  /src/test/java/net/oschina/j2cache/hibernate/J2CacheProviderTester.java:
+    newFile: !uuid 'f4c6e9ab8cb86a90f5121f45e03fbbb656822f03'
+    oldFile: null
+  /src/test/java/net/oschina/j2cache/hibernate/User.java:
+    newFile: !uuid '33d7b46261a0c6f18f15bf4c72bb04f719465240'
+    oldFile: null
+  /src/test/resources:
+    newFile: !uuid '9ba112c645f315a753fa74727073b61c52e7bc17'
+    oldFile: null
+  /src/test/resources/User.hbm.xml:
+    newFile: !uuid 'ded88a678d55eacf5be0cd2ca7aaca950307d059'
+    oldFile: null
+  /src/test/resources/ehcache.xml:
+    newFile: !uuid '269360caa56b4cad60c17d88eba0db715f67bfcf'
+    oldFile: null
+  /src/test/resources/hibernate.cfg.xml:
+    newFile: !uuid 'feff601b1c61c7018c585659453fe899c7229c4e'
+    oldFile: null
+  /src/test/resources/j2cache.properties:
+    newFile: !uuid 'fb1b12c1c1978dd0e04913635346a02b3132471e'
+    oldFile: null
+  /src/test/resources/log4j.properties:
+    newFile: !uuid '77c7d7ea4655e765ae360be8a7076f07d90f7910'
+    oldFile: null
+  /src/test/resources/network.xml:
+    newFile: !uuid 'fedb76d867851c461ad5d56a6258428ba6ab5835'
+    oldFile: null
+  /src/test/resources/user.sql:
+    newFile: !uuid '4d9a64bf7bce863fce6af30075d041037f0fb710'
+    oldFile: null
+gitCommitId: !uuid '3fe96072e3c9a3940b06a3cb8a0dd46a45323f9e'
 renames: {
   }
-revisionId: 61
+revisionId: 62
