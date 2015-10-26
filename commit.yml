@@ -2,10 +2,61 @@
 branches: {
   }
 fileChange:
+  /:
+    newFile: !uuid '34fb9e2d841797b2a99967d0d45c44f27785931b'
+    oldFile: !uuid '1145fa56f622c64220b4a2e578475b61a72b0c74'
+  /.classpath:
+    newFile: !uuid 'f0fe8edaf3c7a873ca5658b7d3f1a14a7f046749'
+    oldFile: null
+  /.gitignore:
+    newFile: !uuid '7c000da25b1f02950a1affbc0179a9e36157725f'
+    oldFile: !uuid '6f5698159ca5234ba975bb5cbc41a817edca01ed'
+  /.project:
+    newFile: !uuid '788e8353645d19a6c4bbf92342bb3ced648556ab'
+    oldFile: null
   /build.xml:
-    newFile: !uuid 'd1a59d2f33fa88dd4a5f6897462b275c24609447'
-    oldFile: !uuid '180111de261729097a3c292706ed553d83fa4660'
-gitCommitId: !uuid '6ff531a0b61f3f2981e6e02e1c7b8d5732b905da'
+    newFile: !uuid 'afefac7f45c949476e0ebc782e9f5bbcea39e10c'
+    oldFile: !uuid 'd1a59d2f33fa88dd4a5f6897462b275c24609447'
+  /core:
+    newFile: !uuid 'fd3e57e13aa66dee83778a4bdbe057407e8af5e6'
+    oldFile: !uuid 'f3b92f0f66ea072ae1c0109f6672de4f00042d41'
+  /core/JavaSource:
+    newFile: !uuid '368a15282f93c4955b07e1454f3c77a971fb15f8'
+    oldFile: !uuid '77f8cc41b6fb39ade6e848c28586c3d11f02790d'
+  /core/JavaSource/net:
+    newFile: !uuid '39cc44b28206419848598954d0590f52a87f0503'
+    oldFile: !uuid '25f22d7cfabf7f56597c990dcb1d61df96adacac'
+  /core/JavaSource/net/oschina:
+    newFile: !uuid 'c85714fd17a02e4da2a2a41ec35f4a7ed7336b2b'
+    oldFile: !uuid '00399ed759600e2dfbdff7fb013782384a6fc13c'
+  /core/JavaSource/net/oschina/j2cache:
+    newFile: !uuid 'b2a13fcf486560875c94de35d61d2141ab65694d'
+    oldFile: !uuid 'e09eeae3d7ed36fdf9239f96da8b7fd29097e20a'
+  /core/JavaSource/net/oschina/j2cache/redis:
+    newFile: !uuid '21c3720a284c0fac534b86691cf5d5bec5ef86cf'
+    oldFile: !uuid '597e7dabafb751aaffd877b3d55d1d5e406e8996'
+  /core/JavaSource/net/oschina/j2cache/redis/RedisCacheProvider.java:
+    newFile: !uuid '5903c3342c846ddc3182ec7b6459128935dc5952'
+    oldFile: !uuid '22e8a1856fa29247130959e5eb066281c46a393f'
+  /lib:
+    newFile: !uuid '34db2e615e6e9023d12c65c48195ee97dbf8b299'
+    oldFile: !uuid '4a99181b04909d81dad473e6225a39b1fc41f7c4'
+  /lib/commons-pool-1.6.jar:
+    newFile: null
+    oldFile: !uuid '72ca75a3e6eca2158a8c607b18572f3bd87bf24e'
+  /lib/commons-pool2-2.4.2.jar:
+    newFile: !uuid 'fdf8b6faafa2fdbbc8fc6e24595c623232abaec6'
+    oldFile: null
+  /lib/jedis-2.7.2.jar:
+    newFile: !uuid 'fcf2a5868f193a34313d301a416707567e95675f'
+    oldFile: null
+  /lib/jedis-2.7.3.jar:
+    newFile: null
+    oldFile: !uuid '77c5b3491ddbf407b3d2099f2d6d87e54f1573a9'
+  /pom.xml:
+    newFile: !uuid 'ce09ff81be66fae46fadc246a9b28c2b0db2502e'
+    oldFile: !uuid '2cbab2a73e198458646b4b38aed33c222f883874'
+gitCommitId: !uuid 'e5fce2800d79440d085de4bf5bb3365bc315cac7'
 renames: {
   }
-revisionId: 67
+revisionId: 68
