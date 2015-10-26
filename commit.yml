@@ -2,25 +2,10 @@
 branches: {
   }
 fileChange:
-  /lib:
-    newFile: !uuid '4a99181b04909d81dad473e6225a39b1fc41f7c4'
-    oldFile: !uuid '8a994183c9f412ed94acb4403a952af62d922296'
-  /lib/jedis-2.2.1.jar:
-    newFile: null
-    oldFile: !uuid '0b33177ac97f9a7a8c406c8a47f5751b774f48fd'
-  /lib/jedis-2.7.0.jar:
-    newFile: null
-    oldFile: !uuid '0d74ddc806d451920aac0d094b91a98dac63c956'
-  /lib/jedis-2.7.3.jar:
-    newFile: !uuid '77c5b3491ddbf407b3d2099f2d6d87e54f1573a9'
-    oldFile: null
-  /lib/jgroups-3.4.6.Final.jar:
-    newFile: null
-    oldFile: !uuid '91c6c659194476f3f2292efb39f9e36ddb9c3f19'
-  /lib/jgroups-3.6.6.Final.jar:
-    newFile: !uuid '1fad9930af5f065acf818a30db6ed42bc643e272'
-    oldFile: null
-gitCommitId: !uuid 'a6c4be1f90ffdc0b8fae834198462eeb49fcfd87'
+  /build.xml:
+    newFile: !uuid 'd1a59d2f33fa88dd4a5f6897462b275c24609447'
+    oldFile: !uuid '180111de261729097a3c292706ed553d83fa4660'
+gitCommitId: !uuid '6ff531a0b61f3f2981e6e02e1c7b8d5732b905da'
 renames: {
   }
-revisionId: 66
+revisionId: 67
