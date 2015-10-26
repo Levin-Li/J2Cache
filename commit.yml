@@ -2,10 +2,13 @@
 branches: {
   }
 fileChange:
-  /.classpath:
-    newFile: !uuid 'f6b87d60a0cba7459a825f6ff553f017942e476c'
-    oldFile: !uuid 'f0fe8edaf3c7a873ca5658b7d3f1a14a7f046749'
-gitCommitId: !uuid '145b05ec93447f43618c099f202400d8c482916f'
+  /:
+    newFile: !uuid '35c4dbd3667139f71ea1de35e5c21d8ee325cdd1'
+    oldFile: !uuid 'f7d77beff783dc87d26efad435f4cd6e81ad574c'
+  /.gitignore:
+    newFile: !uuid '8f9559f0374e9555e303051af6bd87c796afc39e'
+    oldFile: !uuid '7c000da25b1f02950a1affbc0179a9e36157725f'
+gitCommitId: !uuid '3cd0d0d13cae92d3aaa05f22cbade757bebf1593'
 renames: {
   }
-revisionId: 69
+revisionId: 70
