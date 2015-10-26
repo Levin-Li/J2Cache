@@ -2,28 +2,25 @@
 branches: {
   }
 fileChange:
-  /core:
-    newFile: !uuid 'f3b92f0f66ea072ae1c0109f6672de4f00042d41'
-    oldFile: !uuid '517b4a9ac654ba65923802dc40f4dcbb510a7c01'
-  /core/pom.xml:
-    newFile: !uuid '3e9ea757f0a6aadee3eef481efcc5d38dbde9296'
-    oldFile: !uuid 'abf7b273d0584f1e0287d6b3aa38651e40f63b72'
-  /hibernate3:
-    newFile: !uuid '88761222f31a438aea9028ed62c9764ccf2fda9d'
-    oldFile: !uuid '63a5cb868537e4b09d4682e8a8a68be8b198b60a'
-  /hibernate3/pom.xml:
-    newFile: !uuid '8a72a3943ff58a3cb203ea6c46ed85c4dd245573'
-    oldFile: !uuid 'dc0d075b77f4078b821ee30b43f2b64b7fb371fb'
-  /hibernate4:
-    newFile: !uuid 'd352a958d40adf0fbe441b1ba345e36ec97cfab1'
-    oldFile: !uuid 'b7c34e1633374c13a56fd668eb3a7598c37010ef'
-  /hibernate4/pom.xml:
-    newFile: !uuid '984f7078a4292d497f68667a27c9b3ba2913c6c7'
-    oldFile: !uuid '150eec7b7e424c554b0306ae99abc9052f1c549b'
-  /pom.xml:
-    newFile: !uuid '2cbab2a73e198458646b4b38aed33c222f883874'
-    oldFile: !uuid 'fae9eb3029325ab16909a7c583093e1adfcb44f3'
-gitCommitId: !uuid '9b656d856e66cacf44cab9372425ccd82fcb173e'
+  /lib:
+    newFile: !uuid '4a99181b04909d81dad473e6225a39b1fc41f7c4'
+    oldFile: !uuid '8a994183c9f412ed94acb4403a952af62d922296'
+  /lib/jedis-2.2.1.jar:
+    newFile: null
+    oldFile: !uuid '0b33177ac97f9a7a8c406c8a47f5751b774f48fd'
+  /lib/jedis-2.7.0.jar:
+    newFile: null
+    oldFile: !uuid '0d74ddc806d451920aac0d094b91a98dac63c956'
+  /lib/jedis-2.7.3.jar:
+    newFile: !uuid '77c5b3491ddbf407b3d2099f2d6d87e54f1573a9'
+    oldFile: null
+  /lib/jgroups-3.4.6.Final.jar:
+    newFile: null
+    oldFile: !uuid '91c6c659194476f3f2292efb39f9e36ddb9c3f19'
+  /lib/jgroups-3.6.6.Final.jar:
+    newFile: !uuid '1fad9930af5f065acf818a30db6ed42bc643e272'
+    oldFile: null
+gitCommitId: !uuid 'a6c4be1f90ffdc0b8fae834198462eeb49fcfd87'
 renames: {
   }
-revisionId: 65
+revisionId: 66
