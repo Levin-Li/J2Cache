@@ -2,28 +2,610 @@
 branches: {
   }
 fileChange:
+  /.classpath:
+    newFile: null
+    oldFile: !uuid 'bfcaa07a14479d9afbfad620bb3a47f8cc11c456'
+  /.project:
+    newFile: null
+    oldFile: !uuid '788e8353645d19a6c4bbf92342bb3ced648556ab'
   /core:
-    newFile: !uuid '3202c18be5460600333f49423c6fee10f793526f'
-    oldFile: !uuid '07a111cbe8e6d120acf0592ab04f918d19086d5e'
-  /core/JavaSource:
+    newFile: !uuid '3e1f9df402826f95cb389ab4fe32626c5da9f3c2'
+    oldFile: !uuid '3202c18be5460600333f49423c6fee10f793526f'
+  /core/Java:
     newFile: !uuid '361d8800bea0e41ac8a6d61470161ee4d570f873'
-    oldFile: !uuid '9b48cca85b6401c44bcd310f0c73d193a5981a42'
-  /core/JavaSource/net:
+    oldFile: null
+  /core/Java/net:
     newFile: !uuid '4ed6c1520343f23725de5962f1a76097d1bd03d0'
-    oldFile: !uuid 'b05c28401bd20ed9032adbdb3d984ac4e4ecc375'
-  /core/JavaSource/net/oschina:
+    oldFile: null
+  /core/Java/net/oschina:
     newFile: !uuid 'eb8f2751198db797d1c1c0c0179d00a83a1792b0'
-    oldFile: !uuid 'b1cfb23cb28ece8e1e1f8828d0701b0788cfff54'
-  /core/JavaSource/net/oschina/j2cache:
+    oldFile: null
+  /core/Java/net/oschina/j2cache:
     newFile: !uuid '22a5237312760a184174b4c6fff118ebe82a7377'
-    oldFile: !uuid 'd8ffcb18ad4d1e938027de48ff6cba0a75512425'
-  /core/JavaSource/net/oschina/j2cache/redis:
+    oldFile: null
+  /core/Java/net/oschina/j2cache/Cache.java:
+    newFile: !uuid '279f6cec1cb0dc9ae78f44115da6c5c68c148bd6'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/CacheChannel.java:
+    newFile: !uuid 'cf9363afb23e2f9f8d8fbf065fedb0eff0e97f13'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/CacheException.java:
+    newFile: !uuid '63db898a458145f34ba782018a057002d8b60a35'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/CacheExpiredListener.java:
+    newFile: !uuid 'e46a9afa506a45d5bcfad5db4de7d9f608318544'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/CacheManager.java:
+    newFile: !uuid 'a682cbf24ef5c14201aff111aefba7dc6629b4d1'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/CacheObject.java:
+    newFile: !uuid '4d4e382815ab55a9c3aaba2728efa875fe673e91'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/CacheProvider.java:
+    newFile: !uuid 'a8c6c4eabc5225ad3557ef4d074077d73ca00738'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/CacheTester.java:
+    newFile: !uuid 'f649fc417bc9e68dc8a9c82d1dc829ce998adb79'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/NullCache.java:
+    newFile: !uuid '9edbd8a7506c045e7d62b0a65fd6668c96897017'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/NullCacheProvider.java:
+    newFile: !uuid 'fb183a6153d3acd35647459fd9768a0216417c3d'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/ehcache:
+    newFile: !uuid 'ce29540d9e0878de34541bf19f7a2d40ea25888b'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/ehcache/EhCache.java:
+    newFile: !uuid 'cc8ce2f29aabef52f96b59de02333149906bd490'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/ehcache/EhCacheProvider.java:
+    newFile: !uuid '0d206abd41e897419cb6df9645e05d78d645ba58'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/redis:
     newFile: !uuid '2aedfcad8bc8fcf60e7bac1f418dea6760f9e43f'
-    oldFile: !uuid 'fea5f8edda923c100dc98fb944b47de5ef113ecd'
-  /core/JavaSource/net/oschina/j2cache/redis/RedisCache.java:
+    oldFile: null
+  /core/Java/net/oschina/j2cache/redis/RedisCache.java:
     newFile: !uuid 'c122a8a4b727866dd7f8a3fbab5141a6fa0d6581'
-    oldFile: !uuid 'a56e1db26815647b1b158da4b5e70369143e2af5'
-gitCommitId: !uuid '58ba4085a0b55f850e97f200013d64e6bd2966a9'
-renames: {
-  }
-revisionId: 73
+    oldFile: null
+  /core/Java/net/oschina/j2cache/redis/RedisCacheProvider.java:
+    newFile: !uuid '581a77914824354661ee2a5a7795aa1d38484262'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/util:
+    newFile: !uuid '398d7a1005d480866ac18e81d2d5a66f41e6f89f'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/util/FSTSerializer.java:
+    newFile: !uuid '5d5a508e9badf68fa934b51903f78ce3b18e0189'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/util/JavaSerializer.java:
+    newFile: !uuid '6463a84650e20e17ff2bf046eaaa8b32cd095622'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/util/KryoPoolSerializer.java:
+    newFile: !uuid 'e93c34f5f0b87a9b681442c46b8bd6cae5d78e17'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/util/KryoSerializer.java:
+    newFile: !uuid 'ac1aab0f8e4e9f0c46e6e996dc613a7e67209520'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/util/SerializationUtils.java:
+    newFile: !uuid '01cd542e4bf21f243281dd48f10facf63f3f1f89'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/util/Serializer.java:
+    newFile: !uuid 'f17de08b8e5a0dc0b2f9e739d07f16933fcb5c80'
+    oldFile: null
+  /core/JavaSource:
+    newFile: null
+    oldFile: !uuid '361d8800bea0e41ac8a6d61470161ee4d570f873'
+  /core/JavaSource/net:
+    newFile: null
+    oldFile: !uuid '4ed6c1520343f23725de5962f1a76097d1bd03d0'
+  /core/JavaSource/net/oschina:
+    newFile: null
+    oldFile: !uuid 'eb8f2751198db797d1c1c0c0179d00a83a1792b0'
+  /core/JavaSource/net/oschina/j2cache:
+    newFile: null
+    oldFile: !uuid '22a5237312760a184174b4c6fff118ebe82a7377'
+  /core/JavaSource/net/oschina/j2cache/Cache.java:
+    newFile: null
+    oldFile: !uuid '279f6cec1cb0dc9ae78f44115da6c5c68c148bd6'
+  /core/JavaSource/net/oschina/j2cache/CacheChannel.java:
+    newFile: null
+    oldFile: !uuid 'cf9363afb23e2f9f8d8fbf065fedb0eff0e97f13'
+  /core/JavaSource/net/oschina/j2cache/CacheException.java:
+    newFile: null
+    oldFile: !uuid '63db898a458145f34ba782018a057002d8b60a35'
+  /core/JavaSource/net/oschina/j2cache/CacheExpiredListener.java:
+    newFile: null
+    oldFile: !uuid 'e46a9afa506a45d5bcfad5db4de7d9f608318544'
+  /core/JavaSource/net/oschina/j2cache/CacheManager.java:
+    newFile: null
+    oldFile: !uuid 'a682cbf24ef5c14201aff111aefba7dc6629b4d1'
+  /core/JavaSource/net/oschina/j2cache/CacheObject.java:
+    newFile: null
+    oldFile: !uuid '4d4e382815ab55a9c3aaba2728efa875fe673e91'
+  /core/JavaSource/net/oschina/j2cache/CacheProvider.java:
+    newFile: null
+    oldFile: !uuid 'a8c6c4eabc5225ad3557ef4d074077d73ca00738'
+  /core/JavaSource/net/oschina/j2cache/CacheTester.java:
+    newFile: null
+    oldFile: !uuid 'f649fc417bc9e68dc8a9c82d1dc829ce998adb79'
+  /core/JavaSource/net/oschina/j2cache/NullCache.java:
+    newFile: null
+    oldFile: !uuid '9edbd8a7506c045e7d62b0a65fd6668c96897017'
+  /core/JavaSource/net/oschina/j2cache/NullCacheProvider.java:
+    newFile: null
+    oldFile: !uuid 'fb183a6153d3acd35647459fd9768a0216417c3d'
+  /core/JavaSource/net/oschina/j2cache/ehcache:
+    newFile: null
+    oldFile: !uuid 'ce29540d9e0878de34541bf19f7a2d40ea25888b'
+  /core/JavaSource/net/oschina/j2cache/ehcache/EhCache.java:
+    newFile: null
+    oldFile: !uuid 'cc8ce2f29aabef52f96b59de02333149906bd490'
+  /core/JavaSource/net/oschina/j2cache/ehcache/EhCacheProvider.java:
+    newFile: null
+    oldFile: !uuid '0d206abd41e897419cb6df9645e05d78d645ba58'
+  /core/JavaSource/net/oschina/j2cache/redis:
+    newFile: null
+    oldFile: !uuid '2aedfcad8bc8fcf60e7bac1f418dea6760f9e43f'
+  /core/JavaSource/net/oschina/j2cache/redis/RedisCache.java:
+    newFile: null
+    oldFile: !uuid 'c122a8a4b727866dd7f8a3fbab5141a6fa0d6581'
+  /core/JavaSource/net/oschina/j2cache/redis/RedisCacheProvider.java:
+    newFile: null
+    oldFile: !uuid '581a77914824354661ee2a5a7795aa1d38484262'
+  /core/JavaSource/net/oschina/j2cache/util:
+    newFile: null
+    oldFile: !uuid '398d7a1005d480866ac18e81d2d5a66f41e6f89f'
+  /core/JavaSource/net/oschina/j2cache/util/FSTSerializer.java:
+    newFile: null
+    oldFile: !uuid '5d5a508e9badf68fa934b51903f78ce3b18e0189'
+  /core/JavaSource/net/oschina/j2cache/util/JavaSerializer.java:
+    newFile: null
+    oldFile: !uuid '6463a84650e20e17ff2bf046eaaa8b32cd095622'
+  /core/JavaSource/net/oschina/j2cache/util/KryoPoolSerializer.java:
+    newFile: null
+    oldFile: !uuid 'e93c34f5f0b87a9b681442c46b8bd6cae5d78e17'
+  /core/JavaSource/net/oschina/j2cache/util/KryoSerializer.java:
+    newFile: null
+    oldFile: !uuid 'ac1aab0f8e4e9f0c46e6e996dc613a7e67209520'
+  /core/JavaSource/net/oschina/j2cache/util/SerializationUtils.java:
+    newFile: null
+    oldFile: !uuid '01cd542e4bf21f243281dd48f10facf63f3f1f89'
+  /core/JavaSource/net/oschina/j2cache/util/Serializer.java:
+    newFile: null
+    oldFile: !uuid 'f17de08b8e5a0dc0b2f9e739d07f16933fcb5c80'
+  /core/pom.xml:
+    newFile: !uuid '332884366e2e135ec9eec08e1f070ed24b8e5d8e'
+    oldFile: !uuid '3e9ea757f0a6aadee3eef481efcc5d38dbde9296'
+  /hibernate3:
+    newFile: !uuid '57b94b5b1fadf97c9f7d0cab61c58e0ccbf9a6b6'
+    oldFile: !uuid '88761222f31a438aea9028ed62c9764ccf2fda9d'
+  /hibernate3/Java:
+    newFile: !uuid 'e8fc535266f5a4f61abf8fbb2508b1ef0e9f18b9'
+    oldFile: null
+  /hibernate3/Java/net:
+    newFile: !uuid 'b37cf2f4f072dad8b9b5104541e9b212ba21a1bb'
+    oldFile: null
+  /hibernate3/Java/net/oschina:
+    newFile: !uuid 'ac45c0c62eb2f563bd70797872145875912cc32a'
+    oldFile: null
+  /hibernate3/Java/net/oschina/j2cache:
+    newFile: !uuid 'e383e4c9aebaa6888c7ed0821242617b30cabe72'
+    oldFile: null
+  /hibernate3/Java/net/oschina/j2cache/hibernate3:
+    newFile: !uuid '674408cf487bc4490afac1119cebead6de1f0e41'
+    oldFile: null
+  /hibernate3/Java/net/oschina/j2cache/hibernate3/J2CacheProvider.java:
+    newFile: !uuid '41f0b709aac02ecc265d423a01fc65905d2f0561'
+    oldFile: null
+  /hibernate3/Java/net/oschina/j2cache/hibernate3/J2CacheRegion.java:
+    newFile: !uuid 'c0c9601f17430e5b345634593bafe2693125eb1f'
+    oldFile: null
+  /hibernate3/Java/net/oschina/j2cache/hibernate3/J2CacheRegionFactory.java:
+    newFile: !uuid 'f66a602ab0638a254bae6962ca45802ea8511fdb'
+    oldFile: null
+  /hibernate3/Java/net/oschina/j2cache/hibernate3/J2HibernateCache.java:
+    newFile: !uuid '5daacbc92b0ad91618f38fd6067b0c3f61fa0f9a'
+    oldFile: null
+  /hibernate3/JavaSource:
+    newFile: null
+    oldFile: !uuid 'e8fc535266f5a4f61abf8fbb2508b1ef0e9f18b9'
+  /hibernate3/JavaSource/net:
+    newFile: null
+    oldFile: !uuid 'b37cf2f4f072dad8b9b5104541e9b212ba21a1bb'
+  /hibernate3/JavaSource/net/oschina:
+    newFile: null
+    oldFile: !uuid 'ac45c0c62eb2f563bd70797872145875912cc32a'
+  /hibernate3/JavaSource/net/oschina/j2cache:
+    newFile: null
+    oldFile: !uuid 'e383e4c9aebaa6888c7ed0821242617b30cabe72'
+  /hibernate3/JavaSource/net/oschina/j2cache/hibernate3:
+    newFile: null
+    oldFile: !uuid '674408cf487bc4490afac1119cebead6de1f0e41'
+  /hibernate3/JavaSource/net/oschina/j2cache/hibernate3/J2CacheProvider.java:
+    newFile: null
+    oldFile: !uuid '41f0b709aac02ecc265d423a01fc65905d2f0561'
+  /hibernate3/JavaSource/net/oschina/j2cache/hibernate3/J2CacheRegion.java:
+    newFile: null
+    oldFile: !uuid 'c0c9601f17430e5b345634593bafe2693125eb1f'
+  /hibernate3/JavaSource/net/oschina/j2cache/hibernate3/J2CacheRegionFactory.java:
+    newFile: null
+    oldFile: !uuid 'f66a602ab0638a254bae6962ca45802ea8511fdb'
+  /hibernate3/JavaSource/net/oschina/j2cache/hibernate3/J2HibernateCache.java:
+    newFile: null
+    oldFile: !uuid '5daacbc92b0ad91618f38fd6067b0c3f61fa0f9a'
+  /hibernate3/pom.xml:
+    newFile: !uuid '5c04a259e379626b118f6e1ffb3b731f754ce5c8'
+    oldFile: !uuid '8a72a3943ff58a3cb203ea6c46ed85c4dd245573'
+  /hibernate4:
+    newFile: !uuid 'd6508a38ffda3dfc49e8fcbe6dee1dd1b5abade8'
+    oldFile: !uuid 'd352a958d40adf0fbe441b1ba345e36ec97cfab1'
+  /hibernate4/Java:
+    newFile: !uuid 'fb8d2f8fa13d33eb059ead22f855d4aec590c753'
+    oldFile: null
+  /hibernate4/Java/net:
+    newFile: !uuid 'd610b8eb1c64705de7025f27d6cd5af112f45b9e'
+    oldFile: null
+  /hibernate4/Java/net/oschina:
+    newFile: !uuid 'b66dd904a1fbf42f1451b92116746811e856ced7'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache:
+    newFile: !uuid 'c60d6964b00baa69d379e2f0ffbb6d76cca43754'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4:
+    newFile: !uuid '47ea4d2f9e443a70b684491268b560ee5aa7f670'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/AbstractJ2CacheRegionFactory.java:
+    newFile: !uuid '151d6feea6e69628167d2ca5a639eea5cc19fab6'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/CacheRegion.java:
+    newFile: !uuid '5d5d999e72ac5d04afc1fb7cb5c1a881e9391cb3'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/J2CacheCacheRegion.java:
+    newFile: !uuid '459f52fb8dec81578074281f47368ea7afb49a5f'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/J2CacheRegionFactory.java:
+    newFile: !uuid '27866f6ca41f1b5b6ab7be18d0750b62cd236c6f'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/log:
+    newFile: !uuid 'ee6144f3eb34d1a31df0f1ba06c40550f7cc9cc8'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/log/J2CacheMessageLogger.java:
+    newFile: !uuid 'e9118143ff45c2a863c7d22b31a3a549c8291882'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/log/J2CacheMessageLogger_$logger.java:
+    newFile: !uuid 'ab8fba2f7e5cb5d2cc1fd80aab3ec138a2a71d72'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/nonstop:
+    newFile: !uuid 'd3eb64197f8e09ee3e12cbc51d3ecee846cdd5a2'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/nonstop/HibernateNonstopCacheExceptionHandler.java:
+    newFile: !uuid '49351eedc783147e5a8a5308c6981a362682f50f'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/nonstop/NonStopCacheException.java:
+    newFile: !uuid 'cbe61691eee6b0fe03bd964025cf4f82e7bb772a'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/nonstop/NonstopAwareCollectionRegionAccessStrategy.java:
+    newFile: !uuid '6073aceffa9ee586830bbe8de59ea54c5c5e2298'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/nonstop/NonstopAwareEntityRegionAccessStrategy.java:
+    newFile: !uuid '3368b5308e41724b517cab50245b72d4f8a2c77a'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/nonstop/NonstopAwareNaturalIdRegionAccessStrategy.java:
+    newFile: !uuid '3eeca170a2ae7fbe5bb30befba6a68b77045027c'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions:
+    newFile: !uuid '2267455c98034851de80f4f32c16ff4951ff686d'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheCollectionRegion.java:
+    newFile: !uuid 'aa1ee83f8d99ed0f5d111586704fa8bbd5cc42f7'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheDataRegion.java:
+    newFile: !uuid '88688dd1495841c394d36fda8d48f25712a9b9ff'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheEntityRegion.java:
+    newFile: !uuid 'd29110844e156ff0454007933e0f7768af40148d'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheGeneralDataRegion.java:
+    newFile: !uuid '3a38278bf30e6b0373012e56a1535d4c1206e184'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheNaturalIdRegion.java:
+    newFile: !uuid '9312a07dc97f4bfdee88db15321e99f5dde72f51'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheQueryResultsRegion.java:
+    newFile: !uuid '7a820ef79de485b480be8941d26a46caf9ada9a2'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheTimestampsRegion.java:
+    newFile: !uuid '24bfd61cd02093cf1ac78d4479806f04179fb097'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheTransactionalDataRegion.java:
+    newFile: !uuid '98ee7ada2a90559023b816702c9bb241389967c6'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy:
+    newFile: !uuid '4b5b70d5f6c5f9a9e6d50239364e48d8817b9b4e'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/AbstractJ2CacheAccessStrategy.java:
+    newFile: !uuid '681f65935c6165c63db990449210b1cedea4f02c'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/AbstractReadWriteJ2CacheAccessStrategy.java:
+    newFile: !uuid '684ee8e0ac649987aee4588d1d2c3e4d0fe2981c'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/J2CacheAccessStrategyFactory.java:
+    newFile: !uuid 'd3bf286a60e3e7ff92fbd747ac933b2d1d184e25'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/J2CacheAccessStrategyFactoryImpl.java:
+    newFile: !uuid '70b23ee0a1af1d14ea37c05ac0c1f0aa380dc730'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/NonStrictReadWriteJ2CacheCollectionRegionAccessStrategy.java:
+    newFile: !uuid 'e17ed512d35c0e56816aa0423649832ff5bcfcd5'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/NonStrictReadWriteJ2CacheEntityRegionAccessStrategy.java:
+    newFile: !uuid '4b4727ab8e65715439e6be135354d182f98e1477'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/NonStrictReadWriteJ2CacheNaturalIdRegionAccessStrategy.java:
+    newFile: !uuid 'f752a9973311f40aa60df6b48b8bd4bb16c9503d'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/NonstopAccessStrategyFactory.java:
+    newFile: !uuid '09c54ab29e4d588297c87c52910018b5614569ac'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/ReadOnlyJ2CacheCollectionRegionAccessStrategy.java:
+    newFile: !uuid '767e125d5acef4318b28a21e00023655faa5f52a'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/ReadOnlyJ2CacheEntityRegionAccessStrategy.java:
+    newFile: !uuid '7c080bec685bdbead64836999afa9e04ed0df1fa'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/ReadOnlyJ2CacheNaturalIdRegionAccessStrategy.java:
+    newFile: !uuid 'a6b75dd3cda948199a89124cbe1cfa9a2e94d5ff'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/ReadWriteJ2CacheCollectionRegionAccessStrategy.java:
+    newFile: !uuid '5b39141320bf243900569f7ab5f3e784f9a68b09'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/ReadWriteJ2CacheEntityRegionAccessStrategy.java:
+    newFile: !uuid 'dc1cdc3a51be1ef6b01c6b17fa42a9dd766ee151'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/ReadWriteJ2CacheNaturalIdRegionAccessStrategy.java:
+    newFile: !uuid '6134cfe981278611407b93a13c0a5102296ad917'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/TransactionalJ2CacheCollectionRegionAccessStrategy.java:
+    newFile: !uuid '8b73b6a33602a514dbe27edd3bbd18a26b022612'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/TransactionalJ2CacheEntityRegionAccessStrategy.java:
+    newFile: !uuid 'bec2cb16457d55ce5721513ae6996438187e8aa4'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/TransactionalJ2CacheNaturalIdRegionAccessStrategy.java:
+    newFile: !uuid '9dfbe512889121ea4b3c2b52b0350a0264ba5cbb'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/util:
+    newFile: !uuid '41758654f22c50c66f2a2a00dfb15b938aaa101b'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/util/SlewClock.java:
+    newFile: !uuid '9e945ddcd8b239813570b010da298a6c6930850b'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/util/TimeProviderLoader.java:
+    newFile: !uuid 'd5ac64a16478959a48dd3c90ccb94da07cdcce1f'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/util/Timestamper.java:
+    newFile: !uuid '6cf800f74972307e7855de51bff312bdc998bed4'
+    oldFile: null
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/util/VicariousThreadLocal.java:
+    newFile: !uuid 'ed4f1722ed228f07dd286067284a6c4c58422700'
+    oldFile: null
+  /hibernate4/JavaSource:
+    newFile: null
+    oldFile: !uuid 'fb8d2f8fa13d33eb059ead22f855d4aec590c753'
+  /hibernate4/JavaSource/net:
+    newFile: null
+    oldFile: !uuid 'd610b8eb1c64705de7025f27d6cd5af112f45b9e'
+  /hibernate4/JavaSource/net/oschina:
+    newFile: null
+    oldFile: !uuid 'b66dd904a1fbf42f1451b92116746811e856ced7'
+  /hibernate4/JavaSource/net/oschina/j2cache:
+    newFile: null
+    oldFile: !uuid 'c60d6964b00baa69d379e2f0ffbb6d76cca43754'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4:
+    newFile: null
+    oldFile: !uuid '47ea4d2f9e443a70b684491268b560ee5aa7f670'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/AbstractJ2CacheRegionFactory.java:
+    newFile: null
+    oldFile: !uuid '151d6feea6e69628167d2ca5a639eea5cc19fab6'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/CacheRegion.java:
+    newFile: null
+    oldFile: !uuid '5d5d999e72ac5d04afc1fb7cb5c1a881e9391cb3'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/J2CacheCacheRegion.java:
+    newFile: null
+    oldFile: !uuid '459f52fb8dec81578074281f47368ea7afb49a5f'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/J2CacheRegionFactory.java:
+    newFile: null
+    oldFile: !uuid '27866f6ca41f1b5b6ab7be18d0750b62cd236c6f'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/log:
+    newFile: null
+    oldFile: !uuid 'ee6144f3eb34d1a31df0f1ba06c40550f7cc9cc8'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/log/J2CacheMessageLogger.java:
+    newFile: null
+    oldFile: !uuid 'e9118143ff45c2a863c7d22b31a3a549c8291882'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/log/J2CacheMessageLogger_$logger.java:
+    newFile: null
+    oldFile: !uuid 'ab8fba2f7e5cb5d2cc1fd80aab3ec138a2a71d72'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/nonstop:
+    newFile: null
+    oldFile: !uuid 'd3eb64197f8e09ee3e12cbc51d3ecee846cdd5a2'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/nonstop/HibernateNonstopCacheExceptionHandler.java:
+    newFile: null
+    oldFile: !uuid '49351eedc783147e5a8a5308c6981a362682f50f'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/nonstop/NonStopCacheException.java:
+    newFile: null
+    oldFile: !uuid 'cbe61691eee6b0fe03bd964025cf4f82e7bb772a'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/nonstop/NonstopAwareCollectionRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid '6073aceffa9ee586830bbe8de59ea54c5c5e2298'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/nonstop/NonstopAwareEntityRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid '3368b5308e41724b517cab50245b72d4f8a2c77a'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/nonstop/NonstopAwareNaturalIdRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid '3eeca170a2ae7fbe5bb30befba6a68b77045027c'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions:
+    newFile: null
+    oldFile: !uuid '2267455c98034851de80f4f32c16ff4951ff686d'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheCollectionRegion.java:
+    newFile: null
+    oldFile: !uuid 'aa1ee83f8d99ed0f5d111586704fa8bbd5cc42f7'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheDataRegion.java:
+    newFile: null
+    oldFile: !uuid '88688dd1495841c394d36fda8d48f25712a9b9ff'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheEntityRegion.java:
+    newFile: null
+    oldFile: !uuid 'd29110844e156ff0454007933e0f7768af40148d'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheGeneralDataRegion.java:
+    newFile: null
+    oldFile: !uuid '3a38278bf30e6b0373012e56a1535d4c1206e184'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheNaturalIdRegion.java:
+    newFile: null
+    oldFile: !uuid '9312a07dc97f4bfdee88db15321e99f5dde72f51'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheQueryResultsRegion.java:
+    newFile: null
+    oldFile: !uuid '7a820ef79de485b480be8941d26a46caf9ada9a2'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheTimestampsRegion.java:
+    newFile: null
+    oldFile: !uuid '24bfd61cd02093cf1ac78d4479806f04179fb097'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheTransactionalDataRegion.java:
+    newFile: null
+    oldFile: !uuid '98ee7ada2a90559023b816702c9bb241389967c6'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy:
+    newFile: null
+    oldFile: !uuid '4b5b70d5f6c5f9a9e6d50239364e48d8817b9b4e'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/AbstractJ2CacheAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid '681f65935c6165c63db990449210b1cedea4f02c'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/AbstractReadWriteJ2CacheAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid '684ee8e0ac649987aee4588d1d2c3e4d0fe2981c'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/J2CacheAccessStrategyFactory.java:
+    newFile: null
+    oldFile: !uuid 'd3bf286a60e3e7ff92fbd747ac933b2d1d184e25'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/J2CacheAccessStrategyFactoryImpl.java:
+    newFile: null
+    oldFile: !uuid '70b23ee0a1af1d14ea37c05ac0c1f0aa380dc730'
+  ? /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/NonStrictReadWriteJ2CacheCollectionRegionAccessStrategy.java
+  : newFile: null
+    oldFile: !uuid 'e17ed512d35c0e56816aa0423649832ff5bcfcd5'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/NonStrictReadWriteJ2CacheEntityRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid '4b4727ab8e65715439e6be135354d182f98e1477'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/NonStrictReadWriteJ2CacheNaturalIdRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid 'f752a9973311f40aa60df6b48b8bd4bb16c9503d'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/NonstopAccessStrategyFactory.java:
+    newFile: null
+    oldFile: !uuid '09c54ab29e4d588297c87c52910018b5614569ac'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/ReadOnlyJ2CacheCollectionRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid '767e125d5acef4318b28a21e00023655faa5f52a'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/ReadOnlyJ2CacheEntityRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid '7c080bec685bdbead64836999afa9e04ed0df1fa'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/ReadOnlyJ2CacheNaturalIdRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid 'a6b75dd3cda948199a89124cbe1cfa9a2e94d5ff'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/ReadWriteJ2CacheCollectionRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid '5b39141320bf243900569f7ab5f3e784f9a68b09'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/ReadWriteJ2CacheEntityRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid 'dc1cdc3a51be1ef6b01c6b17fa42a9dd766ee151'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/ReadWriteJ2CacheNaturalIdRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid '6134cfe981278611407b93a13c0a5102296ad917'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/TransactionalJ2CacheCollectionRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid '8b73b6a33602a514dbe27edd3bbd18a26b022612'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/TransactionalJ2CacheEntityRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid 'bec2cb16457d55ce5721513ae6996438187e8aa4'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/TransactionalJ2CacheNaturalIdRegionAccessStrategy.java:
+    newFile: null
+    oldFile: !uuid '9dfbe512889121ea4b3c2b52b0350a0264ba5cbb'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/util:
+    newFile: null
+    oldFile: !uuid '41758654f22c50c66f2a2a00dfb15b938aaa101b'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/util/SlewClock.java:
+    newFile: null
+    oldFile: !uuid '9e945ddcd8b239813570b010da298a6c6930850b'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/util/TimeProviderLoader.java:
+    newFile: null
+    oldFile: !uuid 'd5ac64a16478959a48dd3c90ccb94da07cdcce1f'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/util/Timestamper.java:
+    newFile: null
+    oldFile: !uuid '6cf800f74972307e7855de51bff312bdc998bed4'
+  /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/util/VicariousThreadLocal.java:
+    newFile: null
+    oldFile: !uuid 'ed4f1722ed228f07dd286067284a6c4c58422700'
+  /hibernate4/pom.xml:
+    newFile: !uuid '3e019a1b25238648fbf0479a76f857b2d07125a8'
+    oldFile: !uuid '984f7078a4292d497f68667a27c9b3ba2913c6c7'
+gitCommitId: !uuid '4768c749067a5edbcfbb6573eda5e13c4d3281e9'
+renames:
+  /core/Java/net/oschina/j2cache/Cache.java: /core/JavaSource/net/oschina/j2cache/Cache.java
+  /core/Java/net/oschina/j2cache/CacheChannel.java: /core/JavaSource/net/oschina/j2cache/CacheChannel.java
+  /core/Java/net/oschina/j2cache/CacheException.java: /core/JavaSource/net/oschina/j2cache/CacheException.java
+  /core/Java/net/oschina/j2cache/CacheExpiredListener.java: /core/JavaSource/net/oschina/j2cache/CacheExpiredListener.java
+  /core/Java/net/oschina/j2cache/CacheManager.java: /core/JavaSource/net/oschina/j2cache/CacheManager.java
+  /core/Java/net/oschina/j2cache/CacheObject.java: /core/JavaSource/net/oschina/j2cache/CacheObject.java
+  /core/Java/net/oschina/j2cache/CacheProvider.java: /core/JavaSource/net/oschina/j2cache/CacheProvider.java
+  /core/Java/net/oschina/j2cache/CacheTester.java: /core/JavaSource/net/oschina/j2cache/CacheTester.java
+  /core/Java/net/oschina/j2cache/NullCache.java: /core/JavaSource/net/oschina/j2cache/NullCache.java
+  /core/Java/net/oschina/j2cache/NullCacheProvider.java: /core/JavaSource/net/oschina/j2cache/NullCacheProvider.java
+  /core/Java/net/oschina/j2cache/ehcache/EhCache.java: /core/JavaSource/net/oschina/j2cache/ehcache/EhCache.java
+  /core/Java/net/oschina/j2cache/ehcache/EhCacheProvider.java: /core/JavaSource/net/oschina/j2cache/ehcache/EhCacheProvider.java
+  /core/Java/net/oschina/j2cache/redis/RedisCache.java: /core/JavaSource/net/oschina/j2cache/redis/RedisCache.java
+  /core/Java/net/oschina/j2cache/redis/RedisCacheProvider.java: /core/JavaSource/net/oschina/j2cache/redis/RedisCacheProvider.java
+  /core/Java/net/oschina/j2cache/util/FSTSerializer.java: /core/JavaSource/net/oschina/j2cache/util/FSTSerializer.java
+  /core/Java/net/oschina/j2cache/util/JavaSerializer.java: /core/JavaSource/net/oschina/j2cache/util/JavaSerializer.java
+  /core/Java/net/oschina/j2cache/util/KryoPoolSerializer.java: /core/JavaSource/net/oschina/j2cache/util/KryoPoolSerializer.java
+  /core/Java/net/oschina/j2cache/util/KryoSerializer.java: /core/JavaSource/net/oschina/j2cache/util/KryoSerializer.java
+  /core/Java/net/oschina/j2cache/util/SerializationUtils.java: /core/JavaSource/net/oschina/j2cache/util/SerializationUtils.java
+  /core/Java/net/oschina/j2cache/util/Serializer.java: /core/JavaSource/net/oschina/j2cache/util/Serializer.java
+  /hibernate3/Java/net/oschina/j2cache/hibernate3/J2CacheProvider.java: /hibernate3/JavaSource/net/oschina/j2cache/hibernate3/J2CacheProvider.java
+  /hibernate3/Java/net/oschina/j2cache/hibernate3/J2CacheRegion.java: /hibernate3/JavaSource/net/oschina/j2cache/hibernate3/J2CacheRegion.java
+  /hibernate3/Java/net/oschina/j2cache/hibernate3/J2CacheRegionFactory.java: /hibernate3/JavaSource/net/oschina/j2cache/hibernate3/J2CacheRegionFactory.java
+  /hibernate3/Java/net/oschina/j2cache/hibernate3/J2HibernateCache.java: /hibernate3/JavaSource/net/oschina/j2cache/hibernate3/J2HibernateCache.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/AbstractJ2CacheRegionFactory.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/AbstractJ2CacheRegionFactory.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/CacheRegion.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/CacheRegion.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/J2CacheCacheRegion.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/J2CacheCacheRegion.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/J2CacheRegionFactory.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/J2CacheRegionFactory.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/log/J2CacheMessageLogger.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/log/J2CacheMessageLogger.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/log/J2CacheMessageLogger_$logger.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/log/J2CacheMessageLogger_$logger.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/nonstop/HibernateNonstopCacheExceptionHandler.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/nonstop/HibernateNonstopCacheExceptionHandler.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/nonstop/NonStopCacheException.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/nonstop/NonStopCacheException.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/nonstop/NonstopAwareCollectionRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/nonstop/NonstopAwareCollectionRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/nonstop/NonstopAwareEntityRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/nonstop/NonstopAwareEntityRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/nonstop/NonstopAwareNaturalIdRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/nonstop/NonstopAwareNaturalIdRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheCollectionRegion.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheCollectionRegion.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheDataRegion.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheDataRegion.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheEntityRegion.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheEntityRegion.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheGeneralDataRegion.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheGeneralDataRegion.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheNaturalIdRegion.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheNaturalIdRegion.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheQueryResultsRegion.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheQueryResultsRegion.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheTimestampsRegion.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheTimestampsRegion.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/regions/J2CacheTransactionalDataRegion.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/regions/J2CacheTransactionalDataRegion.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/AbstractJ2CacheAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/AbstractJ2CacheAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/AbstractReadWriteJ2CacheAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/AbstractReadWriteJ2CacheAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/J2CacheAccessStrategyFactory.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/J2CacheAccessStrategyFactory.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/J2CacheAccessStrategyFactoryImpl.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/J2CacheAccessStrategyFactoryImpl.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/NonStrictReadWriteJ2CacheCollectionRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/NonStrictReadWriteJ2CacheCollectionRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/NonStrictReadWriteJ2CacheEntityRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/NonStrictReadWriteJ2CacheEntityRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/NonStrictReadWriteJ2CacheNaturalIdRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/NonStrictReadWriteJ2CacheNaturalIdRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/NonstopAccessStrategyFactory.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/NonstopAccessStrategyFactory.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/ReadOnlyJ2CacheCollectionRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/ReadOnlyJ2CacheCollectionRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/ReadOnlyJ2CacheEntityRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/ReadOnlyJ2CacheEntityRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/ReadOnlyJ2CacheNaturalIdRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/ReadOnlyJ2CacheNaturalIdRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/ReadWriteJ2CacheCollectionRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/ReadWriteJ2CacheCollectionRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/ReadWriteJ2CacheEntityRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/ReadWriteJ2CacheEntityRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/ReadWriteJ2CacheNaturalIdRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/ReadWriteJ2CacheNaturalIdRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/TransactionalJ2CacheCollectionRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/TransactionalJ2CacheCollectionRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/TransactionalJ2CacheEntityRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/TransactionalJ2CacheEntityRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/strategy/TransactionalJ2CacheNaturalIdRegionAccessStrategy.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/strategy/TransactionalJ2CacheNaturalIdRegionAccessStrategy.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/util/SlewClock.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/util/SlewClock.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/util/TimeProviderLoader.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/util/TimeProviderLoader.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/util/Timestamper.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/util/Timestamper.java
+  /hibernate4/Java/net/oschina/j2cache/hibernate4/util/VicariousThreadLocal.java: /hibernate4/JavaSource/net/oschina/j2cache/hibernate4/util/VicariousThreadLocal.java
+revisionId: 74
