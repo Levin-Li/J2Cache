@@ -3,27 +3,24 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '49e262af8b4412532c1d8cd6e0abe7d6a8bd26b5'
-    oldFile: !uuid '8aae6c95911e8652a263952d665a0b2c8cef0317'
-  /core/Java:
-    newFile: !uuid '7e963212cce38afde9ca12b2c924b566f5d0d35e'
-    oldFile: !uuid '4135f5e2b0314e33e8e13b63dfbae43af3398e27'
-  /core/Java/net:
-    newFile: !uuid '656d2119750df6f91ed73c2f29c771bd18e2b40d'
-    oldFile: !uuid '2367080c67f893f4eceb414286d58bc50a5073ae'
-  /core/Java/net/oschina:
-    newFile: !uuid '75973a8754d3f86a1c3315c088c0d006405d0afb'
-    oldFile: !uuid 'd86d3ee4427999d9cb9d6856f1e9e78b1b52e7eb'
-  /core/Java/net/oschina/j2cache:
-    newFile: !uuid 'e49cc2765792c5fc9936662478741e129f64d978'
-    oldFile: !uuid 'bd3c3911e705ee5f93e835b042d4de74a66a0e52'
-  /core/Java/net/oschina/j2cache/redis:
-    newFile: !uuid 'd11dc734b2b73c3d9a74ac9d7721dcdab4a77837'
-    oldFile: !uuid '757f0bf59a2491ec2ae365096bdecaf2c1e39bae'
-  /core/Java/net/oschina/j2cache/redis/RedisCache.java:
-    newFile: !uuid '01a563b57748ede21a35c43cbdd3ae4d3d0c56d1'
-    oldFile: !uuid 'ac16dccd38a622278b1a506bc285cb8e37ed162c'
-gitCommitId: !uuid '65c627865569f861d29b978f19e00c0013980747'
+    newFile: !uuid '5d4c812d92b45e013e62f00b6f4d6a7a7cfc2868'
+    oldFile: !uuid '49e262af8b4412532c1d8cd6e0abe7d6a8bd26b5'
+  /core/pom.xml:
+    newFile: !uuid 'e91f2ae5b4688384ca1941b2cfed40e609bb3361'
+    oldFile: !uuid '332884366e2e135ec9eec08e1f070ed24b8e5d8e'
+  /hibernate3:
+    newFile: !uuid '8820d0eb1a1359fda7b6d1313305e14c21537a3c'
+    oldFile: !uuid '57b94b5b1fadf97c9f7d0cab61c58e0ccbf9a6b6'
+  /hibernate3/pom.xml:
+    newFile: !uuid '44ca19e5da6ef54c2a41e02f662c1612c6011fdb'
+    oldFile: !uuid '5c04a259e379626b118f6e1ffb3b731f754ce5c8'
+  /hibernate4:
+    newFile: !uuid 'e1f94735366d9e9aeb15323c705506c47380e540'
+    oldFile: !uuid 'd6508a38ffda3dfc49e8fcbe6dee1dd1b5abade8'
+  /hibernate4/pom.xml:
+    newFile: !uuid '7809b064724c3a4e9c673cb1d20740a5fd7d6cf5'
+    oldFile: !uuid '3e019a1b25238648fbf0479a76f857b2d07125a8'
+gitCommitId: !uuid 'f81713d7a752d9812b993d491879ff7e2acd3228'
 renames: {
   }
-revisionId: 77
+revisionId: 78
