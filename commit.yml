@@ -3,27 +3,24 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '83c2a15f9b7141f151a5874c0e81ff5ca76c6fd6'
-    oldFile: !uuid '5d4c812d92b45e013e62f00b6f4d6a7a7cfc2868'
-  /core/Java:
-    newFile: !uuid '38f30002f293eaa0dd69fdc5d6b813de65ba23d7'
-    oldFile: !uuid '7e963212cce38afde9ca12b2c924b566f5d0d35e'
-  /core/Java/net:
-    newFile: !uuid 'e8b032279c1bf892e6d6833de12e6e3ee6dcd468'
-    oldFile: !uuid '656d2119750df6f91ed73c2f29c771bd18e2b40d'
-  /core/Java/net/oschina:
-    newFile: !uuid '14a199bc212e3f669cd0b918b877729bc20c62bb'
-    oldFile: !uuid '75973a8754d3f86a1c3315c088c0d006405d0afb'
-  /core/Java/net/oschina/j2cache:
-    newFile: !uuid '21b4e33625975e761c73601e1ede3ea7e666e588'
-    oldFile: !uuid 'e49cc2765792c5fc9936662478741e129f64d978'
-  /core/Java/net/oschina/j2cache/CacheRedisChannel.java:
-    newFile: !uuid 'cee09c6a6dd8e7cdf44882553085f8a40dbbf018'
-    oldFile: null
-  /core/Java/net/oschina/j2cache/CacheRedisTester.java:
-    newFile: !uuid 'ef3f90d5aece585ea87fd2f7c2c4e90f97dd01ed'
-    oldFile: null
-gitCommitId: !uuid '83b5a86a432ad8104ce40d36f1891eef43ce8e87'
+    newFile: !uuid '5a94a6369b791dd360694e820fe02180fe8429aa'
+    oldFile: !uuid '83c2a15f9b7141f151a5874c0e81ff5ca76c6fd6'
+  /core/pom.xml:
+    newFile: !uuid 'a674fd32d6af9f640a397ad3460a1ba9048aee47'
+    oldFile: !uuid 'e91f2ae5b4688384ca1941b2cfed40e609bb3361'
+  /hibernate3:
+    newFile: !uuid 'dc1b7d0cb0526e17200443aabb3f4a3b1330183f'
+    oldFile: !uuid '8820d0eb1a1359fda7b6d1313305e14c21537a3c'
+  /hibernate3/pom.xml:
+    newFile: !uuid 'e368e683d6e964c957dff0c5cf5dee43e63c5295'
+    oldFile: !uuid '44ca19e5da6ef54c2a41e02f662c1612c6011fdb'
+  /hibernate4:
+    newFile: !uuid 'bad455a0dc18a2bac908a1df61e73ab15f22cbd0'
+    oldFile: !uuid 'e1f94735366d9e9aeb15323c705506c47380e540'
+  /hibernate4/pom.xml:
+    newFile: !uuid '5e60a9a623ba9a8274903ac08352b744afab6a42'
+    oldFile: !uuid '7809b064724c3a4e9c673cb1d20740a5fd7d6cf5'
+gitCommitId: !uuid '71891bbbb0ef45b9e3046ad040b1cf0bd10013a5'
 renames: {
   }
-revisionId: 79
+revisionId: 80
