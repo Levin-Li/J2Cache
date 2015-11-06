@@ -3,24 +3,27 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid 'cdeecc9f06b46413555650d097b7f35987b35631'
-    oldFile: !uuid '52347bb92e88e12fb5e30dcf59dafc6b977b259c'
+    newFile: !uuid 'd6ebc975092722884ae89e571e5fb9faa5264362'
+    oldFile: !uuid 'cdeecc9f06b46413555650d097b7f35987b35631'
   /core/Java:
-    newFile: !uuid 'd48a830899c5d466ad20341ef8153d9dec2f252d'
-    oldFile: !uuid 'e5d8100e2afeca89e6fa65e20e9c8eeff61f3c13'
+    newFile: !uuid 'a5e5aab7cf9700af73c9db977b6caa6fadb128dc'
+    oldFile: !uuid 'd48a830899c5d466ad20341ef8153d9dec2f252d'
   /core/Java/net:
-    newFile: !uuid 'fbc843ba1c405ac8501e5b23c5980554a4b3af3e'
-    oldFile: !uuid 'e4eabdf5e0d489f86918db4fda445b55034c04a9'
+    newFile: !uuid '1cc775e4603cbb4ffe980c19d51e5864b8abafd0'
+    oldFile: !uuid 'fbc843ba1c405ac8501e5b23c5980554a4b3af3e'
   /core/Java/net/oschina:
-    newFile: !uuid 'aef3551f4e78070b6b002cd3635c0f657155aa77'
-    oldFile: !uuid 'b6b36858eab6207e656d162aaa155e7e399287db'
+    newFile: !uuid 'af72791eacb878674b8548f9b8db380453aa08f7'
+    oldFile: !uuid 'aef3551f4e78070b6b002cd3635c0f657155aa77'
   /core/Java/net/oschina/j2cache:
-    newFile: !uuid '17968f764aa7f0b011b88d815860343e3de332ca'
-    oldFile: !uuid 'e6ebf3a99671893763974de399137342a67a2b2a'
+    newFile: !uuid '512cf278a9b789ca4b921e77f636f04ca8ea4e48'
+    oldFile: !uuid '17968f764aa7f0b011b88d815860343e3de332ca'
+  /core/Java/net/oschina/j2cache/Command.java:
+    newFile: !uuid 'd4b7450a5b5252281e4c9f86d35044f8d927a6ef'
+    oldFile: !uuid '18645e773bcc4ab2b9bbdf8997b649550dce3397'
   /core/Java/net/oschina/j2cache/RedisCacheChannel.java:
-    newFile: !uuid '87e14733a378ca9e6041926e799dfd3da4240730'
-    oldFile: !uuid '40ec068f4f5d3c82bd3d2ba273ba7a8437145685'
-gitCommitId: !uuid '148b78fda15f1a1f45588ddf0a4a5ded8c2ec660'
+    newFile: !uuid '0b282d642d9e6af5f5329487ba7020e1fc1809f1'
+    oldFile: !uuid '87e14733a378ca9e6041926e799dfd3da4240730'
+gitCommitId: !uuid 'fb292dd211286b8171b5bfac4ea2bf7e8c6a816b'
 renames: {
   }
-revisionId: 93
+revisionId: 94
