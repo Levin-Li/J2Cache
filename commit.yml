@@ -2,19 +2,13 @@
 branches: {
   }
 fileChange:
-  /.classpath:
-    newFile: !uuid '1e96bd8ad496b03c73d3cd2d3d9f2fa14a252cdd'
-    oldFile: !uuid 'd2387baab0139d47611b1c88b0ba8645e8e85054'
   /lib:
-    newFile: !uuid '8c1bc39f2a5cf1527317b8d1cdcf97a07e81c434'
-    oldFile: !uuid 'e81a19c8ae9a14091094ecf6abbcf51238edf6dc'
-  /lib/fst-1.58.jar:
-    newFile: null
-    oldFile: !uuid '6a17cbe220c51b14785096c0281b8f9146a75223'
-  /lib/fst-2.42.jar:
-    newFile: !uuid '87fbcb21ce1cf4194af14642d37133befb3506f8'
+    newFile: !uuid '3b6cf7eac4134d276b3831d429d04520717f69a7'
+    oldFile: !uuid '8c1bc39f2a5cf1527317b8d1cdcf97a07e81c434'
+  /lib/jackson-core-2.5.3.jar:
+    newFile: !uuid 'f3ae1ae5aa7a0e2af2b5c7bed453c69c6c2e27d5'
     oldFile: null
-gitCommitId: !uuid '99e8464d20f33ed4d34da05b530bcaecc64a10d5'
+gitCommitId: !uuid '36959429ff263887123d4b3db0736adb713d8604'
 renames: {
   }
-revisionId: 99
+revisionId: 100
