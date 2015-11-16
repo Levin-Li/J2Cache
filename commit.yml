@@ -3,33 +3,36 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '36ba0b159a1d16a4711919e04e009f5c60c2215b'
-    oldFile: !uuid 'edab04983993249f2b8af7930d0dd8f873439ac9'
+    newFile: !uuid '1862bad7c42b074d34b0c6024bf6206836c7725d'
+    oldFile: !uuid '36ba0b159a1d16a4711919e04e009f5c60c2215b'
   /core/Java:
-    newFile: !uuid 'cf4e767c343117a0f63de10691442ea8e4517a4c'
-    oldFile: !uuid '200719fe5ad9f26a74a53c46c6cb80192015c2c7'
+    newFile: !uuid '2c99b52f96dd4a7088da829c00549d3610b7203a'
+    oldFile: !uuid 'cf4e767c343117a0f63de10691442ea8e4517a4c'
   /core/Java/net:
-    newFile: !uuid '3aedbca3ae079ef6da5a455e6a94e17f2d5111ee'
-    oldFile: !uuid '49c0a95238c0d64b655741fbaed23ca2586a5f7a'
+    newFile: !uuid 'cb4e330367e7a6e96cc50b534e61d7c4f1ddf382'
+    oldFile: !uuid '3aedbca3ae079ef6da5a455e6a94e17f2d5111ee'
   /core/Java/net/oschina:
-    newFile: !uuid 'a3078d671de6f280d4df2ec96d6b80cdb2140df2'
-    oldFile: !uuid '7de0d910f9559022586381186a8e353f18b49357'
+    newFile: !uuid '2130109dc3da58d41a6cdcfe877b1c3102f46ecd'
+    oldFile: !uuid 'a3078d671de6f280d4df2ec96d6b80cdb2140df2'
   /core/Java/net/oschina/j2cache:
-    newFile: !uuid 'd6da44f11b7e3d18201a5946815e1a149315ffc2'
-    oldFile: !uuid 'd51f19db2214ceb297eb2ba27d241b7748895168'
-  /core/Java/net/oschina/j2cache/redis:
-    newFile: !uuid '35e301ce8ce3f0c478cde455e97a8e45a3e01aa9'
-    oldFile: !uuid 'd11dc734b2b73c3d9a74ac9d7721dcdab4a77837'
-  /core/Java/net/oschina/j2cache/redis/RedisCacheProvider.java:
-    newFile: !uuid 'e3cebb35f6965b45dd0a500865d849a16288c3fa'
-    oldFile: !uuid '581a77914824354661ee2a5a7795aa1d38484262'
+    newFile: !uuid '51e0e6331827731680ab92768bb89dbc6a070685'
+    oldFile: !uuid 'd6da44f11b7e3d18201a5946815e1a149315ffc2'
+  /core/Java/net/oschina/j2cache/ehcache:
+    newFile: !uuid 'af624cbcd71f096e6bcdac0791f3045478905d21'
+    oldFile: !uuid 'ce29540d9e0878de34541bf19f7a2d40ea25888b'
+  /core/Java/net/oschina/j2cache/ehcache/EhCacheProvider.java:
+    newFile: !uuid '52a6b78494da653d2822fbdf35a4b85dc0926c1e'
+    oldFile: !uuid '0d206abd41e897419cb6df9645e05d78d645ba58'
+  /core/pom.xml:
+    newFile: !uuid 'e788d79ded6826ad8c595ee2bfd4f7212e0cf6b8'
+    oldFile: !uuid '565ff744e358ecf6b72305e7e86cac5154f5635a'
   /core/resources:
-    newFile: !uuid '46b24a00b771da283a69a88fc0bd4661dfbda144'
-    oldFile: !uuid '1853c7ad9e1b53e8f3bd0b736de2d366cf29f75b'
+    newFile: !uuid '38e0e1a958dcc72552a1a577cdd2ed29fa1dc2d1'
+    oldFile: !uuid '46b24a00b771da283a69a88fc0bd4661dfbda144'
   /core/resources/j2cache.properties:
-    newFile: !uuid '757ce1d1d0f0623109726f9695ebc39c419c4e77'
-    oldFile: !uuid 'bd4b553ef4b78368b45317b977c42e4963ee4b29'
-gitCommitId: !uuid '51628b4fbdaea4dd71434b12fc26f0558121f488'
+    newFile: !uuid '36198dd9dd9e282e673e0d96f211219264d67ba7'
+    oldFile: !uuid '757ce1d1d0f0623109726f9695ebc39c419c4e77'
+gitCommitId: !uuid '05dcd818b8fb6eb8fda0f223d7800760d254ae54'
 renames: {
   }
-revisionId: 96
+revisionId: 97
