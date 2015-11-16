@@ -2,31 +2,19 @@
 branches: {
   }
 fileChange:
-  /core:
-    newFile: !uuid 'dc6f70f19644aadfba51fc2f7dfa58faf9c73188'
-    oldFile: !uuid '1862bad7c42b074d34b0c6024bf6206836c7725d'
-  /core/Java:
-    newFile: !uuid '5638cf917bd779630d5572b371efd6970b33bd2a'
-    oldFile: !uuid '2c99b52f96dd4a7088da829c00549d3610b7203a'
-  /core/Java/net:
-    newFile: !uuid '3bd553b77022d47b3b38d8adad360740adec2e42'
-    oldFile: !uuid 'cb4e330367e7a6e96cc50b534e61d7c4f1ddf382'
-  /core/Java/net/oschina:
-    newFile: !uuid 'eacb2f880bf630cc262e12611c018f1941277459'
-    oldFile: !uuid '2130109dc3da58d41a6cdcfe877b1c3102f46ecd'
-  /core/Java/net/oschina/j2cache:
-    newFile: !uuid '8988b817d2f7c107d000a12a29c46b80610eba49'
-    oldFile: !uuid '51e0e6331827731680ab92768bb89dbc6a070685'
-  /core/Java/net/oschina/j2cache/util:
-    newFile: !uuid 'da252d01ea628004cd21dfbd81f441ed338520b4'
-    oldFile: !uuid '398d7a1005d480866ac18e81d2d5a66f41e6f89f'
-  /core/Java/net/oschina/j2cache/util/FSTSerializer.java:
-    newFile: !uuid '568322df2e0e73812aa4ba3a05fc971ecfb8fefc'
-    oldFile: !uuid '5d5a508e9badf68fa934b51903f78ce3b18e0189'
-  /pom.xml:
-    newFile: !uuid 'a47e8ffe1673e3fc0a134fc447996d978ab9a8b8'
-    oldFile: !uuid '3a50b1f9f19f0f3d075c2e6a010613668aa08be2'
-gitCommitId: !uuid 'cc344fde215e551f24550da1264db8c5ceff243b'
+  /.classpath:
+    newFile: !uuid '1e96bd8ad496b03c73d3cd2d3d9f2fa14a252cdd'
+    oldFile: !uuid 'd2387baab0139d47611b1c88b0ba8645e8e85054'
+  /lib:
+    newFile: !uuid '8c1bc39f2a5cf1527317b8d1cdcf97a07e81c434'
+    oldFile: !uuid 'e81a19c8ae9a14091094ecf6abbcf51238edf6dc'
+  /lib/fst-1.58.jar:
+    newFile: null
+    oldFile: !uuid '6a17cbe220c51b14785096c0281b8f9146a75223'
+  /lib/fst-2.42.jar:
+    newFile: !uuid '87fbcb21ce1cf4194af14642d37133befb3506f8'
+    oldFile: null
+gitCommitId: !uuid '99e8464d20f33ed4d34da05b530bcaecc64a10d5'
 renames: {
   }
-revisionId: 98
+revisionId: 99
