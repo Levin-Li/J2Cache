@@ -3,42 +3,51 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid 'b6bd7adec9073a553d358b9a357396785b21ab5c'
-    oldFile: !uuid '5c9d36b822bbd2045a2f564a9b5618ea5465cb17'
+    newFile: !uuid '3ba70fec50d2d0e93701e1615c214ff71b9149a5'
+    oldFile: !uuid 'b6bd7adec9073a553d358b9a357396785b21ab5c'
   /core/Java:
-    newFile: !uuid '5dcecdb5b43aad1a56eb44846b0f55e160ea3cb7'
-    oldFile: !uuid '7196a253a0306aa852c2521017cd0a645fecab4b'
+    newFile: !uuid 'db8b05c87f755fcf0a3575b5367eae97107ba23d'
+    oldFile: !uuid '5dcecdb5b43aad1a56eb44846b0f55e160ea3cb7'
   /core/Java/net:
-    newFile: !uuid 'aa5545ff6789a6ea98093b71f91399b22a576dd1'
-    oldFile: !uuid '21cb9853090a64bf00964eaa7679c036bcb8942f'
+    newFile: !uuid 'e919861c593987ba30d9554c5691a8b0d078935e'
+    oldFile: !uuid 'aa5545ff6789a6ea98093b71f91399b22a576dd1'
   /core/Java/net/oschina:
-    newFile: !uuid 'b8705e6519d473843292e8ae1e5bbfc070745f23'
-    oldFile: !uuid '70f428a694c2e11898c05a5b60e359152ed8f1a1'
+    newFile: !uuid '03922a517c9b0f0f1c43bbf6893bcdbc92ebce31'
+    oldFile: !uuid 'b8705e6519d473843292e8ae1e5bbfc070745f23'
   /core/Java/net/oschina/j2cache:
-    newFile: !uuid '04743cbd35104342cc4ee51fe1f0d37dc3008ada'
-    oldFile: !uuid '4cec8c7d7481e1c1f62fd3841ce62c5720fb6efc'
-  /core/Java/net/oschina/j2cache/CacheException.java:
-    newFile: !uuid '30bcc91fb659076ef0678a468fae6d4411877cbc'
-    oldFile: !uuid '63db898a458145f34ba782018a057002d8b60a35'
+    newFile: !uuid '08809ac5c97ff535db7a9ebc9dfcce5ad0594478'
+    oldFile: !uuid '04743cbd35104342cc4ee51fe1f0d37dc3008ada'
   /core/Java/net/oschina/j2cache/CacheManager.java:
-    newFile: !uuid '79c22021653e4ccb521ff94072c986e96b4e4d0d'
-    oldFile: !uuid '5e0b07013523e016db7d6b6b78ee11abeee2f8c6'
+    newFile: !uuid '445fe2c936a4eaf9171a1eec42029b13d2d02cfa'
+    oldFile: !uuid '79c22021653e4ccb521ff94072c986e96b4e4d0d'
+  /core/Java/net/oschina/j2cache/ehcache:
+    newFile: !uuid 'e88993c178ee7f5fa72c66a30dfc52514e62f036'
+    oldFile: !uuid 'af624cbcd71f096e6bcdac0791f3045478905d21'
+  /core/Java/net/oschina/j2cache/ehcache/EhCacheProvider.java:
+    newFile: !uuid '88610db245de4543b355f1387764315d18d7cb42'
+    oldFile: !uuid '52a6b78494da653d2822fbdf35a4b85dc0926c1e'
   /core/Java/net/oschina/j2cache/redis:
-    newFile: !uuid '3b290d2138578cd038ec271cd108f301deeec3bc'
-    oldFile: !uuid '031427268d0e36c897e99899a9a76c522ca6178c'
+    newFile: !uuid '7b565e5bb9042f3d007bff6062a9172a47463e28'
+    oldFile: !uuid '3b290d2138578cd038ec271cd108f301deeec3bc'
   /core/Java/net/oschina/j2cache/redis/Redis2Cache.java:
-    newFile: !uuid '7c19db8fdc018efc4cee992ad8d819b52d08921f'
-    oldFile: null
+    newFile: null
+    oldFile: !uuid '7c19db8fdc018efc4cee992ad8d819b52d08921f'
   /core/Java/net/oschina/j2cache/redis/Redis2CacheProvider.java:
-    newFile: !uuid '1e137a3256f87bb041ae5aec6d1179a5534ea010'
-    oldFile: null
+    newFile: null
+    oldFile: !uuid '1e137a3256f87bb041ae5aec6d1179a5534ea010'
+  /core/Java/net/oschina/j2cache/redis/RedisCache.java:
+    newFile: !uuid 'f37dffb76d13b515f2f61f7f4838539e2828b7f6'
+    oldFile: !uuid '7001c64a8b9690a839c1a0d5642f112603455afa'
+  /core/Java/net/oschina/j2cache/redis/RedisCacheProvider.java:
+    newFile: !uuid '37c2875c750e347d0589949f66033ae537ab716c'
+    oldFile: !uuid 'a64bc9f92b43726e0680403b64f339a6cfcb1633'
   /core/resources:
-    newFile: !uuid '7796078b735defb6f44481405b708b670f58e8e4'
-    oldFile: !uuid '38e0e1a958dcc72552a1a577cdd2ed29fa1dc2d1'
+    newFile: !uuid '16028ee8601095b38a618191654cca403ecf2eea'
+    oldFile: !uuid '7796078b735defb6f44481405b708b670f58e8e4'
   /core/resources/j2cache.properties:
-    newFile: !uuid 'f914196f913a737e45a81ad2ab4ba7ed1b703e22'
-    oldFile: !uuid '36198dd9dd9e282e673e0d96f211219264d67ba7'
-gitCommitId: !uuid '5fa33b55657152388e97124142cc33313152450a'
+    newFile: !uuid 'd96587f5518d36d429d10391d15278afc06098c7'
+    oldFile: !uuid 'f914196f913a737e45a81ad2ab4ba7ed1b703e22'
+gitCommitId: !uuid 'ee7ed2179be0315706aed0570af86c1e6e9bee90'
 renames: {
   }
-revisionId: 103
+revisionId: 104
