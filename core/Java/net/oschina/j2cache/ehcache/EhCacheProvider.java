@@ -15,6 +15,7 @@
  */
 package net.oschina.j2cache.ehcache;
 
+import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -36,8 +37,8 @@ import net.sf.ehcache.CacheManager;
 public class EhCacheProvider implements CacheProvider {
 
 	private final static Logger log = LoggerFactory.getLogger(EhCacheProvider.class);
-	public static String KEY_EHCACHE_NAME = "ehcache.name";
-	public static String KEY_EHCACHE_CONFIG_XML = "ehcache.configXml";
+	public static String KEY_EHCACHE_NAME = "name";
+	public static String KEY_EHCACHE_CONFIG_XML = "configXml";
 
 	private CacheManager manager;
 	private ConcurrentHashMap<String, EhCache> _CacheManager ;
@@ -105,7 +106,13 @@ public class EhCacheProvider implements CacheProvider {
 		if (manager == null) {
 			// 指定了配置文件路径? 加载之
 			if (props.containsKey(KEY_EHCACHE_CONFIG_XML)) {
-				manager = new CacheManager(props.getProperty(KEY_EHCACHE_CONFIG_XML));
+                String configFileName = props.getProperty(KEY_EHCACHE_CONFIG_XML);
+                log.info("Load EhCache Config File from classpath: [{}].", configFileName);
+                InputStream configStream = EhCacheProvider.class.getClassLoader()
+                        .getResourceAsStream(configFileName);
+                if (configStream == null)
+                    throw new CacheException("Cannot find " + configFileName + " in classpath!!!");
+                manager = new CacheManager(configStream);
 			} else {
 				// 加载默认实例
 				manager = CacheManager.getInstance();
