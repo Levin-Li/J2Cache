@@ -4,7 +4,7 @@
     
     <groupId>net.oschina.j2cache</groupId>
     <artifactId>j2cache</artifactId>
-    <version>1.4.1</version>
+    <version>1.4.2</version>
     <packaging>pom</packaging>
 
     <name>j2cache</name>
