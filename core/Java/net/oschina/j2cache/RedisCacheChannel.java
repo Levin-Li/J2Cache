@@ -69,6 +69,8 @@ public class RedisCacheChannel extends BinaryJedisPubSub implements CacheExpired
      * @return cache object
      */
     public CacheObject get(String region, Object key) {
+        // 设置过期时间,如果单独设置到 region 会出现,后面不同的key会覆盖,前面不同的key的过期时间
+        region = region + key;
         CacheObject obj = new CacheObject();
         obj.setRegion(region);
         obj.setKey(key);
@@ -95,6 +97,8 @@ public class RedisCacheChannel extends BinaryJedisPubSub implements CacheExpired
      */
     public void set(String region, Object key, Object value) {
         if (region != null && key != null) {
+            // 设置过期时间,如果单独设置到 region 会出现,后面不同的key会覆盖,前面不同的key的过期时间
+            region = region + key;
             if (value == null)
                 evict(region, key);
             else {
@@ -144,6 +148,8 @@ public class RedisCacheChannel extends BinaryJedisPubSub implements CacheExpired
      * @param key    : Cache key
      */
     public void evict(String region, Object key) {
+        // 设置过期时间,如果单独设置到 region 会出现,后面不同的key会覆盖,前面不同的key的过期时间
+        region = region + key;
         CacheManager.evict(LEVEL_1, region, key); // 删除一级缓存
         CacheManager.evict(LEVEL_2, region, key); // 删除二级缓存
         _sendEvictCmd(region, key); // 发送广播
