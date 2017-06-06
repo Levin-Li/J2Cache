@@ -116,6 +116,8 @@ public class RedisCacheChannel extends BinaryJedisPubSub implements CacheExpired
     
     public void set(String region, Object key, Object value, Integer expireInSec) {
         if (region != null && key != null) {
+            // 设置过期时间,如果单独设置到 region 会出现,后面不同的key会覆盖,前面不同的key的过期时间
+            region = region + key;
             if (value == null)
                 evict(region, key);
             else {
