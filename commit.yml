@@ -2,28 +2,40 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid '17ea0340b64ec1312ddb13eddbd4ddb5721fd655'
-    oldFile: !uuid '915d5cd6c6d4da70cf6f0e3b1baa5823067085b1'
   /core:
-    newFile: !uuid '4e1d1303cb4d986044235f01bc3741372d3e83ff'
-    oldFile: !uuid 'ef5d5ebeff17a64336d649ca8636b160503ddf17'
+    newFile: !uuid '2bfd223b9505605271314cd28e5ad5c66c6e2f68'
+    oldFile: !uuid '4e1d1303cb4d986044235f01bc3741372d3e83ff'
   /core/Java:
-    newFile: !uuid 'c200df4a155d19a8bf5534c2327f81dcf6aa8e8d'
-    oldFile: !uuid 'a02986402e718f5371047b8cc91489a1399657ca'
+    newFile: !uuid '595db96c0a09bb63ff4c6f6a94289b316258ba14'
+    oldFile: !uuid 'c200df4a155d19a8bf5534c2327f81dcf6aa8e8d'
   /core/Java/net:
-    newFile: !uuid '7804ebebe18ef545257ccfc41fb64f77cb1cd34e'
-    oldFile: !uuid '92d16c2f4c5548bd4ab5fb299f49a77d3a338cff'
+    newFile: !uuid '08e8f9fa6c5787ee5a2d8cfb1c9426abac893e5b'
+    oldFile: !uuid '7804ebebe18ef545257ccfc41fb64f77cb1cd34e'
   /core/Java/net/oschina:
-    newFile: !uuid '3e1811580985afab437839c65766e36cd46b2561'
-    oldFile: !uuid '8cb1f94cbcf1274c01227c1fea5f3b93dc7ea51f'
+    newFile: !uuid '6d8d76c84957dfd7b958e471988479a9ee1480df'
+    oldFile: !uuid '3e1811580985afab437839c65766e36cd46b2561'
   /core/Java/net/oschina/j2cache:
-    newFile: !uuid '844ad5a62bcf051e18a5de909dc1c8e9c8a9bdb6'
-    oldFile: !uuid '53338cec509d56feafefb5eec4d8397a1dd984e3'
-  /core/Java/net/oschina/j2cache/Cache.java:
-    newFile: !uuid 'c6ae98280c17d5074fd4e32f209bee3486c84867'
-    oldFile: !uuid '8d2870dbad9723c4fbb669dece83fdab3af69909'
-gitCommitId: !uuid 'ea4715662c11220b874c69b1570b0409a8619d0c'
+    newFile: !uuid '40de24b52980a3bcc2e69030e23045a6b057e9e2'
+    oldFile: !uuid '844ad5a62bcf051e18a5de909dc1c8e9c8a9bdb6'
+  /core/Java/net/oschina/j2cache/util:
+    newFile: !uuid 'c9a21dfd92d71c371f63bffd88dca92e44224ea2'
+    oldFile: !uuid 'da252d01ea628004cd21dfbd81f441ed338520b4'
+  /core/Java/net/oschina/j2cache/util/FstSnappySerializer.java:
+    newFile: !uuid '3a3d441f473549e4d237b96c1e7264c1c5104394'
+    oldFile: null
+  /core/Java/net/oschina/j2cache/util/SerializationUtils.java:
+    newFile: !uuid 'cffbba36978d6912db235998647d4b3eb42fc6d3'
+    oldFile: !uuid '01cd542e4bf21f243281dd48f10facf63f3f1f89'
+  /lib:
+    newFile: !uuid '637df5ac308a0cae74b7070048934a98600c8d32'
+    oldFile: !uuid '3dae80431c86ae81bd2e079a1f414c5f5dd24c56'
+  /lib/snappy-java-1.1.4.jar:
+    newFile: !uuid '9e2c174708e8f964e45cf9d9222700112857044e'
+    oldFile: null
+  /pom.xml:
+    newFile: !uuid '1641ab1011477810c8635b4fd109af42a5964260'
+    oldFile: !uuid '862c96957284671ab369d600c0bfe07a77646071'
+gitCommitId: !uuid 'b38efb298d4efed751e8e0f8718ffb8be5bd82e1'
 renames: {
   }
-revisionId: 128
+revisionId: 129
