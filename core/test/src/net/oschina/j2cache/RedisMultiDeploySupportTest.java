@@ -16,7 +16,7 @@ public class RedisMultiDeploySupportTest {
             put("email", "alemcity@foxmail.com");
             put("git_link", "http://git.oschina.net/git-zyw");
         }};
-
+        J2Cache.init();
         J2Cache.getChannel().set("user_cache", "user", objectMap);
 
         CacheObject object = J2Cache.getChannel().get("user_cache", "user");

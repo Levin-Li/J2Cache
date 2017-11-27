@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+net.oschina.j2cache.autoconfigure.J2CacheAutoConfigure

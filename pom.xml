@@ -4,7 +4,7 @@
     
     <groupId>net.oschina.j2cache</groupId>
     <artifactId>j2cache</artifactId>
-    <version>1.4.0</version>
+    <version>1.4.0-alpha3</version>
     <packaging>pom</packaging>
 
     <name>j2cache</name>
@@ -85,19 +85,19 @@
                 </executions>
             </plugin>
             <!-- GPG -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-gpg-plugin</artifactId>-->
+                <!--<version>1.5</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>verify</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>sign</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
             <!-- Compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -200,6 +200,7 @@
         <module>core</module>
         <module>hibernate3</module>
         <module>hibernate4</module>
+        <module>j2cache-spring-boot-starter</module>
     </modules>
 
     <developers>
