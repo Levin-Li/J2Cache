@@ -3,51 +3,9 @@ branches: {
   }
 fileChange:
   /CHANGES.md:
-    newFile: !uuid '8c80aabc5d64165976c6c537f2c1932743e9b871'
-    oldFile: !uuid 'eedc18e95c7cf786af27325f39ceea5c96811e16'
-  /README.md:
-    newFile: !uuid '7d4adce44777500e645cdebac75241327f6588f0'
-    oldFile: !uuid '17ea0340b64ec1312ddb13eddbd4ddb5721fd655'
-  /core:
-    newFile: !uuid '05c1754a8675f8c6fb499e5067b5c20b71b9a442'
-    oldFile: !uuid 'fe82f13e4b984ac72cf9b7d02f46789d948aac77'
-  /core/src:
-    newFile: !uuid 'b598ad65cd40267db802e60c3c3bb0ce963b62ec'
-    oldFile: !uuid '80c6fea1e1ba69e1748ad10b43ce7510d60db643'
-  /core/src/net:
-    newFile: !uuid '4dcc9d6fed36709aac53aef19bfd37502cae6402'
-    oldFile: !uuid 'e82e5d068f482e90511c641132c8a5acfc93245f'
-  /core/src/net/oschina:
-    newFile: !uuid 'a373b0d535a1b39e53a6776005e460293263b6c8'
-    oldFile: !uuid '26c849696c284be104ccd39c7d4fadfe6811ee05'
-  /core/src/net/oschina/j2cache:
-    newFile: !uuid '04dbe3c4761ac942e77acf092df27960d3726dc8'
-    oldFile: !uuid '68e98c24cfd1a7aabfa499f686915732d0c77851'
-  /core/src/net/oschina/j2cache/Cache.java:
-    newFile: !uuid '594a85796230985355c5d9325927e2af05ad18fe'
-    oldFile: !uuid '3450916a5776d500e161ec716519fa651207ef2a'
-  /core/src/net/oschina/j2cache/CacheChannel.java:
-    newFile: !uuid '0429a61fc834908567c2f9746dcd2a4d10c36f8e'
-    oldFile: !uuid '15c308ac56cca595b5d153ef37bfdfde57e993ea'
-  /core/src/net/oschina/j2cache/ClusterPolicy.java:
-    newFile: !uuid '5e58eb05a8e0beb39330b6d21ce522ab21fe3228'
-    oldFile: !uuid 'adb0f0355ead3221c63b36a2881acd4da58fce8d'
-  /core/src/net/oschina/j2cache/ClusterPolicyFactory.java:
-    newFile: !uuid 'ec5c95ab9af5760a12211c10ffd479a57d5682a8'
-    oldFile: !uuid 'b5985dc36fe1270f18b442ebddc1b8511fc02837'
-  /core/src/net/oschina/j2cache/redis:
-    newFile: !uuid '2f4ed895d57ad30481496bf1924de04b88ea0e33'
-    oldFile: !uuid '6a0a535e4b215f4df91d5503ee44b6b0637e782d'
-  /core/src/net/oschina/j2cache/redis/RedisClient.java:
-    newFile: !uuid '3329e2a9dc78aa262410638f7c33b3fe399a60a9'
-    oldFile: !uuid 'ce015decd02ae70dbf299150dcebc06339c64f35'
-  /pom.xml:
-    newFile: !uuid '6af7c3da4cc9748e2c1e27ee0cbb1524f156f7a5'
-    oldFile: !uuid '55132d534b805f101c05075b670d8e4f05f8fe6e'
-  /runtest.sh:
-    newFile: !uuid '3f9fc711e5b36ac1a35f7d8ede2f1afa8128a310'
-    oldFile: null
-gitCommitId: !uuid '684b33bce9e9547677f00971e5f723208d362b71'
+    newFile: !uuid '474f00f767813199fd496e76e94bc9e5336fe55d'
+    oldFile: !uuid '8c80aabc5d64165976c6c537f2c1932743e9b871'
+gitCommitId: !uuid '7bf0c72441850d33c366bf90e46297c5fad8446f'
 renames: {
   }
-revisionId: 133
+revisionId: 134
