@@ -2,10 +2,61 @@
 branches: {
   }
 fileChange:
-  /pom.xml:
-    newFile: !uuid '5e1766a1c8bc137ed3759a390139f1b1a277c62d'
-    oldFile: !uuid 'fed29c1440ff22705346186271a37039801e2173'
-gitCommitId: !uuid '969b7efb04a2efbeef6d63b831f7259a58bbd4ed'
+  /spring-boot-starter:
+    newFile: !uuid '6c2a76b120791e14ad22f7c48ec5c83d94d5d827'
+    oldFile: null
+  /spring-boot-starter/pom.xml:
+    newFile: !uuid '8656c00e6da52441fbde0748abe0234cdfc8a6d9'
+    oldFile: null
+  /spring-boot-starter/resources:
+    newFile: !uuid 'f84431b132d19cd43f5f7a2fcec8c66f53773e4c'
+    oldFile: null
+  /spring-boot-starter/resources/META-INF:
+    newFile: !uuid '64f2fdaec473ce440bcd7c73172eda6be00ce538'
+    oldFile: null
+  /spring-boot-starter/resources/META-INF/spring.factories:
+    newFile: !uuid 'de4a0a0feffbca30be17c44633e513f964551603'
+    oldFile: null
+  /spring-boot-starter/src:
+    newFile: !uuid 'ec637cbd8b02694208c2f68b0596a7425c701742'
+    oldFile: null
+  /spring-boot-starter/src/net:
+    newFile: !uuid 'f0af33d408a52ea8b1d614554fc9273ac1193e13'
+    oldFile: null
+  /spring-boot-starter/src/net/oschina:
+    newFile: !uuid '5c8f8f7bfcabae4f6c6f5848cf19aea65278e2d1'
+    oldFile: null
+  /spring-boot-starter/src/net/oschina/j2cache:
+    newFile: !uuid 'c442bf73b74c1176b1c1599d83139522b68b6084'
+    oldFile: null
+  /spring-boot-starter/src/net/oschina/j2cache/autoconfigure:
+    newFile: !uuid '8fcad2f4ccd143821fd3aa49ef727c44b3bf9d7d'
+    oldFile: null
+  /spring-boot-starter/src/net/oschina/j2cache/autoconfigure/J2CacheAutoConfigure.java:
+    newFile: !uuid '97483399205594ffe7a2aed4e814603822d03176'
+    oldFile: null
+  /spring-boot-starter/src/net/oschina/j2cache/autoconfigure/J2CacheConfig.java:
+    newFile: !uuid '76410663ec4c6123c603c7dc06388ea6269bb4f6'
+    oldFile: null
+  /spring-boot-starter/src/net/oschina/j2cache/autoconfigure/J2CacheIniter.java:
+    newFile: !uuid 'a718336fa349d69766cb1877ff910e1de27b9dea'
+    oldFile: null
+  /spring-boot-starter/src/net/oschina/j2cache/autoconfigure/J2CacheSpringCacheAutoConfigure.java:
+    newFile: !uuid 'e4fa0bbd2dc8ef70f47724e7d6175928d359aec2'
+    oldFile: null
+  /spring-boot-starter/src/net/oschina/j2cache/cache:
+    newFile: !uuid '140f9de42e9fbdefb8fa10f45643fc9a7f4810cc'
+    oldFile: null
+  /spring-boot-starter/src/net/oschina/j2cache/cache/support:
+    newFile: !uuid 'ca738b160b2c7d573e959a2ef83f8c313f084537'
+    oldFile: null
+  /spring-boot-starter/src/net/oschina/j2cache/cache/support/J2CacheCache.java:
+    newFile: !uuid 'cc26def98539c36ceedcbe7dad6a0edd5fd27692'
+    oldFile: null
+  /spring-boot-starter/src/net/oschina/j2cache/cache/support/J2CacheCacheManger.java:
+    newFile: !uuid '20f2bbb5af61e5024c9701cc86763b6436ddd8b4'
+    oldFile: null
+gitCommitId: !uuid '03b251d951e0a84130cb6144d80de6a0f6d69fad'
 renames: {
   }
-revisionId: 168
+revisionId: 169
