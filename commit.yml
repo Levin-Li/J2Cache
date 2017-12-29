@@ -2,10 +2,28 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid 'b124939de914fed070f07baaf3b3cb23aba23957'
-    oldFile: !uuid '64a8428b2f29025efe0f4a2b4fdecfebaf3241ba'
-gitCommitId: !uuid 'b13e9844ebab3700919372cd1fdfb79215a3868d'
+  /core:
+    newFile: !uuid 'af50e2501dc77683c8e0d182297c83c41aba9760'
+    oldFile: !uuid '473ec5a77799d08d8d3fffdbfd29002b255aae51'
+  /core/pom.xml:
+    newFile: !uuid '0277521bf1d7d260af2877223ac238948c3a7cc4'
+    oldFile: !uuid 'abddc25380ca064d656b0543e55c3632cc6079af'
+  /hibernate3:
+    newFile: !uuid 'fc5747da77db4ddfab3ea774b648046788a90805'
+    oldFile: !uuid 'd4dda5b3703acd80763bf24d1842dadc66c0479c'
+  /hibernate3/pom.xml:
+    newFile: !uuid 'dc33053f45e9802217d6e860c1deedebfecf7a01'
+    oldFile: !uuid '9ecf07e17ef900b3d99e1e55951a60fb4fac459a'
+  /hibernate4:
+    newFile: !uuid '8a98e584983e6a937f977064c829f6cb7f542ddb'
+    oldFile: !uuid '357b4ce8ba5dccb68ef1d657fac410c24dcd5605'
+  /hibernate4/pom.xml:
+    newFile: !uuid '2321103527afe1e6ee32b1f8c146f3795a6978a3'
+    oldFile: !uuid '36868641fc7b17ad188fecf0d57b953608151cd7'
+  /pom.xml:
+    newFile: !uuid 'fed29c1440ff22705346186271a37039801e2173'
+    oldFile: !uuid '259560090b23379fbf4bade7737b8e4acb8e1a2b'
+gitCommitId: !uuid '4befd3e2a7c23b0e27fe04ac07727d48bf7146cf'
 renames: {
   }
-revisionId: 166
+revisionId: 167
