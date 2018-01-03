@@ -3,27 +3,24 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '6755ee31b7ad0f038f77a25cb7455dc25de5db56'
-    oldFile: !uuid 'a690fb72fa7825227bc0fafaf4a414bdadae70e4'
+    newFile: !uuid '010d219447976ff32721ba534b2e249eb454ce9a'
+    oldFile: !uuid '6755ee31b7ad0f038f77a25cb7455dc25de5db56'
   /core/src:
-    newFile: !uuid 'de364ce706b34d22444f8f850242d159072c9afc'
-    oldFile: !uuid 'a8940046c870c1f74da69cdb892c1a4b509855db'
+    newFile: !uuid '5d4c5cf4cf110e8b4d26f945fd3a6bf0300ef8d6'
+    oldFile: !uuid 'de364ce706b34d22444f8f850242d159072c9afc'
   /core/src/net:
-    newFile: !uuid 'f3690592ddc7150cdfd55d48391622a13259ec9d'
-    oldFile: !uuid 'fc8a00001c231a6d0cd5053ab752e510c5dc2dc8'
+    newFile: !uuid '1fbbbc35c8abec1698bce156548ea597753767c0'
+    oldFile: !uuid 'f3690592ddc7150cdfd55d48391622a13259ec9d'
   /core/src/net/oschina:
-    newFile: !uuid 'ffb8b1cc8b2d1bc0e966810dbcd47fd9d78dda1c'
-    oldFile: !uuid '9635a82c066f441b3727e6b05615bf503aced4c7'
+    newFile: !uuid 'bd6e5deb94351f7fdd41cd5cd5824b54d3db1a80'
+    oldFile: !uuid 'ffb8b1cc8b2d1bc0e966810dbcd47fd9d78dda1c'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid '0da4a4912bf3bf027cbfcd096ad6a1977ae5ad76'
-    oldFile: !uuid '53063b9174a1ea889713f96978160b3b05f31b9c'
-  /core/src/net/oschina/j2cache/caffeine:
-    newFile: !uuid '4a836c638cef21f0ea480721bd5c104548f7e8d8'
-    oldFile: !uuid 'f3782aadd2c55cafdba43a60ce35ed66bd4340ff'
-  /core/src/net/oschina/j2cache/caffeine/CaffeineProvider.java:
-    newFile: !uuid '38710a484334b56c55cb6d8172aa87f910fa8f82'
-    oldFile: !uuid '5a3ac25be6303327a663ba02bbc376e9e6167eac'
-gitCommitId: !uuid '3c602b1742f8b4ceddd6588c828f48954107a6cc'
+    newFile: !uuid '40136199e2ba6f8797c86909a65f330c039fe9ea'
+    oldFile: !uuid '0da4a4912bf3bf027cbfcd096ad6a1977ae5ad76'
+  /core/src/net/oschina/j2cache/J2CacheCmd.java:
+    newFile: !uuid 'daafadf2652a8066950014825c43b41e02d20f96'
+    oldFile: !uuid '98733f77a6442d2cd23bdcf291eb2bfa2001ee4e'
+gitCommitId: !uuid '104262e4567c6ff8ca8f54642e58dab9dab94aeb'
 renames: {
   }
-revisionId: 177
+revisionId: 178
