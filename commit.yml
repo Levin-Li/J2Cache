@@ -2,13 +2,46 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid '0f34dafffab249c3a5f1a16becbfad923169202a'
-    oldFile: !uuid 'ce1d8e0951b7c39e2d7e45dcc74b03e14873abdf'
-  /README_EN.md:
-    newFile: !uuid '22a7741aa799c51c3de90f3c61e4fe0dbedfff36'
-    oldFile: null
-gitCommitId: !uuid 'cbda904bc3237c8b2cb2ca986030cd040d3f38be'
+  /core:
+    newFile: !uuid '5b8837d02ddc98686dfe279f0344d2418bbddc44'
+    oldFile: !uuid '010d219447976ff32721ba534b2e249eb454ce9a'
+  /core/src:
+    newFile: !uuid 'b94e3e2868fcc1e57db6f3211a195296d6432f6f'
+    oldFile: !uuid '5d4c5cf4cf110e8b4d26f945fd3a6bf0300ef8d6'
+  /core/src/net:
+    newFile: !uuid '6f6865bc8dfa74dc36b9bc2cc4800c4208eeb36a'
+    oldFile: !uuid '1fbbbc35c8abec1698bce156548ea597753767c0'
+  /core/src/net/oschina:
+    newFile: !uuid '646e4c07848cb62645200c77dec72d08d0384047'
+    oldFile: !uuid 'bd6e5deb94351f7fdd41cd5cd5824b54d3db1a80'
+  /core/src/net/oschina/j2cache:
+    newFile: !uuid '7d1665eaa460c8aa5a9903888d19edc0a43ca741'
+    oldFile: !uuid '40136199e2ba6f8797c86909a65f330c039fe9ea'
+  /core/src/net/oschina/j2cache/Cache.java:
+    newFile: !uuid '0705c7e2f2d204713c912cb0402a53fbf1fc438e'
+    oldFile: !uuid '86e4d2c40a85f871bc78a1c027605197ca04f744'
+  /core/src/net/oschina/j2cache/caffeine:
+    newFile: !uuid '7d003e7c930c4cc3691565a1e458f29e64f2d7a6'
+    oldFile: !uuid '4a836c638cef21f0ea480721bd5c104548f7e8d8'
+  /core/src/net/oschina/j2cache/caffeine/CaffeineCache.java:
+    newFile: !uuid '791a6555572e2888c335e6bfdbeffe9eb47a7fac'
+    oldFile: !uuid 'eee173d63679b37b6131ae9b7f11534edf25682c'
+  /core/src/net/oschina/j2cache/ehcache:
+    newFile: !uuid '2889adeb71d917a02bcd87387733e99db43a2bc8'
+    oldFile: !uuid 'acab9aeb6f96a5995d1412690f547969c5a16cde'
+  /core/src/net/oschina/j2cache/ehcache/EhCache.java:
+    newFile: !uuid '7c4ba18fdd910295c9943ff82f2cdf899f101567'
+    oldFile: !uuid '0e573fa64a069ca18ddb978c9603dd711fe0b0cc'
+  /core/src/net/oschina/j2cache/ehcache/EhCache3.java:
+    newFile: !uuid '04891f60f1594d2343d95f688667789486d05972'
+    oldFile: !uuid '2001e1c4c97675a92c6f3b5492c19cc2e65c5359'
+  /core/src/net/oschina/j2cache/redis:
+    newFile: !uuid 'd1309156fc673ff93137cb98a23cd48d8d7b4049'
+    oldFile: !uuid 'efe114e4822ab0011ed523c864bbe6f64852ae7b'
+  /core/src/net/oschina/j2cache/redis/RedisCache.java:
+    newFile: !uuid 'f9c801fb24be8af3b19fbfd8a737cbc88be2dfc6'
+    oldFile: !uuid 'de7798a5b6e9de046859bcb4ecf863faecfecf88'
+gitCommitId: !uuid 'b0daf54cb81b3bfd7f1b5b1fbec7be338ad719da'
 renames: {
   }
-revisionId: 179
+revisionId: 180
