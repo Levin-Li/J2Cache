@@ -3,30 +3,27 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '347760cdefdd5742d7b4b0afdb1768b02a3cf221'
-    oldFile: !uuid '0cbf4f47748c02f181a250f68844579efb8d08db'
+    newFile: !uuid '92c7619497da252fa8346e8eb144ffe865ba324b'
+    oldFile: !uuid '347760cdefdd5742d7b4b0afdb1768b02a3cf221'
   /core/src:
-    newFile: !uuid '23aba43caa93001e2c68396a4d3d9d3b5e6c25ad'
-    oldFile: !uuid 'cdfd3748cace024386c16a8a0253fe8e02d9845e'
+    newFile: !uuid 'fe439f3cd39e2f6344006155c4ee7a4a00a5b6e3'
+    oldFile: !uuid '23aba43caa93001e2c68396a4d3d9d3b5e6c25ad'
   /core/src/net:
-    newFile: !uuid 'fcdb7a7690007020c2c2a34be2956a54067df0f9'
-    oldFile: !uuid 'd6b34176ab9af28172fdda6ee9d33cdf6ad28d88'
+    newFile: !uuid 'bc1438d0c2705676ed528aad41fe352bc09d68c0'
+    oldFile: !uuid 'fcdb7a7690007020c2c2a34be2956a54067df0f9'
   /core/src/net/oschina:
-    newFile: !uuid '499c598dee465bad4ea641225a175f8fe75953a3'
-    oldFile: !uuid 'a89047bd9f76d22ea6e9f11ac2698acbc8c773a4'
+    newFile: !uuid '79db2fc1f646c3cf80bb4ce74b89e0de84cacc57'
+    oldFile: !uuid '499c598dee465bad4ea641225a175f8fe75953a3'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid 'c6b82b6dabbb6fb565817dcf5c7b25944f2c5317'
-    oldFile: !uuid 'ce4b600f43950addd59a0312cafc56d3655d8bb9'
+    newFile: !uuid '70ffa78d921ddc69b4a8e16f1c71ebd048ebb9e8'
+    oldFile: !uuid 'c6b82b6dabbb6fb565817dcf5c7b25944f2c5317'
   /core/src/net/oschina/j2cache/redis:
-    newFile: !uuid '0b062c77ebaa7c63669d417216c7e579a348fe74'
-    oldFile: !uuid 'f3012f9506a0ef80686fec5749105e1fcd3fae58'
+    newFile: !uuid 'd401420b76b18bcdce24f607b3297076ba09d2ed'
+    oldFile: !uuid '0b062c77ebaa7c63669d417216c7e579a348fe74'
   /core/src/net/oschina/j2cache/redis/RedisGenericCache.java:
-    newFile: !uuid '8c57030c6e97d10237fcb743560bc0a533bc19f2'
-    oldFile: !uuid '2b7b2bcf6582c5235a623e263e55c8b71407608e'
-  /core/src/net/oschina/j2cache/redis/RedisHashCache.java:
-    newFile: !uuid 'd52d9196d12aab5db843fe39acbf304e4bccb992'
-    oldFile: !uuid 'e3df86ac55e42d80b756e7d72204f633f1c74cef'
-gitCommitId: !uuid 'e7b1618d25a762e72fcbb24af333c81978a39b84'
+    newFile: !uuid '12344a3d90c64fce03f20a057854a08b8856576f'
+    oldFile: !uuid '8c57030c6e97d10237fcb743560bc0a533bc19f2'
+gitCommitId: !uuid 'daeb1ddb3418664e0ee8e5cc425ac974b76f1fb0'
 renames: {
   }
-revisionId: 187
+revisionId: 188
