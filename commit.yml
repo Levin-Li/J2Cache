@@ -2,37 +2,13 @@
 branches: {
   }
 fileChange:
-  /CHANGES.md:
-    newFile: !uuid '467b7ee73901564b223fe0d92d585578a1d9e314'
-    oldFile: !uuid 'edd45568040cd3a1c8999f98081b093674ba896f'
-  /README.md:
-    newFile: !uuid '14f171ddba3b5cc3329028ccf351d81160bf37a8'
-    oldFile: !uuid '750701bc871ffdc90427e243416aaefc212f5be8'
-  /README_EN.md:
-    newFile: !uuid '8ee4509427a162583914b97e0445ecd79a74618e'
-    oldFile: !uuid '78b6da557f6af2999b3426c4b30a6c268301343e'
-  /core:
-    newFile: !uuid 'b4db9e5dac2f07162b322137aeae22de8862764c'
-    oldFile: !uuid '6fbd7feffddd52138f1572d2bc424b59954e4ef3'
-  /core/pom.xml:
-    newFile: !uuid '2ea99449c779980f4f2542f40e99f92b0ac5324a'
-    oldFile: !uuid '50128f6a1223444f82044bf113e5cc0d5aa29306'
-  /hibernate3:
-    newFile: !uuid 'f7feb1feaae3064eceef47dc6d8c1b757cf757c6'
-    oldFile: !uuid '4bcaa637e55785b18b146abee66a239008b33f16'
-  /hibernate3/pom.xml:
-    newFile: !uuid '0a88c1748d8657b0922cd6b109a0c8a5fdb2dafe'
-    oldFile: !uuid '3d1eef9b3ed36a600de85281724381d73528ee37'
-  /pom.xml:
-    newFile: !uuid '8802a971c76950f1311754d5eb36af251fcdfb79'
-    oldFile: !uuid 'd539629679a7724f16f931615863513674036546'
-  /spring-boot-starter:
-    newFile: !uuid 'bdcdfb9e93a2b7b872e42af656c7759898e57f26'
-    oldFile: !uuid '6b16dc51e2416abf7801b043ef94f3efcfaec8e5'
-  /spring-boot-starter/pom.xml:
-    newFile: !uuid '4a73135c74d43aece45013bf62a3252eb04aa9b8'
-    oldFile: !uuid 'c1d98f6b4980e9959a69a95de7a1b532df7aa5d1'
-gitCommitId: !uuid '169903fb64c4baa4ebdd91f74afdb8a6a1921801'
+  /hibernate4:
+    newFile: !uuid '5a12f475ba5dbb335938209bbd559a4f2b604a76'
+    oldFile: !uuid '184b984110748b040164abf52aa23ac8f24b4f2b'
+  /hibernate4/pom.xml:
+    newFile: !uuid 'a034bbb7b78efc0e00deadd0f131d0fc371db153'
+    oldFile: !uuid 'ab547bd3b22a4e5d510610bc8a349a336c6c2823'
+gitCommitId: !uuid '605574313ca958d3c67983eec4303958825ba6e6'
 renames: {
   }
-revisionId: 209
+revisionId: 210
