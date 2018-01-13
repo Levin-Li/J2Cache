@@ -2,13 +2,28 @@
 branches: {
   }
 fileChange:
-  /hibernate4:
-    newFile: !uuid '5a12f475ba5dbb335938209bbd559a4f2b604a76'
-    oldFile: !uuid '184b984110748b040164abf52aa23ac8f24b4f2b'
-  /hibernate4/pom.xml:
-    newFile: !uuid 'a034bbb7b78efc0e00deadd0f131d0fc371db153'
-    oldFile: !uuid 'ab547bd3b22a4e5d510610bc8a349a336c6c2823'
-gitCommitId: !uuid '605574313ca958d3c67983eec4303958825ba6e6'
+  /core:
+    newFile: !uuid '4a65f33fb97c8a449eb08718d4c3e5d3a38b91f3'
+    oldFile: !uuid 'b4db9e5dac2f07162b322137aeae22de8862764c'
+  /core/src:
+    newFile: !uuid '821d5cb3be08a5d475690335791feef305635bfb'
+    oldFile: !uuid '83cebf4c253477733f167fb2e99b088d4ba59fc8'
+  /core/src/net:
+    newFile: !uuid '94182b0c2e652333c93fdc850c499d59613916bb'
+    oldFile: !uuid 'ec8e40cd7f69e5bb7a0e6644fd50ee7aa991e1e5'
+  /core/src/net/oschina:
+    newFile: !uuid 'bc35cbd5c5faf05b5e68b73e7b6dd31fb04237cc'
+    oldFile: !uuid 'ff9220e64790c4c02311b5ad2f282cc3d8fe9de8'
+  /core/src/net/oschina/j2cache:
+    newFile: !uuid 'be366e5b8fc2c1c25c26e3d0e68798e158981bad'
+    oldFile: !uuid '4646cdd976201cd06f024908f811f22fffbc9184'
+  /core/src/net/oschina/j2cache/caffeine:
+    newFile: !uuid '56397861e6bd72284e16448e497ad5c2a3708b63'
+    oldFile: !uuid 'c46063db1c26deebebca8b1d7c78566bd19dbcc7'
+  /core/src/net/oschina/j2cache/caffeine/CaffeineProvider.java:
+    newFile: !uuid '77f415742df563353189083c74f43319a4e97176'
+    oldFile: !uuid '6380d6c3e0134eb650a7648b2df95c8acbdf1a54'
+gitCommitId: !uuid '6eb2e103217aa2909faef61e962c0ed947f12e85'
 renames: {
   }
-revisionId: 210
+revisionId: 211
