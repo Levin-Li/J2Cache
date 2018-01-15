@@ -3,24 +3,30 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '45d8ce501d5bcea59bba930609b2c51ce2e3ae6a'
-    oldFile: !uuid '5584ca97c215125d22bfd86c22d90392c5651792'
+    newFile: !uuid '675be9a47c2a4f2a0ca50b8bbf4edb3e0432806b'
+    oldFile: !uuid '45d8ce501d5bcea59bba930609b2c51ce2e3ae6a'
   /core/src:
-    newFile: !uuid 'af467b0dd9a9a61adf18d31c59882d0aa48e38cb'
-    oldFile: !uuid 'c56332f519b8cff409be81d2fab9750b8283db31'
+    newFile: !uuid '6f0fa5bf490594c8afae828f8af56817c80ec6e4'
+    oldFile: !uuid 'af467b0dd9a9a61adf18d31c59882d0aa48e38cb'
   /core/src/net:
-    newFile: !uuid '43c68b8601126605345da50294a401d160ba97ca'
-    oldFile: !uuid '06a39b573f4c3189f511057a6cf6a145a4974593'
+    newFile: !uuid '0cad61b180d05ea86153afceacd4c1c0d9525529'
+    oldFile: !uuid '43c68b8601126605345da50294a401d160ba97ca'
   /core/src/net/oschina:
-    newFile: !uuid '1f3c363907fa7f27a6c4908678fd52bdfacdb453'
-    oldFile: !uuid '8517143a25c3a4773aa4ce3ffa0c4799caef38b5'
+    newFile: !uuid '4d1c599fcbf3cf35e82af1fdf23ec3d52e429e7c'
+    oldFile: !uuid '1f3c363907fa7f27a6c4908678fd52bdfacdb453'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid 'd380fa630d5f54e9b4eb29e12d37132935eee0b3'
-    oldFile: !uuid '3a52cc3943ba1192dd066cb99901e03365afa5ea'
-  /core/src/net/oschina/j2cache/Cache.java:
-    newFile: !uuid '4886faaa15bf6cdc145d62a1e634418655516780'
-    oldFile: !uuid '01b16f04153cb8e799a0504efed4146e61cc923b'
-gitCommitId: !uuid 'e4fce34e4f747d4b611e3e4935688dacf2abe640'
+    newFile: !uuid '2aac431a2bd7a86893c7ae82d3bf16fb5e0e43b1'
+    oldFile: !uuid 'd380fa630d5f54e9b4eb29e12d37132935eee0b3'
+  /core/src/net/oschina/j2cache/caffeine:
+    newFile: !uuid 'ba9f34544be46db62de8ca3b701c2f41d2938e05'
+    oldFile: !uuid '184e46358f1f5c34af75d682c279d7149a2d0ab0'
+  /core/src/net/oschina/j2cache/caffeine/CaffeineCache.java:
+    newFile: !uuid 'e63ab2d075aa42f4ea868d4777f9f4d0d76eac4a'
+    oldFile: !uuid 'ef8d5a3ee2f8a5044c5906ac814fc05bdc4ee9d2'
+  /core/src/net/oschina/j2cache/caffeine/CaffeineProvider.java:
+    newFile: !uuid '0981268d784bb7d295e97d78451a7ff55bfa8059'
+    oldFile: !uuid 'b08208f88902d01277ae50896a6f1edba1a1f62d'
+gitCommitId: !uuid '26bcc75a8ae406f8213f9958c986d06e198d142b'
 renames: {
   }
-revisionId: 219
+revisionId: 220
