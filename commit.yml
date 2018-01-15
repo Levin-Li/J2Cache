@@ -2,19 +2,13 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid '2a28c5d94a693a06965150d162aa9f07baac041f'
-    oldFile: !uuid '49d490cc1bbd1be8e24ebd4480cf0c523345f5db'
-  /UPGRADE.md:
-    newFile: null
-    oldFile: !uuid '4edf0252a03d611cc344af831f959a4041bb4d41'
   /docs:
-    newFile: !uuid '3b58615ead2a8f23f159c1a203c3f611c956cd0c'
+    newFile: !uuid '46b880561ce885a5c057bc45463226fe6d4880b7'
+    oldFile: !uuid '3b58615ead2a8f23f159c1a203c3f611c956cd0c'
+  /docs/qq.png:
+    newFile: !uuid '351c5a1bdeae17c8d3bb01b6eac7fa0a18ba6a5d'
     oldFile: null
-  /docs/UPGRADE.md:
-    newFile: !uuid '4edf0252a03d611cc344af831f959a4041bb4d41'
-    oldFile: null
-gitCommitId: !uuid 'e8e772b892522be1607a698641dafc3bf0572a32'
-renames:
-  /docs/UPGRADE.md: /UPGRADE.md
-revisionId: 216
+gitCommitId: !uuid '8f4069901a8b6f512f2240bbd4ff38f1774c16f6'
+renames: {
+  }
+revisionId: 217
