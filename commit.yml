@@ -2,25 +2,13 @@
 branches: {
   }
 fileChange:
-  /hibernate3:
-    newFile: !uuid 'b06eed744c311b420a63bae42d09bd9fa06ca589'
-    oldFile: !uuid 'd3733181b7cffec0161d2adaa76a78ab037563fa'
-  /hibernate3/pom.xml:
-    newFile: !uuid 'd7e2141fadae96070d43253356273c0229e5a325'
-    oldFile: !uuid '762bfa7b02a36fbf4464f6310eadd3ba42aa3719'
-  /hibernate4:
-    newFile: !uuid 'f8cf621e40a9571563b24186bed7fb51b1453f8c'
-    oldFile: !uuid 'b7402d8a25fd13178e6092007a5b71f79ffa94d6'
-  /hibernate4/pom.xml:
-    newFile: !uuid '21da7a93b151c98e3f2177f388f0a6fbffb9ebd4'
-    oldFile: !uuid '88843fd76c7e6133111aade7d73d2b0633091cac'
-  /spring-boot-starter:
-    newFile: !uuid '793bf161601e475debe61bb3b6b80a445cdddc48'
-    oldFile: !uuid '92df99dd911d42e5be913854173c5b6dcc53b5b6'
-  /spring-boot-starter/pom.xml:
-    newFile: !uuid 'ca1338496682f77097000011968cfe20d4599cfe'
-    oldFile: !uuid '69b96a7dade843f49bc9f2416fec66258cea4539'
-gitCommitId: !uuid 'da55e100ef869df86fda410ef6edf80555f27812'
+  /core:
+    newFile: !uuid '4f516a567774f85c82a3761daf061009f7e05824'
+    oldFile: !uuid '1071233af5b94966b9714c70c63342f5a0b73951'
+  /core/pom.xml:
+    newFile: !uuid '928fd0ccbd4b7e042314105103a799a20791d77b'
+    oldFile: !uuid 'acee9f4cb0ef71bf8000b8c434d5208ed766c8bf'
+gitCommitId: !uuid '9f3b3ee4dd60de313c75466271e3a6ccc0b3e0a2'
 renames: {
   }
-revisionId: 239
+revisionId: 240
