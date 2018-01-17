@@ -3,27 +3,24 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '665607c24e964a1a52390d13cc94c26baadb9358'
-    oldFile: !uuid 'f33baec7647d371d2ddc81447e5af784187225fd'
+    newFile: !uuid 'c4115fc62071b8a7f45bddf7c7889507ac9e19ea'
+    oldFile: !uuid '665607c24e964a1a52390d13cc94c26baadb9358'
   /core/src:
-    newFile: !uuid '94a2a959fbc5ee723e2dfef434f98145f9a8a45e'
-    oldFile: !uuid 'd536538d7bd38ecd3c91a0c0e2892dd915ebd14d'
+    newFile: !uuid '31c84613aa31fe38e175705a7f474c6d6d674fa6'
+    oldFile: !uuid '94a2a959fbc5ee723e2dfef434f98145f9a8a45e'
   /core/src/net:
-    newFile: !uuid 'ab925a97bcdfa8fd08fa21ee795b59cd44b27744'
-    oldFile: !uuid 'a67eff7db76808ec934334bf21b9a34ee33f2ce6'
+    newFile: !uuid '10a086dc130a1670db22ae905dbaa8cdf4ed2b51'
+    oldFile: !uuid 'ab925a97bcdfa8fd08fa21ee795b59cd44b27744'
   /core/src/net/oschina:
-    newFile: !uuid 'd7a65d7a2f02533dc87695359add090b2e7aea06'
-    oldFile: !uuid 'fdafc629cd9046aeeacd3039b22dd6954d4cb4c0'
+    newFile: !uuid '0247dc1728d657d1110f7d5509513279c457efb0'
+    oldFile: !uuid 'd7a65d7a2f02533dc87695359add090b2e7aea06'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid 'ba55db65590b05a3ddb02c2815fd9235aef51aa8'
-    oldFile: !uuid 'fb694a9bbab22305881759073ede21be72b94b26'
-  /core/src/net/oschina/j2cache/ehcache:
-    newFile: !uuid '7a7005349513d7948768a1378ea367e482735a43'
-    oldFile: !uuid 'a87d36c523a91a3b733b6692a5148b4df3697ba3'
-  /core/src/net/oschina/j2cache/ehcache/EhCacheProvider3.java:
-    newFile: !uuid '11794a4f72f160d8abb219961cda343d63a68e6c'
-    oldFile: !uuid 'bb4f127396e6d4dbfdb03b65618b6ad51ef72ad7'
-gitCommitId: !uuid '8278936e12eca663411c61919c0ff62d243c7fb0'
+    newFile: !uuid 'fab087ab13c881b292fee740ec57afb685e57133'
+    oldFile: !uuid 'ba55db65590b05a3ddb02c2815fd9235aef51aa8'
+  /core/src/net/oschina/j2cache/Level1Cache.java:
+    newFile: !uuid 'b5433bf064933147a6e76d5cecee0841b83b3900'
+    oldFile: !uuid 'f33f2920741f1d195037136f8c027a69231d7327'
+gitCommitId: !uuid 'd4182685f55047ff5c5978c8fadf76c918433cb0'
 renames: {
   }
-revisionId: 235
+revisionId: 236
