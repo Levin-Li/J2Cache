@@ -2,13 +2,28 @@
 branches: {
   }
 fileChange:
-  /spring-boot-starter:
-    newFile: !uuid 'b3ecc9c59dfc52e6f0c1b500fce47756adad22b9'
-    oldFile: !uuid 'f942cae4ec2e108d5aee4d56d9abe9d5b8b02fed'
-  /spring-boot-starter/readme.md:
-    newFile: !uuid 'ffa501494a8243b1383945f1935d20fe1cdb7e06'
-    oldFile: !uuid '7a5fcc82b3ca7a60a1a3e5d270a374777d9fb93e'
-gitCommitId: !uuid 'ef095d6670209bc51be826afbbad2f1f273e12fe'
+  /core:
+    newFile: !uuid '2b0c2f16d8858b533a9534fb265ed4892ace8df7'
+    oldFile: !uuid '371d5c07adf684867e0b6b660a35f0345e797b91'
+  /core/src:
+    newFile: !uuid '4e859d2eca8678840de0c1aa64458db447436d35'
+    oldFile: !uuid 'c7aeef77abacf4bc144b7d4835a5f6fb63e4585f'
+  /core/src/net:
+    newFile: !uuid '4402e64125a959a07520274999b3894aebec672f'
+    oldFile: !uuid '17754a14660482db470b33e7b5d0c1c57607bb5d'
+  /core/src/net/oschina:
+    newFile: !uuid '0c91d3426eb481dc119dea5b919eefc73edfcbd8'
+    oldFile: !uuid 'f44d7c00b09960e78469f52c78bc2ff42091b403'
+  /core/src/net/oschina/j2cache:
+    newFile: !uuid '9dc8eb097762f2b854e6d705e1559eeebd2434ba'
+    oldFile: !uuid '671b9d9771a59a56aeec5a734b4bd35f12ef3af0'
+  /core/src/net/oschina/j2cache/ehcache:
+    newFile: !uuid '6c189365f81a26e3c380e65ec0ebcf05d930336c'
+    oldFile: !uuid '8b560d3dafae96be76326f7fb8e4f54580297d91'
+  /core/src/net/oschina/j2cache/ehcache/EhCacheProvider3.java:
+    newFile: !uuid 'bb4f127396e6d4dbfdb03b65618b6ad51ef72ad7'
+    oldFile: !uuid '076da76abbaa8c9ec5a0e979b3a460e7994a2342'
+gitCommitId: !uuid 'e425f72a7ff24d647a0b106fa7d519349bf3e932'
 renames: {
   }
-revisionId: 231
+revisionId: 232
