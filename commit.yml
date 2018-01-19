@@ -2,28 +2,61 @@
 branches: {
   }
 fileChange:
-  /core:
-    newFile: !uuid 'ac82adfcb658fc5093a9bfa43c5e61afc3546846'
-    oldFile: !uuid '03c78969402557f98dd1589e5bf12207124f08ec'
-  /core/src:
-    newFile: !uuid 'ea4147633da4c8d197947854b721b74e0e252947'
-    oldFile: !uuid '3a1005df6a4d452a7913d01679832074fbd30eaf'
-  /core/src/net:
-    newFile: !uuid 'c002bef20bc3e73902b466b3ba0ceef59d9d65a5'
-    oldFile: !uuid 'fdec1cd40dc511b692c2afd16db762b89c452aaf'
-  /core/src/net/oschina:
-    newFile: !uuid 'cc14d5991d88f7f86f96820fb835918e096afd9b'
-    oldFile: !uuid 'e85811548619ef3d19f470c80fec0f0ee763d463'
-  /core/src/net/oschina/j2cache:
-    newFile: !uuid '54b33ef4a7917683686833e594c560cc28bfddda'
-    oldFile: !uuid 'bd7b105a52881e60bc3ce8de869a7316056dc541'
-  /core/src/net/oschina/j2cache/redis:
-    newFile: !uuid 'e6a35df216cbf7aba8cbcee89c7b01d2ce81cd73'
-    oldFile: !uuid '26ae213f05472b5f843dce4f4a1e1c75378ba976'
-  /core/src/net/oschina/j2cache/redis/RedisGenericCache.java:
-    newFile: !uuid '2311c858a3b3ab60a6bf7feaca1ed4c997faf185'
-    oldFile: !uuid '7da1ccf36f6e0f4839211dbfc00d662862530ae5'
-gitCommitId: !uuid '91fa28d0be9045742ec95749d6c90af13e323299'
+  /:
+    newFile: !uuid '2d729f6718ee8498652f42adde74063c537fd00c'
+    oldFile: !uuid 'c41762ef5d0fbb3fd21bfbf6283f5ad7a0b5dae1'
+  /.gitignore:
+    newFile: !uuid '9146a104c61515ee1ffade3b7c8fa0b369b96001'
+    oldFile: !uuid 'afadbedbf196b10fcd5c8d841027c7dcf84f0eeb'
+  /hibernate4:
+    newFile: !uuid '0f195f2cccb4e839d2955ad3f7c0bd0b7b04765b'
+    oldFile: !uuid '258b75486d0947ea4e5f413e0d93ae74d2fdbba0'
+  /hibernate4/pom.xml:
+    newFile: !uuid '37ef4455e87f85ab8d2b6751a7f8925f95896fe3'
+    oldFile: !uuid 'bc72a59bff593c08e8f8d0d5f4ed050dedcc6cdc'
+  /hibernate4/src:
+    newFile: !uuid '72d57553c2907d2b7cbb7390c8c0e85314b50dd3'
+    oldFile: !uuid 'de265cf7acda79421b0e5ccdfcccf857577dfb40'
+  /hibernate4/src/net:
+    newFile: !uuid 'a479714ff5515bc61db645a9ca2eb6dc5177d309'
+    oldFile: !uuid 'de6b464de324a5c4743e656c7c366b86c5e57ef3'
+  /hibernate4/src/net/oschina:
+    newFile: !uuid 'e1ae5444f8158e03427390f7898e9c7f9426890c'
+    oldFile: !uuid '0c12148f476f7a3712bb966d2de5d1783704ba21'
+  /hibernate4/src/net/oschina/j2cache:
+    newFile: !uuid 'd120bcd77c93057e54da3c6da223e65e27af2902'
+    oldFile: !uuid 'b6fc70e218af341742b87b6460e02e8e27d797f6'
+  /hibernate4/src/net/oschina/j2cache/hibernate4:
+    newFile: !uuid '91af17501a204a18e80000acc356ee573ea26a4f'
+    oldFile: !uuid '565f03e7b630083ae4d09385a1b47de142abaa98'
+  /hibernate4/src/net/oschina/j2cache/hibernate4/regions:
+    newFile: !uuid 'c79282bb73ec0ee975a361f7765d0c8843fe4ef3'
+    oldFile: !uuid '8de2fb5d646d6a498a5d7be2ef0826c3711bda4a'
+  /hibernate4/src/net/oschina/j2cache/hibernate4/regions/J2CacheDataRegion.java:
+    newFile: !uuid '8418e4283c1af289a72a5fcb6ffecf872d002945'
+    oldFile: !uuid 'b51cd46da2eb8096de7aef7d76ce6f80d4596007'
+  /hibernate4/test:
+    newFile: !uuid '9cba076b4c8221a79a637ef0b20c429bcf8ea0fa'
+    oldFile: !uuid '1b857447e294134a5c04522e744503bb6c9d6a70'
+  /hibernate4/test/src:
+    newFile: !uuid '74b42256d189414bf9e4762d7ca287e4bd35c81d'
+    oldFile: !uuid 'b2dc9d57807a47eddb1dd3acccd3f782064d9714'
+  /hibernate4/test/src/net:
+    newFile: !uuid 'b77094edcdfb44b28007f5bd0a7ff90db0d408b4'
+    oldFile: !uuid '3696e1e005805d5efd5d63f40cc67138833ff6f3'
+  /hibernate4/test/src/net/oschina:
+    newFile: !uuid 'd16c2e4f06e889f99e7f6284bdf3cd85729153b0'
+    oldFile: !uuid '93c1725c9345873c8c92a236302215aa9569e5b9'
+  /hibernate4/test/src/net/oschina/j2cache:
+    newFile: !uuid 'be70fcb1caecdb8589d36f3783de8a66d042d969'
+    oldFile: !uuid '59b58c79f2bfb080afb782fbb86cfb977903a1c8'
+  /hibernate4/test/src/net/oschina/j2cache/hibernate4:
+    newFile: !uuid '76c34d73f7457ca20932ca10631a343baa1082a3'
+    oldFile: !uuid '61f5d3357646fd9d92858d132eb7df7825d1dcb8'
+  /hibernate4/test/src/net/oschina/j2cache/hibernate4/J2CacheRegionFactoryTest.java:
+    newFile: !uuid 'e60e7784e9a98f726aecc9e2dd642f270b86deef'
+    oldFile: !uuid '9bf44f5ba2b57a5d4d72256022b805df27c04670'
+gitCommitId: !uuid '94754e1b54fd910b03214fa3015126d64e969356'
 renames: {
   }
-revisionId: 245
+revisionId: 246
