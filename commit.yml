@@ -2,10 +2,25 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid 'da0536a6e8be012821fe79d1d483977a8b42074d'
-    oldFile: !uuid 'dc79d997e96c2c7458c0d712ffc63d5d8609f0a7'
-gitCommitId: !uuid '5be4ac5e251b45f2c5f972a9dbb47777f8fe3cc1'
+  /core:
+    newFile: !uuid 'b27161d19773eda6e39ed82be75f588df7d9e66b'
+    oldFile: !uuid '4d40e0210cabb3b889aab085f7f3922bca45815b'
+  /core/src:
+    newFile: !uuid '4de8e7f48224387f84d9095fb55ed3b31bd7e88a'
+    oldFile: !uuid '303fe62669d6f5245ee16eb76ce8918936dde7a1'
+  /core/src/net:
+    newFile: !uuid '2b7d29c9ebd41c8bf23841f584a3d2f8c89a8fd5'
+    oldFile: !uuid 'e951b9e71d78711b12dcb873dfc3f712da0077cc'
+  /core/src/net/oschina:
+    newFile: !uuid 'f7df15c4853e95179aeae677c8e6802d5103c6e7'
+    oldFile: !uuid '7267d467411542788633beb9fdaa38df2ff8dab0'
+  /core/src/net/oschina/j2cache:
+    newFile: !uuid 'e1ec0e297560ebfacfc280c11ed00fc97a821bcf'
+    oldFile: !uuid '21d52bf17a15d0e9a2cfff46bb5b87223e75cf67'
+  /core/src/net/oschina/j2cache/J2CacheBuilder.java:
+    newFile: !uuid 'dce144186873bd93b3ddbe4b6c0ad39455dc76a5'
+    oldFile: !uuid '392b3eccca98ef9530c08a4d7927a42bb6f0c8e9'
+gitCommitId: !uuid 'dad71b0766612c92c9024fc13d4ac338ead84d2b'
 renames: {
   }
-revisionId: 272
+revisionId: 273
