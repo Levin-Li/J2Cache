@@ -3,27 +3,30 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '6f245154abec08d2986ca2343477c9f781e7061b'
-    oldFile: !uuid 'b173ac93fc55ceefcef12dc3106b16a8746d97b0'
+    newFile: !uuid '5b2ee103a8cdad1bafe835536fe861b7466b7547'
+    oldFile: !uuid '6f245154abec08d2986ca2343477c9f781e7061b'
+  /core/pom.xml:
+    newFile: !uuid '610ec07b35e2251d35f2ea430db809d0e00777d8'
+    oldFile: !uuid '59e70f26f48aebdae38e140ac10763f2977ad7ff'
   /core/src:
-    newFile: !uuid '96e1257c0c847d3bd3afde1340f3e1cc4f5fc8c0'
-    oldFile: !uuid '991de0504c9791d1ab40fe2a7fbd6a8ba1545682'
+    newFile: !uuid '2b6a67cb0cbdcee6825188a3742b2699c1bfe2f8'
+    oldFile: !uuid '96e1257c0c847d3bd3afde1340f3e1cc4f5fc8c0'
   /core/src/net:
-    newFile: !uuid '9239215c22b599ee18585cd06309589945c5bdeb'
-    oldFile: !uuid '3f5e7d5e348fc7f5f5a1a739bea3d67ba3a852a2'
+    newFile: !uuid '6c107170fd5e1e6d76e27c3aa02cb58d12aeccc0'
+    oldFile: !uuid '9239215c22b599ee18585cd06309589945c5bdeb'
   /core/src/net/oschina:
-    newFile: !uuid '7fc3a080d35a94e152fa5d52d6d5c69f313a464a'
-    oldFile: !uuid '280d6248ddad339fa40f317142a338ec4d99a3c9'
+    newFile: !uuid 'c985b27347068b307243a0d9723b391cfe852cbc'
+    oldFile: !uuid '7fc3a080d35a94e152fa5d52d6d5c69f313a464a'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid 'a44ec885081ece21301057646e0106fae463f318'
-    oldFile: !uuid 'f4e46dae88db8c651c2a877d3b771657652ce9f5'
+    newFile: !uuid 'c77a4eb164de11a7ef87f2af9ca402d8281758a6'
+    oldFile: !uuid 'a44ec885081ece21301057646e0106fae463f318'
   /core/src/net/oschina/j2cache/ehcache:
-    newFile: !uuid '2a6f0df7fb5e9ee382a4879257095a5dada637f1'
-    oldFile: !uuid '36e55f16e75e7b76bf4df168afbfc887632b49b5'
-  /core/src/net/oschina/j2cache/ehcache/EhCache.java:
-    newFile: !uuid '241fcbbf7eb4adb5620fe3727149a3894ba0be3c'
-    oldFile: !uuid '630e6ce5e878f8cd9b8efb82603a3592020a3d9c'
-gitCommitId: !uuid 'eaa60193f8c60c91b0edc40da1b6b91b8989b7f0'
+    newFile: !uuid '043c746bd7b9ff78a098ac51d538555dc274bb2b'
+    oldFile: !uuid '2a6f0df7fb5e9ee382a4879257095a5dada637f1'
+  /core/src/net/oschina/j2cache/ehcache/EhCache3.java:
+    newFile: !uuid '5e388b29342ba374888dc1e638f40b7ed2a8b54a'
+    oldFile: !uuid '6f371b27775ffb50b7dbde3a94fafd30cae2b8ad'
+gitCommitId: !uuid 'dca911bb63fa06198482c2b065292a9343292eab'
 renames: {
   }
-revisionId: 296
+revisionId: 297
