@@ -3,27 +3,24 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '4eca96781b58957fe447a63675650ad47643eb02'
-    oldFile: !uuid '8937a84a7fcbc598dc4f4eb5c53584980c3fe7d3'
+    newFile: !uuid '68d5aced7fd17c76396385824bda9683469fc169'
+    oldFile: !uuid '4eca96781b58957fe447a63675650ad47643eb02'
   /core/src:
-    newFile: !uuid '5ea4d547e1ac830227b2f3334c5e61ac924ae401'
-    oldFile: !uuid '657f9b0063a436399b11d076307c8d2442a8d8a7'
+    newFile: !uuid '9405192216fc3c97cfbe11576bb452bc50b19d80'
+    oldFile: !uuid '5ea4d547e1ac830227b2f3334c5e61ac924ae401'
   /core/src/net:
-    newFile: !uuid '81e1dae638ca2d22e371dc5de0cf09750c0cd808'
-    oldFile: !uuid 'e59e8cfff8546c93a964111a5edf47d30d977f70'
+    newFile: !uuid '1c7e08b32dc8b591e062ed20d2cb25631f9b1381'
+    oldFile: !uuid '81e1dae638ca2d22e371dc5de0cf09750c0cd808'
   /core/src/net/oschina:
-    newFile: !uuid 'd0e4e117f3a7809940aed16ddd87255e6ead817e'
-    oldFile: !uuid 'fbed5c4324d4f6758a3ba1fadf735362e03c4444'
+    newFile: !uuid 'b81b505a0bd11ae4a6af85da45366dd700546c98'
+    oldFile: !uuid 'd0e4e117f3a7809940aed16ddd87255e6ead817e'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid 'db08beb0ee8ab461c5268a47152866ed287f4b5b'
-    oldFile: !uuid '3e2be15a9fd28d70c57d71e0a544d82916be8717'
-  /core/src/net/oschina/j2cache/redis:
-    newFile: !uuid '7971cc8cf25a626385770fd93ce70cea0ab34de0'
-    oldFile: !uuid '9b037b0a572d0c5b33082aa29ab776c2b91beaaa'
-  /core/src/net/oschina/j2cache/redis/RedisCacheProvider.java:
-    newFile: !uuid '60ebfb4cebe93b7af97aed4d9678704bc65c8e82'
-    oldFile: !uuid 'b987b85e53153ae0c13ade11663f59e59bd64408'
-gitCommitId: !uuid '495af3cc70aef22ac5bd2e8efce4a3be79b732c2'
+    newFile: !uuid '9825263545a998aef4b6e4c3f6a75bae270dfd5b'
+    oldFile: !uuid 'db08beb0ee8ab461c5268a47152866ed287f4b5b'
+  /core/src/net/oschina/j2cache/J2CacheConfig.java:
+    newFile: !uuid '1e50b3c6c57a3084ce31eec9b2a06834759f1c3d'
+    oldFile: !uuid '0ee26e26156ffef056376e00b3529adf0e5d66d9'
+gitCommitId: !uuid 'caab69da5edf86846821d63b961473426eef8a23'
 renames: {
   }
-revisionId: 302
+revisionId: 303
