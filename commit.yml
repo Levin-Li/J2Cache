@@ -2,40 +2,34 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid '72fd62c8e341c51ef7b6536bc6b868e6b22647f5'
-    oldFile: !uuid '88cf4aa1c272e3fc65309ff1a027da9d65a865e0'
+  /core:
+    newFile: !uuid 'e7145614c0ab8d4ba8b6de2b591e3a5dd5dfe273'
+    oldFile: !uuid '550cfcdd7686662c9b8419760af739afa1cebd5b'
+  /core/pom.xml:
+    newFile: !uuid '7f45776436812f849c177148eb6c13c86b087b82'
+    oldFile: !uuid 'eabfc8707ea051f016a688b65df0b4c5c9497120'
+  /hibernate3:
+    newFile: !uuid '3944c9c282f7b61b2599eaae35f0b988f72ec5c7'
+    oldFile: !uuid '8a86565e019d5ff7b37a71873ce608db287bfac9'
+  /hibernate3/pom.xml:
+    newFile: !uuid 'c0a348e1c0cd2c2e61b32eb39af6b5aec65a19b4'
+    oldFile: !uuid '8b15a2e647c0bf0b98362306b02fb4dfe0af6890'
+  /hibernate4:
+    newFile: !uuid '14896281cd5d4d7fbee400974452dc43dcd71839'
+    oldFile: !uuid '657cfb4a9d0d702a4af000367674751b779274b3'
+  /hibernate4/pom.xml:
+    newFile: !uuid '2e5d20efd17de9b10e3c09929da59a7f91367116'
+    oldFile: !uuid 'b4d6df6831bb55c753567c099511a9f0bbba9b27'
+  /pom.xml:
+    newFile: !uuid '6b7c84afbdef9a0f74417e26efbf23fd26a30291'
+    oldFile: !uuid '89d2746f0f96322257c078e7eed53d18086210c6'
   /spring-boot-starter:
-    newFile: !uuid '1baf648e94fb69654d649b16c243d19a333c6aae'
-    oldFile: !uuid '56d00a0cf342ccceb9483e0ed3a31c255e805ce0'
-  /spring-boot-starter/src:
-    newFile: !uuid 'a8b7b4bb0e16dae20b5028b80e6b4340efc96a1d'
-    oldFile: !uuid '7ea58d0f3dd76fd5dc60c8f9513dd28ba4729513'
-  /spring-boot-starter/src/net:
-    newFile: !uuid 'ef4864f9f68e2d389a29a102755b3e6734f07dbd'
-    oldFile: !uuid '773536a9d2535e8409eae4bc7cb7d22f441f46ce'
-  /spring-boot-starter/src/net/oschina:
-    newFile: !uuid 'fd55b375dd6ceba306f102f3a40c93a1c1cccaee'
-    oldFile: !uuid '1a6f1095dbfbe78581e3d943aaab4995a1b02f90'
-  /spring-boot-starter/src/net/oschina/j2cache:
-    newFile: !uuid '24d0b0af8b34e4215746325e81bba366981f9b39'
-    oldFile: !uuid 'cbf3a12bbd9d26fd91ad60915435ab947574e1a2'
-  /spring-boot-starter/src/net/oschina/j2cache/cache:
-    newFile: !uuid '90af667c0e48f2eec1a4fbc7efa9801182a203dd'
-    oldFile: !uuid 'b7f992e0fabf8334ef57ed4af2ded8ad00a80120'
-  /spring-boot-starter/src/net/oschina/j2cache/cache/support:
-    newFile: !uuid '1e47419ca6cbb5eee60469ec8687dde1b2792c9b'
-    oldFile: !uuid '4dbda7e51de6d81ec50d0695d434b51559640f21'
-  /spring-boot-starter/src/net/oschina/j2cache/cache/support/J2CacheCache.java:
-    newFile: !uuid 'f44926066c8f425c9c4087719e41ad3a99b2dd2f'
-    oldFile: !uuid '2b01e6b351943917c2c7dd44d04f44572b813a42'
-  /spring-boot-starter/src/net/oschina/j2cache/cache/support/redis:
-    newFile: !uuid 'b9a3579f580c4023826436499bcfc66d1a591af8'
-    oldFile: !uuid 'd83a6060dd8e82cd7d7e25eaa47fe08e2f074a0d'
-  /spring-boot-starter/src/net/oschina/j2cache/cache/support/redis/SpringRedisCache.java:
-    newFile: !uuid 'd62370aa7e9b7b05e916fc3fd694d9506578ddad'
-    oldFile: !uuid '782fed506e5ffaca87fa00a33e79282d6ff462b7'
-gitCommitId: !uuid '418e4d271f666b5f2c3501bf02633992cc7a80e4'
+    newFile: !uuid 'ca4afa36801b5bf716cb547133bf29d36a2d199e'
+    oldFile: !uuid '1baf648e94fb69654d649b16c243d19a333c6aae'
+  /spring-boot-starter/pom.xml:
+    newFile: !uuid '414314d06b74ed1b1e62d7caf5dea22c6c3bc451'
+    oldFile: !uuid '9aae197421dfeae2d073dd2bc65833e161ea9e77'
+gitCommitId: !uuid '652e7903b65a221383385e97d97c9783717ee106'
 renames: {
   }
-revisionId: 310
+revisionId: 311
