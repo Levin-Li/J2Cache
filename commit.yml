@@ -2,16 +2,10 @@
 branches: {
   }
 fileChange:
-  /core:
-    newFile: !uuid 'e8b2f548fdadb20b46991015a62a0c2c7d7e3dc0'
-    oldFile: !uuid 'ee55cb8b6be48f39624f65c2fe35acaa16e0e64a'
-  /core/resources:
-    newFile: !uuid '1bb13aae8540d57fff75ed9ec7753c0bff54b97e'
-    oldFile: !uuid 'e64392aebb2f24315753627f8698532a3461372e'
-  /core/resources/j2cache.properties:
-    newFile: !uuid '2f280a75174531aab342185447f1f56ea7207b0f'
-    oldFile: !uuid 'ae5686e2c7616bbf879cbdc5aa3ddba91d678155'
-gitCommitId: !uuid 'ad71986fba89fe4c91a71f8388e93c0a1bed506d'
+  /CHANGES.md:
+    newFile: !uuid '8493e0192c54d964b9e3fe78424dac4880bbb73e'
+    oldFile: !uuid '8ab75d2ff25741541f1763f18d9795b577972e5b'
+gitCommitId: !uuid '82601919129fc93e1aefde4cb8c741c0e82a0f6f'
 renames: {
   }
-revisionId: 320
+revisionId: 321
