@@ -3,9 +3,60 @@ branches: {
   }
 fileChange:
   /CHANGES.md:
-    newFile: !uuid '8493e0192c54d964b9e3fe78424dac4880bbb73e'
-    oldFile: !uuid '8ab75d2ff25741541f1763f18d9795b577972e5b'
-gitCommitId: !uuid '82601919129fc93e1aefde4cb8c741c0e82a0f6f'
+    newFile: !uuid 'c05b883cc5b538aad323dac4726b6600e72d3721'
+    oldFile: !uuid '8493e0192c54d964b9e3fe78424dac4880bbb73e'
+  /core:
+    newFile: !uuid '4284d753ed03994df754c05eca09c5c0a61ba398'
+    oldFile: !uuid 'e8b2f548fdadb20b46991015a62a0c2c7d7e3dc0'
+  /core/pom.xml:
+    newFile: !uuid 'de9874da28ab57f4b405c450532978e31990d6c2'
+    oldFile: !uuid '7f45776436812f849c177148eb6c13c86b087b82'
+  /core/src:
+    newFile: !uuid 'ff79d0d2382961bcc7c919b77430459cc051b954'
+    oldFile: !uuid 'a39583a9fe8396abc718e4ab35232ea23a2e2c6a'
+  /core/src/net:
+    newFile: !uuid '0b05ce19c287c10308d7d4beea6c3fe73beeab68'
+    oldFile: !uuid 'aa56d09b5fd41061434164aac17c6e4f7b4b2e6c'
+  /core/src/net/oschina:
+    newFile: !uuid 'bcaa6f34c509756b1b003396ef5d6de93cb2f325'
+    oldFile: !uuid '68f699d8dfe51e27e605382a1cbbe0963e360ae4'
+  /core/src/net/oschina/j2cache:
+    newFile: !uuid '837301196362acd2ffdd7c45b8c1fb6f320f9dc5'
+    oldFile: !uuid 'f69fea221439af3681b69194a302a044312a25f4'
+  /core/src/net/oschina/j2cache/util:
+    newFile: !uuid 'c4216cb1d530fb9435c5d09a276290b003e99d41'
+    oldFile: !uuid '5fb75cd51e1f1d1d2943ec35d0f8dd683d8b96e2'
+  /core/src/net/oschina/j2cache/util/JSONSerializer.java:
+    newFile: !uuid '4a846120657e1a3856b29b6ffb9df4313442d64e'
+    oldFile: !uuid 'cf2f2d0a1cf33c6704634bbdb8e7d67c2d8973ce'
+  /hibernate3:
+    newFile: !uuid '69f864a5b40cac923a5d1704c8110cc0103fc4b9'
+    oldFile: !uuid '3944c9c282f7b61b2599eaae35f0b988f72ec5c7'
+  /hibernate3/pom.xml:
+    newFile: !uuid '597c1816f89190c5d76c6ac6c6011ad2f3dba76d'
+    oldFile: !uuid 'c0a348e1c0cd2c2e61b32eb39af6b5aec65a19b4'
+  /hibernate4:
+    newFile: !uuid '8c7c98b30da9a6d46fc83dac5f70d69dcf17aaa6'
+    oldFile: !uuid '14896281cd5d4d7fbee400974452dc43dcd71839'
+  /hibernate4/pom.xml:
+    newFile: !uuid 'b8fc95402cbf5d9f7cc802de2f0a40550e43990b'
+    oldFile: !uuid '2e5d20efd17de9b10e3c09929da59a7f91367116'
+  /pom.xml:
+    newFile: !uuid '36f674b6857d4ed1a4658f0839e405a2a2e8ee64'
+    oldFile: !uuid 'c4ab0a97c127a89b40130571e13715f8a2653564'
+  /spring-boot-starter:
+    newFile: !uuid '4aec3ef856cafee24fb7baa5028be2949d607096'
+    oldFile: !uuid 'ca4afa36801b5bf716cb547133bf29d36a2d199e'
+  /spring-boot-starter/pom.xml:
+    newFile: !uuid '114d78f6f1b643bac4021d4c8f598c679d19760f'
+    oldFile: !uuid '414314d06b74ed1b1e62d7caf5dea22c6c3bc451'
+  /spring-boot2-starter:
+    newFile: !uuid 'b02d7b4878bd40cfa208814502a08469414092a7'
+    oldFile: !uuid 'bf5dd113b64a4f2e5db2a0af7a05c2a0e95be8aa'
+  /spring-boot2-starter/pom.xml:
+    newFile: !uuid '9516755aaf93cd1287df892635f059c3d4cc5f6d'
+    oldFile: !uuid '367512df25077231c123fc0bfd907298452c65f7'
+gitCommitId: !uuid 'e1023c8bd2c58e0354d2a6fefe7f03eecb0d9fb4'
 renames: {
   }
-revisionId: 321
+revisionId: 322
