@@ -128,6 +128,7 @@
         <module>core</module>
         <module>hibernate3</module>
         <module>hibernate4</module>
+		<module>hibernate5</module>
         <module>spring-boot-starter</module>
     	<module>spring-boot2-starter</module>
   </modules>
