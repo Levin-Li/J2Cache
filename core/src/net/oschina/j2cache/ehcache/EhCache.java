@@ -70,12 +70,12 @@ public class EhCache implements Level1Cache, CacheEventListener {
 	 * @return The value placed into the cache with an earlier put, or null if not found or expired
 	 */
 	@Override
-	public Serializable get(String key) {
+	public Object get(String key) {
 		if ( key == null )
 			return null;
 		Element elem = cache.get( key );
 		Object obj = elem.getObjectValue();
-		return (elem == null || obj.getClass().equals(Object.class))?null:(Serializable)elem.getObjectValue();
+		return (elem == null)?null:elem.getObjectValue();
 	}
 
 	/**
