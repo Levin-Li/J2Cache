@@ -2,19 +2,22 @@
 branches: {
   }
 fileChange:
-  /CHANGES.md:
-    newFile: !uuid '3f830ec7c03a799ae5aab1018bd43ee09ef511d8'
-    oldFile: !uuid 'dbd6ed0549a3268632f61d5dab9c84755e5d3fd2'
   /core:
-    newFile: !uuid '9470bc45c4ab72fbf1257291c495cb3faf67c376'
-    oldFile: !uuid '0df2fa92b26d62ba762bcac6f1c130e13ef7b45e'
-  /core/pom.xml:
-    newFile: !uuid '14378c35f5ba7128d8cb0441b68ab2b8e5786324'
-    oldFile: !uuid 'f1d3adb97f4928678360c57c31167afcd1d46164'
-  /pom.xml:
-    newFile: !uuid '434cf9c9cd019ed9148201f41622b7f1ce20cd72'
-    oldFile: !uuid 'e7d3d8f0045ee949ef621e1e8a637f29683a37b7'
-gitCommitId: !uuid '0dcd5488454369390c5284bce6f8740d2ce2fc44'
+    newFile: !uuid 'a5645347d1873988b52e3e16e0872900160baef3'
+    oldFile: !uuid '9470bc45c4ab72fbf1257291c495cb3faf67c376'
+  /core/resources:
+    newFile: !uuid 'e57e0bedde3e0bc232fa83e287d825edfa3f2142'
+    oldFile: !uuid '8ce1afd8a61c6a22e14f706f5c8e8535e98421d1'
+  /core/resources/caffeine.properties:
+    newFile: !uuid 'ab14474ca864b033c4ef05277c28f0e80d3af15c'
+    oldFile: !uuid 'ef35139de22a6cb68184378c89dc8210eb86562d'
+  /core/resources/ehcache.xml:
+    newFile: !uuid 'c30fb79b336a0c5f5a81ce9f5ba3b83022a5b445'
+    oldFile: !uuid 'f2f6be5528e301c36ffec518d2be1b54b34172de'
+  /core/resources/ehcache3.xml:
+    newFile: !uuid '3bfa495b15c54eb82134ea8dfb24fd738e5d1066'
+    oldFile: !uuid '16bf0a6f693132118fcbe4ac9b0fd2dfe8a0ce7b'
+gitCommitId: !uuid '2b739608b0dcc269630449344cf770e1757f9278'
 renames: {
   }
-revisionId: 349
+revisionId: 350
