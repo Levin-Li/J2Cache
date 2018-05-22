@@ -2,31 +2,34 @@
 branches: {
   }
 fileChange:
+  /CHANGES.md:
+    newFile: !uuid 'b30fd5b43eb0af57f8d5fddedb73ad7cd204a5e0'
+    oldFile: !uuid '3f830ec7c03a799ae5aab1018bd43ee09ef511d8'
   /core:
-    newFile: !uuid '22a2364af9afb01c58c89f6a51896884cb792861'
-    oldFile: !uuid 'ef5f41ce3e89945cc6f5b52ea5afeeecaaf55f6e'
-  /core/resources:
-    newFile: !uuid 'ea5c9d1925510392aca14cb9f7aa1bde861514cb'
-    oldFile: !uuid 'e57e0bedde3e0bc232fa83e287d825edfa3f2142'
-  /core/resources/j2cache.properties:
-    newFile: !uuid 'ce33bbc22c0c6aadf93d954cb0740009215ac3d6'
-    oldFile: !uuid 'ccdb2c9212092c5fce4553a2832b8c4fc2acd8c2'
+    newFile: !uuid '8f3fd561703b0195327dc8b87ff65dc6071d52bb'
+    oldFile: !uuid '22a2364af9afb01c58c89f6a51896884cb792861'
+  /core/pom.xml:
+    newFile: !uuid '0c91349b7dcdaacdc65f2aa0f7a3607ca7726fa6'
+    oldFile: !uuid '14378c35f5ba7128d8cb0441b68ab2b8e5786324'
   /core/src:
-    newFile: !uuid '758e2db27bdadbfc00c68e665160b47a15bff91c'
-    oldFile: !uuid 'd05c5db0c83a70d36fdd07e652dd316dc553dc91'
+    newFile: !uuid 'f69b9e28ecb4726bb05d7be987bc3025ce122c10'
+    oldFile: !uuid '758e2db27bdadbfc00c68e665160b47a15bff91c'
   /core/src/net:
-    newFile: !uuid '6c4fda1d5c2bd4093532ebaa59d3adcf6dc71a73'
-    oldFile: !uuid '3e4a92cfeee204ec48fb717bad16b90028e0bbe0'
+    newFile: !uuid '832ed379c4609178c595cde53e0e5220d6ccbfaa'
+    oldFile: !uuid '6c4fda1d5c2bd4093532ebaa59d3adcf6dc71a73'
   /core/src/net/oschina:
-    newFile: !uuid '9a0f9956cfe73003f8336e1cf010f615ac83e787'
-    oldFile: !uuid '05a98790d369da469cb04f049225816bb20c1f6e'
+    newFile: !uuid 'da329ddb5c807cfc00d3f59a527cdab0511e325d'
+    oldFile: !uuid '9a0f9956cfe73003f8336e1cf010f615ac83e787'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid '200a39aa6827d55944a285743bfa70655b23bcfd'
-    oldFile: !uuid '0d7a3de20cbcc950d19eacae2bc42e85dfe9e8b5'
-  /core/src/net/oschina/j2cache/CacheChannel.java:
-    newFile: !uuid '2691adbf8580d9158601a65ea5133e42c3d72846'
-    oldFile: !uuid 'f2a7cb7718aaf4ed07822f0991d7da6c0e1f202c'
-gitCommitId: !uuid '0d7e185a61d0f382df6fb6b08b0b8d3db6bb1788'
+    newFile: !uuid 'c8b1e0d047577243aabee2a20bd4a48ddfcc6f66'
+    oldFile: !uuid '200a39aa6827d55944a285743bfa70655b23bcfd'
+  /core/src/net/oschina/j2cache/MultiThreadTester.java:
+    newFile: !uuid '1dcf7d8fff4469ac05009c72bc2564ffbe26ae56'
+    oldFile: !uuid 'cb1b734b866cea262db3401003d137fd3f928fe9'
+  /pom.xml:
+    newFile: !uuid '32340bd05bc6c21b220191577b02dc465523d7cd'
+    oldFile: !uuid '434cf9c9cd019ed9148201f41622b7f1ce20cd72'
+gitCommitId: !uuid '911e6af3ea7952abd4e1218cb52e2e170433b819'
 renames: {
   }
-revisionId: 354
+revisionId: 355
