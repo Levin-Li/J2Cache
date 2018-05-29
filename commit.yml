@@ -3,27 +3,27 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid 'dca079f3c1e3ed4f496a4da0a8e07130baa3014a'
-    oldFile: !uuid 'b0a5039744abd1a3c8a3b985052a2e28584f6c6b'
+    newFile: !uuid 'a87544b97ec5651e657256cae3a20cbdb0c18767'
+    oldFile: !uuid 'dca079f3c1e3ed4f496a4da0a8e07130baa3014a'
   /core/src:
-    newFile: !uuid '7b12ea89163bbcc2c2fcd092e4a023afa96e2636'
-    oldFile: !uuid '17f21e358507732db9a1129aa848193bcf27cd8d'
+    newFile: !uuid 'c5f64e88279d813ba95032159e3017ab64b8e026'
+    oldFile: !uuid '7b12ea89163bbcc2c2fcd092e4a023afa96e2636'
   /core/src/net:
-    newFile: !uuid '180b7d2595e4c2341013246d0f72bf7d1626d276'
-    oldFile: !uuid '661b5fce5db4468889ac3c6591ca293203761311'
+    newFile: !uuid '04b2bdb97f10ea6fe1626731cf0f412567a61444'
+    oldFile: !uuid '180b7d2595e4c2341013246d0f72bf7d1626d276'
   /core/src/net/oschina:
-    newFile: !uuid '10cc77e8a504b48b6a691d1bf436cc82e6192cf5'
-    oldFile: !uuid '11fd22ec335aec1051f06a6f5ac0b9279e22d576'
+    newFile: !uuid 'b77743dd4fafb814c92fd79f23f9fc8359910e22'
+    oldFile: !uuid '10cc77e8a504b48b6a691d1bf436cc82e6192cf5'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid '1645e8b597fe3ddbdc1e140123051f78e1e007ec'
-    oldFile: !uuid '02a9012d3dea534cdcb3778a59bec3495856f1ba'
-  /core/src/net/oschina/j2cache/caffeine:
-    newFile: !uuid '7357314bc769aa2146334c6658109325a4500ad8'
-    oldFile: !uuid '954f788ffa99c1f1365d50aa7916133e3064d8dd'
-  /core/src/net/oschina/j2cache/caffeine/CaffeineProvider.java:
-    newFile: !uuid 'd68884a6b0cedf1a98d356dddd8438a8d7a029c4'
-    oldFile: !uuid 'f89ddcd8695a9860b78306cb477aca4f607576e0'
-gitCommitId: !uuid 'f33d606f905596513b71daa3df6248bec7af4e7d'
+    newFile: !uuid 'acb56160a194d33b82a09dd5d6dbc62d4fbb6078'
+    oldFile: !uuid '1645e8b597fe3ddbdc1e140123051f78e1e007ec'
+  /core/src/net/oschina/j2cache/redis:
+    newFile: !uuid '698efcf6cb3e3708e435e893d016bc8830b9d879'
+    oldFile: !uuid 'b73be7d739e8b09ae5c94231cd303671313e722b'
+  /core/src/net/oschina/j2cache/redis/RedisPubSubClusterPolicy.java:
+    newFile: !uuid 'db19e9399326e62191daf65cf16f3b45112a965b'
+    oldFile: !uuid 'a1e4ffa6f998d0ce8800052fa65197bbe8bd7b8d'
+gitCommitId: !uuid 'ecd163e17c2146301badd624603163b2a2e84661'
 renames: {
   }
-revisionId: 365
+revisionId: 366
