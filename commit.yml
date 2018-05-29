@@ -3,27 +3,48 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid 'a8e5ae7d52b433825133d6f0bfc581bb8629d534'
-    oldFile: !uuid '73abe573192c55ff6ebb0bf1ae0f8f17c623f47c'
-  /core/src:
-    newFile: !uuid '17f21e358507732db9a1129aa848193bcf27cd8d'
-    oldFile: !uuid 'b5e72705ebd3a94e0353af6d6082d35ff6bfc596'
-  /core/src/net:
-    newFile: !uuid '661b5fce5db4468889ac3c6591ca293203761311'
-    oldFile: !uuid '0d16ae2cfd10b083bc0c99a478a8876361a98def'
-  /core/src/net/oschina:
-    newFile: !uuid '11fd22ec335aec1051f06a6f5ac0b9279e22d576'
-    oldFile: !uuid 'd47cd589b48f41c5c029300bcc66d422713bb9a8'
-  /core/src/net/oschina/j2cache:
-    newFile: !uuid '02a9012d3dea534cdcb3778a59bec3495856f1ba'
-    oldFile: !uuid '053b26d690c662ac4782cbed9380f301931fc843'
-  /core/src/net/oschina/j2cache/redis:
-    newFile: !uuid 'b73be7d739e8b09ae5c94231cd303671313e722b'
-    oldFile: !uuid '3afa5c9a20e37de5e2fe7ea59b3ced186745ed61'
-  /core/src/net/oschina/j2cache/redis/RedisGenericCache.java:
-    newFile: !uuid 'fd04d5f0994cd920238a33da7ede17ba53a2b224'
-    oldFile: !uuid 'fbabad6abcfa7a23a88cf32340027fd0e1ec5bc9'
-gitCommitId: !uuid '6b29b76877d58de2c2edaabd34d41d8109103c66'
+    newFile: !uuid 'b0a5039744abd1a3c8a3b985052a2e28584f6c6b'
+    oldFile: !uuid 'a8e5ae7d52b433825133d6f0bfc581bb8629d534'
+  /core/pom.xml:
+    newFile: !uuid '2a5d19503ca1f9f61a4be5d5a66a8292801cd6f1'
+    oldFile: !uuid '35b9fd1275c99903368da7329ca42e37aedc53de'
+  /modules:
+    newFile: !uuid 'c998f203ba68c4d92f8c620614e209264e0391f5'
+    oldFile: !uuid '6b8b9fc7c559af7ecbb8936105cf52d94d2e8f2f'
+  /modules/hibernate3:
+    newFile: !uuid '9d48374b838c4ab4e723e9630a2a8ccab2f3f12b'
+    oldFile: !uuid '476183eb77bce1187dc9597b26e8ca981d35b432'
+  /modules/hibernate3/pom.xml:
+    newFile: !uuid 'd0c63f1fcf7d3216b6af1f8d99ddf0fbdb13571a'
+    oldFile: !uuid '97ea06e22bdf045f2df8c5ff06467d30d0612257'
+  /modules/hibernate4:
+    newFile: !uuid 'bc61993dee94c86ac80e5cdfbfd79b7a1faaaf1c'
+    oldFile: !uuid '708ce53c2d25d314bb2ab5b06bac2c8399421a90'
+  /modules/hibernate4/pom.xml:
+    newFile: !uuid '4317cf770c907b61760c386d82a7f2c2cd63690d'
+    oldFile: !uuid 'dda45a732d63b405b7a865458841586a2433e2fe'
+  /modules/mybatis:
+    newFile: !uuid '3c7d96979aaa5f12abd43248ddbf1c0131fd70bc'
+    oldFile: !uuid '92676e4cc45421c94e834a924a4feb2774a9596d'
+  /modules/mybatis/pom.xml:
+    newFile: !uuid '4f12f23a95f9893dfff53662acefd5bcfe0572e1'
+    oldFile: !uuid 'b43dc91a1fe37983d0540be87b6448c831dad936'
+  /modules/spring-boot-starter:
+    newFile: !uuid '85d96cf625517fbff6ab7508a851da884ccc542f'
+    oldFile: !uuid '7ef51572841aad0687b16092b271b6d95092ce26'
+  /modules/spring-boot-starter/pom.xml:
+    newFile: !uuid '6e30dac3c436a1017dc2f66f1b16acd5f2613cc9'
+    oldFile: !uuid 'a87faf42a99c57b16c07957223292380e8909473'
+  /modules/spring-boot2-starter:
+    newFile: !uuid 'c09cda6f1943cb06411203497541de5767f10601'
+    oldFile: !uuid 'e9275081fbbfe79ef691c9d36ccaab6dcf95a806'
+  /modules/spring-boot2-starter/pom.xml:
+    newFile: !uuid 'f9db8a855d55045fb650d4ac7217c03e344e8fbf'
+    oldFile: !uuid '66196c369422fafe7f29b6bc8948847cded4a6a8'
+  /pom.xml:
+    newFile: !uuid '0694108246cf581a01ebd9e1c96a47d4c618a4d6'
+    oldFile: !uuid '83ef95c0cd4d803a65e72af80fd1d0da4376e48a'
+gitCommitId: !uuid '906853995322c6230e7d7d005bda62deae3f841a'
 renames: {
   }
-revisionId: 362
+revisionId: 363
