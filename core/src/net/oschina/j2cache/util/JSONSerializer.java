@@ -15,35 +15,16 @@
  */
 package net.oschina.j2cache.util;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import org.nustaq.kson.Kson;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import org.nustaq.serialization.FSTConfiguration;
 
 /**
  * 为了实现跨语言的支持，有必要支持 JSON 的序列化
- *
- * 需要支持的数据类型包括：
- *
- * 1. 原生类型
- * 2. 数组类型
- * 3. 集合类型
- * 4. 对象类型
- * 5. 对象数据
- * 6. 对象集合
  *
  * @author Winter Lau(javayou@gmail.com)
  */
 public class JSONSerializer implements Serializer {
 
-    private static final List<Class> primitiveClasses = new ArrayList(){{
-        add(Number.class);
-        add(Character.class);
-        add(CharSequence.class);
-    }};
+    private static final FSTConfiguration conf = FSTConfiguration.createJsonConfiguration();
 
     @Override
     public String name() {
@@ -52,36 +33,12 @@ public class JSONSerializer implements Serializer {
 
     @Override
     public byte[] serialize(Object obj) {
-        if(!primitiveClasses.contains(obj.getClass())){
-            HashMap<String, Object> val = new HashMap<>();
-            val.put("value", obj);
-            val.put("__class__", obj.getClass().getName());
-            String jsonStr = JSON.toJSONString(obj);
-            return jsonStr.getBytes();
-        }
-        String jsonStr = JSON.toJSONString(obj);
-        return jsonStr.getBytes();
+        return conf.asByteArray(obj);
     }
 
     @Override
     public Object deserialize(byte[] bytes) {
-        Object obj = JSON.parse(new String(bytes));
-        if(obj instanceof JSONObject){
-
-        }
-        return obj;
+        return conf.asObject(bytes);
     }
 
-    public static void main(String[] args) throws Exception {
-        JSONSerializer json = new JSONSerializer();
-        int[] i = {10,11,12};
-        //Date i = new Date(2018,10,1);//"100";
-        String result = new String(json.serialize(i));
-        new Kson().readObject(result);
-        System.out.println(json.deserialize(result.getBytes()));
-        System.out.println(JSON.parse(result).getClass().getName());
-
-
-        System.out.println(new Kson().writeObject(i));
-    }
 }

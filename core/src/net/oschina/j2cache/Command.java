@@ -51,6 +51,8 @@ public class Command {
 		return (int)(rnd_seed.nextInt(10000) * 1000 + ct % 1000);
 	}
 
+	public Command(){}//just for json deserialize , dont remove it.
+
 	public Command(byte o, String r, String...keys){
 		this.operator = o;
 		this.region = r;
@@ -92,6 +94,27 @@ public class Command {
 
 	public int getSrc() {
 		return src;
+	}
+
+    public void setSrc(int src) {
+        this.src = src;
+    }
+
+    public void setOperator(int operator) {
+        this.operator = operator;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public void setKeys(String[] keys) {
+        this.keys = keys;
+    }
+
+    @Override
+	public String toString(){
+		return JSON.toJSONString(this);
 	}
 
 }

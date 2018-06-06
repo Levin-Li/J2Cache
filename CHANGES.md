@@ -1,5 +1,41 @@
 # J2Cache 版本更新记录
 
+**J2Cache 2.3.20-release (2018-5-23)**
+
+* 修复 redis.maxWaitMillis 配置丢失导致的异常信息
+* 这可能是 2.3.x 的最后一个更新版本
+
+**J2Cache 2.3.19-release (2018-5-22)**
+
+* 优化多线程同时读取同一个region同一个key情况下只读取一次L2数据，进一步降低redis的压力（实际100个线程测试性能提升30%左右，Redis 读取次数从 100 降低到 1）
+* 可通过 `j2cache.default_cache_null_object` 配置 J2Cache 是否默认启用 null 对象缓存
+
+**J2Cache 2.3.18-release (2018-5-21)**
+
+* 解决了使用 spring boot devtool 时 ClassCastException 异常的问题
+* 调整第三方包的依赖关系，不强制依赖，需要开发者自行加入依赖
+
+**J2Cache 2.3.17-release (2018-5-16)**
+
+* [#IJTFT](https://gitee.com/ld/J2Cache/issues/IJTFT) 修复CacheChannel的get接口的cacheNullObject参数并不生效的问题
+* 对仓库进行重构，将扩展模块移入 modules 目录
+
+**J2Cache 2.3.16-release (2018-5-4)**
+
+* 修复了 Ehcache3 配置不失效缓存时，写入缓存异常的问题
+* 修复了 Ehcache 下空指针的异常
+
+**J2Cache 2.3.15-release (2018-5-4)**
+
+* 修复了集群通知不工作的严重 Bug，如果你正在使用 2.3.13 和 2.3.14 版本，请即刻升级
+
+
+**J2Cache 2.3.14-release (2018-5-3)**
+
+* 允许通过 j2cache.broadcast = none 来关闭集群节点关于缓存数据的失效通知
+* 修复了 json 反序列化失败的问题
+
+
 **J2Cache 2.3.13-release (2018-5-1)**
 
 * 支持通过 `j2cache.sync_ttl_to_redis` 配置项来决定是否 Redis 缓存的数据也带 ttl 信息（相当于该配置如果设置为 false 时，redis 上的数据不会自动过期，该配置值默认为 true）

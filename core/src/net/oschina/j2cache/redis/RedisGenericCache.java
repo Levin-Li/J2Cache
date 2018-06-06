@@ -2,11 +2,14 @@ package net.oschina.j2cache.redis;
 
 import net.oschina.j2cache.CacheException;
 import net.oschina.j2cache.Level2Cache;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import redis.clients.jedis.BinaryJedis;
 import redis.clients.jedis.BinaryJedisCommands;
 import redis.clients.jedis.MultiKeyBinaryCommands;
 import redis.clients.jedis.MultiKeyCommands;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -18,6 +21,8 @@ import java.util.stream.Collectors;
  * @author Winter Lau(javayou@gmail.com)
  */
 public class RedisGenericCache implements Level2Cache {
+
+    private final static Logger log = LoggerFactory.getLogger(RedisGenericCache.class);
 
     private String namespace;
     private String region;
@@ -57,7 +62,11 @@ public class RedisGenericCache implements Level2Cache {
     }
 
     private byte[] _key(String key) {
-        return (this.region + ":" + key).getBytes();
+        try {
+            return (this.region + ":" + key).getBytes("utf-8");
+        } catch (UnsupportedEncodingException e) {
+            return (this.region + ":" + key).getBytes();
+        }
     }
 
     @Override
@@ -114,10 +123,16 @@ public class RedisGenericCache implements Level2Cache {
 
     @Override
     public void setBytes(String key, byte[] bytes, long timeToLiveInSeconds) {
-        try {
-            client.get().setex(_key(key), (int) timeToLiveInSeconds, bytes);
-        } finally {
-            client.release();
+        if (timeToLiveInSeconds <= 0) {
+            log.debug(String.format("Invalid timeToLiveInSeconds value : %d , skipped it.", timeToLiveInSeconds));
+            setBytes(key, bytes);
+        }
+        else {
+            try {
+                client.get().setex(_key(key), (int) timeToLiveInSeconds, bytes);
+            } finally {
+                client.release();
+            }
         }
     }
 

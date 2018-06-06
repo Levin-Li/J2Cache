@@ -4,7 +4,7 @@
     
     <groupId>net.oschina.j2cache</groupId>
     <artifactId>j2cache</artifactId>
-    <version>2.3.13-esun</version>
+    <version>2.3.21-esun</version>
     <packaging>pom</packaging>
 
     <name>j2cache</name>
@@ -43,7 +43,7 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <j2cache-version>2.3.13-esun</j2cache-version>
+        <j2cache-version>2.3.21-esun</j2cache-version>
     </properties>
 
     <build>
@@ -133,12 +133,13 @@
     <!-- 包含模块 -->
     <modules>
         <module>core</module>
-        <module>hibernate3</module>
-        <module>hibernate4</module>
-		<module>hibernate5</module>
-        <module>spring-boot-starter</module>
-    	<module>spring-boot2-starter</module>
-  </modules>
+        <module>modules/hibernate3</module>
+        <module>modules/hibernate4</module>
+        <module>modules/hibernate5</module>
+        <module>modules/spring-boot-starter</module>
+    	<module>modules/spring-boot2-starter</module>
+        <module>modules/mybatis</module>
+    </modules>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->

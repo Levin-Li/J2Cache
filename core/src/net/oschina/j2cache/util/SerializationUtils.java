@@ -33,7 +33,7 @@ public class SerializationUtils {
 
     /**
      * 初始化序列化器
-     * @param ser
+     * @param ser  serialization method
      */
     public static void init(String ser) {
         if (ser == null || "".equals(ser.trim()))
@@ -49,6 +49,8 @@ public class SerializationUtils {
                 g_serializer = new KryoPoolSerializer();
             } else if("fst-snappy".equals(ser)){
                 g_serializer=new FstSnappySerializer();
+            } else if ("json".equals(ser)) {
+                g_serializer = new JSONSerializer();
             } else {
                 try {
                     g_serializer = (Serializer) Class.forName(ser).newInstance();
