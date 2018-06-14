@@ -3,27 +3,30 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '4e4e3b9721728f4ecd918344e9e588124c4e5422'
-    oldFile: !uuid 'a87544b97ec5651e657256cae3a20cbdb0c18767'
+    newFile: !uuid '66061338976b63bf85fb2e1d64e7e2a147f8cffc'
+    oldFile: !uuid '4e4e3b9721728f4ecd918344e9e588124c4e5422'
   /core/src:
-    newFile: !uuid '8e0afba7b6fa408bf8999698c1c0af343f05f67e'
-    oldFile: !uuid 'c5f64e88279d813ba95032159e3017ab64b8e026'
+    newFile: !uuid '933bf0e0b2231a597c6864be069e528354ff73e0'
+    oldFile: !uuid '8e0afba7b6fa408bf8999698c1c0af343f05f67e'
   /core/src/net:
-    newFile: !uuid '8b035784aa2a2e8903035799e9ceb05d81c79abc'
-    oldFile: !uuid '04b2bdb97f10ea6fe1626731cf0f412567a61444'
+    newFile: !uuid '649f639dda579533bf9c828405f515275e695393'
+    oldFile: !uuid '8b035784aa2a2e8903035799e9ceb05d81c79abc'
   /core/src/net/oschina:
-    newFile: !uuid 'a608468ea308579ab380531ef7ab0fa06b61c6f6'
-    oldFile: !uuid 'b77743dd4fafb814c92fd79f23f9fc8359910e22'
+    newFile: !uuid 'bcd61cf723a57c26df49d7d0a2d42d5ce8333ac7'
+    oldFile: !uuid 'a608468ea308579ab380531ef7ab0fa06b61c6f6'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid 'd7b3c6bec5960fbd5fcb6b96c4b63759a5c6f2ee'
-    oldFile: !uuid 'acb56160a194d33b82a09dd5d6dbc62d4fbb6078'
-  /core/src/net/oschina/j2cache/redis:
-    newFile: !uuid 'a51ce64d5b30730984d9e0caeb50ff75fe22c28e'
-    oldFile: !uuid '698efcf6cb3e3708e435e893d016bc8830b9d879'
-  /core/src/net/oschina/j2cache/redis/RedisPubSubClusterPolicy.java:
-    newFile: !uuid 'db73c05e1f4e722c720b9bae4b440752d6bf9b63'
-    oldFile: !uuid 'db19e9399326e62191daf65cf16f3b45112a965b'
-gitCommitId: !uuid '5604ef4a722ee7b135b6d09213babffcff8cf748'
+    newFile: !uuid '1e1c26f47404576d6072efc18339c7905259b2e2'
+    oldFile: !uuid 'd7b3c6bec5960fbd5fcb6b96c4b63759a5c6f2ee'
+  /core/src/net/oschina/j2cache/CacheChannel.java:
+    newFile: !uuid 'acad260a86ff8f2721aadaf7095b4b0dbf536842'
+    oldFile: !uuid '2691adbf8580d9158601a65ea5133e42c3d72846'
+  /core/src/net/oschina/j2cache/CacheObject.java:
+    newFile: !uuid 'f9b70c7e97c6caf2c392ee62b47a75b05d703cb3'
+    oldFile: !uuid '3cd870e7a8ce9ea9857206f7195da04a3ee705d0'
+  /core/src/net/oschina/j2cache/NullObject.java:
+    newFile: !uuid 'ba23107a3ee691d7f781c7384e3dce8a68acab6c'
+    oldFile: null
+gitCommitId: !uuid '3634d12e5a61ded29f50848702fe0f41898dab3e'
 renames: {
   }
-revisionId: 367
+revisionId: 368
