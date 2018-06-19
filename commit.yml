@@ -3,27 +3,24 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid 'ac9f3526a32e5f469c439cc6cdcf35b0341589a7'
-    oldFile: !uuid '35ea685819ddc1df5ab0f200e45af53bb4e24ca8'
-  /core/src:
-    newFile: !uuid '7a7a2e6f089c3d1f8c3f6c89d998f3119ceb2d9e'
-    oldFile: !uuid 'b593682996ff124eb11ebf47520f5ba5ef2e278b'
-  /core/src/net:
-    newFile: !uuid '16fb9f542e71abc97e91868c4b6550c6816062da'
-    oldFile: !uuid 'cd73dafc8a3fcc7ad8b77fa376dfdd47129e18f3'
-  /core/src/net/oschina:
-    newFile: !uuid 'cd774627f06ae92fa6f8415d8a1a16ba1ad2aa7f'
-    oldFile: !uuid 'd46ed7ca697c6c020bb5acdf35c00e0cbf1c435f'
-  /core/src/net/oschina/j2cache:
-    newFile: !uuid 'ca1edddd29f399a6d055a345ef5c2fd7303a9512'
-    oldFile: !uuid '289df04aad9bc2761fdcc622a1ba86f4a8280734'
-  /core/src/net/oschina/j2cache/redis:
-    newFile: !uuid '690bad013e0908293c6a10dc12de1f2c5d2ac5ef'
-    oldFile: !uuid 'a51ce64d5b30730984d9e0caeb50ff75fe22c28e'
-  /core/src/net/oschina/j2cache/redis/RedisPubSubClusterPolicy.java:
-    newFile: !uuid 'dba68e9fcc252d656f2a74f87e4c7338c767b681'
-    oldFile: !uuid 'db73c05e1f4e722c720b9bae4b440752d6bf9b63'
-gitCommitId: !uuid 'af0c224de24e05776941145ecef813bc3fb45903'
+    newFile: !uuid '77bd77eccc15d777b41506d85486029c50fe8267'
+    oldFile: !uuid 'ac9f3526a32e5f469c439cc6cdcf35b0341589a7'
+  /core/test:
+    newFile: !uuid 'e89387e7eb91229a6cb256e743b9bd2736d6ccf8'
+    oldFile: null
+  /core/test/net:
+    newFile: !uuid 'a2d43777727eb8d2577358f009814aa005d6be30'
+    oldFile: null
+  /core/test/net/oschina:
+    newFile: !uuid 'b7c9f770037997f05331330d8a78bb0d4a4bd587'
+    oldFile: null
+  /core/test/net/oschina/j2cache:
+    newFile: !uuid '6169ac82ad2186fefc5785d7ca8a783bb521cddb'
+    oldFile: null
+  /core/test/net/oschina/j2cache/CacheChannelTest.java:
+    newFile: !uuid 'cb0c6ebc7b1d351bcdd2f54cd18b78021381cd3f'
+    oldFile: null
+gitCommitId: !uuid 'd5b35ba48792c881c739be801b51a883101f1fac'
 renames: {
   }
-revisionId: 370
+revisionId: 371
