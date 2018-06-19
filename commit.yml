@@ -3,24 +3,27 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '35ea685819ddc1df5ab0f200e45af53bb4e24ca8'
-    oldFile: !uuid '66061338976b63bf85fb2e1d64e7e2a147f8cffc'
+    newFile: !uuid 'ac9f3526a32e5f469c439cc6cdcf35b0341589a7'
+    oldFile: !uuid '35ea685819ddc1df5ab0f200e45af53bb4e24ca8'
   /core/src:
-    newFile: !uuid 'b593682996ff124eb11ebf47520f5ba5ef2e278b'
-    oldFile: !uuid '933bf0e0b2231a597c6864be069e528354ff73e0'
+    newFile: !uuid '7a7a2e6f089c3d1f8c3f6c89d998f3119ceb2d9e'
+    oldFile: !uuid 'b593682996ff124eb11ebf47520f5ba5ef2e278b'
   /core/src/net:
-    newFile: !uuid 'cd73dafc8a3fcc7ad8b77fa376dfdd47129e18f3'
-    oldFile: !uuid '649f639dda579533bf9c828405f515275e695393'
+    newFile: !uuid '16fb9f542e71abc97e91868c4b6550c6816062da'
+    oldFile: !uuid 'cd73dafc8a3fcc7ad8b77fa376dfdd47129e18f3'
   /core/src/net/oschina:
-    newFile: !uuid 'd46ed7ca697c6c020bb5acdf35c00e0cbf1c435f'
-    oldFile: !uuid 'bcd61cf723a57c26df49d7d0a2d42d5ce8333ac7'
+    newFile: !uuid 'cd774627f06ae92fa6f8415d8a1a16ba1ad2aa7f'
+    oldFile: !uuid 'd46ed7ca697c6c020bb5acdf35c00e0cbf1c435f'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid '289df04aad9bc2761fdcc622a1ba86f4a8280734'
-    oldFile: !uuid '1e1c26f47404576d6072efc18339c7905259b2e2'
-  /core/src/net/oschina/j2cache/J2CacheBuilder.java:
-    newFile: !uuid 'd954c84bbdfbacde33844c581028243ff1df68fa'
-    oldFile: !uuid '2c971015f9bbd0970267845fd903310d520403b6'
-gitCommitId: !uuid 'b25054f1d7cd7ebe24d6465253200b9e3d736f28'
+    newFile: !uuid 'ca1edddd29f399a6d055a345ef5c2fd7303a9512'
+    oldFile: !uuid '289df04aad9bc2761fdcc622a1ba86f4a8280734'
+  /core/src/net/oschina/j2cache/redis:
+    newFile: !uuid '690bad013e0908293c6a10dc12de1f2c5d2ac5ef'
+    oldFile: !uuid 'a51ce64d5b30730984d9e0caeb50ff75fe22c28e'
+  /core/src/net/oschina/j2cache/redis/RedisPubSubClusterPolicy.java:
+    newFile: !uuid 'dba68e9fcc252d656f2a74f87e4c7338c767b681'
+    oldFile: !uuid 'db73c05e1f4e722c720b9bae4b440752d6bf9b63'
+gitCommitId: !uuid 'af0c224de24e05776941145ecef813bc3fb45903'
 renames: {
   }
-revisionId: 369
+revisionId: 370
