@@ -78,8 +78,9 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 		String lock_key = key + '%' + region;
 		synchronized (_g_keyLocks.computeIfAbsent(lock_key, v -> new Object())) {
 			obj.setValue(CacheProviderHolder.getLevel1Cache(region).get(key));
-			if(obj.rawValue() != null)
+			if(obj.rawValue() != null) {
 				return obj;
+			}
 
 			try {
 				obj.setLevel(CacheObject.LEVEL_2);
