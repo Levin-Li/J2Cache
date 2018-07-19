@@ -3,87 +3,21 @@ branches: {
   }
 fileChange:
   /modules:
-    newFile: !uuid '08957fe814ba3f432a3ca69f72b0a4c0ee55dbbb'
-    oldFile: !uuid 'f424d46c4299da33c99d3a140e305df8d956f62b'
+    newFile: !uuid 'fb8b5b35e5e6fa23848e558d72891df9fa2f53e8'
+    oldFile: !uuid '08957fe814ba3f432a3ca69f72b0a4c0ee55dbbb'
   /modules/spring-boot-starter:
-    newFile: !uuid 'fb485f635ada5964727386d2c5304d0e1656c20d'
-    oldFile: !uuid '1af32dbcaad95cac36db7d09f032733ab49f0380'
-  /modules/spring-boot-starter/src:
-    newFile: !uuid '92b2b35f4ca6ca0cabca186ee7aba5dc6614ac8b'
-    oldFile: !uuid '5e0fc07a0f8f7a9a8d4596dfc57456437abf00d9'
-  /modules/spring-boot-starter/src/net:
-    newFile: !uuid '09858c88b4b896672d11e3aa98df94fa4149466a'
-    oldFile: !uuid 'e09fce59b01702043fb7f0898c9f98814aeaf751'
-  /modules/spring-boot-starter/src/net/oschina:
-    newFile: !uuid '9ead48757cb09f2da1ba7f4ef9c6ebee33471c4f'
-    oldFile: !uuid 'f6cbca66f6068b06eab4554d8b8603d242e79e46'
-  /modules/spring-boot-starter/src/net/oschina/j2cache:
-    newFile: !uuid '087eb3eafef5b30cd77ce938f3fc1d9a31b7502e'
-    oldFile: !uuid 'f75395c804ade4c82e10f17732757a9163a5ceb8'
-  /modules/spring-boot-starter/src/net/oschina/j2cache/cache:
-    newFile: !uuid '4a934eba937720569abb335ec9aae7318b766e62'
-    oldFile: !uuid 'a213e3c63ce17a82d9d720787477d9ccc6baab49'
-  /modules/spring-boot-starter/src/net/oschina/j2cache/cache/support:
-    newFile: !uuid '11a88e8611903e0019f591e7195845425b4b5a07'
-    oldFile: !uuid 'd087c2f33723c5466141ac6b89e15f461c70177f'
-  /modules/spring-boot-starter/src/net/oschina/j2cache/cache/support/redis:
-    newFile: !uuid '0fbf3c4fc92898cf57f13fc8095dc0ce87e9861f'
-    oldFile: !uuid '8224708fbecb55fd13869ff72c785e456102de50'
-  /modules/spring-boot-starter/src/net/oschina/j2cache/cache/support/redis/ConfigureNotifyKeyspaceEventsAction.java:
-    newFile: !uuid '84c0b8a1cc9d0901a700138bbc57e883863738d9'
-    oldFile: !uuid 'bfb7b8054e164a4140191ddf2211682fbd45a04b'
-  /modules/spring-boot-starter/src/net/oschina/j2cache/cache/support/redis/SpringRedisCache.java:
-    newFile: !uuid '6d232ae4f3b3d5d2b5178d3744d36279f8042eed'
-    oldFile: !uuid 'b91d217afdfc4d162ae5ce0794ffe2ea52f25708'
-  /modules/spring-boot-starter/src/net/oschina/j2cache/cache/support/redis/SpringRedisProvider.java:
-    newFile: !uuid '10cb7e1d7c23ebb2ce4fd7118c7678a7d1270169'
-    oldFile: !uuid '3a6f9ec91141df6845d278557325fabd13acd07e'
-  /modules/spring-boot-starter/src/net/oschina/j2cache/cache/support/util:
-    newFile: !uuid 'b5926b0fc345dfdf0e330759b284d5d8f3c78c8c'
-    oldFile: !uuid 'be1bcd2ff3c9750b966316f00c4a29912430d399'
-  /modules/spring-boot-starter/src/net/oschina/j2cache/cache/support/util/SpringUtil.java:
-    newFile: !uuid '6623cad6a5c7834f95f15ddd82360401d2cf6287'
-    oldFile: !uuid 'cee39baaf5ea0f05ecdb0b270d12f629050d01d4'
+    newFile: !uuid '3a1d277d3e9404c045997d11f9859e81e6cb26f6'
+    oldFile: !uuid 'fb485f635ada5964727386d2c5304d0e1656c20d'
+  /modules/spring-boot-starter/pom.xml:
+    newFile: !uuid '77edbe0f135ffc716a77dc1052a8a3fc0da87c6e'
+    oldFile: !uuid '154c4405d7c68675226534c306b685427ce9814f'
   /modules/spring-boot2-starter:
-    newFile: !uuid '0ad382623b64e57eb7ab3ac29b0864d3256fdffd'
-    oldFile: !uuid '62cf8d64c6ce253539f3de3cbd3b82e881723c81'
-  /modules/spring-boot2-starter/src:
-    newFile: !uuid '6c9d9e61255dc24b8e74d3b680edb0549ce366f2'
-    oldFile: !uuid 'bdf21e76a5e795ba2fd8f48db265d4499e4240c6'
-  /modules/spring-boot2-starter/src/net:
-    newFile: !uuid '38f5e83f76963eccc611213c3a58843d93d6935d'
-    oldFile: !uuid '98634ea0a4ec9fc600c9ee91f7ac7fadf6392807'
-  /modules/spring-boot2-starter/src/net/oschina:
-    newFile: !uuid '4d504b7f78a4857afe82b07f087038892b4082cb'
-    oldFile: !uuid 'd454160e0dce74741161293c3f1c3329f4e062ff'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache:
-    newFile: !uuid '9d84c61b3e1604d7ceef5611682660deeabe50f2'
-    oldFile: !uuid '44b400a1842c2551593cee60de37fbacb59e20d1'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache:
-    newFile: !uuid '17e515c7d56c8b347a4198f4356b5d96ee7ea3ef'
-    oldFile: !uuid '8a44f1a1d98259d5d154311a2e4410a88f458d0d'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support:
-    newFile: !uuid 'a83346c07ab28103f04a4c3dd4250925e7ef0ac4'
-    oldFile: !uuid 'cbe4d35e9194d292154efce7803f571e4a33f201'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/redis:
-    newFile: !uuid 'fb3ce707356029170b48a9aa4e5db56a761cd042'
-    oldFile: !uuid 'f6169e5a73d88f0c10f3c9aa2ef5192b9a2407d1'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/redis/ConfigureNotifyKeyspaceEventsAction.java:
-    newFile: !uuid '371d583545d87048d5b2f70ccdc6bbcf40e64ad1'
-    oldFile: !uuid '2d4134f9cb934cb875f88a351f9e91d55416b198'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/redis/SpringRedisCache.java:
-    newFile: !uuid '6d232ae4f3b3d5d2b5178d3744d36279f8042eed'
-    oldFile: !uuid 'b91d217afdfc4d162ae5ce0794ffe2ea52f25708'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/redis/SpringRedisProvider.java:
-    newFile: !uuid '10cb7e1d7c23ebb2ce4fd7118c7678a7d1270169'
-    oldFile: !uuid '3a6f9ec91141df6845d278557325fabd13acd07e'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/util:
-    newFile: !uuid 'b5926b0fc345dfdf0e330759b284d5d8f3c78c8c'
-    oldFile: !uuid 'be1bcd2ff3c9750b966316f00c4a29912430d399'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/util/SpringUtil.java:
-    newFile: !uuid '6623cad6a5c7834f95f15ddd82360401d2cf6287'
-    oldFile: !uuid 'cee39baaf5ea0f05ecdb0b270d12f629050d01d4'
-gitCommitId: !uuid 'd1b5703ca169c5547a1c8bb835d4a4eecf007466'
+    newFile: !uuid 'e384764d19f07d0875212bab9230f367bf6dc0ad'
+    oldFile: !uuid '0ad382623b64e57eb7ab3ac29b0864d3256fdffd'
+  /modules/spring-boot2-starter/pom.xml:
+    newFile: !uuid 'd53e4c1b10bac0fc5ea7d38258995eea0de86b2f'
+    oldFile: !uuid 'ed93161acd5b106a47990dfa5d68eaf9067b9492'
+gitCommitId: !uuid '6cb1b1e4eb8a4e106c8e6126c460a61dbf87fed7'
 renames: {
   }
-revisionId: 379
+revisionId: 380
