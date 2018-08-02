@@ -3,33 +3,27 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '381e510f21799a1b32f6a0bc5f7fbfcb410d43cd'
-    oldFile: !uuid '9cab731924238f8fd2e611772b4003a991b9d355'
-  /core/resources:
-    newFile: !uuid '6ce339a8fa29515168796b4ab0354b324c2a0f49'
-    oldFile: !uuid '55a8750dc24c61618e0bea2e7f4fa91380715aab'
-  /core/resources/j2cache.properties:
-    newFile: !uuid 'd78366c49e8c7430eab8015c492d93c2d8af89a4'
-    oldFile: !uuid '601d64f0d94d557030275b4dfa31ab2433c35d6a'
+    newFile: !uuid '83dbb1564d49fa547617ddaf5d9ae25a99d2a761'
+    oldFile: !uuid '381e510f21799a1b32f6a0bc5f7fbfcb410d43cd'
   /core/src:
-    newFile: !uuid 'c53285c1069b0ec4938714a91fc808c454b961bd'
-    oldFile: !uuid '83e7ea695966ea582360310a28bb2c0da46ae680'
+    newFile: !uuid 'd3971683dbd2fea1b8db20bbc20bc20b94a4b265'
+    oldFile: !uuid 'c53285c1069b0ec4938714a91fc808c454b961bd'
   /core/src/net:
-    newFile: !uuid '153eb61c81068eea13074d9b4b58d5fa2e4fb47d'
-    oldFile: !uuid 'dbaf1e51ce6dd8eac52da2fc3de4616e29d5e9db'
+    newFile: !uuid 'b308471eb13cc517ad7c9f9a85893b93fa59c31e'
+    oldFile: !uuid '153eb61c81068eea13074d9b4b58d5fa2e4fb47d'
   /core/src/net/oschina:
-    newFile: !uuid 'df330e677c9626db72c0f3b9c262c27a333865f7'
-    oldFile: !uuid '372c5e4c6b5d17d58440a2ad029455d2d1b79265'
+    newFile: !uuid 'f9066c8fd8cbec6fbd7e4d4c8e0c540ff9420e36'
+    oldFile: !uuid 'df330e677c9626db72c0f3b9c262c27a333865f7'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid '42c137a00d99d0c938a139917aa44546b3f9d799'
-    oldFile: !uuid '37bf6f085d4bdbecc49b25ae34fca35fc09080dc'
+    newFile: !uuid '4a7bf674b4389508e91673f983e2e012fc42626e'
+    oldFile: !uuid '42c137a00d99d0c938a139917aa44546b3f9d799'
   /core/src/net/oschina/j2cache/util:
-    newFile: !uuid '19d14e20e6939062574cdb2029c09170f3d2eacc'
-    oldFile: !uuid 'df03795e337b627cb1bbad5d36b8dfee214a8298'
+    newFile: !uuid 'af934dcb2d441f935a15f2a0be4e01b33a233a5f'
+    oldFile: !uuid '19d14e20e6939062574cdb2029c09170f3d2eacc'
   /core/src/net/oschina/j2cache/util/JSONSerializer.java:
-    newFile: !uuid '17bf5efb96f1ef55adb9657f1c7bca806c620128'
-    oldFile: !uuid 'cf8c07d3175cc6ddf797b496c553044acb6af12e'
-gitCommitId: !uuid '72acff4f0b27d3d73930686a4dac358c4926d474'
+    newFile: !uuid '42dd625ee4891da14d43b5dffba6184d5c3555e2'
+    oldFile: !uuid '17bf5efb96f1ef55adb9657f1c7bca806c620128'
+gitCommitId: !uuid 'dd74a5aecce1ac2aed1c4442516ae9ab05137c2b'
 renames: {
   }
-revisionId: 393
+revisionId: 394
