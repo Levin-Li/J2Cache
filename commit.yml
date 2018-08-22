@@ -3,30 +3,27 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '1e22a6d2246ab73906a55f71a56282395d4fe441'
-    oldFile: !uuid 'd975a024fa5ed1fe230c97add34864e470aa10f3'
-  /core/pom.xml:
-    newFile: !uuid '3ac499b98629a60fda91946309d5acb1f6ed0b4e'
-    oldFile: !uuid '58cdcdd7a0d646e7ac82124fe59b0ca1a3bc33a7'
-  /modules:
-    newFile: !uuid 'cce51d6d0394b08398acabd9fd82ec7c04801807'
-    oldFile: !uuid '75124e6c18e1528b9ab3fed689bb63d726bd406e'
-  /modules/spring-boot-starter:
-    newFile: !uuid '3b3a5fe9d1a528c48d02d0d9d4eae734a3ab1b3f'
-    oldFile: !uuid 'e288a7ad42e0a68707c3c2b08ec677dd1aaa13b8'
-  /modules/spring-boot-starter/pom.xml:
-    newFile: !uuid 'd380b9eb05749a8f451fb03a872d96af42c2b690'
-    oldFile: !uuid 'fb906081f458ad86e08ab2de409be95ed2a9cf8e'
-  /modules/spring-boot2-starter:
-    newFile: !uuid '25a7665b83302ad2f910020ba8ff88bbbd4b4fd6'
-    oldFile: !uuid '4bda30a3484e784be3cde43c8085602561577cdb'
-  /modules/spring-boot2-starter/pom.xml:
-    newFile: !uuid 'c6bc581b239066a5ddf10816db747bc0ca195df6'
-    oldFile: !uuid '8b9587397d44155d5af0743abeed4ad4abf8fe61'
-  /pom.xml:
-    newFile: !uuid '3433c2975dfa5a9656c8150089dc74a990f4fb1a'
-    oldFile: !uuid '0b64b437b5d23ece9a2af3134cc321a86d38d5bf'
-gitCommitId: !uuid '4df83b35c9d1cc57049e024bdf042a6fde8b9598'
+    newFile: !uuid '2bbc15d0c552ff2d0967b877800c1e8d2bb9a778'
+    oldFile: !uuid '1e22a6d2246ab73906a55f71a56282395d4fe441'
+  /core/src:
+    newFile: !uuid 'c9c4b3e2a1d5edb7e7406bafc75a1d33cbb25b79'
+    oldFile: !uuid 'bb24a1d84f399a94527fc0c0b4cb19a849d7fcea'
+  /core/src/net:
+    newFile: !uuid '64a1cee1c0da1f4631eae2f36c6980b52a70e0c1'
+    oldFile: !uuid '446ec7f845f5b1beda03f472a5278039d8169a77'
+  /core/src/net/oschina:
+    newFile: !uuid 'b1ed861dd5b5c0223d44a2c289a5e15d428508d7'
+    oldFile: !uuid '86d5bfba6a1b7a71c74703bdc8986e3dcd97a0ce'
+  /core/src/net/oschina/j2cache:
+    newFile: !uuid '8eab815edb5d9468a5272f71da1f1d2654e64855'
+    oldFile: !uuid '3b386fd054c86903a321490332fae1f4960feb4a'
+  /core/src/net/oschina/j2cache/caffeine:
+    newFile: !uuid '779d06cbd7b3ce98aba76fd525e634a21332e927'
+    oldFile: !uuid '7357314bc769aa2146334c6658109325a4500ad8'
+  /core/src/net/oschina/j2cache/caffeine/CaffeineProvider.java:
+    newFile: !uuid '2fe75441c9ef529f3868f7fdc44cb9addb3ede3e'
+    oldFile: !uuid 'd68884a6b0cedf1a98d356dddd8438a8d7a029c4'
+gitCommitId: !uuid '67a069c8a16151e1c148d5ca7adaadd45105193c'
 renames: {
   }
-revisionId: 416
+revisionId: 417
