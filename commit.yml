@@ -2,16 +2,40 @@
 branches: {
   }
 fileChange:
-  /core:
-    newFile: !uuid '7fb5436fbd58d2e4ad3e53e5c80973b9025e7485'
-    oldFile: !uuid 'd131559c98752a9ba1e72402f559a2e87df1fc8f'
-  /core/resources:
-    newFile: !uuid '82506263b088de1b1cc52bbfa7fac926a4b4b48d'
-    oldFile: !uuid '0d69e827f483a4f737368fb5127eac8de38d4c27'
-  /core/resources/j2cache.properties:
-    newFile: !uuid 'd8f7704ef0c967423cbfa2fba3d1ce5c1f920885'
-    oldFile: !uuid 'eb76e4f2913d97f485ced1d937dbbcb0ddfc8038'
-gitCommitId: !uuid 'e918e0a438e2a03224c50eeae8b3ce0683a1bf1b'
+  /modules:
+    newFile: !uuid '0820d735fac5e41520e8ac10f2bac8d10b3a0dd9'
+    oldFile: !uuid 'cce51d6d0394b08398acabd9fd82ec7c04801807'
+  /modules/springcache:
+    newFile: !uuid '5b43b2363991a722b2ca83778ab61725389783fa'
+    oldFile: null
+  /modules/springcache/pom.xml:
+    newFile: !uuid 'ca53f21cba39e8ffc1c7913d9a9a89bbd7c18f45'
+    oldFile: null
+  /modules/springcache/src:
+    newFile: !uuid 'e4f253025c8dadec60cc8742ac97f748b27b8bcc'
+    oldFile: null
+  /modules/springcache/src/net:
+    newFile: !uuid '2dc45acc34b7b91fae96dfed3e13219bfcc99950'
+    oldFile: null
+  /modules/springcache/src/net/oschina:
+    newFile: !uuid '16d8269c200b3748aa0388931d8250307aa45b6b'
+    oldFile: null
+  /modules/springcache/src/net/oschina/j2cache:
+    newFile: !uuid 'eccd36f2adfe8afe80ba7dd3ee95686e566b6450'
+    oldFile: null
+  /modules/springcache/src/net/oschina/j2cache/springcache:
+    newFile: !uuid '84d8af245687f8d1fe2fa8f4babb4059a6badc83'
+    oldFile: null
+  /modules/springcache/src/net/oschina/j2cache/springcache/J2CacheSpringCacheAdapter.java:
+    newFile: !uuid '0807a2a87f08a5306c5e516f8e750766166096cb'
+    oldFile: null
+  /modules/springcache/src/net/oschina/j2cache/springcache/J2CacheSpringCacheManageAdapter.java:
+    newFile: !uuid '6db8363005db40cf5dd0e9933fd6f2ae99b35d2a'
+    oldFile: null
+  /pom.xml:
+    newFile: !uuid '3bda6d0e315c660ebbf703bb81b6cb629b820cc3'
+    oldFile: !uuid '3433c2975dfa5a9656c8150089dc74a990f4fb1a'
+gitCommitId: !uuid 'c0a34bef472f085f7837e6d70ede38e745c9d037'
 renames: {
   }
-revisionId: 422
+revisionId: 423
