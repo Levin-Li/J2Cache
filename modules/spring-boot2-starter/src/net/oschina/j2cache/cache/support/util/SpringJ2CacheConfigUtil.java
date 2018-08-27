@@ -1,9 +1,11 @@
 package net.oschina.j2cache.cache.support.util;
 
-import org.springframework.core.env.StandardEnvironment;
-import org.springframework.core.io.support.ResourcePropertySource;
-
 import net.oschina.j2cache.J2CacheConfig;
+import org.springframework.boot.env.OriginTrackedMapPropertySource;
+import org.springframework.boot.origin.OriginTrackedValue;
+import org.springframework.core.env.StandardEnvironment;
+
+import java.util.Map;
 
 public class SpringJ2CacheConfigUtil {
 
@@ -12,6 +14,7 @@ public class SpringJ2CacheConfigUtil {
 	 */
 	public final static J2CacheConfig initFromConfig(StandardEnvironment environment){
 		J2CacheConfig config = new J2CacheConfig();
+
 		config.setSerialization(environment.getProperty("j2cache.serialization"));
 		config.setBroadcast(environment.getProperty("j2cache.broadcast"));
 		config.setL1CacheName(environment.getProperty("j2cache.L1.provider_class"));
@@ -22,19 +25,27 @@ public class SpringJ2CacheConfigUtil {
 		if (l2_config_section == null || l2_config_section.trim().equals(""))
 			l2_config_section = config.getL2CacheName();
 		final String l2_section = l2_config_section;
+
 		environment.getPropertySources().forEach(a -> {
-			if(a instanceof ResourcePropertySource) {
-				ResourcePropertySource c = (ResourcePropertySource) a;
-				c.getSource().forEach((k,v) -> {
+			if(a instanceof OriginTrackedMapPropertySource) {
+				Map<String, Object> c = ((OriginTrackedMapPropertySource) a).getSource();
+
+				c.forEach((k,v) -> {
 					String key = k;
-					if (key.startsWith(config.getBroadcast() + ".")) {
-						config.getBroadcastProperties().setProperty(key.substring((config.getBroadcast() + ".").length()), (String) v);
-					}	
-					if (key.startsWith(config.getL1CacheName() + ".")) {
-						config.getL1CacheProperties().setProperty(key.substring((config.getL1CacheName() + ".").length()), (String) v);
+					String value=((OriginTrackedValue) v).getValue().toString();
+					String prefix="j2cache."+config.getBroadcast()+".";
+
+					if (key.startsWith(prefix)) {
+						config.getBroadcastProperties().setProperty(key.substring(prefix.length()),  value);
 					}
-					if (key.startsWith(l2_section + ".")) {
-						config.getL2CacheProperties().setProperty(key.substring((l2_section + ".").length()), (String) v);
+					prefix="j2cache."+config.getL1CacheName()+".";
+					if (key.startsWith(prefix)) {
+						config.getL1CacheProperties().setProperty(key.substring(prefix.length()),  value);
+					}
+
+					prefix="j2cache."+l2_section+".";
+					if (key.startsWith(prefix)) {
+						config.getL2CacheProperties().setProperty(key.substring(prefix.length()), value);
 					}
 				});
 			}
