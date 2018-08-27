@@ -29,7 +29,6 @@ import java.io.Serializable;
 @Configuration
 @AutoConfigureAfter({ RedisAutoConfiguration.class })
 @AutoConfigureBefore({ J2CacheAutoConfiguration.class })
-@EnableConfigurationProperties({RedisProperties.class})
 public class J2CacheSpringRedisAutoConfiguration {
 
 
