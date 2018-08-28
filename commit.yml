@@ -3,27 +3,24 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '0660f1ba5c92a8e315124852b39243ab4124ad62'
-    oldFile: !uuid '6082b598f512ae061fab46e48c8e234364d2576c'
-  /core/src:
-    newFile: !uuid 'd35d5cf2a356afd230152d9917eb6356b29d425d'
-    oldFile: !uuid '93df98d10dc72cbaa446a7957b7d42c16c317891'
-  /core/src/net:
-    newFile: !uuid 'a57340c104a77e031ac7fe7b6da2b95a71f8e4a4'
-    oldFile: !uuid '70751afb7d97be32971a5cc8716a20cf0473a66a'
-  /core/src/net/oschina:
-    newFile: !uuid '82852ea662898ea18a44afc102aab356c21b6684'
-    oldFile: !uuid '1ef2e00fc49ef724a92976fd323fde4e2323656f'
-  /core/src/net/oschina/j2cache:
-    newFile: !uuid '596de9b2be976aa06a8159907c97de0cf415af8c'
-    oldFile: !uuid 'c29fef863c8b2f5eb64ed5dca34e421a12ab9f2b'
-  /core/src/net/oschina/j2cache/util:
-    newFile: !uuid '43e6c454ab6610f505d5c0b503e8de1ea6384b13'
-    oldFile: !uuid '215f1fc91e1c393478c58a0a4f9747a3f8bd7a75'
-  /core/src/net/oschina/j2cache/util/FstJSONSerializer.java:
-    newFile: !uuid '72fb2b71eb7931a48997d27619b6762f1a4533fb'
-    oldFile: !uuid '42b915ec2354b6544bbc869786b7d01073032bba'
-gitCommitId: !uuid '81b736b01a2478bdbc7eac476cfa6bc298f2335b'
+    newFile: !uuid 'cf5e5eb937f5c2453e9aef8e11c2c9bda2e6a960'
+    oldFile: !uuid '0660f1ba5c92a8e315124852b39243ab4124ad62'
+  /core/test:
+    newFile: !uuid '1da5809c3742c9ec0fb710db385f2f501d9d5fbd'
+    oldFile: !uuid 'dede32c5ef41f828c50660104e8a043dc443a958'
+  /core/test/net:
+    newFile: !uuid 'acf6d722e2228c59fa11ca211363af5ececf6142'
+    oldFile: !uuid 'b7bb8711d28cc715d90e21cbc82297e03b70214c'
+  /core/test/net/oschina:
+    newFile: !uuid '38572618123e1f83d7a060d5582690f8e19a89d5'
+    oldFile: !uuid 'f63637be7904ef28dd30f80450d0c5f7a2b95a7c'
+  /core/test/net/oschina/j2cache:
+    newFile: !uuid '9c50f76f563e44d25cc540a69c297732efe69d5b'
+    oldFile: !uuid '94d2480a0dfa1d01097bd7b0705177451f2bb498'
+  /core/test/net/oschina/j2cache/Person.java:
+    newFile: !uuid 'bc14940930872f598fe02def96ab90074d5ff13d'
+    oldFile: !uuid '1d69da0e5e3dc50743ce0a95c645bc37c61e046b'
+gitCommitId: !uuid 'f6d966ccd6b4912f632f2c4cdd04246224115b69'
 renames: {
   }
-revisionId: 435
+revisionId: 436
