@@ -2,55 +2,16 @@
 branches: {
   }
 fileChange:
-  /core:
-    newFile: !uuid 'a8127e822666cd3a8f8294a77fb485817ea4dc44'
-    oldFile: !uuid '39446a5ee68ab7692435b8d1e0bdf59ec98a246b'
-  /core/pom.xml:
-    newFile: !uuid '43de97ee796c6f4b4f5b680b11de0754d56ed06a'
-    oldFile: !uuid '69def091b902841740ad12a72dae2588186e5163'
   /modules:
-    newFile: !uuid '8afac1c4e1057d463ea567653885af3310450082'
-    oldFile: !uuid 'ecf398168ab520acd950fa875ce202f78de6a69d'
-  /modules/hibernate3:
-    newFile: !uuid 'd0b250471a7236bb63a15b619a1a9ba911072b64'
-    oldFile: !uuid 'd03bb866af0dd3a752f49ff67dde90231bbebefb'
-  /modules/hibernate3/pom.xml:
-    newFile: !uuid 'ea589fc85e2c0a9208bf0aed92751737e083fa07'
-    oldFile: !uuid 'ec33b0d09ec74d50a0119624561a630b9f23d6ad'
-  /modules/hibernate4:
-    newFile: !uuid '87247ccbd8b8e3b0031b7f85a56010db5bde3a75'
-    oldFile: !uuid '063586d0553dec3bfbe693fd24a40d007a0e98cf'
-  /modules/hibernate4/pom.xml:
-    newFile: !uuid '158c4a8e977017ab7a41946705a6b19d355432f8'
-    oldFile: !uuid '1a57b4855328359a7fa406b28d0cd659c46c26c4'
-  /modules/mybatis:
-    newFile: !uuid '3eab6a9d22125d783b028a57dad1cb576cddc8d5'
-    oldFile: !uuid 'a7ab6381a9f794f94607076a6cf84c1030a187ff'
-  /modules/mybatis/pom.xml:
-    newFile: !uuid '5cddd320b267f9bd246ce1f788caa129210c593e'
-    oldFile: !uuid 'cbf033d473cc62901ba5320f0e41cbeb3d78bd99'
-  /modules/spring-boot-starter:
-    newFile: !uuid '80ce20aa5b544d08423c054bff929a9282880ef4'
-    oldFile: !uuid 'ca3693871658fb259dd302161988e8e8d2f5a90c'
-  /modules/spring-boot-starter/pom.xml:
-    newFile: !uuid '9876f2418e00c3eb80cd8101d04557ce61f45c63'
-    oldFile: !uuid '9df6ffa366b7c6cf00bc6cfbb5f5337f9e4e54eb'
-  /modules/spring-boot2-starter:
-    newFile: !uuid '7d0629d1a5db85704b7cb8da7a9b21362634a567'
-    oldFile: !uuid '2d8a6417fb3a6fc5ac7c7733636af4e128984b35'
-  /modules/spring-boot2-starter/pom.xml:
-    newFile: !uuid 'd4ab4a07fbff6f6dc88cb7b19be5e952b61b669b'
-    oldFile: !uuid '56a4c7016815a0718b2c19fa0fdf7f4e1dd4e8dd'
-  /modules/springcache:
-    newFile: !uuid '0b494debaf6edeaf8f280f48378c931093d814af'
-    oldFile: !uuid '7dc4c164f7b2166f8e1a54d3e4360bc4bd79195d'
-  /modules/springcache/pom.xml:
-    newFile: !uuid 'd0d2bcde2d882af463be17b3e3c393f18695f97b'
-    oldFile: !uuid 'd5f6f14cab25cdc45bea51c09269eb0c12cd2b94'
-  /pom.xml:
-    newFile: !uuid '52bc23ecbf9035a212d73812d6d6ae1e5016d9e1'
-    oldFile: !uuid 'bdbfb5d4bf7e2c866644941ebb762172c56c0b67'
-gitCommitId: !uuid '901794dee58d573e6f76923e70d98be87bb1c775'
+    newFile: !uuid 'bcf1ac7cdd5f2172588dce289d7b022a30c82cf8'
+    oldFile: !uuid '8afac1c4e1057d463ea567653885af3310450082'
+  /modules/tomcat-session-manager:
+    newFile: !uuid '8d9169bb4022f7de2550e2353ebea8afa71ee429'
+    oldFile: !uuid '4188a2ae6fec091369148c8de51d9762e648a542'
+  /modules/tomcat-session-manager/Readme.md:
+    newFile: !uuid '2e557f2196917d341298f2c1d7dd5bc227a40a0e'
+    oldFile: !uuid '3cee4095640056c27f735ddf704cc81dbf9697c9'
+gitCommitId: !uuid '495c3b40068fef0115575b5bcf4802c6cb374050'
 renames: {
   }
-revisionId: 449
+revisionId: 450
