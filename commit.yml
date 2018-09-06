@@ -2,43 +2,55 @@
 branches: {
   }
 fileChange:
-  /core:
-    newFile: !uuid '39446a5ee68ab7692435b8d1e0bdf59ec98a246b'
-    oldFile: !uuid '358ce4447924ddc8b8a56c6db70947890d4633ab'
-  /core/src:
-    newFile: !uuid '3e9e6616ff566056c38f5f2404f0b9aced5a499b'
-    oldFile: !uuid '2bfdb07044224ed379282d4d251de9a6764e76de'
-  /core/src/net:
-    newFile: !uuid '21cd292bc06841cdd5d532acc5250a81ce592586'
-    oldFile: !uuid '9e15fc2a16565cfbc475eb13d63321bf9fd270f3'
-  /core/src/net/oschina:
-    newFile: !uuid '751815632d2183a7aa4ff7e5038b11ead78317dc'
-    oldFile: !uuid '2c4a412635ac63c9d1baadb1acd55bb348f4a297'
-  /core/src/net/oschina/j2cache:
-    newFile: !uuid 'a9055c039eb6c41ab096830d86f1188e615f6a5a'
-    oldFile: !uuid 'b450e3790fca1813129d40f8a0b4282d15c628fb'
-  /core/src/net/oschina/j2cache/CacheChannel.java:
-    newFile: !uuid '767d9715ffdfac27306c28796ab1beff4a027c6b'
-    oldFile: !uuid '749d6c5f0c53bc5f44cb1c79944cd3e0f9b021a3'
-  /core/src/net/oschina/j2cache/CacheProvider.java:
-    newFile: !uuid '53ef4fbf836ab1d2b5536514984764f8e2a0cf4f'
-    oldFile: !uuid 'a29506bbe16ce624a72f54818b629f0bb041101a'
-  /core/src/net/oschina/j2cache/caffeine:
-    newFile: !uuid '727863671b87db52237810f9b243bb2cf244764e'
-    oldFile: !uuid 'c4e37693c4bfcbb327c864746457c306498181d3'
-  /core/src/net/oschina/j2cache/caffeine/CaffeineProvider.java:
-    newFile: !uuid 'f6e71dcd41a033460e3be1bc7c240b6a7fba3cbc'
-    oldFile: !uuid '7b830cd65a0a76bc657f6ccf32748aa84061d8b0'
-  /core/src/net/oschina/j2cache/ehcache:
-    newFile: !uuid '7b557e116091353b25c94f97b7192a7c5e3de1fe'
-    oldFile: !uuid '0610f6902c568c015d2b60e8175ccc9417a1710b'
-  /core/src/net/oschina/j2cache/ehcache/EhCacheProvider.java:
-    newFile: !uuid 'f1153aba195dc71086a5b27acba2976d5ec78f60'
-    oldFile: !uuid '2bdd9145063aab66e8ab38775ccd7ab07adcc768'
-  /core/src/net/oschina/j2cache/ehcache/EhCacheProvider3.java:
-    newFile: !uuid 'fac47e2bc0e764158c1abb016c073310d46fdf87'
-    oldFile: !uuid '051af8048226b74408b4f0a6782f8dd23ea5a543'
-gitCommitId: !uuid '1d75340a9ba5779d4feb2be4f5ac62795aab8d19'
+  /modules:
+    newFile: !uuid 'ecf398168ab520acd950fa875ce202f78de6a69d'
+    oldFile: !uuid '4dc734ce893c434c6974aaaa7269b2051802292f'
+  /modules/tomcat-session-manager:
+    newFile: !uuid '4188a2ae6fec091369148c8de51d9762e648a542'
+    oldFile: null
+  /modules/tomcat-session-manager/Readme.md:
+    newFile: !uuid '3cee4095640056c27f735ddf704cc81dbf9697c9'
+    oldFile: null
+  /modules/tomcat-session-manager/j2cache.properties:
+    newFile: !uuid '297248d5f36174b254e644f8142d32a284bf4a71'
+    oldFile: null
+  /modules/tomcat-session-manager/pom.xml:
+    newFile: !uuid '7331e25d1ada88748565e6e6db5e763eb08e793e'
+    oldFile: null
+  /modules/tomcat-session-manager/server.xml:
+    newFile: !uuid '3b6a881d132fdfe4e9d42fc9650cc902b7944d7c'
+    oldFile: null
+  /modules/tomcat-session-manager/src:
+    newFile: !uuid '6ebd7c1af80c90e578884678fb79c2c14ee91e8d'
+    oldFile: null
+  /modules/tomcat-session-manager/src/main:
+    newFile: !uuid '07306af50fa27d6439ce6d3a52ae7783881dcc44'
+    oldFile: null
+  /modules/tomcat-session-manager/src/main/java:
+    newFile: !uuid 'd0929a7ac7ff91cb335e380b7afd61a4a9141c72'
+    oldFile: null
+  /modules/tomcat-session-manager/src/main/java/net:
+    newFile: !uuid '11b3fe19ee89fc70be6436d1c9edd5afd418697f'
+    oldFile: null
+  /modules/tomcat-session-manager/src/main/java/net/oschina:
+    newFile: !uuid '66bd17b4dd939e7ea87210f283955a5deea35a11'
+    oldFile: null
+  /modules/tomcat-session-manager/src/main/java/net/oschina/j2cache:
+    newFile: !uuid '37ab3b331d63c464f4b9a709f3c54745c1294012'
+    oldFile: null
+  /modules/tomcat-session-manager/src/main/java/net/oschina/j2cache/tomcat:
+    newFile: !uuid '414fb4835b7f0a84ee5003ba0dbae6928b1f8719'
+    oldFile: null
+  /modules/tomcat-session-manager/src/main/java/net/oschina/j2cache/tomcat/J2CacheSession.java:
+    newFile: !uuid 'a9f99953771d572f611278452f229bdfbfe0f3ff'
+    oldFile: null
+  /modules/tomcat-session-manager/src/main/java/net/oschina/j2cache/tomcat/J2CacheSessionManager.java:
+    newFile: !uuid 'b30efba1392fdcd76451e57b5836cd7780b27007'
+    oldFile: null
+  /modules/tomcat-session-manager/test.jsp:
+    newFile: !uuid 'acbf672c54f842365990895c45f568cea557a871'
+    oldFile: null
+gitCommitId: !uuid 'afc1fbd10871d26038fe239405df6daf992a9ff8'
 renames: {
   }
-revisionId: 447
+revisionId: 448
