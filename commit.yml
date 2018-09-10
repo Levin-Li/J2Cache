@@ -2,25 +2,144 @@
 branches: {
   }
 fileChange:
-  /core:
-    newFile: !uuid 'b7344e1a89ee33ed307ed413312803850ede60e3'
-    oldFile: !uuid '93b4749d478ac044bd9dcb3bac29543e3d2e9d94'
-  /core/src:
-    newFile: !uuid '19907bcf89e774f0f659f491ad282f9ba3d89076'
-    oldFile: !uuid '825c1e582b881fb8a60718bd4230b9bc15f7df0d'
-  /core/src/net:
-    newFile: !uuid 'bb93b64729e3a7f197eb151b5d5ad9fa814403fd'
-    oldFile: !uuid 'fbdea74ad99cddbcb61caa8cc62994e8a5431a75'
-  /core/src/net/oschina:
-    newFile: !uuid '170eb9f20a5015b664c7bc7edbf88f6edc7aafd2'
-    oldFile: !uuid 'ad1ee52507a1e6b484ba5a7a4abdc3b9c5f7d82a'
-  /core/src/net/oschina/j2cache:
-    newFile: !uuid '5c50e1d9224a503bb6e268538b57fa8b8cc5c126'
-    oldFile: !uuid 'f41d8a48cfc8417a6021a0825f26836802d68f3d'
-  /core/src/net/oschina/j2cache/CacheExpiredListener.java:
-    newFile: !uuid 'dc0e74fa249e612a10c4942a4e219871bde3b5e9'
-    oldFile: !uuid '6fa1b318733ae9b936377ecfaa86a56a7a780723'
-gitCommitId: !uuid 'daf415b74867573608c10cc1dbf05d47fd730787'
-renames: {
-  }
-revisionId: 453
+  /modules:
+    newFile: !uuid '707aaed5248fa857e719a6d17f591e767ff6c66e'
+    oldFile: !uuid '4123989af7c45737d4671b16c5201658e9fac36d'
+  /modules/session-manager:
+    newFile: !uuid 'cc19c2deec30afd48212ee5c1e2b792f08a79446'
+    oldFile: null
+  /modules/session-manager/Readme.md:
+    newFile: !uuid '16b15c8b3ca322b16f706fe103b45c11b28137f2'
+    oldFile: null
+  /modules/session-manager/WEB-INF:
+    newFile: !uuid '802ee7db4917ad9ca5c05323b956325cc7712f17'
+    oldFile: null
+  /modules/session-manager/WEB-INF/web.xml:
+    newFile: !uuid '28e3a1e8a31503cb531688d29ffcd05ecc8dda7b'
+    oldFile: null
+  /modules/session-manager/j2cache.properties:
+    newFile: !uuid 'adafe280bcdca8ccb63eebda3cdd8ad3d62d79b8'
+    oldFile: null
+  /modules/session-manager/pom.xml:
+    newFile: !uuid 'aad6e3e228990332259fcea2ac87b5c5bdce94e2'
+    oldFile: null
+  /modules/session-manager/server.xml:
+    newFile: !uuid 'b1efac705a17612b6e5e9cc9306fbac94d1f9a00'
+    oldFile: null
+  /modules/session-manager/src:
+    newFile: !uuid 'ffff4861642bf6dfb74042c7a9c3b631d7f3409c'
+    oldFile: null
+  /modules/session-manager/src/main:
+    newFile: !uuid '4452acd3171f6ce39bbb67477cd51226b5fe9d3f'
+    oldFile: null
+  /modules/session-manager/src/main/java:
+    newFile: !uuid 'd8272e026657ea003c243817cc4de7317a884259'
+    oldFile: null
+  /modules/session-manager/src/main/java/net:
+    newFile: !uuid 'a87375880776c79a07cff16eb498389f208ca85d'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina:
+    newFile: !uuid '04f353c8284e4bf47e3783348333b09801ac0bf9'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache:
+    newFile: !uuid '003e4131b552334432f0edc92da649dc330d37b3'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache/session:
+    newFile: !uuid 'c4c36ef47cd23eb79ce9fd1924e151fd75b16ed4'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache/session/CacheExpiredListener.java:
+    newFile: !uuid '24a74c0537c85e76a95e7bc8a434fbefec935cc4'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache/session/CacheFacade.java:
+    newFile: !uuid '8decca3a90f06ba140d058634e0c48804eec19e1'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache/session/CaffeineCache.java:
+    newFile: !uuid '93db5bd819d9c2fa6198ecd3a1dafb9a51fd68c2'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache/session/J2CacheSession.java:
+    newFile: !uuid '88e171e7556bd53a3197c0dac2f11340a8227cbf'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache/session/J2CacheSessionFilter.java:
+    newFile: !uuid '16c5d46d8f5a414979912020b5bde0e7001be8b3'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache/session/RedisCache.java:
+    newFile: !uuid '2071c857f53efe68d90fe02f1542c2181c32ad54'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache/session/RedisClient.java:
+    newFile: !uuid '6235eebbc9def8cf91e635b4de550415e577f6bb'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache/session/RedisUtils.java:
+    newFile: !uuid '81386a632a5399c5b672ee8bd0b3d0b612cfeda8'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache/session/SessionObject.java:
+    newFile: !uuid 'ab3abb08d29691d2b0360fc4c2d5e975b5c1083f'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache/tomcat:
+    newFile: !uuid '09fbc30638b7d28a097914a1c5c9bbe43915f35e'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache/tomcat/J2CacheSession.java:
+    newFile: !uuid '4df892a455cbc04eb7479d3734a81f6238b72049'
+    oldFile: null
+  /modules/session-manager/src/main/java/net/oschina/j2cache/tomcat/J2CacheSessionManager.java:
+    newFile: !uuid '65316346f6c2c9fe754062b2694024a75ce3ed47'
+    oldFile: null
+  /modules/session-manager/test.jsp:
+    newFile: !uuid 'acbf672c54f842365990895c45f568cea557a871'
+    oldFile: null
+  /modules/tomcat-session-manager:
+    newFile: null
+    oldFile: !uuid '3809effadb15e5d6609e4857933eabb9347fdf61'
+  /modules/tomcat-session-manager/Readme.md:
+    newFile: null
+    oldFile: !uuid '16b15c8b3ca322b16f706fe103b45c11b28137f2'
+  /modules/tomcat-session-manager/j2cache.properties:
+    newFile: null
+    oldFile: !uuid '297248d5f36174b254e644f8142d32a284bf4a71'
+  /modules/tomcat-session-manager/pom.xml:
+    newFile: null
+    oldFile: !uuid '7331e25d1ada88748565e6e6db5e763eb08e793e'
+  /modules/tomcat-session-manager/server.xml:
+    newFile: null
+    oldFile: !uuid '3b6a881d132fdfe4e9d42fc9650cc902b7944d7c'
+  /modules/tomcat-session-manager/src:
+    newFile: null
+    oldFile: !uuid '6ebd7c1af80c90e578884678fb79c2c14ee91e8d'
+  /modules/tomcat-session-manager/src/main:
+    newFile: null
+    oldFile: !uuid '07306af50fa27d6439ce6d3a52ae7783881dcc44'
+  /modules/tomcat-session-manager/src/main/java:
+    newFile: null
+    oldFile: !uuid 'd0929a7ac7ff91cb335e380b7afd61a4a9141c72'
+  /modules/tomcat-session-manager/src/main/java/net:
+    newFile: null
+    oldFile: !uuid '11b3fe19ee89fc70be6436d1c9edd5afd418697f'
+  /modules/tomcat-session-manager/src/main/java/net/oschina:
+    newFile: null
+    oldFile: !uuid '66bd17b4dd939e7ea87210f283955a5deea35a11'
+  /modules/tomcat-session-manager/src/main/java/net/oschina/j2cache:
+    newFile: null
+    oldFile: !uuid '37ab3b331d63c464f4b9a709f3c54745c1294012'
+  /modules/tomcat-session-manager/src/main/java/net/oschina/j2cache/tomcat:
+    newFile: null
+    oldFile: !uuid '414fb4835b7f0a84ee5003ba0dbae6928b1f8719'
+  /modules/tomcat-session-manager/src/main/java/net/oschina/j2cache/tomcat/J2CacheSession.java:
+    newFile: null
+    oldFile: !uuid 'a9f99953771d572f611278452f229bdfbfe0f3ff'
+  /modules/tomcat-session-manager/src/main/java/net/oschina/j2cache/tomcat/J2CacheSessionManager.java:
+    newFile: null
+    oldFile: !uuid 'b30efba1392fdcd76451e57b5836cd7780b27007'
+  /modules/tomcat-session-manager/test.jsp:
+    newFile: null
+    oldFile: !uuid 'acbf672c54f842365990895c45f568cea557a871'
+  /pom.xml:
+    newFile: !uuid '133ce32de9843a7c36c271d88bca26c550ce2d22'
+    oldFile: !uuid '52bc23ecbf9035a212d73812d6d6ae1e5016d9e1'
+gitCommitId: !uuid '874f7b12a801d9abdd53e1bca88cc6e4623ed0ee'
+renames:
+  /modules/session-manager/Readme.md: /modules/tomcat-session-manager/Readme.md
+  /modules/session-manager/j2cache.properties: /modules/tomcat-session-manager/j2cache.properties
+  /modules/session-manager/pom.xml: /modules/tomcat-session-manager/pom.xml
+  /modules/session-manager/src/main/java/net/oschina/j2cache/tomcat/J2CacheSession.java: /modules/tomcat-session-manager/src/main/java/net/oschina/j2cache/tomcat/J2CacheSession.java
+  /modules/session-manager/src/main/java/net/oschina/j2cache/tomcat/J2CacheSessionManager.java: /modules/tomcat-session-manager/src/main/java/net/oschina/j2cache/tomcat/J2CacheSessionManager.java
+  /modules/session-manager/test.jsp: /modules/tomcat-session-manager/test.jsp
+revisionId: 454
