@@ -3,15 +3,36 @@ branches: {
   }
 fileChange:
   /modules:
-    newFile: !uuid '8fa0f6949f3577f2f18cd435ac55b7c1464e9536'
-    oldFile: !uuid '4da517651ec85bbf864c1917dc14e2626609f387'
+    newFile: !uuid '1b992d7b91d9ed41d6a280ee6ab6eabaea6081e6'
+    oldFile: !uuid '8fa0f6949f3577f2f18cd435ac55b7c1464e9536'
   /modules/session-manager:
-    newFile: !uuid 'ef64e9b146cbdb4709a7f0b64e20399a579554a4'
-    oldFile: !uuid 'a8a2564aa644a1242f86132582829817d6c97a16'
-  /modules/session-manager/Readme.md:
-    newFile: !uuid '032b252fd1838303897fc81cf7594551f089dab6'
-    oldFile: !uuid 'cedf7b5a4521a880c517965598a119854beb2139'
-gitCommitId: !uuid '4cda16a333ba12179c704e143b188cc4b6fc8c71'
+    newFile: !uuid '93f03f8a23bc4abc25719e3437140786b4fdb9d2'
+    oldFile: !uuid 'ef64e9b146cbdb4709a7f0b64e20399a579554a4'
+  /modules/session-manager/src:
+    newFile: !uuid '278187b5b7f59372ed5b47a64e7e636c866d391c'
+    oldFile: !uuid 'ab1da4586d6712acd28052d51ca323086e67bb0a'
+  /modules/session-manager/src/main:
+    newFile: !uuid '2565a8796af2673aaa464ad1998908542f553a1e'
+    oldFile: !uuid 'ce839c2bc556c95c7bb650d45561b0fbf1791c08'
+  /modules/session-manager/src/main/java:
+    newFile: !uuid '54657c32503c555ef43243897fd88e7940d9284b'
+    oldFile: !uuid '81e8443d0c7b4191d0eeece695e92a381694a4c3'
+  /modules/session-manager/src/main/java/net:
+    newFile: !uuid 'd023de6b1dd930236902d06e9171b9bf5aec5157'
+    oldFile: !uuid '8da46021327b34e7befd319b351cec1b25dcd130'
+  /modules/session-manager/src/main/java/net/oschina:
+    newFile: !uuid 'f3e719868e7c9628110e7db052469bdbbd7f2fa5'
+    oldFile: !uuid 'abb4ba856e5cbc37148534ef8957ed53d29b30b1'
+  /modules/session-manager/src/main/java/net/oschina/j2cache:
+    newFile: !uuid '9aed0b44c55c3b9d927d63b31c1c580d5a5292d3'
+    oldFile: !uuid 'f045ed78d1362c19d894d3009a626877991ea620'
+  /modules/session-manager/src/main/java/net/oschina/j2cache/session:
+    newFile: !uuid 'c0632754c96cee6f925d4ce0db11dd63b8daebab'
+    oldFile: !uuid '21f503e7f28df4b164fe6c30af56183aee17ded6'
+  /modules/session-manager/src/main/java/net/oschina/j2cache/session/J2CacheSessionFilter.java:
+    newFile: !uuid '2b26b74e772c2919fe54c9c99d161f4c94cdec40'
+    oldFile: !uuid 'a43cc4b5881a711138fe621daaedcb5f48f3836a'
+gitCommitId: !uuid '8d083ff7e0f1c05cb380dcd5ffa72ba1d42699c3'
 renames: {
   }
-revisionId: 458
+revisionId: 459
