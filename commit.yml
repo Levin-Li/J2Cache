@@ -2,28 +2,16 @@
 branches: {
   }
 fileChange:
-  /core:
-    newFile: !uuid '19bcab6bc617a9d90dd5f259fe2a68a4fd3e4810'
-    oldFile: !uuid '43d46c06d5723af6d269f4f1e580c1be5c9a3cc2'
-  /core/src:
-    newFile: !uuid 'b656ab38ae0d8e7bc5bff4a59ae4734571e72209'
-    oldFile: !uuid '7a355d47fb0993cf6f9a3c0aa50b2af02cf26786'
-  /core/src/net:
-    newFile: !uuid '1b5d8749d9502d9ff39d812ecf72058ab6ffafbc'
-    oldFile: !uuid '0b8e1e49d87d4fa23436c01136fdf919e45414ba'
-  /core/src/net/oschina:
-    newFile: !uuid 'b0b6eb570e8ba7e40190f085bfabda18464b9283'
-    oldFile: !uuid 'f47bd85eb593762ae147b22e1a07d6c071b51fd3'
-  /core/src/net/oschina/j2cache:
-    newFile: !uuid 'cb06a0771fea7a7efc9a99d87943b9f26233c02c'
-    oldFile: !uuid '14de570059306d254fc106409a61169da9640eaa'
-  /core/src/net/oschina/j2cache/util:
-    newFile: !uuid 'c3659f08508ff7fd03d68eadbb64c06c2ffa5d2a'
-    oldFile: !uuid 'a8da2b22cc7712b52ce81e02dab691ae39de9b76'
-  /core/src/net/oschina/j2cache/util/FSTSerializer.java:
-    newFile: !uuid '654178d3fc407a48e4faabd0c49c8600138bbce5'
-    oldFile: !uuid 'b4aa0db5a52dae8e23475b9353cedfa471f5aae2'
-gitCommitId: !uuid '2c0a564918a3ad7ec88d5ba93249bc5dda36604c'
+  /modules:
+    newFile: !uuid 'a89a29be99acf497b48d202401cb7fb80d708c55'
+    oldFile: !uuid '21146ef25e6d26820407c883b7029b0a995b45d7'
+  /modules/session-manager:
+    newFile: !uuid '3631ff93c2c4438b1735c0f637130fd21959e6f5'
+    oldFile: !uuid 'f4601d0bfbb693984533615c08d1aa456c155d43'
+  /modules/session-manager/pom.xml:
+    newFile: !uuid '1b6bca4721e47f1671e81bc4277a4a451d784109'
+    oldFile: !uuid 'a107a9f843e5480946eb3c6379b2914d20ada8f7'
+gitCommitId: !uuid 'dbd67662618d0b761317d9086ca84fdff7aef387'
 renames: {
   }
-revisionId: 483
+revisionId: 484
