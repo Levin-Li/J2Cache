@@ -3,39 +3,36 @@ branches: {
   }
 fileChange:
   /modules:
-    newFile: !uuid '7f46916baffba8142a3e0d5a69fc722c149244a5'
-    oldFile: !uuid 'a89a29be99acf497b48d202401cb7fb80d708c55'
+    newFile: !uuid '138d078c82c462797a92e742994a722dbe2607e8'
+    oldFile: !uuid '7f46916baffba8142a3e0d5a69fc722c149244a5'
   /modules/session-manager:
-    newFile: !uuid 'b5f17e1a8161270b10f097ef9635eacc92f0501d'
-    oldFile: !uuid '3631ff93c2c4438b1735c0f637130fd21959e6f5'
-  /modules/session-manager/pom.xml:
-    newFile: !uuid 'd48cec2dfdea021e8964eb44568dbca3fb97e9e5'
-    oldFile: !uuid '1b6bca4721e47f1671e81bc4277a4a451d784109'
+    newFile: !uuid '8ac59865b5fd773da6a5b84c63a7650fae950052'
+    oldFile: !uuid 'b5f17e1a8161270b10f097ef9635eacc92f0501d'
   /modules/session-manager/src:
-    newFile: !uuid 'afb78a02c9e2f1bb72d4cd33bfcfd2a3cec8297f'
-    oldFile: !uuid '4b928ac028ca4c04729d88309acc8624c7404903'
+    newFile: !uuid '6f8360792620229e19f87d6b2c6b3ddb1d671d28'
+    oldFile: !uuid 'afb78a02c9e2f1bb72d4cd33bfcfd2a3cec8297f'
   /modules/session-manager/src/main:
-    newFile: !uuid 'ae2b8d1c544d57bced07e70267ebe04ad494dfb3'
-    oldFile: !uuid '1da1fa22abb4094ac26ce254daac91fcbd2abad2'
+    newFile: !uuid '99b916c96eabfd9272819c0be1d5a09427fb3d2b'
+    oldFile: !uuid 'ae2b8d1c544d57bced07e70267ebe04ad494dfb3'
   /modules/session-manager/src/main/java:
-    newFile: !uuid '2bde39e6fc54a7dd44b4a45374d6afe7bb70b9ec'
-    oldFile: !uuid '2a9fa0603c6696e8fbba5de5cc466768fc205cb9'
+    newFile: !uuid '2206f25cedae707c9f4d399fe63c595add900cf5'
+    oldFile: !uuid '2bde39e6fc54a7dd44b4a45374d6afe7bb70b9ec'
   /modules/session-manager/src/main/java/net:
-    newFile: !uuid '11f265c3f90f8334b2d721215d7f8c60616badbd'
-    oldFile: !uuid '319bc1ec935e7fb53344f236dd2b024c7f83424a'
+    newFile: !uuid '727c5abb38dceef104e2fbfc15437dd44095590b'
+    oldFile: !uuid '11f265c3f90f8334b2d721215d7f8c60616badbd'
   /modules/session-manager/src/main/java/net/oschina:
-    newFile: !uuid '9da836da4defd2f6b66ea0f651cb498b0b2857c6'
-    oldFile: !uuid 'a986eb663623c63cd882dbd5920ca7b5ad071f32'
+    newFile: !uuid '878b0e2c6c92836225c6c708ce57ade6b2fad3df'
+    oldFile: !uuid '9da836da4defd2f6b66ea0f651cb498b0b2857c6'
   /modules/session-manager/src/main/java/net/oschina/j2cache:
-    newFile: !uuid 'a8e17a30c86a3d219b8b01e0de2d195da9340900'
-    oldFile: !uuid 'a2cf47041eeb70c99d070dd02cb16657cb30e460'
+    newFile: !uuid 'a8da0eaef7e763177b90556d9d3e9349a378ae05'
+    oldFile: !uuid 'a8e17a30c86a3d219b8b01e0de2d195da9340900'
   /modules/session-manager/src/main/java/net/oschina/j2cache/session:
-    newFile: !uuid 'e22f3ffd4d789480b6a801abd71a6633754278a6'
-    oldFile: !uuid 'b4cc3297830fcbb9eb8cbe3094cc06da97a18557'
-  /modules/session-manager/src/main/java/net/oschina/j2cache/session/Command.java:
-    newFile: !uuid '84cf5fe0edc4f73a0d7b857612c26a967cd220e5'
-    oldFile: !uuid '6b53bb88944aadc730a23b8afb03c138cf9afd29'
-gitCommitId: !uuid '6eef9b710de2e5511c0b51006a018c3e03755fe3'
+    newFile: !uuid '2c3c666c82f294edc48dd15eb93062dcb7da4555'
+    oldFile: !uuid 'e22f3ffd4d789480b6a801abd71a6633754278a6'
+  /modules/session-manager/src/main/java/net/oschina/j2cache/session/Serializer.java:
+    newFile: !uuid '07d475adb49e0ff3cc2323b394d9245f65e69829'
+    oldFile: !uuid '303657a3b2d791342f45553f40c1faccc7dba739'
+gitCommitId: !uuid 'ba6160cd79939e6296bc2315dd7c6eced0585f3d'
 renames: {
   }
-revisionId: 485
+revisionId: 486
