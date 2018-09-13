@@ -2,37 +2,10 @@
 branches: {
   }
 fileChange:
-  /modules:
-    newFile: !uuid 'cdf1398823434d12f2ca5f9497154ca829d9b32e'
-    oldFile: !uuid 'b7b72f3c2df86a2cac4c57eb3f7e0410fa80beed'
-  /modules/spring-boot2-starter:
-    newFile: !uuid '0de82b953e0ee06c93482129521ddf87c0c63aba'
-    oldFile: !uuid '76b6ae5446498957d5098b71666fc0d69096bcac'
-  /modules/spring-boot2-starter/src:
-    newFile: !uuid '20eec959b032c43680afa9fb69592e37b9b4363d'
-    oldFile: !uuid 'ef3681828ad4a0cecc58ca13778410f73dc0615a'
-  /modules/spring-boot2-starter/src/net:
-    newFile: !uuid 'fa58a5589c668308edef5187d89a8eebf29ac705'
-    oldFile: !uuid '84bbd852e780dbb06577ac1a051d5241acb1d25f'
-  /modules/spring-boot2-starter/src/net/oschina:
-    newFile: !uuid '229246a963cba31ef310caee5bd6e3a01a8b3797'
-    oldFile: !uuid 'c95336428c36c91605b2746ea543b05e0de0db2a'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache:
-    newFile: !uuid 'ffe7a4817a0d707a0f1e6cd52c2309dfbbc08f01'
-    oldFile: !uuid '8655e0d5a8598196dfeae5e542de9f3810954a0e'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache:
-    newFile: !uuid '5099f761a6453db6027458072397009cab8295d9'
-    oldFile: !uuid '10b64442d413c4a4641d23605231421d2397fb4f'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support:
-    newFile: !uuid '29b713121dff410db6cddf45e0f8d7d87cc8bf74'
-    oldFile: !uuid 'ffe6ab9567ec168e25135d36be2a4d52a5c0b022'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/util:
-    newFile: !uuid '6ca4c2aabe57db37358c3586859718e5a0822a32'
-    oldFile: !uuid '3df88f9b7ea72670ea6031bd19a96e9dccd58b8f'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/util/SpringJ2CacheConfigUtil.java:
-    newFile: !uuid '867b9bf10fb0bd96fa748c52e96b3e7206dea08a'
-    oldFile: !uuid 'fa17c1467f6325b9160f22e79b57f858e5994f8b'
-gitCommitId: !uuid '50ddf3357d37504642291893f1bfdb21bf762436'
+  /README.md:
+    newFile: !uuid 'b757a403d229a14dded60a927f52c5cd9909f211'
+    oldFile: !uuid 'd47fb7103c849bfd85445ae4987bb105b9b6ae5e'
+gitCommitId: !uuid 'f82321150dde22369a15380c184e8ce47af66ce1'
 renames: {
   }
-revisionId: 475
+revisionId: 476
