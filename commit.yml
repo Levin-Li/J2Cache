@@ -3,24 +3,42 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '2a2ce8c358877aec54e591143e38fab365995859'
-    oldFile: !uuid 'b60da805f4d1fc0d3fac739f82f26bb1eed24bda'
+    newFile: !uuid '4546289e672137dba65b5fa04a381f715c6df27d'
+    oldFile: !uuid '2a2ce8c358877aec54e591143e38fab365995859'
   /core/src:
-    newFile: !uuid '18932862961fbf2b5131856a69563faa3ee8a7a3'
-    oldFile: !uuid '8711da888d53117c478773d92086d47e249e6011'
+    newFile: !uuid '31117c5b283a70d89afb90cdcbb60f284c141d18'
+    oldFile: !uuid '18932862961fbf2b5131856a69563faa3ee8a7a3'
   /core/src/net:
-    newFile: !uuid '0e571f2306563e17d29d3a72824d33e4a3686885'
-    oldFile: !uuid 'af70b0a439ce7bc240c2c82f4caa3e0d49a588bb'
+    newFile: !uuid '3e4c1529f62050127c60da29ce8e1fd3db3f0959'
+    oldFile: !uuid '0e571f2306563e17d29d3a72824d33e4a3686885'
   /core/src/net/oschina:
-    newFile: !uuid 'c3f4ff80b2b7fba71a5f9c6e5cfc7625de8787cd'
-    oldFile: !uuid '75b2a7f5360d7b9613bc5d650db3ef122db37e69'
+    newFile: !uuid '4248a150494347857ec91181c014712ed90621e2'
+    oldFile: !uuid 'c3f4ff80b2b7fba71a5f9c6e5cfc7625de8787cd'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid 'de4640bac3e38b3f83266708d78bfbdae6f480d0'
-    oldFile: !uuid '57b38c4f7e1f2a5d5bc460fcab1ee08c76475795'
-  /core/src/net/oschina/j2cache/NullCache.java:
-    newFile: !uuid '8d08ddfb1f458b22b7f1237d3c9d5751aa7862e5'
-    oldFile: !uuid '479030a06bb57accbaf45736e8256f968b9b7e6c'
-gitCommitId: !uuid 'c803ee712980f733168c80c0aa28174672cec3c1'
+    newFile: !uuid '8bd55521a4b25209e2b0229824c9f9b4599f000e'
+    oldFile: !uuid 'de4640bac3e38b3f83266708d78bfbdae6f480d0'
+  /core/src/net/oschina/j2cache/caffeine:
+    newFile: !uuid 'cf081406c0a0b0c6d0331225d1d6e6593d44b19f'
+    oldFile: !uuid '97e9dd45aca67c9118b0ba7242f23689335fedde'
+  /core/src/net/oschina/j2cache/caffeine/CaffeineProvider.java:
+    newFile: !uuid 'ca5e2e1b775199a42076bc8ade8c0ea15072a591'
+    oldFile: !uuid '5abc7eb5e466107216db8d330a06da04933498f9'
+  /core/test:
+    newFile: !uuid '32bb6c2687ea029dfc0478174426cc169ed20cd4'
+    oldFile: !uuid '672434d686ff0c273c6a6b13495481e1a9eb8bf6'
+  /core/test/net:
+    newFile: !uuid 'd70c36b862ad2e570457f46a1289dd593adb14d7'
+    oldFile: !uuid '229d65dc929a65de7f29734106cc881df449adc3'
+  /core/test/net/oschina:
+    newFile: !uuid 'aa1eaf7c88ced6109867c073bc415357848a5405'
+    oldFile: !uuid '9283bc9996fd9cd356fca1abf127675e02356211'
+  /core/test/net/oschina/j2cache:
+    newFile: !uuid '9f37055c6b0a3b69ca1aecb029bc448526878f51'
+    oldFile: !uuid 'ef0dacb2c35fd81bd771ef00830063e7ff4138f8'
+  /core/test/net/oschina/j2cache/CacheChannelTest.java:
+    newFile: !uuid '561818ba1530cacefb56a54a3260b1471c6036ba'
+    oldFile: !uuid '09a744122e5ba0a160002c223ef1a33194fa9a23'
+gitCommitId: !uuid '7c26587e5230da572138ed92dda179e10a9a3df4'
 renames: {
   }
-revisionId: 492
+revisionId: 493
