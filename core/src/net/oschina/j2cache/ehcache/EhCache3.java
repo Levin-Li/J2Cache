@@ -30,13 +30,15 @@ import java.util.stream.Collectors;
  *
  * @author Winter Lau(javayou@gmail.com)
  */
+@SuppressWarnings("rawtypes")
 public class EhCache3 implements Level1Cache, CacheEventListener {
 
     private String name;
     private org.ehcache.Cache<String, Object> cache;
     private CacheExpiredListener listener;
 
-    public EhCache3(String name, org.ehcache.Cache<String, Object> cache, CacheExpiredListener listener) {
+    @SuppressWarnings("unchecked")
+	public EhCache3(String name, org.ehcache.Cache<String, Object> cache, CacheExpiredListener listener) {
         this.name = name;
         this.cache = cache;
         this.cache.getRuntimeConfiguration().registerCacheEventListener(this,
@@ -59,9 +61,10 @@ public class EhCache3 implements Level1Cache, CacheEventListener {
         return this.cache.getRuntimeConfiguration().getResourcePools().getPoolForResource(ResourceType.Core.HEAP).getSize();
     }
 
-    @Override
-    public Object get(String key) {
-        return this.cache.get(key);
+	@Override
+	@SuppressWarnings("unchecked")
+    public <V> V get(String key) {
+        return (V) this.cache.get(key);
     }
 
     @Override
@@ -69,9 +72,10 @@ public class EhCache3 implements Level1Cache, CacheEventListener {
         this.cache.put(key, value);
     }
 
-    @Override
-    public Map<String, Object> get(Collection<String> keys) {
-        return cache.getAll(keys.stream().collect(Collectors.toSet()));
+	@Override
+	@SuppressWarnings("unchecked")
+    public <V> Map<String, V> get(Collection<String> keys) {
+        return (Map<String, V>)cache.getAll(keys.stream().collect(Collectors.toSet()));
     }
 
     @Override
@@ -80,7 +84,7 @@ public class EhCache3 implements Level1Cache, CacheEventListener {
     }
 
     @Override
-    public void put(Map<String, Object> elements) {
+    public <V> void put(Map<String, V> elements) {
         cache.putAll(elements);
     }
 

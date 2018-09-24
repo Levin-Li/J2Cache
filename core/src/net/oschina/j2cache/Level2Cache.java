@@ -117,11 +117,12 @@ public interface Level2Cache extends Cache {
      */
     void clear();
 
-    @Override
-    default Object get(String key) {
+	@Override
+	@SuppressWarnings("unchecked")
+    default <V> V get(String key) {
         byte[] bytes = getBytes(key);
         try {
-            return SerializationUtils.deserialize(bytes);
+            return (V)SerializationUtils.deserialize(bytes);
         } catch (DeserializeException e) {
             log.warn("Failed to deserialize object with key:" + key + ",message: " + e.getMessage());
             evict(key);
@@ -132,14 +133,15 @@ public interface Level2Cache extends Cache {
     }
 
     @Override
-    default Map<String, Object> get(Collection<String> keys) {
-        Map<String, Object> results = new HashMap<>();
+	@SuppressWarnings("unchecked")
+    default <V> Map<String, V> get(Collection<String> keys) {
+        Map<String, V> results = new HashMap<>();
         if(keys.size() > 0) {
             List<byte[]> bytes = getBytes(keys);
             int i = 0;
             for (String key : keys) {
                 try {
-                    results.put(key, SerializationUtils.deserialize(bytes.get(i++)));
+                    results.put(key, (V)SerializationUtils.deserialize(bytes.get(i++)));
                 } catch (DeserializeException e) {
                     log.warn("Failed to deserialize object with key:" + key + ",message: " + e.getMessage());
                     evict(key);
@@ -153,7 +155,7 @@ public interface Level2Cache extends Cache {
     }
 
     @Override
-    default void put(String key, Object value) {
+    default <V> void put(String key, V value) {
         try {
             setBytes(key, SerializationUtils.serialize(value));
         } catch (IOException e) {
@@ -176,12 +178,12 @@ public interface Level2Cache extends Cache {
     }
 
     @Override
-    default void put(Map<String, Object> elements) {
+    default <V> void put(Map<String, V> elements) {
         if(elements.size() > 0)
             setBytes(elements.entrySet().stream().collect(Collectors.toMap(p -> p.getKey(), p->SerializationUtils.serializeWithoutException(p.getValue()))));
     }
 
-    default void put(Map<String, Object> elements, long timeToLiveInSeconds) {
+    default <V> void put(Map<String, V> elements, long timeToLiveInSeconds) {
         if(elements.size() > 0)
             setBytes(elements.entrySet().stream().collect(Collectors.toMap(p -> p.getKey(), p->SerializationUtils.serializeWithoutException(p.getValue()))), timeToLiveInSeconds);
     }

@@ -74,18 +74,21 @@ public class CacheObject {
 	 * 缓存对象
 	 * @return cache object include null object
 	 */
-	public Object getValue() {
-		if (value == null || value.getClass().equals(NullObject.class) || value.getClass().equals(Object.class))
+	@SuppressWarnings("unchecked")
+	public <V> V getValue() {
+		if (value == null || value.getClass().equals(NullObject.class)
+				|| value.getClass().equals(Object.class))
 			return null;
-		return value;
+		return (V) value;
 	}
 
 	/**
 	 * 返回实际缓存的对象
 	 * @return cache raw object
 	 */
-	public Object rawValue() {
-		return value;
+	@SuppressWarnings("unchecked")
+	public <V> V rawValue() {
+		return (V) value;
 	}
 
 	/**

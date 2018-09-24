@@ -47,14 +47,16 @@ public class CaffeineCache implements Level1Cache {
     @Override
     public long size() { return size; }
 
-    @Override
-    public Object get(String key) {
-        return cache.getIfPresent(key);
+	@Override
+	@SuppressWarnings("unchecked")
+    public <V> V get(String key) {
+        return (V) cache.getIfPresent(key);
     }
 
-    @Override
-    public Map<String, Object> get(Collection<String> keys) {
-        return cache.getAllPresent(keys);
+	@Override
+	@SuppressWarnings("unchecked")
+    public <V> Map<String, V> get(Collection<String> keys) {
+        return (Map<String, V>) cache.getAllPresent(keys);
     }
 
     @Override
@@ -63,7 +65,7 @@ public class CaffeineCache implements Level1Cache {
     }
 
     @Override
-    public void put(Map<String, Object> elements) {
+    public <V> void put(Map<String, V> elements) {
         cache.putAll(elements);
     }
 
