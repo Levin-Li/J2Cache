@@ -221,7 +221,7 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 	 * @param key: Cache key
 	 * @param value: Cache value
 	 */
-	public void set(String region, String key, Object value) {
+	public <V> void set(String region, String key, V value) {
 		set(region, key, value, defaultCacheNullObject);
 	}
 
@@ -233,7 +233,7 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 	 * @param value: Cache value
 	 * @param cacheNullObject if allow cache null object
 	 */
-	public void set(String region, String key, Object value, boolean cacheNullObject) {
+	public <V> void set(String region, String key, V value, boolean cacheNullObject) {
 		if (!cacheNullObject && value == null)
 			return ;
 
@@ -261,7 +261,7 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 	 * @param value Cache value
 	 * @param timeToLiveInSeconds cache expired in second
 	 */
-	public void set(String region, String key, Object value, long timeToLiveInSeconds ) {
+	public <V> void set(String region, String key, V value, long timeToLiveInSeconds ) {
 		set(region, key, value, timeToLiveInSeconds, defaultCacheNullObject);
 	}
 
@@ -276,7 +276,7 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 	 * @param timeToLiveInSeconds cache expired in second
 	 * @param cacheNullObject if allow cache null object
 	 */
-    public void set(String region, String key, Object value, long timeToLiveInSeconds, boolean cacheNullObject) {
+    public <V> void set(String region, String key, V value, long timeToLiveInSeconds, boolean cacheNullObject) {
 		if (!cacheNullObject && value == null)
 			return ;
 
@@ -301,7 +301,7 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 	 * @param region Cache Region name
 	 * @param elements Cache Elements
 	 */
-	public void set(String region, Map<String, Object> elements){
+	public <V> void set(String region, Map<String, V> elements){
     	set(region, elements, defaultCacheNullObject);
 	}
 
@@ -311,7 +311,7 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 	 * @param elements Cache Elements
 	 * @param cacheNullObject if allow cache null object
 	 */
-	public void set(String region, Map<String, Object> elements, boolean cacheNullObject)  {
+	public <V> void set(String region, Map<String, V> elements, boolean cacheNullObject)  {
 		try {
 			if (cacheNullObject && elements.containsValue(null)) {
 				Map<String, Object> newElems = new HashMap<>();
@@ -351,7 +351,7 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 	 * @param elements Cache Elements
 	 * @param timeToLiveInSeconds cache expired in second
 	 */
-	public void set(String region, Map<String, Object> elements, long timeToLiveInSeconds){
+	public <V> void set(String region, Map<String, V> elements, long timeToLiveInSeconds){
 		set(region, elements, timeToLiveInSeconds, defaultCacheNullObject);
 	}
 
@@ -365,7 +365,7 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 	 * @param timeToLiveInSeconds cache expired in second
 	 * @param cacheNullObject if allow cache null object
 	 */
-	public void set(String region, Map<String, Object> elements, long timeToLiveInSeconds, boolean cacheNullObject)  {
+	public <V> void set(String region, Map<String, V> elements, long timeToLiveInSeconds, boolean cacheNullObject)  {
 		if(timeToLiveInSeconds <= 0)
 			set(region, elements, cacheNullObject);
 		else {

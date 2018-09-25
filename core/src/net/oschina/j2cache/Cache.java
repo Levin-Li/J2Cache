@@ -31,14 +31,14 @@ public interface Cache {
 	 * @param key cache key
 	 * @return the cached object or null
 	 */
-	Object get(String key) ;
+	<V> V get(String key) ;
 
 	/**
 	 * 批量获取缓存对象
 	 * @param keys cache keys
 	 * @return return key-value objects
 	 */
-	Map<String, Object> get(Collection<String> keys);
+	<V> Map<String, V> get(Collection<String> keys);
 
 	/**
 	 * 判断缓存是否存在
@@ -56,13 +56,13 @@ public interface Cache {
 	 * @param key cache key
 	 * @param value cache value
 	 */
-	void put(String key, Object value);
+	<V> void put(String key, V value);
 
 	/**
 	 * 批量插入数据
 	 * @param elements objects to be put in cache
 	 */
-	void put(Map<String, Object> elements);
+	<V> void put(Map<String, V> elements);
 
 	/**
 	 * Return all keys

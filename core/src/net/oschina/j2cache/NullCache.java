@@ -37,7 +37,7 @@ public class NullCache implements Level1Cache, Level2Cache {
 	}
 
 	@Override
-	public Object get(String key) {
+	public <V> V get(String key) {
 		return null;
 	}
 
@@ -51,7 +51,7 @@ public class NullCache implements Level1Cache, Level2Cache {
 	}
 
 	@Override
-	public Map get(Collection<String> keys) {
+	public <V> Map<String, V> get(Collection<String> keys) {
 		return Collections.emptyMap();
 	}
 
@@ -61,7 +61,7 @@ public class NullCache implements Level1Cache, Level2Cache {
 	}
 
 	@Override
-	public void put(Map<String, Object> elements)  {
+	public <V> void put(Map<String, V> elements)  {
 	}
 
 	@Override
@@ -79,11 +79,11 @@ public class NullCache implements Level1Cache, Level2Cache {
 	}
 
 	@Override
-	public void setBytes(Map<String,byte[]> bytes) {
+	public void setBytes(Map<String, byte[]> bytes) {
 	}
 
 	@Override
-	public void evict(String...keys) {
+	public void evict(String... keys) {
 	}
 
 	@Override

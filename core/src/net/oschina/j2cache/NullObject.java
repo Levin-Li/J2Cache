@@ -22,4 +22,7 @@ import java.io.Serializable;
  * @author Winter Lau(javayou@gmail.com)
  */
 public class NullObject implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
 }

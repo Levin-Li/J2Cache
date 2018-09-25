@@ -59,6 +59,7 @@ public class EhCache implements Level1Cache, CacheEventListener {
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Collection<String> keys() {
 		return this.cache.getKeys();
 	}
@@ -70,6 +71,7 @@ public class EhCache implements Level1Cache, CacheEventListener {
 	 * @return The value placed into the cache with an earlier put, or null if not found or expired
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Serializable get(String key) {
 		if ( key == null )
 			return null;
@@ -85,7 +87,7 @@ public class EhCache implements Level1Cache, CacheEventListener {
 	 * @param value a value
 	 */
 	@Override
-	public void put(String key, Object value) {
+	public <V> void put(String key, V value) {
 		cache.put(new Element(key, value));
 	}
 
@@ -101,12 +103,13 @@ public class EhCache implements Level1Cache, CacheEventListener {
 	}
 
 	@Override
-	public Map<String, Object> get(Collection<String> keys) {
+	@SuppressWarnings("unchecked")
+	public <V> Map<String, V> get(Collection<String> keys) {
 		Map<Object,Element> elements = cache.getAll(keys);
-		Map<String, Object> results = new HashMap<>();
+		Map<String, V> results = new HashMap<>();
 		elements.forEach((k,v)-> {
 			if(v != null)
-				results.put((String)k, v.getObjectValue());
+				results.put((String)k, (V)v.getObjectValue());
 		});
 		return results;
 	}
@@ -117,7 +120,7 @@ public class EhCache implements Level1Cache, CacheEventListener {
 	}
 
 	@Override
-	public void put(Map<String, Object> elements) {
+	public <V> void put(Map<String, V> elements) {
 		List<Element> elems = new ArrayList<>();
 		elements.forEach((k,v) -> elems.add(new Element(k,v)));
 		cache.putAll(elems);

@@ -29,6 +29,7 @@ public class J2CacheCmd {
 
 	private static long TTL = 0;
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws IOException {
 
 		CacheChannel cache = J2Cache.getChannel(); //获取 J2Cache 操作接口
