@@ -3,18 +3,15 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '8537ded073dc179e17e7ad1845728758f7e16330'
-    oldFile: !uuid '88fd65dca3d4c7d1458d68815d766cf14cfe8880'
-  /core/pom.xml:
-    newFile: !uuid '245da77a35d5802a8bce0014c27f57a03dc99ea2'
-    oldFile: !uuid 'cd782c33de8073cac76daa7fa71f44efddd4621b'
+    newFile: !uuid '02befc820ca1b91fd722ed86809520fa9129555b'
+    oldFile: !uuid '8537ded073dc179e17e7ad1845728758f7e16330'
   /core/resources:
-    newFile: !uuid '999eb5a7dc391a17a9a77271868f90bc933a79ec'
-    oldFile: !uuid '34bf1c8a494455bcaf3c23ae87c1236d4308bd6d'
+    newFile: !uuid '4c4fae351c82c6dff2ab7a38dc6aa70e077ea3e1'
+    oldFile: !uuid '999eb5a7dc391a17a9a77271868f90bc933a79ec'
   /core/resources/j2cache.properties:
-    newFile: !uuid '74336c50b647c5dfc3e1d01fb2cd20e75cbfae4e'
-    oldFile: !uuid '9f3c531a8fdfec594ce151147187afeee3c019ce'
-gitCommitId: !uuid '76cccce6f62ead15b909c6e57485e7f16a9f8408'
+    newFile: !uuid '55cd6029f26b7c0538cd35893c153e84dea7dc66'
+    oldFile: !uuid '74336c50b647c5dfc3e1d01fb2cd20e75cbfae4e'
+gitCommitId: !uuid '804bb5d5179cd367b0c0be7ec214d8c4c5714e5e'
 renames: {
   }
-revisionId: 520
+revisionId: 521
