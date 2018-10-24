@@ -3,135 +3,129 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '6467981a950c88fe9b6fdbb1c0a88549899c7989'
-    oldFile: !uuid '02befc820ca1b91fd722ed86809520fa9129555b'
+    newFile: !uuid '1c37cfb07ef29f42e8b308590075b9391cd4bcb0'
+    oldFile: !uuid '6467981a950c88fe9b6fdbb1c0a88549899c7989'
   /core/pom.xml:
-    newFile: !uuid 'd45c9b24b538b50c7d37bb32af8e46278384085f'
-    oldFile: !uuid '245da77a35d5802a8bce0014c27f57a03dc99ea2'
+    newFile: !uuid '4aa46b6fa3bcae8ddc7ff684ff561c5b616432fb'
+    oldFile: !uuid 'd45c9b24b538b50c7d37bb32af8e46278384085f'
   /core/src:
-    newFile: !uuid '8b41678e55dd118247cd373f97d84e66445a640e'
-    oldFile: !uuid '6e1a03ef881b8e25bc0a700067a059f139dd32ed'
+    newFile: !uuid '0483d11b5648471867004571d6ed971b49569236'
+    oldFile: !uuid '8b41678e55dd118247cd373f97d84e66445a640e'
   /core/src/net:
-    newFile: !uuid 'de76fc37e6491908eface48f859ad810a890d381'
-    oldFile: !uuid 'db22024cd067e58bb4042642d0a9ada96bddd1c9'
+    newFile: !uuid '2902ffbff31f76c94170c3889d759891c6768ec4'
+    oldFile: !uuid 'de76fc37e6491908eface48f859ad810a890d381'
   /core/src/net/oschina:
-    newFile: !uuid '5542efd8f897961cc5cb0cc49a38ce2c54ac3c5e'
-    oldFile: !uuid 'ec436ec3819113fc5610c1ae1a8f7d6ef67691c6'
+    newFile: !uuid 'a3a39d9e4111d6be045b43ddd61d3d19fc628bc1'
+    oldFile: !uuid '5542efd8f897961cc5cb0cc49a38ce2c54ac3c5e'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid 'f3533a4d143dca869553a34d7ac5001885423c58'
-    oldFile: !uuid '1354e5c22819a2efdef1201aad8c99313d1217fa'
-  /core/src/net/oschina/j2cache/Command.java:
-    newFile: !uuid '60d7d93457cb845971d613ec8682f4f3abb7e4f9'
-    oldFile: !uuid '90494247a4458093465ccb21761b4bf402ce7a13'
+    newFile: !uuid '37e269aad63305910d6fc0e1529e271491608bb4'
+    oldFile: !uuid 'f3533a4d143dca869553a34d7ac5001885423c58'
   /core/src/net/oschina/j2cache/cluster:
-    newFile: !uuid 'be2003d4b79ca8ed2213b7577d472ea6d01a40aa'
-    oldFile: !uuid 'bfd09799625deaa11269e8650dd972b709a4e4ef'
-  /core/src/net/oschina/j2cache/cluster/ClusterPolicy.java:
-    newFile: !uuid 'f178d1cf7aeb3167238a88e976fd68b05c0f7a78'
-    oldFile: !uuid 'f349055294e22893e9b773361b947067d90acf42'
+    newFile: !uuid '96952ed861e207e657e1876f7fa80170397dd6aa'
+    oldFile: !uuid 'be2003d4b79ca8ed2213b7577d472ea6d01a40aa'
   /core/src/net/oschina/j2cache/cluster/JGroupsClusterPolicy.java:
-    newFile: !uuid '54215a036b895ae10f6dec73ac1482ebb7a9c44a'
-    oldFile: !uuid 'e7cc85015d8d097c5a7ae1e62d2d3cf3e57c04ab'
+    newFile: !uuid '95c342ff8ed158f2b0ed3c3592d860ff4f6bc81a'
+    oldFile: !uuid '54215a036b895ae10f6dec73ac1482ebb7a9c44a'
   /core/src/net/oschina/j2cache/cluster/NoneClusterPolicy.java:
-    newFile: !uuid 'da2c7ebb60f1541a077f3cf897bba2f48586a965'
-    oldFile: !uuid 'eaa97cbbb1338fda4510d326d447a1eb6d6039a4'
+    newFile: !uuid 'a0e40ac9bc0918a78086ca5b3d5eea075e1750c1'
+    oldFile: !uuid 'da2c7ebb60f1541a077f3cf897bba2f48586a965'
   /core/src/net/oschina/j2cache/cluster/RabbitMQClusterPolicy.java:
-    newFile: !uuid 'd56624c9e96221f0c33fbd30c2401ad10c1f4b7e'
-    oldFile: !uuid '040d74cc9664eb5d07f99f9ad49b1e55884999d7'
+    newFile: !uuid 'd1774df8e88456315aafbcd7a25892946af527a1'
+    oldFile: !uuid 'd56624c9e96221f0c33fbd30c2401ad10c1f4b7e'
   /core/src/net/oschina/j2cache/cluster/RocketMQClusterPolicy.java:
-    newFile: !uuid '00147a1aacf3cf6f0cae8a1de2b1cb39d7135781'
-    oldFile: !uuid 'd39b21e985f97d1af2e793c76ebe6b3a5dc2ad53'
+    newFile: !uuid 'f33b0509c04cf8d84e14cc753699a1c9ed2cb7ea'
+    oldFile: !uuid '00147a1aacf3cf6f0cae8a1de2b1cb39d7135781'
   /core/src/net/oschina/j2cache/lettuce:
-    newFile: !uuid 'b8c92a7e0282731e39e4c8a61041a462fe32349c'
-    oldFile: !uuid 'e7f1524aae5e43af193d5a76f25f9547a9d5e1d6'
+    newFile: !uuid '42e2a169cfcb4558658f57acf7a38fdc84856e78'
+    oldFile: !uuid 'b8c92a7e0282731e39e4c8a61041a462fe32349c'
   /core/src/net/oschina/j2cache/lettuce/LettuceCacheProvider.java:
-    newFile: !uuid '7888f940c754d8dd350478ce403026aba0974603'
-    oldFile: !uuid 'cc33710e5e5cb48939fb3803ba53590d2b6ccdeb'
+    newFile: !uuid '33c05bec4801821a201a046382938f2d2ea8ce33'
+    oldFile: !uuid '7888f940c754d8dd350478ce403026aba0974603'
   /core/src/net/oschina/j2cache/redis:
-    newFile: !uuid '58813aad64c059e354e201b8c3a11753255b6581'
-    oldFile: !uuid 'd84bb00b805efd5c11239350e42fd07636680316'
+    newFile: !uuid '2978e79ca28f6d235715ed5ac582f7c19d84f9b9'
+    oldFile: !uuid '58813aad64c059e354e201b8c3a11753255b6581'
   /core/src/net/oschina/j2cache/redis/RedisPubSubClusterPolicy.java:
-    newFile: !uuid '4c310e87b96521bebb5831a0d879c06255c916d3'
-    oldFile: !uuid '2fed8bd51b6085dafa45a3946533048b20fa78e9'
+    newFile: !uuid '34bc5ddeffbf26eb5a111cc7860f9de0ed9f71c0'
+    oldFile: !uuid '4c310e87b96521bebb5831a0d879c06255c916d3'
   /modules:
-    newFile: !uuid '84d5a711b40ccef83104db10ed0be677df1ca10e'
-    oldFile: !uuid 'e9634b4215cb48abf0b447416624d0910649c977'
+    newFile: !uuid '67e13389b06f84fca7f90fcd5524f46167fe77cb'
+    oldFile: !uuid '84d5a711b40ccef83104db10ed0be677df1ca10e'
   /modules/spring-boot-starter:
-    newFile: !uuid 'cd72a5afca7628c3ef4f2064595315e235145b42'
-    oldFile: !uuid 'd9ff0df1dcc203982eb9f18c621b04beb0a3ef6d'
+    newFile: !uuid '60cfa6c09e5e402f648aa0e6b6ecc37b9c10d4fc'
+    oldFile: !uuid 'cd72a5afca7628c3ef4f2064595315e235145b42'
   /modules/spring-boot-starter/pom.xml:
-    newFile: !uuid 'abbf03727ffef8d9ecc403bd4019d11232f07184'
-    oldFile: !uuid '4e9cdcd5915de67ae41da65d2ce595d0d83f9178'
+    newFile: !uuid '7d3a24468eb474bf6cb5878288703c9150283d5c'
+    oldFile: !uuid 'abbf03727ffef8d9ecc403bd4019d11232f07184'
   /modules/spring-boot-starter/src:
-    newFile: !uuid '870d0f6f3e6956668c33a30b5a7342ded71454a1'
-    oldFile: !uuid '79d201f32c26bf37040fe6137c8d9b81b31d9882'
+    newFile: !uuid 'd347cbf3ae145e1362da615529733df53e5bf253'
+    oldFile: !uuid '870d0f6f3e6956668c33a30b5a7342ded71454a1'
   /modules/spring-boot-starter/src/net:
-    newFile: !uuid 'c76ec61d70b57915d172afa1b1fda295074ae95a'
-    oldFile: !uuid '1757acac6ab940592ecf8fef9094a8c86a3bc28c'
+    newFile: !uuid '0fdb48ed7c01868e0f78d27940f387d429909ecc'
+    oldFile: !uuid 'c76ec61d70b57915d172afa1b1fda295074ae95a'
   /modules/spring-boot-starter/src/net/oschina:
-    newFile: !uuid '7cec7e955ebf8194880e0415ac4e2eb3988a60f2'
-    oldFile: !uuid '6524ad01b24ac37d6ca6d41f6754b85e3adad775'
+    newFile: !uuid '1cf4e6c9504f2ae6947d8f9d40d099cefb08ffdf'
+    oldFile: !uuid '7cec7e955ebf8194880e0415ac4e2eb3988a60f2'
   /modules/spring-boot-starter/src/net/oschina/j2cache:
-    newFile: !uuid '43426c4fbc0685f0a18bcef57f278c83e044d718'
-    oldFile: !uuid 'ba2ef9a3fac470f17baba3493b60377fc08f83e8'
+    newFile: !uuid '4c7b3db454cc8ab0a46457ecddb03d81a830a2f3'
+    oldFile: !uuid '43426c4fbc0685f0a18bcef57f278c83e044d718'
   /modules/spring-boot-starter/src/net/oschina/j2cache/cache:
-    newFile: !uuid '060a6c29b2dcfdc84ca58780ae5981fc622bfa8d'
-    oldFile: !uuid '07d24b74ee2cd37d04ea14eeb7d7fff23eb85605'
+    newFile: !uuid '576e8f52898cfa9531141a4b19cda1c9ff9975c7'
+    oldFile: !uuid '060a6c29b2dcfdc84ca58780ae5981fc622bfa8d'
   /modules/spring-boot-starter/src/net/oschina/j2cache/cache/support:
-    newFile: !uuid '5f60cc48235b6a92f15a8d2c67473b20a0da0b74'
-    oldFile: !uuid 'e0bda65489c055ecdb6214e3e0c2243f421b502f'
+    newFile: !uuid 'bea275ffd59e0d190aeffaa6532e302e4c92342e'
+    oldFile: !uuid '5f60cc48235b6a92f15a8d2c67473b20a0da0b74'
   /modules/spring-boot-starter/src/net/oschina/j2cache/cache/support/redis:
-    newFile: !uuid '858b40b5d9801f02a443556d8cee7a4765ca699e'
-    oldFile: !uuid '69d1a5ab446a36546888d01e6d8fa6b95859f62e'
+    newFile: !uuid '071a8507929bd4ed217e645190105277448a6d3c'
+    oldFile: !uuid '858b40b5d9801f02a443556d8cee7a4765ca699e'
   /modules/spring-boot-starter/src/net/oschina/j2cache/cache/support/redis/SpringRedisMessageListener.java:
-    newFile: !uuid 'debfa7c303c1720341738779829d2fa9aa89fb3a'
-    oldFile: !uuid 'efaf1074e3987abb19016b3641185f748bb3b84b'
+    newFile: !uuid 'ff7e780fbb7cd2aeaefa820280ed0031505b9f8c'
+    oldFile: !uuid 'debfa7c303c1720341738779829d2fa9aa89fb3a'
   /modules/spring-boot-starter/src/net/oschina/j2cache/cache/support/redis/SpringRedisPubSubPolicy.java:
-    newFile: !uuid 'a44c63d32697dc1de7e2ed2c0dd70c3c073dbb84'
-    oldFile: !uuid 'b2fa563bedc5664a7071b9c1610cc7d1f9547841'
+    newFile: !uuid 'b08ef66043c82d5850a7b389ee05f310213a4b41'
+    oldFile: !uuid 'a44c63d32697dc1de7e2ed2c0dd70c3c073dbb84'
   /modules/spring-boot2-starter:
-    newFile: !uuid '6049cc0ee8c2ffcce118d5776045058e1ed59865'
-    oldFile: !uuid '57c88326e6bcec58449fb6f9289f7afbcc64def7'
+    newFile: !uuid 'b45481c608ff7b6fd9aef19aa6cf9ed070b030d1'
+    oldFile: !uuid '6049cc0ee8c2ffcce118d5776045058e1ed59865'
   /modules/spring-boot2-starter/pom.xml:
-    newFile: !uuid 'a237d597d57656d44f2bbd93a9a7bff11f8e802d'
-    oldFile: !uuid '58837a59ec65fdbc93a1f4a50769879b5ca579be'
+    newFile: !uuid '4a33e53794762dd74831c9791b77d7fa04bf8fa2'
+    oldFile: !uuid 'a237d597d57656d44f2bbd93a9a7bff11f8e802d'
   /modules/spring-boot2-starter/src:
-    newFile: !uuid 'ba2a0c95ed92209895c487360472fdc25ab86ed7'
-    oldFile: !uuid '35845422072d850a887694ea8a4efe65bf9b4ca1'
+    newFile: !uuid '029b84710f3c6595630ca758d265ef6a40fb67ec'
+    oldFile: !uuid 'ba2a0c95ed92209895c487360472fdc25ab86ed7'
   /modules/spring-boot2-starter/src/net:
-    newFile: !uuid 'd57bf965bfa87e0d03a386a35802eb93f982f672'
-    oldFile: !uuid '67850fc104cf24f8440110ba3ab6068e4925aeb1'
+    newFile: !uuid '26f38b4b77219b2e08496188c092cf016fc6f14f'
+    oldFile: !uuid 'd57bf965bfa87e0d03a386a35802eb93f982f672'
   /modules/spring-boot2-starter/src/net/oschina:
-    newFile: !uuid '04f37265d5ab659f0d75cbfc9cdeba7bf93fc0b2'
-    oldFile: !uuid 'f793bf2125fd72a57dcfee100a1a3dee924dd3ad'
+    newFile: !uuid '9f602d1bd3de92a2f4f2c2bbce93caeae35d210d'
+    oldFile: !uuid '04f37265d5ab659f0d75cbfc9cdeba7bf93fc0b2'
   /modules/spring-boot2-starter/src/net/oschina/j2cache:
-    newFile: !uuid '8c6571d8ec8078976cfb9783c115955318836ae5'
-    oldFile: !uuid 'ed8b3dd7c3d422810912c34cd5a5904a26bf5c57'
+    newFile: !uuid 'dbaab8b0a37f52dd6f51db0f271f2486d8eb978e'
+    oldFile: !uuid '8c6571d8ec8078976cfb9783c115955318836ae5'
   /modules/spring-boot2-starter/src/net/oschina/j2cache/cache:
-    newFile: !uuid 'c5602b9e2dfc54bb8f3dc8538aabf4a20c2ac308'
-    oldFile: !uuid '593cb5257f2d1ae39c26273524373bfd6758264c'
+    newFile: !uuid 'bf5a4f75f85b4d6d17021a015f1aa9a2dd5093ae'
+    oldFile: !uuid 'c5602b9e2dfc54bb8f3dc8538aabf4a20c2ac308'
   /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support:
-    newFile: !uuid '52baec58ddb4324ca4d15dadd4c22ebde93a0e7e'
-    oldFile: !uuid '08647da22d2bb9410767b28ec08c32420521bb15'
+    newFile: !uuid '7a8287ca4bf28f9b40114074fe711a4214580d96'
+    oldFile: !uuid '52baec58ddb4324ca4d15dadd4c22ebde93a0e7e'
   /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/redis:
-    newFile: !uuid 'c0f92605d541663932e3eac9b1f6ab764ff65665'
-    oldFile: !uuid 'abb6785e2b433d2ff995ae8bc0acd890a7d639cb'
+    newFile: !uuid '6b774175067887f46888de19145fb6d6db61778d'
+    oldFile: !uuid 'c0f92605d541663932e3eac9b1f6ab764ff65665'
   /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/redis/SpringRedisMessageListener.java:
-    newFile: !uuid 'debfa7c303c1720341738779829d2fa9aa89fb3a'
-    oldFile: !uuid 'efaf1074e3987abb19016b3641185f748bb3b84b'
+    newFile: !uuid 'ff7e780fbb7cd2aeaefa820280ed0031505b9f8c'
+    oldFile: !uuid 'debfa7c303c1720341738779829d2fa9aa89fb3a'
   /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/redis/SpringRedisPubSubPolicy.java:
-    newFile: !uuid '5901e0a1c69a6876a5bbc85df4691096307b42ec'
-    oldFile: !uuid 'f459b08467fc0a158e22eafa7b51d48e6c962933'
+    newFile: !uuid '7583dc79ad9a3efdca56155b417826ed50c95896'
+    oldFile: !uuid '5901e0a1c69a6876a5bbc85df4691096307b42ec'
   /modules/springcache:
-    newFile: !uuid 'e61cbadcf8a09ed4e0399e6033581e96dea0ebc0'
-    oldFile: !uuid '164abd92f5d8a77e07390c478068b1a508d6ec22'
+    newFile: !uuid 'e945efb6b15e68401ce2aee6516936d2d263e76a'
+    oldFile: !uuid 'e61cbadcf8a09ed4e0399e6033581e96dea0ebc0'
   /modules/springcache/pom.xml:
-    newFile: !uuid 'ef1e8ff4f9ae47165c72347113f6016570e45551'
-    oldFile: !uuid 'b81737b34e3520d946dede4312f835262bb43dfa'
+    newFile: !uuid '7554667972f98b3aa05ec13b1b04989961c9db75'
+    oldFile: !uuid 'ef1e8ff4f9ae47165c72347113f6016570e45551'
   /pom.xml:
-    newFile: !uuid 'e497d5ec21151f086126ecef08a23c02ed83ebed'
-    oldFile: !uuid 'c21eb3ad6dbe90f86f085540a658365bfa67cf4e'
-gitCommitId: !uuid 'e2f2694be1f9f3f0ad24ad66731fa5995d32ad40'
+    newFile: !uuid '163ec6ba4ba4ebc92db72d3df6dce76ad08ce414'
+    oldFile: !uuid 'e497d5ec21151f086126ecef08a23c02ed83ebed'
+gitCommitId: !uuid '059fda5f7615a71a24635493af2acf29faca4040'
 renames: {
   }
-revisionId: 523
+revisionId: 524
