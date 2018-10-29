@@ -2,31 +2,16 @@
 branches: {
   }
 fileChange:
-  /core:
-    newFile: !uuid 'ab6c7968635521630044c6a3b084d861accc4282'
-    oldFile: !uuid '5a1380c8af0a3acd22cc5fc666e76c0901fb5648'
-  /core/pom.xml:
-    newFile: !uuid '6230066982b46986df5006a32c517d561199e46a'
-    oldFile: !uuid '4aa46b6fa3bcae8ddc7ff684ff561c5b616432fb'
   /modules:
-    newFile: !uuid '5e85f93d6c93a431a3c7bee2a3ceb30357395790'
-    oldFile: !uuid '0abbeee3390f3c696f73119a95abb3009e0917d9'
-  /modules/spring-boot-starter:
-    newFile: !uuid 'e0c2a1f1a4aefed13670bdcddfcf2f82f3ce08c3'
-    oldFile: !uuid 'd68aae30deab842f731c94aa61ce9d50342b47b1'
-  /modules/spring-boot-starter/pom.xml:
-    newFile: !uuid '46929960225970fa2ec93dde423e82ac65241215'
-    oldFile: !uuid '7d3a24468eb474bf6cb5878288703c9150283d5c'
+    newFile: !uuid 'bbd59dc87b061692469acd3f5c447bb5a066bd3a'
+    oldFile: !uuid '5e85f93d6c93a431a3c7bee2a3ceb30357395790'
   /modules/spring-boot2-starter:
-    newFile: !uuid '1ffb0d3472677a44dcbab79dd78bd5e4017ba6ec'
-    oldFile: !uuid '364d0029424347cbb77353162164443a2fef36fa'
-  /modules/spring-boot2-starter/pom.xml:
-    newFile: !uuid '0755767857544f9801b76f90ef22f4a0a5236d4f'
-    oldFile: !uuid '4a33e53794762dd74831c9791b77d7fa04bf8fa2'
-  /pom.xml:
-    newFile: !uuid 'a62bcc529ba30542d67aa05dd345164313027897'
-    oldFile: !uuid '163ec6ba4ba4ebc92db72d3df6dce76ad08ce414'
-gitCommitId: !uuid '2a30ecf3173dc5e7e158f9b7af5deb14952aa202'
+    newFile: !uuid 'f7261574a64142e6e7310fbf7a3b607dfeaaba1a'
+    oldFile: !uuid '1ffb0d3472677a44dcbab79dd78bd5e4017ba6ec'
+  /modules/spring-boot2-starter/readme.md:
+    newFile: !uuid '23c1121f4b0b50f1d54983ce5961017d683a94ab'
+    oldFile: !uuid 'cfe2047f1b7ff956c5df917ba6da0d47ebdb9528'
+gitCommitId: !uuid '9c63c3d15b9a64129c527fd276a6238ea48cd938'
 renames: {
   }
-revisionId: 527
+revisionId: 528
