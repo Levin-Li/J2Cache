@@ -2,16 +2,28 @@
 branches: {
   }
 fileChange:
-  /modules:
-    newFile: !uuid 'bbd59dc87b061692469acd3f5c447bb5a066bd3a'
-    oldFile: !uuid '5e85f93d6c93a431a3c7bee2a3ceb30357395790'
-  /modules/spring-boot2-starter:
-    newFile: !uuid 'f7261574a64142e6e7310fbf7a3b607dfeaaba1a'
-    oldFile: !uuid '1ffb0d3472677a44dcbab79dd78bd5e4017ba6ec'
-  /modules/spring-boot2-starter/readme.md:
-    newFile: !uuid '23c1121f4b0b50f1d54983ce5961017d683a94ab'
-    oldFile: !uuid 'cfe2047f1b7ff956c5df917ba6da0d47ebdb9528'
-gitCommitId: !uuid '9c63c3d15b9a64129c527fd276a6238ea48cd938'
+  /core:
+    newFile: !uuid '794db570ad801682e9289a130f325183b3e02c1b'
+    oldFile: !uuid 'ab6c7968635521630044c6a3b084d861accc4282'
+  /core/src:
+    newFile: !uuid '03ffdeb07a24bf9c69dd2dc94354d08e6f016561'
+    oldFile: !uuid 'd6f980dcd376f02d7a9eef1c49d3fd004a1bc44e'
+  /core/src/net:
+    newFile: !uuid 'bfa088b2cc2567fff349c8877934176442fd628f'
+    oldFile: !uuid '8d311b06765a9bcb37bf47c8fe6b998e2d8ee2e8'
+  /core/src/net/oschina:
+    newFile: !uuid 'f79e896458b8e890b8efca9ed5949a49b568ca32'
+    oldFile: !uuid 'b552eaaa87bdf05ce52587678e079bb7c2dd3ecb'
+  /core/src/net/oschina/j2cache:
+    newFile: !uuid '5660e098a087e8c183c38d838d8f4fb0143a7b28'
+    oldFile: !uuid '7b6656faabb47e2d13bb649cd13ef3c3b9687e6b'
+  /core/src/net/oschina/j2cache/lettuce:
+    newFile: !uuid 'e445105394c9224f14c9d6cbd5e8bf825f2575c7'
+    oldFile: !uuid '19840c6e81e2814dc5e0568a8b61f26decd7b650'
+  /core/src/net/oschina/j2cache/lettuce/LettuceGenericCache.java:
+    newFile: !uuid '58754f7270d38773c38d9286329ca4658168263f'
+    oldFile: !uuid '22c5d7bfb805255e8cd088eb98e1de15ea717b6e'
+gitCommitId: !uuid '211a56965f7892c9c4111e077f9705f345a529d9'
 renames: {
   }
-revisionId: 528
+revisionId: 529
