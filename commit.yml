@@ -2,28 +2,10 @@
 branches: {
   }
 fileChange:
-  /core:
-    newFile: !uuid '6a0ade97f7d6912abe06bb2b4246636004433a69'
-    oldFile: !uuid 'ee1234d7479256916a6d38f083be572139c2659c'
-  /core/src:
-    newFile: !uuid '12a7295cdba9761421011eabfc5dc0582e075216'
-    oldFile: !uuid 'd354ba6c1d6d56ec1c23d9e0caea1c37491946e5'
-  /core/src/net:
-    newFile: !uuid '30a513199e7af25edcda8aa26c6730b9e55ae2a8'
-    oldFile: !uuid '86b63a5bd5d5198e5621bd9e36cd6c43399bd259'
-  /core/src/net/oschina:
-    newFile: !uuid '6bb10865f6a47d6c77bc85f2d9824d6933d096b8'
-    oldFile: !uuid '1aa3c9814099ef4ad77693168107f7a9a15c61fe'
-  /core/src/net/oschina/j2cache:
-    newFile: !uuid 'd63328656aa86b0f9662f06b60e0a0c7305fb27c'
-    oldFile: !uuid '60f671160bcbda4e2e733c3c7da64e8b241be12b'
-  /core/src/net/oschina/j2cache/CacheChannel.java:
-    newFile: !uuid 'f99fc199d9f3e0389f40eac33267b5170d9e2250'
-    oldFile: !uuid 'f813748a541c14070f597486a6d733cdaf914e4e'
-  /core/src/net/oschina/j2cache/CacheProviderHolder.java:
-    newFile: !uuid '6b09a81b4a5159219b1d2d823909522c03c48046'
-    oldFile: !uuid '7a7f93200337bb32eff3361fb133f6f30c807256'
-gitCommitId: !uuid 'e49af322ce8c3051afb5253c19e10d24829918a3'
+  /runtest.bat:
+    newFile: !uuid '05f60327bec860c95a9b0b19c66066d480ae4adf'
+    oldFile: null
+gitCommitId: !uuid '7d0c2cc6d7c1190821db0085047fc8f100f75bb8'
 renames: {
   }
-revisionId: 540
+revisionId: 541
