@@ -3,33 +3,27 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid 'ce45508e3c3fd7b2b751755344fc6e8c0c74080d'
-    oldFile: !uuid '099db1d894372f0b8f48776adc2ff7f18ee9568d'
+    newFile: !uuid '982020492bda26cf53d2a1a77df9204ba5de4138'
+    oldFile: !uuid 'ce45508e3c3fd7b2b751755344fc6e8c0c74080d'
   /core/src:
-    newFile: !uuid '10957748f7d1912fdc06fcf4a9fb0440a365ce49'
-    oldFile: !uuid '77fdb9cfe7cf504f4f434b6164d15c84beabca26'
+    newFile: !uuid '851f066224c883d533de5b4b715ccc642abdbb5e'
+    oldFile: !uuid '10957748f7d1912fdc06fcf4a9fb0440a365ce49'
   /core/src/net:
-    newFile: !uuid 'c06f24df58803836ba2858aeb717ecc628659230'
-    oldFile: !uuid '5258952dd4ebcea6b68e7cd7e05941505e45c3e9'
+    newFile: !uuid '96b67fcdebd97ac2d350b6c51ac48b3707d2c46b'
+    oldFile: !uuid 'c06f24df58803836ba2858aeb717ecc628659230'
   /core/src/net/oschina:
-    newFile: !uuid '7577a6c91f3323dfb2cb7ed6cc858583123ec0c4'
-    oldFile: !uuid 'ecb8039d39c2fa0cb22ba7ec19a731084db9fbeb'
+    newFile: !uuid 'bffa7917bbdabe9d1c1e414eeb422771a56e8697'
+    oldFile: !uuid '7577a6c91f3323dfb2cb7ed6cc858583123ec0c4'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid '52517c0d115be03b5be8a90d41661e4e3d52aab7'
-    oldFile: !uuid 'b780c40cc93e9f318f7c1ebd55c9434abb58a265'
-  /core/src/net/oschina/j2cache/lettuce:
-    newFile: !uuid 'e9c1a84cbd7080d3f48fae1b762473fb6b463efe'
-    oldFile: !uuid 'e153d488f84a3068244a258a1a094d282706519c'
-  /core/src/net/oschina/j2cache/lettuce/LettuceCacheProvider.java:
-    newFile: !uuid '947259c302d8023acac39a7151d7b54ea7b809b2'
-    oldFile: !uuid '5c2166e6af8f263c4924cd4ca06839edde6d5323'
+    newFile: !uuid '9fd24401cc5c7de63e6f4ed95358f2b58d505b7b'
+    oldFile: !uuid '52517c0d115be03b5be8a90d41661e4e3d52aab7'
   /core/src/net/oschina/j2cache/memcached:
-    newFile: !uuid '4e0eb0dcb1f95435266b331ab3fe62f99ee9ab86'
-    oldFile: !uuid 'd1407405c65c7a3c56ab7aa85a7f1dc5443f4686'
+    newFile: !uuid '34a1c510cb458c0362e93b3f7f82ce76c9132e9f'
+    oldFile: !uuid '4e0eb0dcb1f95435266b331ab3fe62f99ee9ab86'
   /core/src/net/oschina/j2cache/memcached/XmemcachedCacheProvider.java:
-    newFile: !uuid '52bb734c0fc59dad8a4189f24878d187841d6670'
-    oldFile: !uuid '833e3b96a4767eb91b64416592c60e8330175efc'
-gitCommitId: !uuid '244381bf112f28c796976debc3dd8dc307850827'
+    newFile: !uuid 'f81ff413c8244da9d8eeade8f4c4c30febacae13'
+    oldFile: !uuid '52bb734c0fc59dad8a4189f24878d187841d6670'
+gitCommitId: !uuid 'd0325ac2362cef44c602a17d65d1a2e133f3eb87'
 renames: {
   }
-revisionId: 544
+revisionId: 545
