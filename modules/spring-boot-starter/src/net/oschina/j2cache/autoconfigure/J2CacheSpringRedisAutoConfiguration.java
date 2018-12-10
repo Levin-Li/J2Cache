@@ -9,6 +9,7 @@ import java.util.Properties;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
@@ -47,10 +48,16 @@ public class J2CacheSpringRedisAutoConfiguration {
 	private final static int CONNECT_TIMEOUT = 5000;
 
 	private static final Logger log = LoggerFactory.getLogger(J2CacheSpringRedisAutoConfiguration.class);
+	
+	@Autowired(required = false)
+	private JedisConnectionFactory jedisConnectionFactory;
 
 	@Bean("j2CahceRedisConnectionFactory")
 	@ConditionalOnMissingBean(name = "j2CahceRedisConnectionFactory")
 	public JedisConnectionFactory j2CahceRedisConnectionFactory(net.oschina.j2cache.J2CacheConfig j2CacheConfig) {
+		if (null != this.jedisConnectionFactory) {
+			return this.jedisConnectionFactory;
+		}
 		Properties l2CacheProperties = j2CacheConfig.getL2CacheProperties();
 		String hosts = l2CacheProperties.getProperty("hosts");
 		String mode = l2CacheProperties.getProperty("mode");
