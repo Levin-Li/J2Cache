@@ -40,7 +40,7 @@ public class RedisCacheProvider implements CacheProvider {
     private String namespace;
     private String storage;
 
-    private static final ConcurrentHashMap<String, Level2Cache> regions = new ConcurrentHashMap();
+    private final ConcurrentHashMap<String, Level2Cache> regions = new ConcurrentHashMap();
 
     @Override
     public String name() {
@@ -58,16 +58,17 @@ public class RedisCacheProvider implements CacheProvider {
      */
     @Override
     public void start(Properties props) {
+
         this.namespace = props.getProperty("namespace");
         this.storage = props.getProperty("storage");
 
         JedisPoolConfig poolConfig = RedisUtils.newPoolConfig(props, null);
 
-        String hosts = props.getProperty("hosts");
-        String mode = props.getProperty("mode");
+        String hosts = props.getProperty("hosts", "127.0.0.1:6379");
+        String mode = props.getProperty("mode", "single");
         String clusterName = props.getProperty("cluster_name");
         String password = props.getProperty("password");
-        int database = Integer.parseInt(props.getProperty("database"));
+        int database = Integer.parseInt(props.getProperty("database", "0"));
 
         long ct = System.currentTimeMillis();
 
@@ -79,17 +80,18 @@ public class RedisCacheProvider implements CacheProvider {
                 .database(database)
                 .poolConfig(poolConfig).newClient();
 
-        log.info(String.format("Redis client starts with mode(%s),db(%d),storage(%s),namespace(%s),time(%dms)",
+        log.info("Redis client starts with mode({}),db({}),storage({}),namespace({}),time({}ms)",
                 mode,
                 database,
                 storage,
                 namespace,
-                System.currentTimeMillis()-ct
-        ));
+                (System.currentTimeMillis()-ct)
+        );
     }
 
     @Override
     public void stop() {
+        regions.clear();
         try {
             redisClient.close();
         } catch (IOException e) {
@@ -99,7 +101,9 @@ public class RedisCacheProvider implements CacheProvider {
 
     @Override
     public Cache buildCache(String region, CacheExpiredListener listener) {
-        return regions.computeIfAbsent(region, v -> "hash".equalsIgnoreCase(this.storage)?new RedisHashCache(this.namespace, region, redisClient):new RedisGenericCache(this.namespace, region, redisClient));
+        return regions.computeIfAbsent(this.namespace+":"+region, v -> "hash".equalsIgnoreCase(this.storage)?
+                new RedisHashCache(this.namespace, region, redisClient):
+                new RedisGenericCache(this.namespace, region, redisClient));
     }
 
     @Override

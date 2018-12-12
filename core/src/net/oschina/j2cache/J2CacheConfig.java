@@ -15,9 +15,6 @@
  */
 package net.oschina.j2cache;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.*;
 import java.util.Properties;
 
@@ -26,8 +23,6 @@ import java.util.Properties;
  * @author Winter Lau (javayou@gmail.com)
  */
 public class J2CacheConfig {
-
-    private final static Logger log = LoggerFactory.getLogger(J2CacheConfig.class);
 
     private Properties properties = new Properties();
     private Properties broadcastProperties = new Properties();
@@ -41,18 +36,30 @@ public class J2CacheConfig {
     private boolean syncTtlToRedis;
     private boolean defaultCacheNullObject;
 
+    /**
+     * Read configuration from resource
+     * @param configResource config resource
+     */
     public final static J2CacheConfig initFromConfig(String configResource) throws IOException {
         try (InputStream stream = getConfigStream(configResource)){
             return initFromConfig(stream);
         }
     }
 
+    /**
+     * Read configuration from file
+     * @param configFile config file
+     */
     public final static J2CacheConfig initFromConfig(File configFile) throws IOException {
         try (FileInputStream stream = new FileInputStream(configFile)) {
             return initFromConfig(stream);
         }
     }
 
+    /**
+     * Read configuration from input stream
+     * @param stream config stream
+     */
     public final static J2CacheConfig initFromConfig(InputStream stream) throws IOException {
         J2CacheConfig config = new J2CacheConfig();
         config.properties.load(stream);
@@ -94,7 +101,6 @@ public class J2CacheConfig {
      * @return
      */
     private static InputStream getConfigStream(String resource) {
-        log.info("Load J2Cache Config File : [{}].", resource);
         InputStream configStream = J2Cache.class.getResourceAsStream(resource);
         if(configStream == null)
             configStream = J2Cache.class.getClassLoader().getParent().getResourceAsStream(resource);

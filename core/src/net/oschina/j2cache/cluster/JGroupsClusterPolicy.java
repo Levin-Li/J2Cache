@@ -16,6 +16,7 @@
 package net.oschina.j2cache.cluster;
 
 import net.oschina.j2cache.CacheException;
+import net.oschina.j2cache.CacheProviderHolder;
 import net.oschina.j2cache.Command;
 import org.jgroups.*;
 import org.slf4j.Logger;
@@ -32,9 +33,12 @@ public class JGroupsClusterPolicy extends ReceiverAdapter implements ClusterPoli
 
     private final static Logger log = LoggerFactory.getLogger(JGroupsClusterPolicy.class);
 
+    private int LOCAL_COMMAND_ID = Command.genRandomSrc(); //命令源标识，随机生成，每个节点都有唯一标识
+
     private String configXml;
     private JChannel channel;
     private String name;
+    private CacheProviderHolder holder;
 
     static {
         System.setProperty("java.net.preferIPv4Stack", "true"); //Disable IPv6 in JVM
@@ -55,7 +59,30 @@ public class JGroupsClusterPolicy extends ReceiverAdapter implements ClusterPoli
     }
 
     @Override
-    public void connect(Properties props) {
+    public boolean isLocalCommand(Command cmd) {
+        return cmd.getSrc() == LOCAL_COMMAND_ID;
+    }
+
+    /**
+     * 删除本地某个缓存条目
+     * @param region 区域名称
+     * @param keys   缓存键值
+     */
+    public void evict(String region, String... keys) {
+        holder.getLevel1Cache(region).evict(keys);
+    }
+
+    /**
+     * 清除本地整个缓存区域
+     * @param region 区域名称
+     */
+    public void clear(String region) {
+        holder.getLevel1Cache(region).clear();
+    }
+
+    @Override
+    public void connect(Properties props, CacheProviderHolder holder) {
+        this.holder = holder;
         try{
             long ct = System.currentTimeMillis();
 
@@ -67,7 +94,7 @@ public class JGroupsClusterPolicy extends ReceiverAdapter implements ClusterPoli
             channel.connect(name);
 
             this.publish(Command.join());
-            log.info("Connected to jgroups channel:" + name + ", time " + (System.currentTimeMillis()-ct) + " ms.");
+            log.info("Connected to jgroups channel:{}, time {}ms.", name, (System.currentTimeMillis()-ct));
 
         } catch (Exception e){
             throw new CacheException(e);
@@ -90,18 +117,19 @@ public class JGroupsClusterPolicy extends ReceiverAdapter implements ClusterPoli
 
     @Override
     public void viewAccepted(View view) {
-        log.info(String.format("Group Members Changed, LIST: %s",
-                String.join(",", view.getMembers().stream().map(a -> a.toString()).toArray(String[]::new)))
+        log.info("Group Members Changed, LIST: {}",
+                String.join(",", view.getMembers().stream().map(a -> a.toString()).toArray(String[]::new))
         );
     }
 
     @Override
     public void publish(Command cmd) {
         try {
+        	cmd.setSrc(LOCAL_COMMAND_ID);
             Message msg = new Message(null, cmd.json());
             channel.send(msg);
         } catch (Exception e) {
-            log.error("Failed to send message to jgroups -> " + cmd, e);
+            log.error("Failed to send message to jgroups -> {}", cmd, e);
         }
     }
 }

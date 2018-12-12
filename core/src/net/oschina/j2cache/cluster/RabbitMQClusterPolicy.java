@@ -17,6 +17,7 @@ package net.oschina.j2cache.cluster;
 
 import com.rabbitmq.client.*;
 import net.oschina.j2cache.CacheException;
+import net.oschina.j2cache.CacheProviderHolder;
 import net.oschina.j2cache.Command;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +33,11 @@ public class RabbitMQClusterPolicy implements ClusterPolicy, Consumer {
 
     private static final Logger log = LoggerFactory.getLogger(RabbitMQClusterPolicy.class);
 
+    private int LOCAL_COMMAND_ID = Command.genRandomSrc(); //命令源标识，随机生成，每个节点都有唯一标识
+
     private static final String EXCHANGE_TYPE = "fanout";
+
+    private CacheProviderHolder holder;
 
     private ConnectionFactory factory;
     private Connection conn_publisher;
@@ -55,7 +60,30 @@ public class RabbitMQClusterPolicy implements ClusterPolicy, Consumer {
     }
 
     @Override
-    public void connect(Properties props) {
+    public boolean isLocalCommand(Command cmd) {
+        return cmd.getSrc() == LOCAL_COMMAND_ID;
+    }
+
+    /**
+     * 删除本地某个缓存条目
+     * @param region 区域名称
+     * @param keys   缓存键值
+     */
+    public void evict(String region, String... keys) {
+        holder.getLevel1Cache(region).evict(keys);
+    }
+
+    /**
+     * 清除本地整个缓存区域
+     * @param region 区域名称
+     */
+    public void clear(String region) {
+        holder.getLevel1Cache(region).clear();
+    }
+
+    @Override
+    public void connect(Properties props,  CacheProviderHolder holder) {
+        this.holder = holder;
         try {
             long ct = System.currentTimeMillis();
             conn_publisher = factory.newConnection();
@@ -71,7 +99,7 @@ public class RabbitMQClusterPolicy implements ClusterPolicy, Consumer {
 
             channel_consumer.basicConsume(queueName, true, this);
 
-            log.info("Connected to RabbitMQ:" + conn_consumer + ", time " + (System.currentTimeMillis()-ct) + " ms.");
+            log.info("Connected to RabbitMQ:{}, time {}ms", conn_consumer, System.currentTimeMillis()-ct);
         } catch (Exception e) {
             throw new CacheException(String.format("Failed to connect to RabbitMQ (%s:%d)", factory.getHost(), factory.getPort()), e);
         }
@@ -97,6 +125,7 @@ public class RabbitMQClusterPolicy implements ClusterPolicy, Consumer {
             }
         }
         try {
+        	cmd.setSrc(LOCAL_COMMAND_ID);
             channel_publisher.basicPublish(exchange, "", null, cmd.json().getBytes());
         } catch (IOException e ) {
             throw new CacheException("Failed to publish cmd to RabbitMQ!", e);
