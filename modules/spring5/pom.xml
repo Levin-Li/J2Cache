@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>net.oschina.j2cache</groupId>
+        <artifactId>j2cache</artifactId>
+        <version>2.7.2-esun</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+    <artifactId>j2cache-spring5</artifactId>
+    <name>J2Cache-Spring5</name>
+    <description>Spring5集成最小化代码</description>
+    
+    <developers>
+        <developer>
+            <name>ZYB</name>
+            <organization>长春易申软件有限公司</organization>
+            <organizationUrl>http://www.ccesun.com/</organizationUrl>
+        </developer>
+    </developers>
+    
+    <properties>
+        <spring.version>5.0.10.RELEASE</spring.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>net.oschina.j2cache</groupId>
+            <artifactId>j2cache-core</artifactId>
+            <version>${j2cache-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    
+</project>
