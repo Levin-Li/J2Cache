@@ -1,3 +1,18 @@
+/**
+ * Copyright (c) 2015-2017.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package net.oschina.j2cache.hibernate5.nonstop;
 
 import org.hibernate.cache.CacheException;
@@ -9,7 +24,6 @@ import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.persister.entity.EntityPersister;
 
 public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegionAccessStrategy {
-    
     private final NaturalIdRegionAccessStrategy actualStrategy;
     private final HibernateNonstopCacheExceptionHandler hibernateNonstopExceptionHandler;
 
@@ -21,7 +35,7 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     @Override
     public boolean insert(SharedSessionContractImplementor session, Object key, Object value) throws CacheException {
         try {
-            return this.actualStrategy.insert(session, key, value);
+            return actualStrategy.insert(session, key, value);
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
             return false;
@@ -31,7 +45,7 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     @Override
     public boolean afterInsert(SharedSessionContractImplementor session, Object key, Object value) throws CacheException {
         try {
-            return this.actualStrategy.afterInsert(session, key, value);
+            return actualStrategy.afterInsert(session, key, value);
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
             return false;
@@ -41,7 +55,7 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     @Override
     public boolean update(SharedSessionContractImplementor session, Object key, Object value) throws CacheException {
         try {
-            return this.actualStrategy.update(session, key, value);
+            return actualStrategy.update(session, key, value);
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
             return false;
@@ -51,7 +65,7 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     @Override
     public boolean afterUpdate(SharedSessionContractImplementor session, Object key, Object value, SoftLock lock) throws CacheException {
         try {
-            return this.actualStrategy.afterUpdate(session, key, value, lock);
+            return actualStrategy.afterUpdate(session, key, value, lock);
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
             return false;
@@ -60,13 +74,13 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
 
     @Override
     public NaturalIdRegion getRegion() {
-        return this.actualStrategy.getRegion();
+        return actualStrategy.getRegion();
     }
 
     @Override
     public void evict(Object key) throws CacheException {
         try {
-            this.actualStrategy.evict(key);
+            actualStrategy.evict(key);
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
         }
@@ -75,7 +89,7 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     @Override
     public void evictAll() throws CacheException {
         try {
-            this.actualStrategy.evictAll();
+            actualStrategy.evictAll();
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
         }
@@ -84,7 +98,7 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     @Override
     public Object get(SharedSessionContractImplementor session, Object key, long txTimestamp) throws CacheException {
         try {
-            return this.actualStrategy.get(session, key, txTimestamp);
+            return actualStrategy.get(session, key, txTimestamp);
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
             return null;
@@ -94,7 +108,7 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     @Override
     public SoftLock lockItem(SharedSessionContractImplementor session, Object key, Object version) throws CacheException {
         try {
-            return this.actualStrategy.lockItem(session, key, version);
+            return actualStrategy.lockItem(session, key, version);
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
             return null;
@@ -104,7 +118,7 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     @Override
     public SoftLock lockRegion() throws CacheException {
         try {
-            return this.actualStrategy.lockRegion();
+            return actualStrategy.lockRegion();
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
             return null;
@@ -115,7 +129,7 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     public boolean putFromLoad(SharedSessionContractImplementor session, Object key, Object value, long txTimestamp, Object version, boolean minimalPutOverride)
             throws CacheException {
         try {
-            return this.actualStrategy.putFromLoad(session, key, value, txTimestamp, version, minimalPutOverride);
+            return actualStrategy.putFromLoad(session, key, value, txTimestamp, version, minimalPutOverride);
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
             return false;
@@ -125,7 +139,7 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     @Override
     public boolean putFromLoad(SharedSessionContractImplementor session, Object key, Object value, long txTimestamp, Object version) throws CacheException {
         try {
-            return this.actualStrategy.putFromLoad(session, key, value, txTimestamp, version);
+            return actualStrategy.putFromLoad(session, key, value, txTimestamp, version);
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
             return false;
@@ -135,7 +149,7 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     @Override
     public void remove(SharedSessionContractImplementor session, Object key) throws CacheException {
         try {
-            this.actualStrategy.remove(session, key);
+            actualStrategy.remove(session, key);
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
         }
@@ -144,7 +158,7 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     @Override
     public void removeAll() throws CacheException {
         try {
-            this.actualStrategy.removeAll();
+            actualStrategy.removeAll();
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
         }
@@ -153,7 +167,7 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     @Override
     public void unlockItem(SharedSessionContractImplementor session, Object key, SoftLock lock) throws CacheException {
         try {
-            this.actualStrategy.unlockItem(session, key, lock);
+            actualStrategy.unlockItem(session, key, lock);
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
         }
@@ -162,15 +176,16 @@ public class NonstopAwareNaturalIdRegionAccessStrategy implements NaturalIdRegio
     @Override
     public void unlockRegion(SoftLock lock) throws CacheException {
         try {
-            this.actualStrategy.unlockRegion(lock);
+            actualStrategy.unlockRegion(lock);
         } catch (NonStopCacheException nonStopCacheException) {
             hibernateNonstopExceptionHandler.handleNonstopCacheException(nonStopCacheException);
         }
     }
 
     @Override
-    public Object generateCacheKey(Object[] naturalIdValues, EntityPersister persister, SharedSessionContractImplementor session) {
-        return DefaultCacheKeysFactory.staticCreateNaturalIdKey( naturalIdValues, persister, session );
+    public Object generateCacheKey(Object[] naturalIdValues, EntityPersister persister,
+            SharedSessionContractImplementor session) {
+        return DefaultCacheKeysFactory.staticCreateNaturalIdKey(naturalIdValues, persister, session);
     }
 
     @Override

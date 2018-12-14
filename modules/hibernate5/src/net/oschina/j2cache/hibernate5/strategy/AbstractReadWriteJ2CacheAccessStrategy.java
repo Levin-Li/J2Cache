@@ -1,18 +1,34 @@
+/**
+ * Copyright (c) 2015-2017.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package net.oschina.j2cache.hibernate5.strategy;
 
 
-import net.oschina.j2cache.hibernate5.log.J2CacheMessageLogger;
-import net.oschina.j2cache.hibernate5.regions.J2CacheTransactionalDataRegion;
+import java.io.Serializable;
+import java.util.Comparator;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.hibernate.boot.spi.SessionFactoryOptions;
 import org.hibernate.cache.CacheException;
 import org.hibernate.cache.spi.access.SoftLock;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.jboss.logging.Logger;
 
-import java.io.Serializable;
-import java.util.Comparator;
-import java.util.UUID;
-import java.util.concurrent.atomic.AtomicLong;
+import net.oschina.j2cache.hibernate5.log.J2CacheMessageLogger;
+import net.oschina.j2cache.hibernate5.regions.J2CacheTransactionalDataRegion;
 
 abstract class AbstractReadWriteJ2CacheAccessStrategy<T extends J2CacheTransactionalDataRegion> extends AbstractJ2CacheAccessStrategy<T> {
 
@@ -21,6 +37,7 @@ abstract class AbstractReadWriteJ2CacheAccessStrategy<T extends J2CacheTransacti
     private final UUID uuid = UUID.randomUUID();
     private final AtomicLong nextLockId = new AtomicLong();
 
+    @SuppressWarnings("rawtypes")
     private final Comparator versionComparator;
 
     public AbstractReadWriteJ2CacheAccessStrategy(T region, SessionFactoryOptions settings) {
@@ -116,10 +133,12 @@ abstract class AbstractReadWriteJ2CacheAccessStrategy<T extends J2CacheTransacti
         }
     }
 
+    @SuppressWarnings("rawtypes")
     protected interface Lockable {
 
         boolean isReadable(long txTimestamp);
 
+        
         boolean isWriteable(long txTimestamp, Object version, Comparator versionComparator);
 
         Object getValue();
@@ -129,6 +148,7 @@ abstract class AbstractReadWriteJ2CacheAccessStrategy<T extends J2CacheTransacti
         Lock lock(long timeout, UUID uuid, long lockId);
     }
 
+    @SuppressWarnings("rawtypes")
     protected static final class Item implements Serializable, Lockable {
         private static final long serialVersionUID = 1L;
         private final Object value;
@@ -193,7 +213,7 @@ abstract class AbstractReadWriteJ2CacheAccessStrategy<T extends J2CacheTransacti
         }
 
         @Override
-        @SuppressWarnings({"SimplifiableIfStatement", "unchecked"})
+        @SuppressWarnings({"rawtypes", "unchecked"})
         public boolean isWriteable(long txTimestamp, Object newVersion, Comparator versionComparator) {
             if (txTimestamp > timeout) {
                 return true;
@@ -217,7 +237,6 @@ abstract class AbstractReadWriteJ2CacheAccessStrategy<T extends J2CacheTransacti
         }
 
         @Override
-        @SuppressWarnings("SimplifiableIfStatement")
         public boolean equals(Object o) {
             if (o == this) {
                 return true;

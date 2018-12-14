@@ -1,75 +1,75 @@
+/**
+ * Copyright (c) 2015-2017.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package net.oschina.j2cache.hibernate5.util;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-import net.oschina.j2cache.hibernate5.util.TimeProviderLoader;
-import net.oschina.j2cache.hibernate5.util.lang.VicariousThreadLocal;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-final class SlewClock {
+public class SlewClock {
 
-    private static final Logger LOG = LoggerFactory.getLogger(net.oschina.j2cache.hibernate5.util.SlewClock.class);
-    private static final net.oschina.j2cache.hibernate5.util.SlewClock.TimeProvider PROVIDER = TimeProviderLoader.getTimeProvider();
-    private static final long DRIFT_MAXIMAL = (long)Integer.getInteger("net.oschina.j2cache.hibernate5.util.Timestamper.drift.max", 50);
-    private static final long SLEEP_MAXIMAL = (long)Integer.getInteger("net.oschina.j2cache.hibernate5.util.Timestamper.sleep.max", 50);
-    private static final int SLEEP_BASE = Integer.getInteger("net.oschina.j2cache.hibernate5.util.Timestamper.sleep.min", 25);
-    private static final AtomicLong CURRENT = new AtomicLong(-9223372036854775808L);
-    private static final VicariousThreadLocal<Long> OFFSET = new VicariousThreadLocal();
+    private static final TimeProvider PROVIDER = TimeProviderLoader.getTimeProvider();
+
+    private static final long DRIFT_MAXIMAL = Integer.getInteger("net.oschina.j2cache.hibernate5.redis.util.Timestamper.drift.max", 50);
+
+    private static final long SLEEP_MAXIMAL = Integer.getInteger("net.oschina.j2cache.hibernate5.redis.util.Timestamper.sleep.max", 50);
+
+    private static final int  SLEEP_BASE    = Integer.getInteger("net.oschina.j2cache.hibernate5.redis.util.Timestamper.sleep.min", 25);
+
+    private static final AtomicLong CURRENT = new AtomicLong(getCurrentTime());
+
+    private static final VicariousThreadLocal<Long> OFFSET = new VicariousThreadLocal<Long>();
 
     private SlewClock() {
     }
 
-    /** @deprecated */
-    @Deprecated
-    static void realignWithTimeProvider() {
-        CURRENT.set(getCurrentTime());
-    }
-
     static long timeMillis() {
         boolean interrupted = false;
-
         try {
-            while(true) {
+            while (true) {
                 long mono = CURRENT.get();
                 long wall = getCurrentTime();
-                long delta;
                 if (wall == mono) {
                     OFFSET.remove();
-                    delta = wall;
-                    return delta;
-                }
-
-                if (wall > mono) {
+                    return wall;
+                } else if (wall >= mono) {
                     if (CURRENT.compareAndSet(mono, wall)) {
                         OFFSET.remove();
-                        delta = wall;
-                        return delta;
+                        return wall;
                     }
                 } else {
-                    delta = mono - wall;
+                    long delta = mono - wall;
                     if (delta < DRIFT_MAXIMAL) {
                         OFFSET.remove();
-                        long var15 = mono;
-                        return var15;
-                    }
-
-                    Long lastDelta = (Long)OFFSET.get();
-                    long sleep;
-                    if (lastDelta != null && delta >= lastDelta) {
-                        OFFSET.set(Math.max(delta, lastDelta));
-
-                        try {
-                            sleep = sleepTime(delta, lastDelta);
-                            LOG.trace("{} sleeping for {}ms to adjust for wall-clock drift.", Thread.currentThread(), sleep);
-                            Thread.sleep(sleep);
-                        } catch (InterruptedException var13) {
-                            interrupted = true;
+                        return mono;
+                    } else {
+                        Long lastDelta = OFFSET.get();
+                        if (lastDelta == null || delta < lastDelta) {
+                            long update = wall - delta;
+                            update = update < mono ? mono + 1 : update;
+                            if (CURRENT.compareAndSet(mono, update)) {
+                                OFFSET.set(delta);
+                                return update;
+                            }
+                        } else {
+                            try {
+                                Thread.sleep(sleepTime(delta, lastDelta));
+                            } catch (InterruptedException e) {
+                                interrupted = true;
+                            }
                         }
-                    } else if (CURRENT.compareAndSet(mono, mono + 1L)) {
-                        OFFSET.set(delta);
-                        sleep = mono + 1L;
-                        return sleep;
                     }
                 }
             }
@@ -77,7 +77,6 @@ final class SlewClock {
             if (interrupted) {
                 Thread.currentThread().interrupt();
             }
-
         }
     }
 
@@ -86,13 +85,13 @@ final class SlewClock {
     }
 
     static long behind() {
-        Long offset = (Long)OFFSET.get();
-        return offset == null ? 0L : offset;
+        Long offset = OFFSET.get();
+        return offset == null ? 0 : offset;
     }
 
-    private static long sleepTime(long current, long previous) {
-        long target = (long)SLEEP_BASE + (current - previous) * 2L;
-        return Math.min(target > 0L ? target : (long)SLEEP_BASE, SLEEP_MAXIMAL);
+    private static long sleepTime(final long current, final long previous) {
+        long target = SLEEP_BASE + (current - previous) * 2;
+        return Math.min(target > 0 ? target : SLEEP_BASE, SLEEP_MAXIMAL);
     }
 
     private static long getCurrentTime() {
@@ -100,6 +99,8 @@ final class SlewClock {
     }
 
     interface TimeProvider {
+
         long currentTimeMillis();
+
     }
 }
