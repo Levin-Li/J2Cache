@@ -124,6 +124,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <scope>compile</scope>
+            <version>4.3.12.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <description> J2Cache - core </description>
