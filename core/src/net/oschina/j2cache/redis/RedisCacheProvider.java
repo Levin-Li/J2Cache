@@ -46,7 +46,7 @@ public class RedisCacheProvider implements CacheProvider {
     private String namespace;
     private String storage;
 
-    private static final ConcurrentHashMap<String, Level2Cache> regions = new ConcurrentHashMap();
+    private static final ConcurrentHashMap<String, Level2Cache> regions = new ConcurrentHashMap<>();
 
     @Override
     public String name() {
@@ -65,7 +65,7 @@ public class RedisCacheProvider implements CacheProvider {
     @Override
     public void start(Properties props) {
 
-        this.setNamespace(props.getProperty("namespace"));
+        this.namespace = props.getProperty("namespace");
         this.storage = props.getProperty("storage");
 
         JedisPoolConfig poolConfig = RedisUtils.newPoolConfig(props, null);
@@ -90,7 +90,7 @@ public class RedisCacheProvider implements CacheProvider {
                 mode,
                 database,
                 storage,
-                getNamespace(),
+                namespace,
                 (System.currentTimeMillis()-ct)
         ));
     }
@@ -108,8 +108,8 @@ public class RedisCacheProvider implements CacheProvider {
     @Override
     public Cache buildCache(String region, CacheExpiredListener listener) {
         return regions.computeIfAbsent(region, v -> "hash".equalsIgnoreCase(this.storage)?
-                new RedisHashCache(this.getNamespace(), region, redisClient):
-                new RedisGenericCache(this.getNamespace(), region, redisClient));
+                new RedisHashCache(this.namespace, region, redisClient):
+                new RedisGenericCache(this.namespace, region, redisClient));
     }
 
     @Override
