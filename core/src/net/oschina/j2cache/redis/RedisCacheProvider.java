@@ -15,16 +15,22 @@
  */
 package net.oschina.j2cache.redis;
 
-import net.oschina.j2cache.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import redis.clients.jedis.*;
-
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import net.oschina.j2cache.Cache;
+import net.oschina.j2cache.CacheChannel;
+import net.oschina.j2cache.CacheExpiredListener;
+import net.oschina.j2cache.CacheObject;
+import net.oschina.j2cache.CacheProvider;
+import net.oschina.j2cache.Level2Cache;
+import redis.clients.jedis.JedisPoolConfig;
 
 /**
  * Redis 缓存管理，实现对多种 Redis 运行模式的支持和自动适配，实现连接池管理等
@@ -59,7 +65,7 @@ public class RedisCacheProvider implements CacheProvider {
     @Override
     public void start(Properties props) {
 
-        this.namespace = props.getProperty("namespace");
+        this.setNamespace(props.getProperty("namespace"));
         this.storage = props.getProperty("storage");
 
         JedisPoolConfig poolConfig = RedisUtils.newPoolConfig(props, null);
@@ -84,7 +90,7 @@ public class RedisCacheProvider implements CacheProvider {
                 mode,
                 database,
                 storage,
-                namespace,
+                getNamespace(),
                 (System.currentTimeMillis()-ct)
         ));
     }
@@ -102,8 +108,8 @@ public class RedisCacheProvider implements CacheProvider {
     @Override
     public Cache buildCache(String region, CacheExpiredListener listener) {
         return regions.computeIfAbsent(region, v -> "hash".equalsIgnoreCase(this.storage)?
-                new RedisHashCache(this.namespace, region, redisClient):
-                new RedisGenericCache(this.namespace, region, redisClient));
+                new RedisHashCache(this.getNamespace(), region, redisClient):
+                new RedisGenericCache(this.getNamespace(), region, redisClient));
     }
 
     @Override
@@ -123,4 +129,20 @@ public class RedisCacheProvider implements CacheProvider {
     public RedisClient getRedisClient() {
         return redisClient;
     }
+
+	public String getNamespace() {
+		return namespace;
+	}
+
+	public void setNamespace(String namespace) {
+		this.namespace = namespace;
+	}
+
+	public String getStorage() {
+		return storage;
+	}
+
+	public void setStorage(String storage) {
+		this.storage = storage;
+	}
 }
