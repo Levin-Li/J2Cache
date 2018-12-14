@@ -53,9 +53,6 @@ public class EhCacheProvider implements CacheProvider {
 	private CacheManager manager;
 	private ConcurrentHashMap<String, EhCache> caches;
 
-	@javax.annotation.Resource
-	private Environment environment;
-
 	@Override
 	public String name() {
 		return "ehcache";
