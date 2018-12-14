@@ -15,6 +15,7 @@
  */
 package net.oschina.j2cache.ehcache;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -30,6 +31,11 @@ import org.slf4j.LoggerFactory;
 import net.oschina.j2cache.CacheExpiredListener;
 import net.oschina.j2cache.CacheProvider;
 import net.sf.ehcache.CacheManager;
+import org.springframework.core.env.Environment;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.util.ResourceUtils;
 
 /**
  * EhCache 2.x 缓存管理器的封装，用来管理多个缓存区域
@@ -46,6 +52,9 @@ public class EhCacheProvider implements CacheProvider {
 
 	private CacheManager manager;
 	private ConcurrentHashMap<String, EhCache> caches;
+
+	@javax.annotation.Resource
+	private Environment environment;
 
 	@Override
 	public String name() {
@@ -133,8 +142,27 @@ public class EhCacheProvider implements CacheProvider {
 		if (manager == null) {
 			// 指定了配置文件路径? 加载之
 			if (props.containsKey(KEY_EHCACHE_CONFIG_XML)) {
-				URL url = getClass().getResource(props.getProperty(KEY_EHCACHE_CONFIG_XML));
-				manager = CacheManager.newInstance(url);
+//				URL url = getClass().getResource(props.getProperty(KEY_EHCACHE_CONFIG_XML));
+//				manager = CacheManager.newInstance(url);
+
+				String  ehcache_configXml= props.getProperty(KEY_EHCACHE_CONFIG_XML);
+				log.info("[ehcache_configXml : ]" +ehcache_configXml);
+				Resource resource = null;
+				if(ResourceUtils.isUrl(ehcache_configXml))
+				{
+					resource=new ClassPathResource(ehcache_configXml);
+				}else if(!ResourceUtils.isUrl(ehcache_configXml))
+				{
+					resource=new FileSystemResource(ehcache_configXml);
+				}
+				try
+				{
+					URL url = resource.getURL();
+					manager = CacheManager.newInstance(url);
+				} catch (IOException e)
+				{
+					e.printStackTrace();
+				}
 			} else {
 				// 加载默认实例
 				manager = CacheManager.getInstance();
