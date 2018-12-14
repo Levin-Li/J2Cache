@@ -15,10 +15,9 @@
  */
 package net.oschina.j2cache.hibernate5.log;
 
-import static org.jboss.logging.Logger.Level.WARN;
-
 import org.hibernate.internal.CoreMessageLogger;
 import org.jboss.logging.LogMessage;
+import org.jboss.logging.Logger.Level;
 import org.jboss.logging.Message;
 import org.jboss.logging.MessageLogger;
 
@@ -26,7 +25,7 @@ import org.jboss.logging.MessageLogger;
 public interface J2CacheMessageLogger extends CoreMessageLogger {
 
 
-    @LogMessage(level = WARN)
+    @LogMessage(level = Level.WARN)
     @Message(
             value = "Attempt to restart an already started J2CacheRegionFactory.  Use sessionFactory.close() between " +
                     "repeated calls to buildSessionFactory. Using previously created J2CacheRegionFactory. If this " +
@@ -40,7 +39,7 @@ public interface J2CacheMessageLogger extends CoreMessageLogger {
      *
      * @param name The name of the configuration file
      */
-    @LogMessage(level = WARN)
+    @LogMessage(level = Level.WARN)
     @Message(value = "Could not find configuration [%s]; using defaults.", id = 20002)
     void unableToFindConfiguration(String name);
 
@@ -49,7 +48,7 @@ public interface J2CacheMessageLogger extends CoreMessageLogger {
      *
      * @param name The name of the cache configuration
      */
-    @LogMessage(level = WARN)
+    @LogMessage(level = Level.WARN)
     @Message(value = "Could not find a specific J2Cache configuration for cache named [%s]; using defaults.", id = 20003)
     void unableToFindJ2CacheConfiguration(String name);
 
@@ -58,7 +57,7 @@ public interface J2CacheMessageLogger extends CoreMessageLogger {
      *
      * @param configurationResourceName The resource name we attempted to resolve
      */
-    @LogMessage(level = WARN)
+    @LogMessage(level = Level.WARN)
     @Message(
             value = "A configurationResourceName was set to %s but the resource could not be loaded from the classpath. " +
                     "J2Cache will configure itself using defaults.",
@@ -69,7 +68,7 @@ public interface J2CacheMessageLogger extends CoreMessageLogger {
     /**
      * Logs a message (WARN) about attempt to use an incompatible
      */
-    @LogMessage(level = WARN)
+    @LogMessage(level = Level.WARN)
     @Message(
             value = "The default cache value mode for this J2Cache configuration is \"identity\". " +
                     "This is incompatible with clustered Hibernate caching - the value mode has therefore been " +
@@ -83,7 +82,7 @@ public interface J2CacheMessageLogger extends CoreMessageLogger {
      *
      * @param cacheName The name of the cache whose config attempted to specify value mode.
      */
-    @LogMessage(level = WARN)
+    @LogMessage(level = Level.WARN)
     @Message(value = "The value mode for the cache[%s] is \"identity\". This is incompatible with clustered Hibernate caching - "
             + "the value mode has therefore been switched to \"serialization\"", id = 20006)
     void incompatibleCacheValueModePerCache(String cacheName);
@@ -93,7 +92,7 @@ public interface J2CacheMessageLogger extends CoreMessageLogger {
      *
      * @param entityName The name of the entity
      */
-    @LogMessage(level = WARN)
+    @LogMessage(level = Level.WARN)
     @Message(value = "read-only cache configured for mutable entity [%s]", id = 20007)
     void readOnlyCacheConfiguredForMutableEntity(String entityName);
 
@@ -104,7 +103,7 @@ public interface J2CacheMessageLogger extends CoreMessageLogger {
      * @param key        The cache key
      * @param lock       The lock
      */
-    @LogMessage(level = WARN)
+    @LogMessage(level = Level.WARN)
     @Message(
             value = "Cache[%s] Key[%s] Lockable[%s]\n" +
                     "A soft-locked cache entry was expired by the underlying J2Cache. If this happens regularly you " +
