@@ -12,8 +12,8 @@
     <description>J2Cache - hibernate5</description>
     
     <properties>
-        <hibernate.version>5.2.27.Final</hibernate.version>
-        <spring.version>5.0.10.RELEASE</spring.version>
+        <hibernate.version>5.2.17.Final</hibernate.version>
+        <spring.version>5.1.0.RELEASE</spring.version>
     </properties>
 
     <dependencies>
