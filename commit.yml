@@ -3,9 +3,9 @@ branches: {
   }
 fileChange:
   /giteetest.release:
-    newFile: !uuid 'a93f0ede9956dbeda2b821cfae17fa3716ea3f4a'
-    oldFile: null
-gitCommitId: !uuid '0c3d049f01151e98c888fa3dfec2074a74d73f79'
+    newFile: null
+    oldFile: !uuid 'a93f0ede9956dbeda2b821cfae17fa3716ea3f4a'
+gitCommitId: !uuid '03cd896703f1bd3680a8ce545775b566bffcfede'
 renames: {
   }
-revisionId: 552
+revisionId: 553
