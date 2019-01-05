@@ -2,10 +2,16 @@
 branches: {
   }
 fileChange:
-  /giteetest.release:
-    newFile: null
-    oldFile: !uuid 'a93f0ede9956dbeda2b821cfae17fa3716ea3f4a'
-gitCommitId: !uuid '03cd896703f1bd3680a8ce545775b566bffcfede'
+  /modules:
+    newFile: !uuid 'd7a7e30979819cc5b320a8892d7a5415b6d7f94c'
+    oldFile: !uuid '098ef7974d9a0784aedc162847afde1f05a12190'
+  /modules/session-manager:
+    newFile: !uuid 'c657266dccdfbfd79f5741d6b4b7cae1ce51358d'
+    oldFile: !uuid 'e38d5f5c0922078ae670bbd6166d195e1615201b'
+  /modules/session-manager/Readme.md:
+    newFile: !uuid 'bcff725cbe842afabf6f50a1b1a6f62944936bc3'
+    oldFile: !uuid '7b7e5253eb434de87f6c4df7f023c0fbe7d82e9e'
+gitCommitId: !uuid '1e13637a245093a6824b26a32c33eda38cebac3c'
 renames: {
   }
-revisionId: 553
+revisionId: 554
