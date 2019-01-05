@@ -3,15 +3,15 @@ branches: {
   }
 fileChange:
   /modules:
-    newFile: !uuid 'e59385d6f08e75f24d5a91e51948feb80bd1a3fd'
-    oldFile: !uuid 'd7a7e30979819cc5b320a8892d7a5415b6d7f94c'
+    newFile: !uuid '842926694692d49ebc43ca11ff29b34df4f7dc6d'
+    oldFile: !uuid 'e59385d6f08e75f24d5a91e51948feb80bd1a3fd'
   /modules/session-manager:
-    newFile: !uuid 'bb969c4251f77142a178a21ecf43dbcca036dc7f'
-    oldFile: !uuid 'c657266dccdfbfd79f5741d6b4b7cae1ce51358d'
-  /modules/session-manager/pom.xml:
-    newFile: !uuid 'e3dc182dff415f60d12435cc8413eb3969f8099b'
-    oldFile: !uuid 'c66b1812a8db9467d0ad97e5f67da59e568ad006'
-gitCommitId: !uuid '4424096339e4ea0e813f98cc76b27c5a369ac046'
+    newFile: !uuid '2d059132e2c0f919d4defe26770707eac5aa3e73'
+    oldFile: !uuid 'bb969c4251f77142a178a21ecf43dbcca036dc7f'
+  /modules/session-manager/Readme.md:
+    newFile: !uuid '7a808b0388bb22acfb4b9c686495caab87b2e557'
+    oldFile: !uuid 'bcff725cbe842afabf6f50a1b1a6f62944936bc3'
+gitCommitId: !uuid '5825715d363e5400737632fdc8e8cc63a6218793'
 renames: {
   }
-revisionId: 555
+revisionId: 556
