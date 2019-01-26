@@ -67,6 +67,6 @@
         </dependencies>
     </dependencyManagement>
     <properties>
-        <spring-boot-dependencies.version>1.5.8.RELEASE</spring-boot-dependencies.version>
+        <spring-boot-dependencies.version>1.5.9.RELEASE</spring-boot-dependencies.version>
     </properties>
 </project>
