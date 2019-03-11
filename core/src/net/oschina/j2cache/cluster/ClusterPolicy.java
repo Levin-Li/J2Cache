@@ -20,7 +20,6 @@ import net.oschina.j2cache.Command;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.util.Properties;
 
 /**
@@ -34,9 +33,9 @@ public interface ClusterPolicy {
     /**
      * 连接到集群
      * @param props j2cache 配置信息
+     * @param holder Cache Provider Instance
      */
-    void connect(Properties props);
-
+    void connect(Properties props, CacheProviderHolder holder);
 
     /**
      * 发送消息
@@ -71,17 +70,20 @@ public interface ClusterPolicy {
      * @param region 区域名称
      * @param keys   缓存键值
      */
-    default void evict(String region, String... keys) {
-        CacheProviderHolder.getLevel1Cache(region).evict(keys);
-    }
+    void evict(String region, String... keys);
 
     /**
      * 清除本地整个缓存区域
      * @param region 区域名称
      */
-    default void clear(String region) {
-        CacheProviderHolder.getLevel1Cache(region).clear();
-    }
+    void clear(String region) ;
+
+    /**
+     * 判断是否本地实例的命令
+     * @param cmd 命令信息
+     * @return
+     */
+    boolean isLocalCommand(Command cmd) ;
 
     /**
      * 处理缓存事件逻辑
@@ -89,12 +91,12 @@ public interface ClusterPolicy {
      */
     default void handleCommand(Command cmd) {
         try {
-            if (cmd == null || cmd.isLocal())
+            if (cmd == null || isLocalCommand(cmd))
                 return;
 
             switch (cmd.getOperator()) {
                 case Command.OPT_JOIN:
-                    log.info("Node-"+cmd.getSrc() + " joined !");
+                    log.info("Node-{} joined !", cmd.getSrc());
                     break;
                 case Command.OPT_EVICT_KEY:
                     this.evict(cmd.getRegion(), cmd.getKeys());
@@ -105,7 +107,7 @@ public interface ClusterPolicy {
                     log.debug("Received cache clear message, region=" + cmd.getRegion());
                     break;
                 case Command.OPT_QUIT:
-                    log.info("Node-"+cmd.getSrc() + " quit !");
+                    log.info("Node-{} quit !", cmd.getSrc());
                     break;
                 default:
                     log.warn("Unknown message type = " + cmd.getOperator());

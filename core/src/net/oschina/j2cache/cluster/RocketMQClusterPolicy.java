@@ -15,6 +15,7 @@
  */
 package net.oschina.j2cache.cluster;
 
+import net.oschina.j2cache.CacheProviderHolder;
 import net.oschina.j2cache.Command;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
@@ -40,6 +41,9 @@ public class RocketMQClusterPolicy implements ClusterPolicy, MessageListenerConc
 
     private static final Logger log = LoggerFactory.getLogger(RocketMQClusterPolicy.class);
 
+    private int LOCAL_COMMAND_ID = Command.genRandomSrc(); //命令源标识，随机生成，每个节点都有唯一标识
+
+    private CacheProviderHolder holder;
     private String hosts;
     private String topic;
     private DefaultMQProducer producer;
@@ -60,7 +64,30 @@ public class RocketMQClusterPolicy implements ClusterPolicy, MessageListenerConc
     }
 
     @Override
-    public void connect(Properties props) {
+    public boolean isLocalCommand(Command cmd) {
+        return cmd.getSrc() == LOCAL_COMMAND_ID;
+    }
+
+    /**
+     * 删除本地某个缓存条目
+     * @param region 区域名称
+     * @param keys   缓存键值
+     */
+    public void evict(String region, String... keys) {
+        holder.getLevel1Cache(region).evict(keys);
+    }
+
+    /**
+     * 清除本地整个缓存区域
+     * @param region 区域名称
+     */
+    public void clear(String region) {
+        holder.getLevel1Cache(region).clear();
+    }
+
+    @Override
+    public void connect(Properties props,  CacheProviderHolder holder) {
+        this.holder = holder;
         try {
             this.producer.start();
             publish(Command.join());
@@ -75,11 +102,12 @@ public class RocketMQClusterPolicy implements ClusterPolicy, MessageListenerConc
 
     @Override
     public void publish(Command cmd) {
+    	cmd.setSrc(LOCAL_COMMAND_ID);
         Message msg = new Message(topic,"","", cmd.json().getBytes());
         try {
             this.producer.send(msg);
         } catch (Exception e) {
-            log.error(String.format("Failed to publish %s to RocketMQ", cmd.json()), e);
+            log.error("Failed to publish {} to RocketMQ", cmd.json(), e);
         }
     }
 

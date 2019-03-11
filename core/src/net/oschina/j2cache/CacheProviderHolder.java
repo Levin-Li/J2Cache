@@ -30,111 +30,128 @@ import java.util.Collection;
 
 /**
  * 两级的缓存管理器
+ *
  * @author Winter Lau(javayou@gmail.com)
  */
 public class CacheProviderHolder {
 
-	private final static Logger log = LoggerFactory.getLogger(CacheProviderHolder.class);
+    private final static Logger log = LoggerFactory.getLogger(CacheProviderHolder.class);
 
-	private static CacheProvider l1_provider;
-	private static CacheProvider l2_provider;
+    private CacheProvider l1_provider;
+    private CacheProvider l2_provider;
 
-	private static CacheExpiredListener listener;
+    private CacheExpiredListener listener;
 
-	/**
-	 * Initialize Cache Provider
-	 * @param config j2cache config instance
-	 * @param listener cache listener
-	 */
-	public static void init(J2CacheConfig config, CacheExpiredListener listener){
-		CacheProviderHolder.listener = listener;
-		CacheProviderHolder.l1_provider = loadProviderInstance(config.getL1CacheName());
-		if (!l1_provider.isLevel(CacheObject.LEVEL_1))
-			throw new CacheException(l1_provider.getClass().getName() + " is not level_1 cache provider");
-		CacheProviderHolder.l1_provider.start(config.getL1CacheProperties());
-		log.info("Using L1 CacheProvider : " + l1_provider.getClass().getName());
+    private CacheProviderHolder() {
+    }
 
-		CacheProviderHolder.l2_provider = loadProviderInstance(config.getL2CacheName());
-		if (!l2_provider.isLevel(CacheObject.LEVEL_2))
-			throw new CacheException(l2_provider.getClass().getName() + " is not level_2 cache provider");
-		CacheProviderHolder.l2_provider.start(config.getL2CacheProperties());
-		log.info("Using L2 CacheProvider : " + l2_provider.getClass().getName());
-	}
+    /**
+     * Initialize Cache Provider
+     *
+     * @param config   j2cache config instance
+     * @param listener cache listener
+     * @return holder : return CacheProviderHolder instance
+     */
+    public static CacheProviderHolder init(J2CacheConfig config, CacheExpiredListener listener) {
 
-	/**
-	 * 关闭缓存
-	 */
-	public final static void shutdown() {
-		l1_provider.stop();
-		l2_provider.stop();
-	}
+        CacheProviderHolder holder = new CacheProviderHolder();
 
-	private final static CacheProvider loadProviderInstance(String cacheIdent) {
-		if("ehcache".equalsIgnoreCase(cacheIdent))
-			return new EhCacheProvider();
-		if("ehcache3".equalsIgnoreCase(cacheIdent))
-			return new EhCacheProvider3();
-		if("caffeine".equalsIgnoreCase(cacheIdent))
-			return new CaffeineProvider();
-		if("redis".equalsIgnoreCase(cacheIdent))
-			return new RedisCacheProvider();
-		if("readonly-redis".equalsIgnoreCase(cacheIdent))
-			return new ReadonlyRedisCacheProvider();
-		if("memcached".equalsIgnoreCase(cacheIdent))
-			return new XmemcachedCacheProvider();
-		if("lettuce".equalsIgnoreCase(cacheIdent))
-			return new LettuceCacheProvider();
-		if("none".equalsIgnoreCase(cacheIdent))
-			return new NullCacheProvider();
-		try {
-			return (CacheProvider) Class.forName(cacheIdent).newInstance();
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-			throw new CacheException("Failed to initialize cache providers", e);
-		}
-	}
+        holder.listener = listener;
+        holder.l1_provider = loadProviderInstance(config.getL1CacheName());
+        if (!holder.l1_provider.isLevel(CacheObject.LEVEL_1))
+            throw new CacheException(holder.l1_provider.getClass().getName() + " is not level_1 cache provider");
+        holder.l1_provider.start(config.getL1CacheProperties());
+        log.info("Using L1 CacheProvider : {}", holder.l1_provider.getClass().getName());
 
-	public final static CacheProvider getL1Provider() {
-		return l1_provider;
-	}
+        holder.l2_provider = loadProviderInstance(config.getL2CacheName());
+        if (!holder.l2_provider.isLevel(CacheObject.LEVEL_2))
+            throw new CacheException(holder.l2_provider.getClass().getName() + " is not level_2 cache provider");
+        holder.l2_provider.start(config.getL2CacheProperties());
+        log.info("Using L2 CacheProvider : {}", holder.l2_provider.getClass().getName());
 
-	public final static CacheProvider getL2Provider() {
-		return l2_provider;
-	}
+        return holder;
+    }
 
-	/**
-	 * 一级缓存实例
-	 * @param region  cache region
-	 * @return level 1 cache instance
-	 */
-	public final static Level1Cache getLevel1Cache(String region) {
-		return (Level1Cache)l1_provider.buildCache(region, listener);
-	}
+    /**
+     * 关闭缓存
+     */
+    public void shutdown() {
+        l1_provider.stop();
+        l2_provider.stop();
+    }
 
-	/**
-	 * 一级缓存实例
-	 * @param region  cache region
-	 * @param timeToLiveSeconds  cache ttl
-	 * @return level 1 cache instance
-	 */
-	public final static Level1Cache getLevel1Cache(String region, long timeToLiveSeconds) {
-		return (Level1Cache)l1_provider.buildCache(region, timeToLiveSeconds, listener);
-	}
+    private static CacheProvider loadProviderInstance(String cacheIdent) {
+        switch (cacheIdent.toLowerCase()) {
+            case "ehcache":
+                return new EhCacheProvider();
+            case "ehcache3":
+                return new EhCacheProvider3();
+            case "caffeine":
+                return new CaffeineProvider();
+            case "redis":
+                return new RedisCacheProvider();
+            case "readonly-redis":
+                return new ReadonlyRedisCacheProvider();
+            case "memcached":
+                return new XmemcachedCacheProvider();
+            case "lettuce":
+                return new LettuceCacheProvider();
+            case "none":
+                return new NullCacheProvider();
+        }
+        try {
+            return (CacheProvider) Class.forName(cacheIdent).newInstance();
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            throw new CacheException("Failed to initialize cache providers", e);
+        }
+    }
 
-	/**
-	 * 二级缓存实例
-	 * @param region cache region
-	 * @return level 2 cache instance
-	 */
-	public final static Level2Cache getLevel2Cache(String region) {
-		return (Level2Cache)l2_provider.buildCache(region, listener);
-	}
+    public CacheProvider getL1Provider() {
+        return l1_provider;
+    }
 
-	/**
-	 * return all regions
-	 * @return all regions
-	 */
-	public final static Collection<CacheChannel.Region> regions() {
-		return l1_provider.regions();
-	}
+    public CacheProvider getL2Provider() {
+        return l2_provider;
+    }
+
+    /**
+     * 一级缓存实例
+     *
+     * @param region cache region
+     * @return level 1 cache instance
+     */
+    public Level1Cache getLevel1Cache(String region) {
+        return (Level1Cache) l1_provider.buildCache(region, listener);
+    }
+
+    /**
+     * 一级缓存实例
+     *
+     * @param region            cache region
+     * @param timeToLiveSeconds cache ttl
+     * @return level 1 cache instance
+     */
+    public Level1Cache getLevel1Cache(String region, long timeToLiveSeconds) {
+        return (Level1Cache) l1_provider.buildCache(region, timeToLiveSeconds, listener);
+    }
+
+    /**
+     * 二级缓存实例
+     *
+     * @param region cache region
+     * @return level 2 cache instance
+     */
+    public Level2Cache getLevel2Cache(String region) {
+        return (Level2Cache) l2_provider.buildCache(region, listener);
+    }
+
+    /**
+     * return all regions
+     *
+     * @return all regions
+     */
+    public Collection<CacheChannel.Region> regions() {
+        return l1_provider.regions();
+    }
 
 }
