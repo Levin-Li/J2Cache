@@ -9,7 +9,7 @@
 		<relativePath>../../pom.xml</relativePath>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-
+	<version>2.7.7-release</version>
     <artifactId>j2cache-spring-boot2-starter</artifactId>
 
 	<dependencies>
@@ -55,6 +55,13 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!--引入Apollo依赖-->
+		<dependency>
+			<groupId>com.ctrip.framework.apollo</groupId>
+			<artifactId>apollo-client</artifactId>
+			<version>${apollo.version}</version>
+		</dependency>
+
 	</dependencies>
     <build>
         <sourceDirectory>src</sourceDirectory>
@@ -74,5 +81,6 @@
 	</dependencyManagement>
 	<properties>
 		<spring-boot-dependencies.version>2.0.1.RELEASE</spring-boot-dependencies.version>
+		<apollo.version>1.1.0</apollo.version>
 	</properties>
 </project>
