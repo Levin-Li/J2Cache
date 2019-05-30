@@ -16,6 +16,7 @@
 package net.oschina.j2cache;
 
 import java.io.Closeable;
+import java.io.Serializable;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
@@ -102,18 +103,18 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 	 * @param keys cache keys
 	 * @return cache object
 	 */
-	public Map<String, CacheObject> get(String region, Collection<String> keys)  {
+	public Map<String, CacheObject> get(String region, Collection<String> keys) {
 		final Map<String, Object> objs = CacheProviderHolder.getLevel1Cache(region).get(keys);
 		List<String> level2Keys = keys.stream().filter(k -> !objs.containsKey(k) || objs.get(k) == null).collect(Collectors.toList());
 		Map<String, CacheObject> results = objs.entrySet().stream().filter(p -> p.getValue() != null).collect(
-			Collectors.toMap(
-				p -> p.getKey(),
-				p -> new CacheObject(region, p.getKey(), CacheObject.LEVEL_1, p.getValue())
-			)
+				Collectors.toMap(
+						Map.Entry::getKey,
+						p -> new CacheObject(region, p.getKey(), CacheObject.LEVEL_1, p.getValue())
+				)
 		);
 
 		Map<String, Object> objs_level2 = CacheProviderHolder.getLevel2Cache(region).get(level2Keys);
-		objs_level2.forEach((k,v) -> {
+		objs_level2.forEach((k, v) -> {
 			results.put(k, new CacheObject(region, k, CacheObject.LEVEL_2, v));
 			if (v != null)
 				CacheProviderHolder.getLevel1Cache(region).put(k, v);
@@ -154,6 +155,136 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 		});
 		return results;
 	}
+
+	/**
+	 * 将缓存对象转换为指定类型对象
+	 * @param cache
+	 * 缓存对象
+	 * @param dataClass
+	 * 指定数据类型
+	 * @param <T>
+	 *     数据类型
+	 * @return 缓存数据
+	 */
+	private <T extends Serializable> T parse(final CacheObject cache, final Class<T> dataClass){
+		if(cache == null || cache.getValue() == null){
+			return null;
+		}
+		return dataClass.cast(cache.getValue());
+	}
+
+	/**
+	 * 将缓存对象转换为指定类型对象
+	 * @param cacheObjectMap
+	 * 缓存Map
+	 * @param dataClass
+	 * 指定数据类型
+	 * @param <T>
+	 *     数据类型
+	 * @return 转换后的Map
+	 */
+	private <T extends Serializable> Map<String, T> parse(final Map<String, CacheObject> cacheObjectMap, final Class<T> dataClass) {
+		if (cacheObjectMap == null || cacheObjectMap.size() == 0 || dataClass == null) {
+			return null;
+		}
+		return cacheObjectMap.entrySet().stream()
+				.map(entry -> {
+					if (entry != null && entry.getValue() != null) {
+						final T data = parse(entry.getValue(), dataClass);
+						if (data != null) {
+							return new Map.Entry<String, T>() {
+
+								@Override
+								public String getKey() {
+									return entry.getKey();
+								}
+
+								@Override
+								public T getValue() {
+									return data;
+								}
+
+								@Override
+								public T setValue(T value) {
+									return value;
+								}
+							};
+						}
+					}
+					return null;
+				})
+				.filter(Objects::nonNull)
+				.collect(Collectors.toMap(entry -> entry.getKey(), entry -> entry.getValue()));
+	}
+
+	/**
+	 * 读取指定类型的缓存
+	 * @param region
+	 * Cache region name
+	 * @param key
+	 * Cache data key
+	 * @param dataClass
+	 * 数据类型class
+	 * @param <T>
+	 *     数据类型
+	 * @return 缓存数据
+	 */
+	public <T extends Serializable> T get(final String region, final String key, final Class<T> dataClass){
+		return parse(get(region, key), dataClass);
+	}
+
+	/**
+	 * 支持外部数据自动加载的缓存方法
+	 * @param region
+	 * Cache region name
+	 * @param key
+	 * Cache data key
+	 * @param dataClass
+	 * 数据类型class
+	 * @param loader
+	 * data loader
+	 * @param <T>
+	 *     数据类型
+	 * @return 缓存数据
+	 */
+	public <T extends Serializable> T get(final String region, final String key, final Class<T> dataClass,final Function<String, T> loader){
+		return parse(get(region, key, loader::apply), dataClass);
+	}
+
+	/**
+	 * 批量读取缓存中的指定类型对象
+	 * @param region
+	 * Cache region name
+	 * @param keys
+	 * cache keys
+	 * @param dataClass
+	 * 数据类型class
+	 * @param <T>
+	 *     数据类型
+	 * @return 缓存对象Map
+	 */
+	public <T extends Serializable> Map<String, T> get(final String region,final Collection<String> keys, final Class<T> dataClass){
+		return parse(get(region, keys), dataClass);
+	}
+
+	/**
+	 * 使用数据加载器的批量缓存读取指定类型
+	 * @param region
+	 * Cache region name
+	 * @param keys
+	 * cache keys
+	 * @param dataClass
+	 * 数据类型class
+	 * @param loader
+	 * data loader
+	 * @param <T>
+	 *     数据类型
+	 * @return 缓存对象Map
+	 */
+	public <T extends Serializable> Map<String, T> get(final String region,final Collection<String> keys, final Class<T> dataClass,final Function<String, T> loader){
+		return parse(get(region, keys, loader::apply), dataClass);
+	}
+
 
 	/**
 	 * 判断某个缓存键是否存在
