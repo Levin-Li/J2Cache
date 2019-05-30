@@ -103,18 +103,18 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 	 * @param keys cache keys
 	 * @return cache object
 	 */
-	public Map<String, CacheObject> get(String region, Collection<String> keys) {
+	public Map<String, CacheObject> get(String region, Collection<String> keys)  {
 		final Map<String, Object> objs = CacheProviderHolder.getLevel1Cache(region).get(keys);
 		List<String> level2Keys = keys.stream().filter(k -> !objs.containsKey(k) || objs.get(k) == null).collect(Collectors.toList());
 		Map<String, CacheObject> results = objs.entrySet().stream().filter(p -> p.getValue() != null).collect(
 				Collectors.toMap(
-						Map.Entry::getKey,
+						p -> p.getKey(),
 						p -> new CacheObject(region, p.getKey(), CacheObject.LEVEL_1, p.getValue())
 				)
 		);
 
 		Map<String, Object> objs_level2 = CacheProviderHolder.getLevel2Cache(region).get(level2Keys);
-		objs_level2.forEach((k, v) -> {
+		objs_level2.forEach((k,v) -> {
 			results.put(k, new CacheObject(region, k, CacheObject.LEVEL_2, v));
 			if (v != null)
 				CacheProviderHolder.getLevel1Cache(region).put(k, v);
