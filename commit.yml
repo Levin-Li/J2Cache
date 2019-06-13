@@ -2,13 +2,10 @@
 branches: {
   }
 fileChange:
-  /core:
-    newFile: !uuid 'acfbcbf79b22063e2edaf9b7aef2fa40b6c484c5'
-    oldFile: !uuid '946fd0eacece77a73459f152c9d5b220abe85274'
-  /core/pom.xml:
-    newFile: !uuid '31c2f32bc2d15fe0a3b1765c3492b2951a605918'
-    oldFile: !uuid 'c144fa5fa140982e456b33320f652cb423afb5df'
-gitCommitId: !uuid '9509ff7f6c7a19a0a94fea346e3ee2dd80c564d2'
+  /README.md:
+    newFile: !uuid 'becfbd990f7712becb49d137abbda87b1eb0be6b'
+    oldFile: !uuid '2397fc308c29721a713baa5b2c820c8f64a69466'
+gitCommitId: !uuid '56587196b896cd6b52898554ec18961b0d1efc60'
 renames: {
   }
-revisionId: 565
+revisionId: 566
