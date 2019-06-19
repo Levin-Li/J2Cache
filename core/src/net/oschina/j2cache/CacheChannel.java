@@ -148,7 +148,7 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 	 * @param keys cache keys
 	 * @return cache object
 	 */
-	public Map<String, CacheObject> get(String region, Collection<String> keys)  {
+	public Map<String, CacheObject> get(String region, Collection<String> key)  {
 
 		if(closed)
 			throw new IllegalStateException("CacheChannel closed");
@@ -509,7 +509,20 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 
 		Set<String> keys = new HashSet<>();
 		keys.addAll(holder.getLevel1Cache(region).keys());
-		keys.addAll(holder.getLevel2Cache(region).keys());
+
+		//防止二级缓存返回region + ":" + key 或者namespace + ":" + region + ":" + key
+		//注意：设计key值请勿包含":"字符
+		Collection<String> key2s = holder.getLevel2Cache(region).keys();
+		final String separator = ":";
+		Set<String> key2ss = key2s.stream().map(k->{
+			final int pos = k.lastIndexOf(separator);
+			if (pos == -1 || pos == k.length() - separator.length()) {
+				return k;
+			}
+			return k.substring(pos + separator.length());
+		}).collect(Collectors.toSet());
+		keys.addAll(key2ss);
+
 		return keys;
     }
 
