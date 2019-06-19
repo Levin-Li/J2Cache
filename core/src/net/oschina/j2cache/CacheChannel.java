@@ -148,7 +148,7 @@ public abstract class CacheChannel implements Closeable , AutoCloseable {
 	 * @param keys cache keys
 	 * @return cache object
 	 */
-	public Map<String, CacheObject> get(String region, Collection<String> key)  {
+	public Map<String, CacheObject> get(String region, Collection<String> keys)  {
 
 		if(closed)
 			throw new IllegalStateException("CacheChannel closed");
