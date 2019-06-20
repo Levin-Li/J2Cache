@@ -43,7 +43,8 @@ public class SpringRedisCache implements Level2Cache {
 
 	@Override
 	public void clear() {
-		redisTemplate.opsForHash().delete(region);
+		redisTemplate.delete(region);
+//		keys().forEach(k -> redisTemplate.opsForHash().delete(region,k));
 	}
 
 	@Override
