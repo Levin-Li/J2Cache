@@ -17,7 +17,7 @@ import net.oschina.j2cache.util.SerializationUtils;
 public class SpringRedisMessageListener implements MessageListener{
 
 	private static Logger logger = LoggerFactory.getLogger(SpringRedisMessageListener.class);
-	private int LOCAL_COMMAND_ID = Command.genRandomSrc(); //命令源标识，随机生成，每个节点都有唯一标识
+	private int LOCAL_COMMAND_ID = SpringRedisPubSubPolicy.LOCAL_COMMAND_ID; //命令源标识，随机生成，每个节点都有唯一标识
 	
 	private ClusterPolicy clusterPolicy;
 	
