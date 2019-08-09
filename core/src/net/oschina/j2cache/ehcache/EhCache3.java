@@ -86,7 +86,11 @@ public class EhCache3 implements Level1Cache, CacheEventListener {
 
     @Override
     public Collection<String> keys() {
-        return Collections.emptyList();
+        Collection<String> keys = new ArrayList<>();
+        for(Cache.Entry entry : cache) {
+            keys.add(entry.getKey().toString());
+        }
+        return keys;
     }
 
     @Override
