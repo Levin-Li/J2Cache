@@ -43,7 +43,7 @@ public class JSONSerializerTest {
     @After
     public void tearDown() {
         person = null;
-        mapping = null;
+        mapping = null;aSAsS
     }
 
     @Test
