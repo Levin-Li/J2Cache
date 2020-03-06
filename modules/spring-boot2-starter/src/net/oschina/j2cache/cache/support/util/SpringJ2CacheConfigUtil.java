@@ -1,14 +1,16 @@
 package net.oschina.j2cache.cache.support.util;
 
+import net.oschina.j2cache.J2CacheConfig;
+import org.springframework.core.env.CompositePropertySource;
 import org.springframework.core.env.MapPropertySource;
 import org.springframework.core.env.StandardEnvironment;
-
-import net.oschina.j2cache.J2CacheConfig;
 
 public class SpringJ2CacheConfigUtil {
 
 	/**
 	 * 从spring环境变量中查找j2cache配置
+	 * @param environment configuration
+	 * @return j2cache configuration
 	 */
 	public final static J2CacheConfig initFromConfig(StandardEnvironment environment){
 		J2CacheConfig config = new J2CacheConfig();
@@ -30,7 +32,7 @@ public class SpringJ2CacheConfigUtil {
 					if (key.startsWith(config.getBroadcast() + ".")) {
 						config.getBroadcastProperties().setProperty(key.substring((config.getBroadcast() + ".").length()),
 								environment.getProperty(key));
-					}	
+					}
 					if (key.startsWith(config.getL1CacheName() + ".")) {
 						config.getL1CacheProperties().setProperty(key.substring((config.getL1CacheName() + ".").length()),
 								environment.getProperty(key));
@@ -42,6 +44,30 @@ public class SpringJ2CacheConfigUtil {
 				});
 			}
 		});
+        //配置在 nacos 中时，上面那段代码无法获取配置
+        if (config.getL1CacheProperties().isEmpty() || config.getL2CacheProperties().isEmpty() || config.getBroadcastProperties().isEmpty()) {
+            environment.getPropertySources().forEach(a -> {
+                if (a instanceof CompositePropertySource) {
+                    CompositePropertySource c = (CompositePropertySource) a;
+                    String[] propertyNames = c.getPropertyNames();
+
+                    for (String key : propertyNames) {
+                        if (key.startsWith(config.getBroadcast() + ".")) {
+                            config.getBroadcastProperties().setProperty(key.substring((config.getBroadcast() + ".").length()),
+                                    environment.getProperty(key));
+                        }
+                        if (key.startsWith(config.getL1CacheName() + ".")) {
+                            config.getL1CacheProperties().setProperty(key.substring((config.getL1CacheName() + ".").length()),
+                                    environment.getProperty(key));
+                        }
+                        if (key.startsWith(l2_section + ".")) {
+                            config.getL2CacheProperties().setProperty(key.substring((l2_section + ".").length()),
+                                    environment.getProperty(key));
+                        }
+                    }
+                }
+            });
+        }
 		return config;
 	}
 }
