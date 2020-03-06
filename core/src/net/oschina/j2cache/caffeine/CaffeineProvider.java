@@ -118,8 +118,11 @@ public class CaffeineProvider implements CacheProvider {
         Caffeine<Object, Object> caffeine = Caffeine.newBuilder();
         caffeine = caffeine.maximumSize(size)
             .removalListener((k,v, cause) -> {
-                //程序删除的缓存不做通知处理，因为上层已经做了处理
-                if(cause != RemovalCause.EXPLICIT && cause != RemovalCause.REPLACED)
+                /*
+                 * 程序删除的缓存不做通知处理，因为上层已经做了处理
+                 * 当缓存数据不是因为手工删除和超出容量限制而被删除的情况，就需要通知上层侦听器
+                 */
+                if(cause != RemovalCause.EXPLICIT && cause != RemovalCause.REPLACED && cause != RemovalCause.SIZE)
                     listener.notifyElementExpired(region, (String)k);
             });
         if (expire > 0) {
@@ -149,16 +152,29 @@ public class CaffeineProvider implements CacheProvider {
         }
         //加载 Caffeine 独立配置文件
         String propertiesFile = props.getProperty("properties");
-        if(propertiesFile != null && propertiesFile.trim().length() > 0) {
-            try (InputStream stream = getClass().getResourceAsStream(propertiesFile)) {
+        if (propertiesFile != null && propertiesFile.trim().length() > 0) {
+            InputStream stream = null;
+            try {
+                stream = getClass().getResourceAsStream(propertiesFile);
+                if (stream == null) {
+                    stream = getClass().getClassLoader().getResourceAsStream(propertiesFile);
+                }
                 Properties regionsProps = new Properties();
                 regionsProps.load(stream);
-                for(String region : regionsProps.stringPropertyNames()) {
+                for (String region : regionsProps.stringPropertyNames()) {
                     String s_config = regionsProps.getProperty(region).trim();
                     this.saveCacheConfig(region, s_config);
                 }
             } catch (IOException e) {
                 log.error("Failed to load caffeine regions define {}", propertiesFile, e);
+            } finally {
+                try {
+                    if (stream != null) {
+                        stream.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
