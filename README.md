@@ -232,7 +232,7 @@ channel.close();
 
     我们推荐使用 generic 存储模式，这也是 J2Cache 默认的存储模式，hash 模式最大的问题是无法单独对 key 进行 expire 设置。
 
-## 哪些项目在用 J2Cache ？
+## 哪些项目在用 J2Cache ?
 
 * www.oschina.net
 * https://gitee.com/jfinal/jfinal
