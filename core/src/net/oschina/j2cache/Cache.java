@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 package net.oschina.j2cache;
-
+sadsa
 import java.util.Collection;
 import java.util.Map;
 
