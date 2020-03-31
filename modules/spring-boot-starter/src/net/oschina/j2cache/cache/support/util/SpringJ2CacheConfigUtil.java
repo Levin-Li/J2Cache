@@ -6,10 +6,14 @@ import org.springframework.core.io.support.ResourcePropertySource;
 
 import net.oschina.j2cache.J2CacheConfig;
 
+import java.util.Objects;
+
 public class SpringJ2CacheConfigUtil {
 
 	/**
 	 * 从spring环境变量中查找j2cache配置
+	 * @param environment configuration
+	 * @return j2cache config instance
 	 */
 	public final static J2CacheConfig initFromConfig(StandardEnvironment environment){
 		J2CacheConfig config = new J2CacheConfig();
@@ -20,8 +24,7 @@ public class SpringJ2CacheConfigUtil {
 		config.setSyncTtlToRedis(!"false".equalsIgnoreCase(environment.getProperty("j2cache.sync_ttl_to_redis")));
 		config.setDefaultCacheNullObject("true".equalsIgnoreCase(environment.getProperty("j2cache.default_cache_null_object")));
 		String l2_config_section = environment.getProperty("j2cache.L2.config_section");
-		if (l2_config_section == null || l2_config_section.trim().equals(""))
-			l2_config_section = config.getL2CacheName();
+		if (l2_config_section == null || Objects.equals(l2_config_section.trim(),""))			l2_config_section = config.getL2CacheName();
 		final String l2_section = l2_config_section;
 		environment.getPropertySources().forEach(a -> {
 			if(a instanceof MapPropertySource) {
