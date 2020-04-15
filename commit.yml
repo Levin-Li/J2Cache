@@ -3,39 +3,27 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid '6fdeb221b003fd64ab16d846bb50b6f8142fd9dc'
-    oldFile: !uuid 'c993d364e97162be23811760138d42fdf12e988b'
-  /core/resources:
-    newFile: !uuid '58dec930ebe022054cffe8e2e0b86e63aa7f6ff6'
-    oldFile: !uuid 'e4589b7e0573de3fe5cc16e17b5f8540cf99542f'
-  /core/resources/j2cache.properties:
-    newFile: !uuid 'a803e5223d8b3ba4141e40eb6100401d2dad8afb'
-    oldFile: !uuid 'bafac9265308ae92864f2eb9057f934f93f0dc3b'
+    newFile: !uuid '917a50c0716f6dbdfccfee7271c82306af3b5a48'
+    oldFile: !uuid '6fdeb221b003fd64ab16d846bb50b6f8142fd9dc'
   /core/src:
-    newFile: !uuid 'd2c3f961025a93f86a54d22c767a4b92d5c21d16'
-    oldFile: !uuid '05443c4284d5e96ff987c1902e338b9e27e59b0b'
+    newFile: !uuid '9b5cc67bf45d9d41236901bdb556749b493d4c03'
+    oldFile: !uuid 'd2c3f961025a93f86a54d22c767a4b92d5c21d16'
   /core/src/net:
-    newFile: !uuid '294663ae50c15457d3ecf0d223804624367c9d04'
-    oldFile: !uuid '28136891ec8b9607d5cc388e7d7d4d1365bbc47c'
+    newFile: !uuid '8298503ca7a186c9350565a8b361c12194a5d73b'
+    oldFile: !uuid '294663ae50c15457d3ecf0d223804624367c9d04'
   /core/src/net/oschina:
-    newFile: !uuid '318dcc177d7fecbbb28076493241fe9d2a5a100f'
-    oldFile: !uuid 'f5d982e866df1cca35389c978a712dd00d3735ab'
+    newFile: !uuid '1b24c4e615e1d53b674ddfc89f18235f12fe00eb'
+    oldFile: !uuid '318dcc177d7fecbbb28076493241fe9d2a5a100f'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid '3d33898b00e44a6a3538543891bd12676f45c472'
-    oldFile: !uuid '94949bc1b5afb54dd1b18ad8de41d79765a581b8'
-  /core/src/net/oschina/j2cache/redis:
-    newFile: !uuid '65dd5eb6c89f8cbd711e791cdf3e27c5e8078e49'
-    oldFile: !uuid '9cea20b8243847702bc3b49726bc5b5093b1e0f2'
-  /core/src/net/oschina/j2cache/redis/RedisCacheProvider.java:
-    newFile: !uuid 'eddf25d2b5ca1b975c3326cd0cbf15cd23438f7d'
-    oldFile: !uuid 'b9176f47d9aa1f9b9bafdea5cdb8b38718319a4a'
-  /core/src/net/oschina/j2cache/redis/RedisClient.java:
-    newFile: !uuid '9968c4af3ce8add1ec516411cd201c6725abe5df'
-    oldFile: !uuid 'ce2d8cc245a9859cef09f987ed46f37f5f185a7a'
-  /core/src/net/oschina/j2cache/redis/RedisPubSubClusterPolicy.java:
-    newFile: !uuid 'dc3b7d357a04f2080ca81f3de7d0b5ee1f7b16bd'
-    oldFile: !uuid 'ea3f2553216f2c46451cc9c7f1854b217987f4ad'
-gitCommitId: !uuid 'e8d77e7c75bf6b72ced6ef2f5c95233ce560e31c'
+    newFile: !uuid '35c2595337cc80ed806067df902f90d9df6ece01'
+    oldFile: !uuid '3d33898b00e44a6a3538543891bd12676f45c472'
+  /core/src/net/oschina/j2cache/lettuce:
+    newFile: !uuid '9c8b1b02a0f708eedba48f9ea4a913ee449ac3ac'
+    oldFile: !uuid '02ce02b2c91533b9940163d78e3c2f874238e650'
+  /core/src/net/oschina/j2cache/lettuce/LettuceCacheProvider.java:
+    newFile: !uuid '20fd5a06c6164be1be7e288c2575a262bf677320'
+    oldFile: !uuid '0be72e30eb20f7ba23086e38d66fa54ce261730b'
+gitCommitId: !uuid 'fc13a6a1efbf5b2482ad091a1a398c00c8862283'
 renames: {
   }
-revisionId: 592
+revisionId: 593
