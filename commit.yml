@@ -2,37 +2,49 @@
 branches: {
   }
 fileChange:
-  /modules:
-    newFile: !uuid '2a003b916d7559b25a2d013b59fa0ca512a82a09'
-    oldFile: !uuid '69ea50bc0076189ef8334033acfb82efc0df34e7'
-  /modules/spring-boot2-starter:
-    newFile: !uuid '7ca02ebd7598b6d436ac009335a8b51586b2ebc7'
-    oldFile: !uuid 'bf023658f0a23c45c2287722e8ebaf26f59921f1'
-  /modules/spring-boot2-starter/src:
-    newFile: !uuid '3d9348fc89cc3f4d043973221458aad79788128c'
-    oldFile: !uuid '0d7fcd0be5d7324b94efe3ae66faada7f952346c'
-  /modules/spring-boot2-starter/src/net:
-    newFile: !uuid '438e6ec20ed34b5c1d9bec065d819d2f715c5f3b'
-    oldFile: !uuid 'e387fb184010286bcd927766e58f991616269ad8'
-  /modules/spring-boot2-starter/src/net/oschina:
-    newFile: !uuid 'c8b6eac11276f0c8086ae63798848f56899ec926'
-    oldFile: !uuid '58559ee5d1e8f257837b437b4eda97dfd832957d'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache:
-    newFile: !uuid '1e96b3983cff067e5cb477265185f8bdda388293'
-    oldFile: !uuid '62f78678471ee8cc5f030adb54de23696f1c7c26'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache:
-    newFile: !uuid '9d4f4efe6105632ff125a91939bc5353f913c440'
-    oldFile: !uuid 'd09fb550d9e00a45cd7a2dd7f8e0c460b89ec18a'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support:
-    newFile: !uuid '10b97c184b7befb623cf73d3257867c96a7a43c3'
-    oldFile: !uuid '43476eea103a5e74f518f106ce9257c4b7116df3'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/redis:
-    newFile: !uuid '638e76d0f811e0a3fbc25ff7e48ad4ddbf7478ba'
-    oldFile: !uuid '656e2c31b7ac77d7392bd5afe9e1c09bd4954741'
-  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/redis/SpringRedisCache.java:
-    newFile: !uuid '2538d00afb0722e3051d789073a2b8b8d85526bb'
-    oldFile: !uuid '312e19e03430523e8904537548b7738415171f83'
-gitCommitId: !uuid '6a59d159676f6e0b4783faf4a83c01a5461ec4c9'
+  /core:
+    newFile: !uuid '3d70d28a318627ddda0a9d33d69a9b9c2ccef6e8'
+    oldFile: !uuid 'f53cb5cf196d6eda571e40689c1c09879c22c309'
+  /core/resources:
+    newFile: !uuid '9c1b11a920b94db50b8264e9e69546007bb6eea2'
+    oldFile: !uuid '58dec930ebe022054cffe8e2e0b86e63aa7f6ff6'
+  /core/resources/j2cache.properties:
+    newFile: !uuid '0dc5aa02970bb93322052d6ad5fbe4d1baf80a72'
+    oldFile: !uuid 'a803e5223d8b3ba4141e40eb6100401d2dad8afb'
+  /core/src:
+    newFile: !uuid '2bf89bdd93e3342bb823f3b8143e9c93e07d5704'
+    oldFile: !uuid '9b5cc67bf45d9d41236901bdb556749b493d4c03'
+  /core/src/net:
+    newFile: !uuid '578654efee356bf9b683c9dce547cd2ce9e9b5c8'
+    oldFile: !uuid '8298503ca7a186c9350565a8b361c12194a5d73b'
+  /core/src/net/oschina:
+    newFile: !uuid '1466eb6c1da3f4f312408700b1c96cfbf9b1cd73'
+    oldFile: !uuid '1b24c4e615e1d53b674ddfc89f18235f12fe00eb'
+  /core/src/net/oschina/j2cache:
+    newFile: !uuid 'aaebbfaa9520cb5e127f4e35c2a1794d5226435a'
+    oldFile: !uuid '35c2595337cc80ed806067df902f90d9df6ece01'
+  /core/src/net/oschina/j2cache/lettuce:
+    newFile: !uuid 'd5cf37edd67b6361b4bd319a35c8d6227fb32070'
+    oldFile: !uuid '9c8b1b02a0f708eedba48f9ea4a913ee449ac3ac'
+  /core/src/net/oschina/j2cache/lettuce/LettuceCache.java:
+    newFile: !uuid '6d15eebdc4eaf128297a56b319513d5784fc8592'
+    oldFile: !uuid '57c9f940b11858ec621e1037591f580086f15921'
+  /core/src/net/oschina/j2cache/lettuce/LettuceCacheProvider.java:
+    newFile: !uuid '9070d5f37e15b9f08c9aa4d15afdcc2199a41d18'
+    oldFile: !uuid '20fd5a06c6164be1be7e288c2575a262bf677320'
+  /core/src/net/oschina/j2cache/lettuce/LettuceGenericCache.java:
+    newFile: !uuid 'feb58941e406c2acd08fe61792bbe7048251f815'
+    oldFile: !uuid '6a1e48cb5f1aa197578a9ee5521442502635db7c'
+  /core/src/net/oschina/j2cache/redis:
+    newFile: !uuid '830390aa7b62d9e7b1aa095b288a918b0ce90367'
+    oldFile: !uuid '65dd5eb6c89f8cbd711e791cdf3e27c5e8078e49'
+  /core/src/net/oschina/j2cache/redis/RedisCacheProvider.java:
+    newFile: !uuid 'aacfb81d5433910bb1539ad18b1cde35fb5cd0c9'
+    oldFile: !uuid 'eddf25d2b5ca1b975c3326cd0cbf15cd23438f7d'
+  /core/src/net/oschina/j2cache/redis/RedisGenericCache.java:
+    newFile: !uuid '4348e3982dbc6efebab7caf878c434934b690f41'
+    oldFile: !uuid 'fc61bd6d91b59f360d82578ada2944b8ca368bef'
+gitCommitId: !uuid '4b0d1490759fba9bf6aafb40b81411a704d2b19d'
 renames: {
   }
-revisionId: 596
+revisionId: 597
