@@ -1,1 +1,1 @@
-mvn exec:java -pl core
+mvn exec:java -pl corenj
