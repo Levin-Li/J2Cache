@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -205,8 +206,8 @@ public class RedisGenericCache implements Level2Cache {
         try {
             BinaryJedisCommands cmd = client.get();
             if (cmd instanceof MultiKeyCommands) {
-            	Collection<String> keys = keys(cmd);
-            	
+                Collection<String> keys = keys(cmd);
+
                 return keys.stream().map(k -> k.substring(this.region.length()+1)).collect(Collectors.toList());
             }
         } finally {
@@ -215,10 +216,10 @@ public class RedisGenericCache implements Level2Cache {
         throw new CacheException("keys() not implemented in Redis Generic Mode");
     }
 
-	private Collection<String> keys(BinaryJedisCommands cmd) {
-		Collection<String> keys = new ArrayList<>();
-		String cursor = "0";
-		ScanParams scanParams = new ScanParams();
+    private Collection<String> keys(BinaryJedisCommands cmd) {
+        Collection<String> keys = new ArrayList<>();
+        String cursor = "0";
+        ScanParams scanParams = new ScanParams();
         scanParams.match(this.region + ":*");
         scanParams.count(scanCount); // 这个不是返回结果的数量，应该是每次scan的数量
         ScanResult<String> scan = ((MultiKeyCommands) cmd).scan(cursor, scanParams);
@@ -231,8 +232,8 @@ public class RedisGenericCache implements Level2Cache {
                 break;
             }
         }
-		return keys;
-	}
+        return keys;
+    }
 
     @Override
     public void evict(String...keys) {
@@ -259,7 +260,7 @@ public class RedisGenericCache implements Level2Cache {
         try {
             BinaryJedisCommands cmd = client.get();
             if (cmd instanceof MultiKeyCommands) {
-            	Collection<String> keysCollection = keys(cmd);
+                Collection<String> keysCollection = keys(cmd);
                 String[] keys = keysCollection.stream().toArray(String[]::new);
                 if (keys != null && keys.length > 0)
                     ((MultiKeyCommands) cmd).del(keys);
