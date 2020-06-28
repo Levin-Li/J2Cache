@@ -46,7 +46,8 @@ public interface Cache {
 	 * @return true if key exists
 	 */
 	default boolean exists(String key) {
-		return get(key) != null;
+		//return get(key) != null;
+		return get(key) !=null;
 	}
 	
 	/**
