@@ -261,3 +261,4 @@ j2cache.L2.config_section = redis
 
 * 升级 jedis 和 jgroups 到最新版本
 * 使用 Maven 模块对项目结构进行重新整理
+试试看加了什么
