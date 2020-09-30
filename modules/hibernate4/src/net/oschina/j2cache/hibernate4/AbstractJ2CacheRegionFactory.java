@@ -43,6 +43,7 @@ abstract class AbstractJ2CacheRegionFactory implements RegionFactory {
 
     @Override
     public long nextTimestamp() {
+        Timestamper.next();
         return Timestamper.next();
     }
 
