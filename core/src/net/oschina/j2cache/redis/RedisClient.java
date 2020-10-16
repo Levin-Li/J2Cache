@@ -18,10 +18,12 @@ package net.oschina.j2cache.redis;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.*;
+import redis.clients.jedis.commands.BinaryJedisCommands;
 import redis.clients.jedis.exceptions.JedisConnectionException;
-import redis.clients.jedis.params.geo.GeoRadiusParam;
-import redis.clients.jedis.params.sortedset.ZAddParams;
-import redis.clients.jedis.params.sortedset.ZIncrByParams;
+import redis.clients.jedis.params.GeoRadiusParam ;
+import redis.clients.jedis.params.SetParams;
+import redis.clients.jedis.params.ZAddParams;
+import redis.clients.jedis.params.ZIncrByParams;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -231,16 +233,6 @@ public class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public String set(byte[] bytes, byte[] bytes1, byte[] bytes2) {
-                return null;
-            }
-
-            @Override
-            public String set(byte[] bytes, byte[] bytes1, byte[] bytes2, byte[] bytes3, long l) {
-                return null;
-            }
-
-            @Override
             public byte[] get(byte[] bytes) {
                 return cluster.get(bytes);
             }
@@ -266,8 +258,138 @@ public class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public Long pexpire(String s, long l) {
-                return cluster.pexpire(s, l);
+            public String set(byte[] key, byte[] value, SetParams params) {
+                return cluster.set(key,value,params);
+            }
+
+            @Override
+            public byte[] dump(byte[] key) {
+                return cluster.dump(key);
+            }
+
+            @Override
+            public String restore(byte[] key, int ttl, byte[] serializedValue) {
+                return cluster.restore(key,ttl,serializedValue);
+            }
+
+            @Override
+            public String restoreReplace(byte[] key, int ttl, byte[] serializedValue) {
+                return RedisClient.this.get().restoreReplace(key,ttl,serializedValue);
+            }
+
+            @Override
+            public Long pttl(byte[] key) {
+                return cluster.pttl(key);
+            }
+
+            @Override
+            public Long touch(byte[] key) {
+                return cluster.touch(key);
+            }
+
+            @Override
+            public String psetex(byte[] key, long milliseconds, byte[] value) {
+                return cluster.psetex(key,milliseconds,value);
+            }
+
+            @Override
+            public Long hset(byte[] key, Map<byte[], byte[]> hash) {
+                return cluster.hset(key,hash);
+            }
+
+            @Override
+            public Long unlink(byte[] key) {
+                return cluster.unlink(key);
+            }
+
+            @Override
+            public List<GeoRadiusResponse> georadiusReadonly(byte[] key, double longitude, double latitude, double radius, GeoUnit unit) {
+                return cluster.georadiusReadonly(key,longitude,latitude,radius,unit);
+            }
+
+            @Override
+            public List<GeoRadiusResponse> georadiusReadonly(byte[] key, double longitude, double latitude, double radius, GeoUnit unit, GeoRadiusParam param) {
+                return cluster.georadiusReadonly(key,longitude,latitude,radius,unit,param);
+            }
+
+            @Override
+            public List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] key, byte[] member, double radius, GeoUnit unit) {
+                return cluster.georadiusByMemberReadonly(key,member,radius,unit);
+            }
+
+            @Override
+            public List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] key, byte[] member, double radius, GeoUnit unit, GeoRadiusParam param) {
+                return cluster.georadiusByMemberReadonly(key,member,radius,unit,param);
+            }
+
+            @Override
+            public Long hstrlen(byte[] key, byte[] field) {
+                return cluster.hstrlen(key,field);
+            }
+
+            @Override
+            public byte[] xadd(byte[] key, byte[] id, Map<byte[], byte[]> hash, long maxLen, boolean approximateLength) {
+                return cluster.xadd(key,id,hash,maxLen,approximateLength);
+            }
+
+            @Override
+            public Long xlen(byte[] key) {
+                return cluster.xlen(key);
+            }
+
+            @Override
+            public List<byte[]> xrange(byte[] key, byte[] start, byte[] end, long count) {
+                return cluster.xrange(key,start,end,count);
+            }
+
+            @Override
+            public List<byte[]> xrevrange(byte[] key, byte[] end, byte[] start, int count) {
+                return cluster.xrevrange(key,end,start,count);
+            }
+
+            @Override
+            public Long xack(byte[] key, byte[] group, byte[]... ids) {
+                return cluster.xack(key,group,ids);
+            }
+
+            @Override
+            public String xgroupCreate(byte[] key, byte[] consumer, byte[] id, boolean makeStream) {
+                return cluster.xgroupCreate(key,consumer,id,makeStream);
+            }
+
+            @Override
+            public String xgroupSetID(byte[] key, byte[] consumer, byte[] id) {
+                return cluster.xgroupSetID(key,consumer,id);
+            }
+
+            @Override
+            public Long xgroupDestroy(byte[] key, byte[] consumer) {
+                return cluster.xgroupDestroy(key,consumer);
+            }
+
+            @Override
+            public String xgroupDelConsumer(byte[] key, byte[] consumer, byte[] consumerName) {
+                return cluster.xgroupDelConsumer(key,consumer,consumerName);
+            }
+
+            @Override
+            public Long xdel(byte[] key, byte[]... ids) {
+                return cluster.xdel(key,ids);
+            }
+
+            @Override
+            public Long xtrim(byte[] key, long maxLen, boolean approximateLength) {
+                return cluster.xtrim(key,maxLen,approximateLength);
+            }
+
+            @Override
+            public List<byte[]> xpending(byte[] key, byte[] groupname, byte[] start, byte[] end, int count, byte[] consumername) {
+                return cluster.xpending(key,groupname,start,end,count,consumername);
+            }
+
+            @Override
+            public List<byte[]> xclaim(byte[] key, byte[] groupname, byte[] consumername, long minIdleTime, long newIdleTime, int retries, boolean force, byte[][] ids) {
+                return cluster.xclaim(key,groupname,consumername,minIdleTime,newIdleTime,retries,force,ids);
             }
 
             @Override
@@ -751,7 +873,7 @@ public class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public Long linsert(byte[] bytes, BinaryClient.LIST_POSITION list_position, byte[] bytes1, byte[] bytes2) {
+            public Long linsert(byte[] bytes, ListPosition list_position, byte[] bytes1, byte[] bytes2) {
                 return cluster.linsert(bytes, list_position, bytes1, bytes2);
             }
 
@@ -765,15 +887,6 @@ public class RedisClient implements Closeable, AutoCloseable {
                 return cluster.rpushx(bytes, bytes1);
             }
 
-            @Override
-            public List<byte[]> blpop(byte[] bytes) {
-                return cluster.blpop(0, bytes);
-            }
-
-            @Override
-            public List<byte[]> brpop(byte[] bytes) {
-                return cluster.brpop(0, bytes);
-            }
 
             @Override
             public Long del(byte[] bytes) {
@@ -787,7 +900,7 @@ public class RedisClient implements Closeable, AutoCloseable {
 
             @Override
             public Long move(byte[] bytes, int i) {
-                return cluster.move(new String(bytes), i);
+                return RedisClient.this.get().move(bytes,i);
             }
 
             @Override
@@ -891,8 +1004,8 @@ public class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public List<byte[]> bitfield(byte[] bytes, byte[]... bytes1) {
-                return cluster.bitfield(bytes, bytes1);
+            public List<Long> bitfield(byte[] key, byte[]... arguments) {
+                return cluster.bitfield(key,arguments);
             }
         };
     }

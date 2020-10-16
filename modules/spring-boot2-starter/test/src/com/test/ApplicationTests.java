@@ -43,7 +43,7 @@ public class ApplicationTests {
 	@Autowired
 	private CacheChannel cacheChannel;
 
-	@Test
+//	@Test
 	public void testCache() throws IOException {
 		testService.reset();
 		testService.evict();
@@ -103,8 +103,8 @@ public class ApplicationTests {
 
 	@Test
 	public void test1() {
-//		cacheChannel.set("test", "123", "321");
-		CacheObject a = cacheChannel.get("test", "1233");
+		cacheChannel.set("test", "123", "321");
+		CacheObject a = cacheChannel.get("test", "123");
 		Assert.isTrue(a.getValue().equals("321"), "失败！");
 	}
 }

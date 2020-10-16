@@ -30,11 +30,11 @@ import org.slf4j.LoggerFactory;
 import net.oschina.j2cache.CacheException;
 import net.oschina.j2cache.Level2Cache;
 import redis.clients.jedis.BinaryJedis;
-import redis.clients.jedis.BinaryJedisCommands;
-import redis.clients.jedis.MultiKeyBinaryCommands;
-import redis.clients.jedis.MultiKeyCommands;
 import redis.clients.jedis.ScanParams;
 import redis.clients.jedis.ScanResult;
+import redis.clients.jedis.commands.BinaryJedisCommands;
+import redis.clients.jedis.commands.MultiKeyBinaryCommands;
+import redis.clients.jedis.commands.MultiKeyCommands;
 
 /**
  * Redis 缓存操作封装，基于 region+_key 实现多个 Region 的缓存（
@@ -223,10 +223,10 @@ public class RedisGenericCache implements Level2Cache {
         scanParams.match(this.region + ":*");
         scanParams.count(scanCount); // 这个不是返回结果的数量，应该是每次scan的数量
         ScanResult<String> scan = ((MultiKeyCommands) cmd).scan(cursor, scanParams);
-        while (null != scan.getStringCursor()) {
+        while (null != scan.getCursor()) {
             keys.addAll(scan.getResult()); // 这一次scan match到的结果
-            if (!StringUtils.equals(cursor, scan.getStringCursor())) { // 不断拿着新的cursor scan，最终会拿到所有匹配的值
-                scan = ((MultiKeyCommands) cmd).scan(scan.getStringCursor(), scanParams);
+            if (!StringUtils.equals(cursor, scan.getCursor())) { // 不断拿着新的cursor scan，最终会拿到所有匹配的值
+                scan = ((MultiKeyCommands) cmd).scan(scan.getCursor(), scanParams);
                 continue;
             } else {
                 break;

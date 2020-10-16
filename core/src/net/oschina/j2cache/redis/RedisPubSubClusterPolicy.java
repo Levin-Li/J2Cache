@@ -22,7 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.*;
 import redis.clients.jedis.exceptions.JedisConnectionException;
-import redis.clients.util.Pool;
+import redis.clients.jedis.util.Pool;
 
 import java.util.Arrays;
 import java.util.HashSet;
