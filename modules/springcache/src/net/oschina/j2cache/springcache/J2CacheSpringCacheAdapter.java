@@ -1,12 +1,16 @@
 package net.oschina.j2cache.springcache;
 
 import net.oschina.j2cache.CacheChannel;
+import net.oschina.j2cache.NullObject;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.support.AbstractValueAdaptingCache;
+import org.springframework.cache.support.NullValue;
 
 import java.util.concurrent.Callable;
 
 /**
+ * Spring Cache Adapter
+ *
  * @author Chen
  */
 public class J2CacheSpringCacheAdapter extends AbstractValueAdaptingCache {
@@ -18,6 +22,8 @@ public class J2CacheSpringCacheAdapter extends AbstractValueAdaptingCache {
      * Create an {@code AbstractValueAdaptingCache} with the given setting.
      *
      * @param allowNullValues whether to allow for {@code null} values
+     * @param j2Cache         j2cache instance
+     * @param name            cache region name
      */
     protected J2CacheSpringCacheAdapter(boolean allowNullValues, CacheChannel j2Cache, String name) {
         super(allowNullValues);
@@ -39,7 +45,14 @@ public class J2CacheSpringCacheAdapter extends AbstractValueAdaptingCache {
 
     @Override
     protected Object lookup(Object key) {
-        return j2Cache.get(name, getKey(key)).getValue();
+        Object value = j2Cache.get(name, getKey(key), false).rawValue();
+        if (value == null || value.getClass().equals(Object.class)) {
+            return null;
+        }
+        if (value.getClass().equals(NullObject.class)) {
+            return NullValue.INSTANCE;
+        }
+        return value;
     }
 
     /**
@@ -70,7 +83,7 @@ public class J2CacheSpringCacheAdapter extends AbstractValueAdaptingCache {
      * a {@link ValueRetrievalException}
      *
      * @param key         the key whose associated value is to be returned
-     * @param valueLoader
+     * @param valueLoader value loader
      * @return the value to which this cache maps the specified key
      * @throws ValueRetrievalException if the {@code valueLoader} throws an exception
      * @since 4.3
@@ -79,6 +92,9 @@ public class J2CacheSpringCacheAdapter extends AbstractValueAdaptingCache {
     public <T> T get(Object key, Callable<T> valueLoader) throws ValueRetrievalException {
         ValueWrapper val = get(key);
         if (val != null) {
+            if (val.get() instanceof NullObject) {
+                return null;
+            }
             return (T) val.get();
         }
         T t;
