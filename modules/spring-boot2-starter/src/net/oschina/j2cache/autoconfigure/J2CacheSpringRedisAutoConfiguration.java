@@ -46,7 +46,7 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 
 /**
  * 对spring redis支持的配置入口
- * 
+ *
  * @author zhangsaizz
  *
  */
@@ -208,6 +208,7 @@ public class J2CacheSpringRedisAutoConfiguration {
 				log.warn("Redis mode [" + mode + "] not defined. Using 'single'.");
 			break;
 		}
+		connectionFactory.setValidateConnection(true);
 		return connectionFactory;
 	}
 

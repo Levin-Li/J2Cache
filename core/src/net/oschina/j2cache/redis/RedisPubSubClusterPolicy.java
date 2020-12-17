@@ -16,14 +16,15 @@
 package net.oschina.j2cache.redis;
 
 import net.oschina.j2cache.CacheProviderHolder;
-import net.oschina.j2cache.cluster.ClusterPolicy;
 import net.oschina.j2cache.Command;
+import net.oschina.j2cache.cluster.ClusterPolicy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.*;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import redis.clients.util.Pool;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Properties;
@@ -39,10 +40,15 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
     private final static Logger log = LoggerFactory.getLogger(RedisPubSubClusterPolicy.class);
 
     private int LOCAL_COMMAND_ID = Command.genRandomSrc(); //命令源标识，随机生成，每个节点都有唯一标识
+    private static int CONNECT_TIMEOUT = 5000;    //Redis连接超时时间
+    private static int SO_TIMEOUT = 5000;
+    private static int MAX_ATTEMPTS = 3;
 
     private Pool<Jedis> client;
+    private JedisCluster cluster;
     private String channel;
     private CacheProviderHolder holder;
+    private boolean clusterMode = false;
 
     public RedisPubSubClusterPolicy(String channel, Properties props){
         this.channel = channel;
@@ -60,13 +66,23 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
         if(node == null || node.trim().length() == 0)
             node = props.getProperty("hosts");
 
-        if("sentinel".equalsIgnoreCase(props.getProperty("mode"))){
+        String mode = props.getProperty("mode");
+        if ("sentinel".equalsIgnoreCase(mode)) {
             Set<String> hosts = new HashSet();
             hosts.addAll(Arrays.asList(node.split(",")));
             String masterName = props.getProperty("cluster_name", "j2cache");
             this.client = new JedisSentinelPool(masterName, hosts, config, timeout, password, database);
-        }
-        else {
+        } else if ("cluster".equalsIgnoreCase(mode)) {
+            String[] nodeArray = node.split(",");
+            Set<HostAndPort> nodeSet = new HashSet<HostAndPort>(nodeArray.length);
+            for (String nodeItem : nodeArray) {
+                String[] arr = nodeItem.split(":");
+                nodeSet.add(new HostAndPort(arr[0], Integer.valueOf(arr[1])));
+            }
+            JedisPoolConfig poolConfig = RedisUtils.newPoolConfig(props, null);
+            this.cluster = new JedisCluster(nodeSet, CONNECT_TIMEOUT, SO_TIMEOUT, MAX_ATTEMPTS, password, poolConfig);
+            this.clusterMode = true;
+        } else {
             node = node.split(",")[0]; //取第一台主机
             String[] infos = node.split(":");
             String host = infos[0];
@@ -110,19 +126,39 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
         this.publish(Command.join());
 
         Thread subscribeThread = new Thread(()-> {
-            //当 Redis 重启会导致订阅线程断开连接，需要进行重连
-            while(!client.isClosed()) {
-                try (Jedis jedis = client.getResource()){
-                    jedis.subscribe(this, channel);
-                    log.info("Disconnect to redis channel: {}", channel);
-                    break;
-                } catch (JedisConnectionException e) {
-                    log.error("Failed connect to redis, reconnect it.", e);
-                    if(!client.isClosed())
+            if (clusterMode) {
+                // 如果出现集群节点宕机，需要重连
+                while (cluster != null) {
                     try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException ie){
+                        this.cluster.subscribe(this, channel);
                         break;
+                    } catch (Exception e) {
+                        log.error("failed connect redis cluster, reconnect it.", e);
+                        e.printStackTrace();
+                        if (cluster != null) {
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException ie) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            } else {
+                //当 Redis 重启会导致订阅线程断开连接，需要进行重连
+                while(!client.isClosed()) {
+                    try (Jedis jedis = client.getResource()){
+                        jedis.subscribe(this, channel);
+                        log.info("Disconnect to redis channel: {}", channel);
+                        break;
+                    } catch (JedisConnectionException e) {
+                        log.error("Failed connect to redis, reconnect it.", e);
+                        if(!client.isClosed())
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException ie){
+                                break;
+                            }
                     }
                 }
             }
@@ -144,7 +180,8 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
             if(this.isSubscribed())
                 this.unsubscribe();
         } finally {
-            this.client.close();
+            close();
+            //this.client.close();
             //subscribeThread will auto terminate
         }
     }
@@ -152,8 +189,12 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
     @Override
     public void publish(Command cmd) {
     	cmd.setSrc(LOCAL_COMMAND_ID);
-        try (Jedis jedis = client.getResource()) {
-            jedis.publish(channel, cmd.json());
+    	if (this.clusterMode) {
+    	    this.cluster.publish(channel, cmd.json());
+        } else {
+            try (Jedis jedis = client.getResource()) {
+                jedis.publish(channel, cmd.json());
+            }
         }
     }
 
@@ -168,4 +209,28 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
         handleCommand(cmd);
     }
 
+    @Override
+    public void unsubscribe() {
+        if (!this.clusterMode) {
+            super.unsubscribe();
+        }
+    }
+
+    private void close() {
+        try {
+            if (this.client != null) {
+                this.client.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            if (this.cluster != null) {
+                this.cluster.close();
+            }
+            this.cluster = null;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

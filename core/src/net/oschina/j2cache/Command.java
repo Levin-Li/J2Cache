@@ -15,7 +15,7 @@
  */
 package net.oschina.j2cache;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
@@ -40,11 +40,11 @@ public class Command {
 	private int operator;
 	private String region;
 	private String[] keys;
-	
-	public final static int genRandomSrc() {
+
+	public static int genRandomSrc() {
 		long ct = System.currentTimeMillis();
-		Random rnd_seed = new Random(ct);
-		return (int)(rnd_seed.nextInt(10000) * 1000 + ct % 1000);
+		SecureRandom rndSeed = new SecureRandom();
+		return (int) (rndSeed.nextInt(10000) * 1000 + ct % 1000);
 	}
 
 	public Command(){}//just for json deserialize , dont remove it.
