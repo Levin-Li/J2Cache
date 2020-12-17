@@ -3,20 +3,26 @@ package net.oschina.j2cache.cluster;
 import net.oschina.j2cache.CacheException;
 import net.oschina.j2cache.CacheProviderHolder;
 import net.oschina.j2cache.Command;
+import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Properties;
+import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author liulekang
@@ -33,10 +39,15 @@ public class KafkaClusterPolicy implements ClusterPolicy {
     private CacheProviderHolder holder;
 
     private Producer kafkaProducer;
-    private volatile Consumer kafkaConsumer;
 
-    private Thread listenerThread;
-    private static boolean kafkaConsumerRunFlag = true;
+    private Consumer kafkaConsumer;
+
+    private volatile boolean kafkaConsumerRunFlag = false;
+
+    private static Future<Boolean> kafkaConsumerFuture = null;
+
+    private static ThreadPoolExecutor kafkaConsumerExecutor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS,
+            new LinkedBlockingDeque(), new BasicThreadFactory.Builder().namingPattern("kafka-consumer-thread-%d").build());
 
 
     /**
@@ -58,13 +69,16 @@ public class KafkaClusterPolicy implements ClusterPolicy {
         try {
             long ct = System.currentTimeMillis();
             HashMap<String, Object> propsMap = new HashMap<>();
-            propsMap.put("bootstrap.servers", props.getProperty("kafka.bootstrap.servers", "127.0.0.1:9092"));
+            propsMap.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, props.getProperty("kafka.bootstrap.servers", "172.28.29.6:9092"));
             //消息确认机制
-            propsMap.put("acks", props.getProperty("kafka.acks", "all"));
+            propsMap.put(ProducerConfig.ACKS_CONFIG, props.getProperty("kafka.acks", "all"));
             //重试次数
-            propsMap.put("retries", Integer.valueOf(props.getProperty("kafka.retries", "0")));
-            propsMap.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-            propsMap.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+            propsMap.put(ProducerConfig.RETRIES_CONFIG, Integer.valueOf(props.getProperty("kafka.retries", "0")));
+            //序列化方式
+            propsMap.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
+            propsMap.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
+            //TODO 添加使用用户名密码及ssl时的处理
+
             kafkaProducer = new KafkaProducer<>(propsMap);
             //发送消息，加入集群
             publish(Command.join());
@@ -76,7 +90,7 @@ public class KafkaClusterPolicy implements ClusterPolicy {
             propsMap.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
             propsMap.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
             kafkaConsumer = new KafkaConsumer<>(propsMap);
-            //链接完毕后，拉起监听线程
+            //创建监听
             startListener();
             log.info("Connected to Kafka:{}, time {}ms", kafkaConsumer, System.currentTimeMillis() - ct);
         } catch (NumberFormatException e) {
@@ -108,7 +122,7 @@ public class KafkaClusterPolicy implements ClusterPolicy {
         try {
             publish(Command.quit());
             kafkaConsumerRunFlag = false;
-            listenerThread.interrupt();
+            kafkaConsumerFuture.cancel(true);
         } finally {
             try {
                 kafkaProducer.close();
@@ -154,20 +168,18 @@ public class KafkaClusterPolicy implements ClusterPolicy {
     }
 
     public void startListener() {
-        listenerThread = new Thread(() -> listener());
-        listenerThread.setName("listenerThread");
-        listenerThread.start();
-    }
-
-    private void listener() {
-        kafkaConsumer.subscribe(Arrays.asList(topic));
-        while (true) {
-            log.info("kafkaConsumer  listener is running ");
-            ConsumerRecords<String, String> records = kafkaConsumer.poll(100);
-            for (ConsumerRecord<String, String> record : records) {
-                log.info("kafkaConsumer  listener  Command {} ", Command.parse(record.value()));
-                handleCommand(Command.parse(record.value()));
+        kafkaConsumerRunFlag = true;
+        kafkaConsumerFuture = kafkaConsumerExecutor.submit(() -> {
+            kafkaConsumer.subscribe(Arrays.asList(topic));
+            while (kafkaConsumerRunFlag) {
+                ConsumerRecords<String, String> records = kafkaConsumer.poll(Duration.ofMillis(100));
+                for (ConsumerRecord<String, String> record : records) {
+                    log.info("kafkaConsumer  listener  Command {} ", Command.parse(record.value()));
+                    handleCommand(Command.parse(record.value()));
+                }
             }
-        }
+            return true;
+        });
+        log.info("kafkaConsumer listener is running ");
     }
 }
