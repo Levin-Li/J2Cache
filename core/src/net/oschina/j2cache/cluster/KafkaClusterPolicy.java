@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Future;
-import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -48,7 +48,7 @@ public class KafkaClusterPolicy implements ClusterPolicy {
     private static Future<Boolean> kafkaConsumerFuture = null;
 
     private static ThreadPoolExecutor kafkaConsumerExecutor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS,
-            new LinkedBlockingDeque(), new BasicThreadFactory.Builder().namingPattern("kafka-consumer-thread-%d").build());
+            new LinkedBlockingQueue(1), new BasicThreadFactory.Builder().namingPattern("kafka-consumer-thread-%d").build());
 
     private static final String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
     /**
@@ -80,7 +80,7 @@ public class KafkaClusterPolicy implements ClusterPolicy {
             startListener();
             log.info("Connected to Kafka:{}, time {}ms", kafkaConsumer, System.currentTimeMillis() - ct);
         } catch (NumberFormatException e) {
-            throw new CacheException(String.format("Failed to connect to Kafka (%s)", props.getProperty("bootstrap.servers", "127.0.0.1:9092"), e));
+            throw new CacheException(String.format("Failed to connect to Kafka (%s)", props.getProperty("bootstrap.servers", "127.0.0.1:9092")), e);
         }
     }
 
