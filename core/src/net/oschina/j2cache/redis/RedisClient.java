@@ -18,10 +18,12 @@ package net.oschina.j2cache.redis;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.*;
+import redis.clients.jedis.commands.BinaryJedisCommands;
 import redis.clients.jedis.exceptions.JedisConnectionException;
-import redis.clients.jedis.params.geo.GeoRadiusParam;
-import redis.clients.jedis.params.sortedset.ZAddParams;
-import redis.clients.jedis.params.sortedset.ZIncrByParams;
+import redis.clients.jedis.params.GeoRadiusParam;
+import redis.clients.jedis.params.SetParams;
+import redis.clients.jedis.params.ZAddParams;
+import redis.clients.jedis.params.ZIncrByParams;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -63,46 +65,54 @@ public class RedisClient implements Closeable, AutoCloseable {
         private JedisPoolConfig poolConfig;
         private boolean ssl;
 
-        public Builder(){}
+        public Builder() {
+        }
 
-        public Builder mode(String mode){
-            if(mode == null || mode.trim().length() == 0)
+        public Builder mode(String mode) {
+            if (mode == null || mode.trim().length() == 0)
                 this.mode = "single";
             else
                 this.mode = mode;
             return this;
         }
-        public Builder hosts(String hosts){
-            if(hosts == null || hosts.trim().length() == 0)
+
+        public Builder hosts(String hosts) {
+            if (hosts == null || hosts.trim().length() == 0)
                 this.hosts = "127.0.0.1:6379";
             else
                 this.hosts = hosts;
             return this;
         }
-        public Builder password(String password){
-            if(password != null && password.trim().length() > 0)
+
+        public Builder password(String password) {
+            if (password != null && password.trim().length() > 0)
                 this.password = password;
             return this;
         }
+
         public Builder cluster(String cluster) {
-            if(cluster == null || cluster.trim().length() == 0)
+            if (cluster == null || cluster.trim().length() == 0)
                 this.cluster = "j2cache";
             else
                 this.cluster = cluster;
             return this;
         }
-        public Builder database(int database){
+
+        public Builder database(int database) {
             this.database = database;
             return this;
         }
-        public Builder poolConfig(JedisPoolConfig poolConfig){
+
+        public Builder poolConfig(JedisPoolConfig poolConfig) {
             this.poolConfig = poolConfig;
             return this;
         }
+
         public Builder ssl(boolean ssl) {
             this.ssl = ssl;
             return this;
         }
+
         public RedisClient newClient() {
             return new RedisClient(mode, hosts, password, cluster, database, poolConfig, ssl);
         }
@@ -111,30 +121,31 @@ public class RedisClient implements Closeable, AutoCloseable {
 
     /**
      * 各种模式 Redis 客户端的封装
-     * @param mode Redis 服务器运行模式
-     * @param hosts Redis 主机连接信息
-     * @param password  Redis 密码（如果有的话）
-     * @param cluster_name  集群名称
-     * @param database 数据库
-     * @param poolConfig    连接池配置
-     * @param ssl    使用ssl
+     *
+     * @param mode         Redis 服务器运行模式
+     * @param hosts        Redis 主机连接信息
+     * @param password     Redis 密码（如果有的话）
+     * @param cluster_name 集群名称
+     * @param database     数据库
+     * @param poolConfig   连接池配置
+     * @param ssl          使用ssl
      */
     private RedisClient(String mode, String hosts, String password, String cluster_name, int database, JedisPoolConfig poolConfig, boolean ssl) {
-        password = (password != null && password.trim().length() > 0)? password.trim(): null;
+        password = (password != null && password.trim().length() > 0) ? password.trim() : null;
         this.clients = new ThreadLocal<>();
-        switch(mode){
+        switch (mode) {
             case "sentinel":
                 Set<String> nodes = new HashSet<>();
-                for(String node : hosts.split(","))
+                for (String node : hosts.split(","))
                     nodes.add(node);
                 this.sentinel = new JedisSentinelPool(cluster_name, nodes, poolConfig, CONNECT_TIMEOUT, password, database);
                 break;
             case "cluster":
                 Set<HostAndPort> hps = new HashSet<>();
-                for(String node : hosts.split(",")){
+                for (String node : hosts.split(",")) {
                     String[] infos = node.split(":");
                     String host = infos[0];
-                    int port = (infos.length > 1)?Integer.parseInt(infos[1]):6379;
+                    int port = (infos.length > 1) ? Integer.parseInt(infos[1]) : 6379;
                     hps.add(new HostAndPort(host, port));
                 }
                 this.cluster = new JedisCluster(hps, CONNECT_TIMEOUT, SO_TIMEOUT, MAX_ATTEMPTS, password, poolConfig);
@@ -142,7 +153,7 @@ public class RedisClient implements Closeable, AutoCloseable {
             case "sharded":
                 List<JedisShardInfo> shards = new ArrayList<>();
                 try {
-                    for(String node : hosts.split(","))
+                    for (String node : hosts.split(","))
                         shards.add(new JedisShardInfo(new URI(node)));
                 } catch (URISyntaxException e) {
                     throw new JedisConnectionException(e);
@@ -150,14 +161,14 @@ public class RedisClient implements Closeable, AutoCloseable {
                 this.sharded = new ShardedJedisPool(poolConfig, shards);
                 break;
             default:
-                for(String node : hosts.split(",")) {
+                for (String node : hosts.split(",")) {
                     String[] infos = node.split(":");
                     String host = infos[0];
-                    int port = (infos.length > 1)?Integer.parseInt(infos[1]):6379;
+                    int port = (infos.length > 1) ? Integer.parseInt(infos[1]) : 6379;
                     this.single = new JedisPool(poolConfig, host, port, CONNECT_TIMEOUT, password, database, ssl);
                     break;
                 }
-                if(!"single".equalsIgnoreCase(mode))
+                if (!"single".equalsIgnoreCase(mode))
                     log.warn("Redis mode [{}] not defined. Using 'single'.", mode);
                 break;
         }
@@ -165,11 +176,12 @@ public class RedisClient implements Closeable, AutoCloseable {
 
     /**
      * 获取客户端接口
+     *
      * @return 返回基本的 Jedis 二进制命令接口
      */
     public BinaryJedisCommands get() {
         BinaryJedisCommands client = clients.get();
-        if(client == null) {
+        if (client == null) {
             if (single != null)
                 client = single.getResource();
             else if (sentinel != null)
@@ -189,12 +201,12 @@ public class RedisClient implements Closeable, AutoCloseable {
      */
     public void release() {
         BinaryJedisCommands client = clients.get();
-        if(client != null) {
+        if (client != null) {
             //JedisCluster 会自动释放连接
-            if(client instanceof Closeable && !(client instanceof JedisCluster)) {
+            if (client instanceof Closeable && !(client instanceof JedisCluster)) {
                 try {
                     ((Closeable) client).close();
-                } catch(IOException e) {
+                } catch (IOException e) {
                     log.error("Failed to release jedis connection.", e);
                 }
             }
@@ -204,39 +216,36 @@ public class RedisClient implements Closeable, AutoCloseable {
 
     /**
      * 释放连接池
-     * @throws IOException  io close exception
+     *
+     * @throws IOException io close exception
      */
     @Override
     public void close() throws IOException {
-        if(single != null)
+        if (single != null)
             single.close();
-        if(sentinel != null)
+        if (sentinel != null)
             sentinel.close();
-        if(cluster != null)
+        if (cluster != null)
             cluster.close();
-        if(sharded != null)
+        if (sharded != null)
             sharded.close();
     }
 
     /**
      * 为了变态的 jedis 接口设计，搞了五百多行垃圾代码
+     *
      * @param cluster Jedis 集群实例
      * @return
      */
     private BinaryJedisCommands toBinaryJedisCommands(JedisCluster cluster) {
-        return new BinaryJedisCommands(){
+        return new BinaryJedisCommands() {
             @Override
             public String set(byte[] bytes, byte[] bytes1) {
                 return cluster.set(bytes, bytes1);
             }
 
             @Override
-            public String set(byte[] bytes, byte[] bytes1, byte[] bytes2) {
-                return null;
-            }
-
-            @Override
-            public String set(byte[] bytes, byte[] bytes1, byte[] bytes2, byte[] bytes3, long l) {
+            public String set(byte[] bytes, byte[] bytes1, SetParams setParams) {
                 return null;
             }
 
@@ -261,13 +270,23 @@ public class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public Long expire(byte[] bytes, int i) {
-                return cluster.expire(bytes, i);
+            public byte[] dump(byte[] bytes) {
+                return new byte[0];
             }
 
             @Override
-            public Long pexpire(String s, long l) {
-                return cluster.pexpire(s, l);
+            public String restore(byte[] bytes, int i, byte[] bytes1) {
+                return null;
+            }
+
+            @Override
+            public String restoreReplace(byte[] bytes, int i, byte[] bytes1) {
+                return null;
+            }
+
+            @Override
+            public Long expire(byte[] bytes, int i) {
+                return cluster.expire(bytes, i);
             }
 
             @Override
@@ -288,6 +307,16 @@ public class RedisClient implements Closeable, AutoCloseable {
             @Override
             public Long ttl(byte[] bytes) {
                 return cluster.ttl(bytes);
+            }
+
+            @Override
+            public Long pttl(byte[] bytes) {
+                return null;
+            }
+
+            @Override
+            public Long touch(byte[] bytes) {
+                return null;
             }
 
             @Override
@@ -312,7 +341,7 @@ public class RedisClient implements Closeable, AutoCloseable {
 
             @Override
             public byte[] getrange(byte[] bytes, long l, long l1) {
-                return cluster.getrange(bytes,l,l1);
+                return cluster.getrange(bytes, l, l1);
             }
 
             @Override
@@ -328,6 +357,11 @@ public class RedisClient implements Closeable, AutoCloseable {
             @Override
             public String setex(byte[] bytes, int i, byte[] bytes1) {
                 return cluster.setex(bytes, i, bytes1);
+            }
+
+            @Override
+            public String psetex(byte[] bytes, long l, byte[] bytes1) {
+                return null;
             }
 
             @Override
@@ -368,6 +402,11 @@ public class RedisClient implements Closeable, AutoCloseable {
             @Override
             public Long hset(byte[] bytes, byte[] bytes1, byte[] bytes2) {
                 return cluster.hset(bytes, bytes1, bytes2);
+            }
+
+            @Override
+            public Long hset(byte[] bytes, Map<byte[], byte[]> map) {
+                return null;
             }
 
             @Override
@@ -421,7 +460,7 @@ public class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public Collection<byte[]> hvals(byte[] bytes) {
+            public List<byte[]> hvals(byte[] bytes) {
                 return cluster.hvals(bytes);
             }
 
@@ -606,6 +645,26 @@ public class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
+            public Tuple zpopmax(byte[] bytes) {
+                return null;
+            }
+
+            @Override
+            public Set<Tuple> zpopmax(byte[] bytes, int i) {
+                return null;
+            }
+
+            @Override
+            public Tuple zpopmin(byte[] bytes) {
+                return null;
+            }
+
+            @Override
+            public Set<Tuple> zpopmin(byte[] bytes, int i) {
+                return null;
+            }
+
+            @Override
             public List<byte[]> sort(byte[] bytes) {
                 return cluster.sort(bytes);
             }
@@ -642,7 +701,7 @@ public class RedisClient implements Closeable, AutoCloseable {
 
             @Override
             public Set<byte[]> zrangeByScore(byte[] bytes, double v, double v1, int i, int i1) {
-                return cluster.zrangeByScore(bytes, v,v1,i,i1);
+                return cluster.zrangeByScore(bytes, v, v1, i, i1);
             }
 
             @Override
@@ -652,17 +711,17 @@ public class RedisClient implements Closeable, AutoCloseable {
 
             @Override
             public Set<byte[]> zrangeByScore(byte[] bytes, byte[] bytes1, byte[] bytes2, int i, int i1) {
-                return cluster.zrangeByScore(bytes, bytes1, bytes2, i,i1);
+                return cluster.zrangeByScore(bytes, bytes1, bytes2, i, i1);
             }
 
             @Override
             public Set<byte[]> zrevrangeByScore(byte[] bytes, double v, double v1, int i, int i1) {
-                return cluster.zrevrangeByScore(bytes, v,v1,i,i1);
+                return cluster.zrevrangeByScore(bytes, v, v1, i, i1);
             }
 
             @Override
             public Set<Tuple> zrangeByScoreWithScores(byte[] bytes, double v, double v1) {
-                return cluster.zrangeByScoreWithScores(bytes,v,v1);
+                return cluster.zrangeByScoreWithScores(bytes, v, v1);
             }
 
             @Override
@@ -707,7 +766,7 @@ public class RedisClient implements Closeable, AutoCloseable {
 
             @Override
             public Long zremrangeByRank(byte[] bytes, long l, long l1) {
-                return cluster.zremrangeByRank(bytes, l ,l1);
+                return cluster.zremrangeByRank(bytes, l, l1);
             }
 
             @Override
@@ -751,8 +810,8 @@ public class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public Long linsert(byte[] bytes, BinaryClient.LIST_POSITION list_position, byte[] bytes1, byte[] bytes2) {
-                return cluster.linsert(bytes, list_position, bytes1, bytes2);
+            public Long linsert(byte[] bytes, ListPosition listPosition, byte[] bytes1, byte[] bytes2) {
+                return null;
             }
 
             @Override
@@ -766,18 +825,13 @@ public class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public List<byte[]> blpop(byte[] bytes) {
-                return cluster.blpop(0, bytes);
-            }
-
-            @Override
-            public List<byte[]> brpop(byte[] bytes) {
-                return cluster.brpop(0, bytes);
-            }
-
-            @Override
             public Long del(byte[] bytes) {
                 return cluster.del(bytes);
+            }
+
+            @Override
+            public Long unlink(byte[] bytes) {
+                return null;
             }
 
             @Override
@@ -787,7 +841,7 @@ public class RedisClient implements Closeable, AutoCloseable {
 
             @Override
             public Long move(byte[] bytes, int i) {
-                return cluster.move(new String(bytes), i);
+                throw new UnsupportedOperationException("cluster move unsupport.");
             }
 
             @Override
@@ -842,12 +896,22 @@ public class RedisClient implements Closeable, AutoCloseable {
 
             @Override
             public List<GeoRadiusResponse> georadius(byte[] bytes, double v, double v1, double v2, GeoUnit geoUnit) {
-                return cluster.georadius(bytes, v,v1,v2, geoUnit);
+                return cluster.georadius(bytes, v, v1, v2, geoUnit);
+            }
+
+            @Override
+            public List<GeoRadiusResponse> georadiusReadonly(byte[] bytes, double v, double v1, double v2, GeoUnit geoUnit) {
+                return null;
             }
 
             @Override
             public List<GeoRadiusResponse> georadius(byte[] bytes, double v, double v1, double v2, GeoUnit geoUnit, GeoRadiusParam geoRadiusParam) {
-                return cluster.georadius(bytes, v, v1, v2, geoUnit, geoRadiusParam);
+                return null;
+            }
+
+            @Override
+            public List<GeoRadiusResponse> georadiusReadonly(byte[] bytes, double v, double v1, double v2, GeoUnit geoUnit, GeoRadiusParam geoRadiusParam) {
+                return null;
             }
 
             @Override
@@ -856,8 +920,18 @@ public class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
+            public List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] bytes, byte[] bytes1, double v, GeoUnit geoUnit) {
+                return null;
+            }
+
+            @Override
             public List<GeoRadiusResponse> georadiusByMember(byte[] bytes, byte[] bytes1, double v, GeoUnit geoUnit, GeoRadiusParam geoRadiusParam) {
-                return cluster.georadiusByMember(bytes, bytes1, v, geoUnit, geoRadiusParam);
+                return null;
+            }
+
+            @Override
+            public List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] bytes, byte[] bytes1, double v, GeoUnit geoUnit, GeoRadiusParam geoRadiusParam) {
+                return null;
             }
 
             @Override
@@ -891,8 +965,98 @@ public class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public List<byte[]> bitfield(byte[] bytes, byte[]... bytes1) {
+            public List<Long> bitfield(byte[] bytes, byte[]... bytes1) {
                 return cluster.bitfield(bytes, bytes1);
+            }
+
+            @Override
+            public List<Long> bitfieldReadonly(byte[] bytes, byte[]... bytes1) {
+                return cluster.bitfieldReadonly(bytes, bytes1);
+            }
+
+            @Override
+            public Long hstrlen(byte[] bytes, byte[] bytes1) {
+                return cluster.hstrlen(bytes, bytes1);
+            }
+
+            @Override
+            public byte[] xadd(byte[] bytes, byte[] bytes1, Map<byte[], byte[]> map, long l, boolean b) {
+                return cluster.xadd(bytes, bytes1, map, l, b);
+            }
+
+            @Override
+            public Long xlen(byte[] bytes) {
+                return cluster.xlen(bytes);
+            }
+
+            @Override
+            public List<byte[]> xrange(byte[] bytes, byte[] bytes1, byte[] bytes2, long l) {
+                return cluster.xrange(bytes, bytes1, bytes2, l);
+            }
+
+            @Override
+            public List<byte[]> xrevrange(byte[] bytes, byte[] bytes1, byte[] bytes2, int i) {
+                return cluster.xrevrange(bytes, bytes1, bytes2, i);
+            }
+
+            @Override
+            public Long xack(byte[] bytes, byte[] bytes1, byte[]... bytes2) {
+                return cluster.xack(bytes, bytes1, bytes2);
+            }
+
+            @Override
+            public String xgroupCreate(byte[] bytes, byte[] bytes1, byte[] bytes2, boolean b) {
+                return cluster.xgroupCreate(bytes, bytes1, bytes2, b);
+            }
+
+            @Override
+            public String xgroupSetID(byte[] bytes, byte[] bytes1, byte[] bytes2) {
+                return cluster.xgroupSetID(bytes, bytes1, bytes2);
+            }
+
+            @Override
+            public Long xgroupDestroy(byte[] bytes, byte[] bytes1) {
+                return cluster.xgroupDestroy(bytes, bytes1);
+            }
+
+            @Override
+            public Long xgroupDelConsumer(byte[] bytes, byte[] bytes1, byte[] bytes2) {
+                return cluster.xgroupDelConsumer(bytes, bytes1, bytes2);
+            }
+
+            @Override
+            public Long xdel(byte[] bytes, byte[]... bytes1) {
+                return cluster.xdel(bytes, bytes1);
+            }
+
+            @Override
+            public Long xtrim(byte[] bytes, long l, boolean b) {
+                return cluster.xtrim(bytes, l, b);
+            }
+
+            @Override
+            public List<byte[]> xpending(byte[] bytes, byte[] bytes1, byte[] bytes2, byte[] bytes3, int i, byte[] bytes4) {
+                return cluster.xpending(bytes, bytes1, bytes2, bytes3, i, bytes4);
+            }
+
+            @Override
+            public List<byte[]> xclaim(byte[] bytes, byte[] bytes1, byte[] bytes2, long l, long l1, int i, boolean b, byte[][] bytes3) {
+                return cluster.xclaim(bytes, bytes1, bytes2, l, l1, i, b, bytes3);
+            }
+
+            @Override
+            public StreamInfo xinfoStream(byte[] bytes) {
+                throw new UnsupportedOperationException("cluter xinfoStream unsupport.");
+            }
+
+            @Override
+            public List<StreamGroupInfo> xinfoGroup(byte[] bytes) {
+                throw new UnsupportedOperationException("cluter xinfoStream unsupport.");
+            }
+
+            @Override
+            public List<StreamConsumersInfo> xinfoConsumers(byte[] bytes, byte[] bytes1) {
+                throw new UnsupportedOperationException("cluter xinfoStream unsupport.");
             }
         };
     }

@@ -17,9 +17,10 @@ package net.oschina.j2cache.session;
 
 import redis.clients.jedis.*;
 import redis.clients.jedis.exceptions.JedisConnectionException;
-import redis.clients.jedis.params.geo.GeoRadiusParam;
-import redis.clients.jedis.params.sortedset.ZAddParams;
-import redis.clients.jedis.params.sortedset.ZIncrByParams;
+import redis.clients.jedis.params.GeoRadiusParam;
+import redis.clients.jedis.params.SetParams;
+import redis.clients.jedis.params.ZAddParams;
+import redis.clients.jedis.params.ZIncrByParams;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -208,19 +209,14 @@ class RedisClient implements Closeable, AutoCloseable {
      * @return
      */
     private BinaryJedisCommands toBinaryJedisCommands(JedisCluster cluster) {
-        return new BinaryJedisCommands(){
+        return new BinaryJedisCommands() {
             @Override
             public String set(byte[] bytes, byte[] bytes1) {
                 return cluster.set(bytes, bytes1);
             }
 
             @Override
-            public String set(byte[] bytes, byte[] bytes1, byte[] bytes2) {
-                return null;
-            }
-
-            @Override
-            public String set(byte[] bytes, byte[] bytes1, byte[] bytes2, byte[] bytes3, long l) {
+            public String set(byte[] bytes, byte[] bytes1, SetParams setParams) {
                 return null;
             }
 
@@ -245,13 +241,23 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public Long expire(byte[] bytes, int i) {
-                return cluster.expire(bytes, i);
+            public byte[] dump(byte[] bytes) {
+                return new byte[0];
             }
 
             @Override
-            public Long pexpire(String s, long l) {
-                return cluster.pexpire(s, l);
+            public String restore(byte[] bytes, int i, byte[] bytes1) {
+                return null;
+            }
+
+            @Override
+            public String restoreReplace(byte[] bytes, int i, byte[] bytes1) {
+                return null;
+            }
+
+            @Override
+            public Long expire(byte[] bytes, int i) {
+                return cluster.expire(bytes, i);
             }
 
             @Override
@@ -272,6 +278,16 @@ class RedisClient implements Closeable, AutoCloseable {
             @Override
             public Long ttl(byte[] bytes) {
                 return cluster.ttl(bytes);
+            }
+
+            @Override
+            public Long pttl(byte[] bytes) {
+                return null;
+            }
+
+            @Override
+            public Long touch(byte[] bytes) {
+                return null;
             }
 
             @Override
@@ -296,7 +312,7 @@ class RedisClient implements Closeable, AutoCloseable {
 
             @Override
             public byte[] getrange(byte[] bytes, long l, long l1) {
-                return cluster.getrange(bytes,l,l1);
+                return cluster.getrange(bytes, l, l1);
             }
 
             @Override
@@ -312,6 +328,11 @@ class RedisClient implements Closeable, AutoCloseable {
             @Override
             public String setex(byte[] bytes, int i, byte[] bytes1) {
                 return cluster.setex(bytes, i, bytes1);
+            }
+
+            @Override
+            public String psetex(byte[] bytes, long l, byte[] bytes1) {
+                return null;
             }
 
             @Override
@@ -352,6 +373,11 @@ class RedisClient implements Closeable, AutoCloseable {
             @Override
             public Long hset(byte[] bytes, byte[] bytes1, byte[] bytes2) {
                 return cluster.hset(bytes, bytes1, bytes2);
+            }
+
+            @Override
+            public Long hset(byte[] bytes, Map<byte[], byte[]> map) {
+                return null;
             }
 
             @Override
@@ -405,7 +431,7 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public Collection<byte[]> hvals(byte[] bytes) {
+            public List<byte[]> hvals(byte[] bytes) {
                 return cluster.hvals(bytes);
             }
 
@@ -590,6 +616,26 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
+            public Tuple zpopmax(byte[] bytes) {
+                return null;
+            }
+
+            @Override
+            public Set<Tuple> zpopmax(byte[] bytes, int i) {
+                return null;
+            }
+
+            @Override
+            public Tuple zpopmin(byte[] bytes) {
+                return null;
+            }
+
+            @Override
+            public Set<Tuple> zpopmin(byte[] bytes, int i) {
+                return null;
+            }
+
+            @Override
             public List<byte[]> sort(byte[] bytes) {
                 return cluster.sort(bytes);
             }
@@ -626,7 +672,7 @@ class RedisClient implements Closeable, AutoCloseable {
 
             @Override
             public Set<byte[]> zrangeByScore(byte[] bytes, double v, double v1, int i, int i1) {
-                return cluster.zrangeByScore(bytes, v,v1,i,i1);
+                return cluster.zrangeByScore(bytes, v, v1, i, i1);
             }
 
             @Override
@@ -636,17 +682,17 @@ class RedisClient implements Closeable, AutoCloseable {
 
             @Override
             public Set<byte[]> zrangeByScore(byte[] bytes, byte[] bytes1, byte[] bytes2, int i, int i1) {
-                return cluster.zrangeByScore(bytes, bytes1, bytes2, i,i1);
+                return cluster.zrangeByScore(bytes, bytes1, bytes2, i, i1);
             }
 
             @Override
             public Set<byte[]> zrevrangeByScore(byte[] bytes, double v, double v1, int i, int i1) {
-                return cluster.zrevrangeByScore(bytes, v,v1,i,i1);
+                return cluster.zrevrangeByScore(bytes, v, v1, i, i1);
             }
 
             @Override
             public Set<Tuple> zrangeByScoreWithScores(byte[] bytes, double v, double v1) {
-                return cluster.zrangeByScoreWithScores(bytes,v,v1);
+                return cluster.zrangeByScoreWithScores(bytes, v, v1);
             }
 
             @Override
@@ -691,7 +737,7 @@ class RedisClient implements Closeable, AutoCloseable {
 
             @Override
             public Long zremrangeByRank(byte[] bytes, long l, long l1) {
-                return cluster.zremrangeByRank(bytes, l ,l1);
+                return cluster.zremrangeByRank(bytes, l, l1);
             }
 
             @Override
@@ -735,8 +781,8 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public Long linsert(byte[] bytes, BinaryClient.LIST_POSITION list_position, byte[] bytes1, byte[] bytes2) {
-                return cluster.linsert(bytes, list_position, bytes1, bytes2);
+            public Long linsert(byte[] bytes, ListPosition listPosition, byte[] bytes1, byte[] bytes2) {
+                return null;
             }
 
             @Override
@@ -750,18 +796,13 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public List<byte[]> blpop(byte[] bytes) {
-                return cluster.blpop(0, bytes);
-            }
-
-            @Override
-            public List<byte[]> brpop(byte[] bytes) {
-                return cluster.brpop(0, bytes);
-            }
-
-            @Override
             public Long del(byte[] bytes) {
                 return cluster.del(bytes);
+            }
+
+            @Override
+            public Long unlink(byte[] bytes) {
+                return null;
             }
 
             @Override
@@ -771,7 +812,7 @@ class RedisClient implements Closeable, AutoCloseable {
 
             @Override
             public Long move(byte[] bytes, int i) {
-                return cluster.move(new String(bytes), i);
+                throw new UnsupportedOperationException("cluster move unsupport.");
             }
 
             @Override
@@ -826,12 +867,22 @@ class RedisClient implements Closeable, AutoCloseable {
 
             @Override
             public List<GeoRadiusResponse> georadius(byte[] bytes, double v, double v1, double v2, GeoUnit geoUnit) {
-                return cluster.georadius(bytes, v,v1,v2, geoUnit);
+                return cluster.georadius(bytes, v, v1, v2, geoUnit);
+            }
+
+            @Override
+            public List<GeoRadiusResponse> georadiusReadonly(byte[] bytes, double v, double v1, double v2, GeoUnit geoUnit) {
+                return null;
             }
 
             @Override
             public List<GeoRadiusResponse> georadius(byte[] bytes, double v, double v1, double v2, GeoUnit geoUnit, GeoRadiusParam geoRadiusParam) {
-                return cluster.georadius(bytes, v, v1, v2, geoUnit, geoRadiusParam);
+                return null;
+            }
+
+            @Override
+            public List<GeoRadiusResponse> georadiusReadonly(byte[] bytes, double v, double v1, double v2, GeoUnit geoUnit, GeoRadiusParam geoRadiusParam) {
+                return null;
             }
 
             @Override
@@ -840,8 +891,18 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
+            public List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] bytes, byte[] bytes1, double v, GeoUnit geoUnit) {
+                return null;
+            }
+
+            @Override
             public List<GeoRadiusResponse> georadiusByMember(byte[] bytes, byte[] bytes1, double v, GeoUnit geoUnit, GeoRadiusParam geoRadiusParam) {
-                return cluster.georadiusByMember(bytes, bytes1, v, geoUnit, geoRadiusParam);
+                return null;
+            }
+
+            @Override
+            public List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] bytes, byte[] bytes1, double v, GeoUnit geoUnit, GeoRadiusParam geoRadiusParam) {
+                return null;
             }
 
             @Override
@@ -875,8 +936,98 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public List<byte[]> bitfield(byte[] bytes, byte[]... bytes1) {
+            public List<Long> bitfield(byte[] bytes, byte[]... bytes1) {
                 return cluster.bitfield(bytes, bytes1);
+            }
+
+            @Override
+            public List<Long> bitfieldReadonly(byte[] bytes, byte[]... bytes1) {
+                return cluster.bitfieldReadonly(bytes, bytes1);
+            }
+
+            @Override
+            public Long hstrlen(byte[] bytes, byte[] bytes1) {
+                return cluster.hstrlen(bytes, bytes1);
+            }
+
+            @Override
+            public byte[] xadd(byte[] bytes, byte[] bytes1, Map<byte[], byte[]> map, long l, boolean b) {
+                return cluster.xadd(bytes, bytes1, map, l, b);
+            }
+
+            @Override
+            public Long xlen(byte[] bytes) {
+                return cluster.xlen(bytes);
+            }
+
+            @Override
+            public List<byte[]> xrange(byte[] bytes, byte[] bytes1, byte[] bytes2, long l) {
+                return cluster.xrange(bytes, bytes1, bytes2, l);
+            }
+
+            @Override
+            public List<byte[]> xrevrange(byte[] bytes, byte[] bytes1, byte[] bytes2, int i) {
+                return cluster.xrevrange(bytes, bytes1, bytes2, i);
+            }
+
+            @Override
+            public Long xack(byte[] bytes, byte[] bytes1, byte[]... bytes2) {
+                return cluster.xack(bytes, bytes1, bytes2);
+            }
+
+            @Override
+            public String xgroupCreate(byte[] bytes, byte[] bytes1, byte[] bytes2, boolean b) {
+                return cluster.xgroupCreate(bytes, bytes1, bytes2, b);
+            }
+
+            @Override
+            public String xgroupSetID(byte[] bytes, byte[] bytes1, byte[] bytes2) {
+                return cluster.xgroupSetID(bytes, bytes1, bytes2);
+            }
+
+            @Override
+            public Long xgroupDestroy(byte[] bytes, byte[] bytes1) {
+                return cluster.xgroupDestroy(bytes, bytes1);
+            }
+
+            @Override
+            public Long xgroupDelConsumer(byte[] bytes, byte[] bytes1, byte[] bytes2) {
+                return cluster.xgroupDelConsumer(bytes, bytes1, bytes2);
+            }
+
+            @Override
+            public Long xdel(byte[] bytes, byte[]... bytes1) {
+                return cluster.xdel(bytes, bytes1);
+            }
+
+            @Override
+            public Long xtrim(byte[] bytes, long l, boolean b) {
+                return cluster.xtrim(bytes, l, b);
+            }
+
+            @Override
+            public List<byte[]> xpending(byte[] bytes, byte[] bytes1, byte[] bytes2, byte[] bytes3, int i, byte[] bytes4) {
+                return cluster.xpending(bytes, bytes1, bytes2, bytes3, i, bytes4);
+            }
+
+            @Override
+            public List<byte[]> xclaim(byte[] bytes, byte[] bytes1, byte[] bytes2, long l, long l1, int i, boolean b, byte[][] bytes3) {
+                return cluster.xclaim(bytes, bytes1, bytes2, l, l1, i, b, bytes3);
+            }
+
+            @Override
+            public StreamInfo xinfoStream(byte[] bytes) {
+                throw new UnsupportedOperationException("cluter xinfoStream unsupport.");
+            }
+
+            @Override
+            public List<StreamGroupInfo> xinfoGroup(byte[] bytes) {
+                throw new UnsupportedOperationException("cluter xinfoStream unsupport.");
+            }
+
+            @Override
+            public List<StreamConsumersInfo> xinfoConsumers(byte[] bytes, byte[] bytes1) {
+                throw new UnsupportedOperationException("cluter xinfoStream unsupport.");
             }
         };
     }

@@ -22,9 +22,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.*;
 import redis.clients.jedis.exceptions.JedisConnectionException;
-import redis.clients.util.Pool;
+import redis.clients.jedis.util.Pool;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Properties;
@@ -33,6 +32,7 @@ import java.util.Set;
 /**
  * 使用 Redis 的订阅和发布进行集群中的节点通知
  * 该策略器使用 j2cache.properties 中的 redis 配置自行保持两个到 redis 的连接用于发布和订阅消息（并在失败时自动重连）
+ *
  * @author Winter Lau(javayou@gmail.com)
  */
 public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPolicy {
@@ -50,11 +50,11 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
     private CacheProviderHolder holder;
     private boolean clusterMode = false;
 
-    public RedisPubSubClusterPolicy(String channel, Properties props){
+    public RedisPubSubClusterPolicy(String channel, Properties props) {
         this.channel = channel;
-        int timeout = Integer.parseInt((String)props.getOrDefault("timeout", "2000"));
+        int timeout = Integer.parseInt((String) props.getOrDefault("timeout", "2000"));
         String password = props.getProperty("password");
-        if(password != null && password.trim().length() == 0)
+        if (password != null && password.trim().length() == 0)
             password = null;
 
         int database = Integer.parseInt(props.getProperty("database", "0"));
@@ -63,7 +63,7 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
         JedisPoolConfig config = RedisUtils.newPoolConfig(props, null);
 
         String node = props.getProperty("channel.host");
-        if(node == null || node.trim().length() == 0)
+        if (node == null || node.trim().length() == 0)
             node = props.getProperty("hosts");
 
         String mode = props.getProperty("mode");
@@ -86,7 +86,7 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
             node = node.split(",")[0]; //取第一台主机
             String[] infos = node.split(":");
             String host = infos[0];
-            int port = (infos.length > 1)?Integer.parseInt(infos[1]):6379;
+            int port = (infos.length > 1) ? Integer.parseInt(infos[1]) : 6379;
             this.client = new JedisPool(config, host, port, timeout, password, database, ssl);
         }
     }
@@ -98,6 +98,7 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
 
     /**
      * 删除本地某个缓存条目
+     *
      * @param region 区域名称
      * @param keys   缓存键值
      */
@@ -108,6 +109,7 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
 
     /**
      * 清除本地整个缓存区域
+     *
      * @param region 区域名称
      */
     @Override
@@ -125,7 +127,7 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
 
         this.publish(Command.join());
 
-        Thread subscribeThread = new Thread(()-> {
+        Thread subscribeThread = new Thread(() -> {
             if (clusterMode) {
                 // 如果出现集群节点宕机，需要重连
                 while (cluster != null) {
@@ -146,17 +148,17 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
                 }
             } else {
                 //当 Redis 重启会导致订阅线程断开连接，需要进行重连
-                while(!client.isClosed()) {
-                    try (Jedis jedis = client.getResource()){
+                while (!client.isClosed()) {
+                    try (Jedis jedis = client.getResource()) {
                         jedis.subscribe(this, channel);
                         log.info("Disconnect to redis channel: {}", channel);
                         break;
                     } catch (JedisConnectionException e) {
                         log.error("Failed connect to redis, reconnect it.", e);
-                        if(!client.isClosed())
+                        if (!client.isClosed())
                             try {
                                 Thread.sleep(1000);
-                            } catch (InterruptedException ie){
+                            } catch (InterruptedException ie) {
                                 break;
                             }
                     }
@@ -167,7 +169,7 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
         subscribeThread.setDaemon(true);
         subscribeThread.start();
 
-        log.info("Connected to redis channel:{}, time {} ms.", channel, (System.currentTimeMillis()-ct));
+        log.info("Connected to redis channel:{}, time {} ms.", channel, (System.currentTimeMillis() - ct));
     }
 
     /**
@@ -177,7 +179,7 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
     public void disconnect() {
         try {
             this.publish(Command.quit());
-            if(this.isSubscribed())
+            if (this.isSubscribed())
                 this.unsubscribe();
         } finally {
             close();
@@ -188,9 +190,9 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
 
     @Override
     public void publish(Command cmd) {
-    	cmd.setSrc(LOCAL_COMMAND_ID);
-    	if (this.clusterMode) {
-    	    this.cluster.publish(channel, cmd.json());
+        cmd.setSrc(LOCAL_COMMAND_ID);
+        if (this.clusterMode) {
+            this.cluster.publish(channel, cmd.json());
         } else {
             try (Jedis jedis = client.getResource()) {
                 jedis.publish(channel, cmd.json());
@@ -200,6 +202,7 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
 
     /**
      * 当接收到订阅频道获得的消息时触发此方法
+     *
      * @param channel 频道名称
      * @param message 消息体
      */
@@ -229,7 +232,7 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
                 this.cluster.close();
             }
             this.cluster = null;
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
