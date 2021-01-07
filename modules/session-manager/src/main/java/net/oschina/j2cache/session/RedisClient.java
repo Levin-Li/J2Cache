@@ -216,8 +216,8 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public String set(byte[] bytes, byte[] bytes1, SetParams setParams) {
-                return null;
+            public String set(byte[] key, byte[] value, SetParams params) {
+                return cluster.set(key, value, params);
             }
 
             @Override
@@ -241,18 +241,18 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public byte[] dump(byte[] bytes) {
+            public byte[] dump(byte[] key) {
                 return new byte[0];
             }
 
             @Override
-            public String restore(byte[] bytes, int i, byte[] bytes1) {
-                return null;
+            public String restore(byte[] key, int ttl, byte[] serializedValue) {
+                return cluster.restore(key, ttl, serializedValue);
             }
 
             @Override
-            public String restoreReplace(byte[] bytes, int i, byte[] bytes1) {
-                return null;
+            public String restoreReplace(byte[] key, int ttl, byte[] serializedValue) {
+                throw new UnsupportedOperationException("cluster restoreReplace unsupported");
             }
 
             @Override
@@ -281,13 +281,13 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public Long pttl(byte[] bytes) {
-                return null;
+            public Long pttl(byte[] key) {
+                return cluster.pttl(key);
             }
 
             @Override
-            public Long touch(byte[] bytes) {
-                return null;
+            public Long touch(byte[] key) {
+                return cluster.touch(key);
             }
 
             @Override
@@ -331,8 +331,8 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public String psetex(byte[] bytes, long l, byte[] bytes1) {
-                return null;
+            public String psetex(byte[] key, long milliseconds, byte[] value) {
+                return cluster.psetex(key, milliseconds, value);
             }
 
             @Override
@@ -376,8 +376,8 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public Long hset(byte[] bytes, Map<byte[], byte[]> map) {
-                return null;
+            public Long hset(byte[] key, Map<byte[], byte[]> hash) {
+                return cluster.hset(key, hash);
             }
 
             @Override
@@ -616,23 +616,23 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public Tuple zpopmax(byte[] bytes) {
-                return null;
+            public Tuple zpopmax(byte[] key) {
+                return cluster.zpopmax(key);
             }
 
             @Override
-            public Set<Tuple> zpopmax(byte[] bytes, int i) {
-                return null;
+            public Set<Tuple> zpopmax(byte[] key, int count) {
+                return cluster.zpopmax(key, count);
             }
 
             @Override
-            public Tuple zpopmin(byte[] bytes) {
-                return null;
+            public Tuple zpopmin(byte[] key) {
+                return cluster.zpopmin(key);
             }
 
             @Override
-            public Set<Tuple> zpopmin(byte[] bytes, int i) {
-                return null;
+            public Set<Tuple> zpopmin(byte[] key, int count) {
+                return cluster.zpopmin(key, count);
             }
 
             @Override
@@ -781,8 +781,8 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public Long linsert(byte[] bytes, ListPosition listPosition, byte[] bytes1, byte[] bytes2) {
-                return null;
+            public Long linsert(byte[] key, ListPosition where, byte[] pivot, byte[] value) {
+                return cluster.linsert(key, where, pivot, value);
             }
 
             @Override
@@ -801,18 +801,13 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public Long unlink(byte[] bytes) {
-                return null;
+            public Long unlink(byte[] key) {
+                return cluster.unlink(key);
             }
 
             @Override
             public byte[] echo(byte[] bytes) {
                 return cluster.echo(bytes);
-            }
-
-            @Override
-            public Long move(byte[] bytes, int i) {
-                throw new UnsupportedOperationException("cluster move unsupport.");
             }
 
             @Override
@@ -871,18 +866,21 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public List<GeoRadiusResponse> georadiusReadonly(byte[] bytes, double v, double v1, double v2, GeoUnit geoUnit) {
-                return null;
+            public List<GeoRadiusResponse> georadiusReadonly(byte[] key, double longitude, double latitude,
+                double radius, GeoUnit unit) {
+                return cluster.georadiusReadonly(key, longitude, latitude, radius, unit);
             }
 
             @Override
-            public List<GeoRadiusResponse> georadius(byte[] bytes, double v, double v1, double v2, GeoUnit geoUnit, GeoRadiusParam geoRadiusParam) {
-                return null;
+            public List<GeoRadiusResponse> georadius(byte[] bytes, double v, double v1, double v2, GeoUnit geoUnit,
+                GeoRadiusParam geoRadiusParam) {
+                return cluster.georadius(bytes, v, v1, v2, geoUnit, geoRadiusParam);
             }
 
             @Override
-            public List<GeoRadiusResponse> georadiusReadonly(byte[] bytes, double v, double v1, double v2, GeoUnit geoUnit, GeoRadiusParam geoRadiusParam) {
-                return null;
+            public List<GeoRadiusResponse> georadiusReadonly(byte[] key, double longitude, double latitude,
+                double radius, GeoUnit unit, GeoRadiusParam param) {
+                return cluster.georadiusReadonly(key, longitude, latitude, radius, unit, param);
             }
 
             @Override
@@ -891,18 +889,21 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] bytes, byte[] bytes1, double v, GeoUnit geoUnit) {
-                return null;
+            public List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] key, byte[] member, double radius,
+                GeoUnit unit) {
+                return cluster.georadiusByMemberReadonly(key, member, radius, unit);
             }
 
             @Override
-            public List<GeoRadiusResponse> georadiusByMember(byte[] bytes, byte[] bytes1, double v, GeoUnit geoUnit, GeoRadiusParam geoRadiusParam) {
-                return null;
+            public List<GeoRadiusResponse> georadiusByMember(byte[] bytes, byte[] bytes1, double v, GeoUnit geoUnit,
+                GeoRadiusParam geoRadiusParam) {
+                return cluster.georadiusByMember(bytes, bytes1, v, geoUnit, geoRadiusParam);
             }
 
             @Override
-            public List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] bytes, byte[] bytes1, double v, GeoUnit geoUnit, GeoRadiusParam geoRadiusParam) {
-                return null;
+            public List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] key, byte[] member, double radius,
+                GeoUnit unit, GeoRadiusParam param) {
+                return cluster.georadiusByMemberReadonly(key, member, radius, unit, param);
             }
 
             @Override
@@ -941,93 +942,101 @@ class RedisClient implements Closeable, AutoCloseable {
             }
 
             @Override
-            public List<Long> bitfieldReadonly(byte[] bytes, byte[]... bytes1) {
-                return cluster.bitfieldReadonly(bytes, bytes1);
+            public List<Long> bitfieldReadonly(byte[] key, byte[]... arguments) {
+                return cluster.bitfieldReadonly(key, arguments);
             }
 
             @Override
-            public Long hstrlen(byte[] bytes, byte[] bytes1) {
-                return cluster.hstrlen(bytes, bytes1);
+            public Long hstrlen(byte[] key, byte[] field) {
+                return cluster.hstrlen(key, field);
             }
 
             @Override
-            public byte[] xadd(byte[] bytes, byte[] bytes1, Map<byte[], byte[]> map, long l, boolean b) {
-                return cluster.xadd(bytes, bytes1, map, l, b);
+            public byte[] xadd(byte[] key, byte[] id, Map<byte[], byte[]> hash, long maxLen,
+                boolean approximateLength) {
+                return new byte[0];
             }
 
             @Override
-            public Long xlen(byte[] bytes) {
-                return cluster.xlen(bytes);
+            public Long xlen(byte[] key) {
+                return cluster.xlen(key);
             }
 
             @Override
-            public List<byte[]> xrange(byte[] bytes, byte[] bytes1, byte[] bytes2, long l) {
-                return cluster.xrange(bytes, bytes1, bytes2, l);
+            public List<byte[]> xrange(byte[] key, byte[] start, byte[] end, long count) {
+                return xrange(key, start, end, count);
             }
 
             @Override
-            public List<byte[]> xrevrange(byte[] bytes, byte[] bytes1, byte[] bytes2, int i) {
-                return cluster.xrevrange(bytes, bytes1, bytes2, i);
+            public List<byte[]> xrevrange(byte[] key, byte[] end, byte[] start, int count) {
+                return cluster.xrevrange(key, end, start, count);
             }
 
             @Override
-            public Long xack(byte[] bytes, byte[] bytes1, byte[]... bytes2) {
-                return cluster.xack(bytes, bytes1, bytes2);
+            public Long xack(byte[] key, byte[] group, byte[]... ids) {
+                return cluster.xack(key, group, ids);
             }
 
             @Override
-            public String xgroupCreate(byte[] bytes, byte[] bytes1, byte[] bytes2, boolean b) {
-                return cluster.xgroupCreate(bytes, bytes1, bytes2, b);
+            public String xgroupCreate(byte[] key, byte[] consumer, byte[] id, boolean makeStream) {
+                return cluster.xgroupCreate(key, consumer, id, makeStream);
             }
 
             @Override
-            public String xgroupSetID(byte[] bytes, byte[] bytes1, byte[] bytes2) {
-                return cluster.xgroupSetID(bytes, bytes1, bytes2);
+            public String xgroupSetID(byte[] key, byte[] consumer, byte[] id) {
+                return cluster.xgroupSetID(key, consumer, id);
             }
 
             @Override
-            public Long xgroupDestroy(byte[] bytes, byte[] bytes1) {
-                return cluster.xgroupDestroy(bytes, bytes1);
+            public Long xgroupDestroy(byte[] key, byte[] consumer) {
+                return cluster.xgroupDestroy(key, consumer);
             }
 
             @Override
-            public Long xgroupDelConsumer(byte[] bytes, byte[] bytes1, byte[] bytes2) {
-                return cluster.xgroupDelConsumer(bytes, bytes1, bytes2);
+            public Long xgroupDelConsumer(byte[] key, byte[] consumer, byte[] consumerName) {
+                return cluster.xgroupDelConsumer(key, consumer, consumerName);
             }
 
             @Override
-            public Long xdel(byte[] bytes, byte[]... bytes1) {
-                return cluster.xdel(bytes, bytes1);
+            public Long xdel(byte[] key, byte[]... ids) {
+                return cluster.xdel(key, ids);
             }
 
             @Override
-            public Long xtrim(byte[] bytes, long l, boolean b) {
-                return cluster.xtrim(bytes, l, b);
+            public Long xtrim(byte[] key, long maxLen, boolean approximateLength) {
+                return cluster.xtrim(key, maxLen, approximateLength);
             }
 
             @Override
-            public List<byte[]> xpending(byte[] bytes, byte[] bytes1, byte[] bytes2, byte[] bytes3, int i, byte[] bytes4) {
-                return cluster.xpending(bytes, bytes1, bytes2, bytes3, i, bytes4);
+            public List<byte[]> xpending(byte[] key, byte[] groupname, byte[] start, byte[] end, int count,
+                byte[] consumername) {
+                return cluster.xpending(key, groupname, start, end, count, consumername);
             }
 
             @Override
-            public List<byte[]> xclaim(byte[] bytes, byte[] bytes1, byte[] bytes2, long l, long l1, int i, boolean b, byte[][] bytes3) {
-                return cluster.xclaim(bytes, bytes1, bytes2, l, l1, i, b, bytes3);
+            public List<byte[]> xclaim(byte[] key, byte[] groupname, byte[] consumername, long minIdleTime,
+                long newIdleTime, int retries, boolean force, byte[][] ids) {
+                return cluster.xclaim(key, groupname, consumername, minIdleTime, newIdleTime, retries, force, ids);
             }
 
             @Override
-            public StreamInfo xinfoStream(byte[] bytes) {
-                throw new UnsupportedOperationException("cluter xinfoStream unsupport.");
+            public Long move(byte[] bytes, int i) {
+                throw new UnsupportedOperationException();
             }
 
             @Override
-            public List<StreamGroupInfo> xinfoGroup(byte[] bytes) {
-                throw new UnsupportedOperationException("cluter xinfoStream unsupport.");
+            public StreamInfo xinfoStream(byte[] key) {
+                throw new UnsupportedOperationException();
             }
 
             @Override
-            public List<StreamConsumersInfo> xinfoConsumers(byte[] bytes, byte[] bytes1) {
-                throw new UnsupportedOperationException("cluter xinfoStream unsupport.");
+            public List<StreamGroupInfo> xinfoGroup(byte[] key) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public List<StreamConsumersInfo> xinfoConsumers(byte[] key, byte[] group) {
+                throw new UnsupportedOperationException();
             }
         };
     }
