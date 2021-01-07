@@ -16,6 +16,7 @@
 package net.oschina.j2cache.session;
 
 import redis.clients.jedis.*;
+import redis.clients.jedis.commands.BinaryJedisCommands;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import redis.clients.jedis.params.GeoRadiusParam;
 import redis.clients.jedis.params.SetParams;

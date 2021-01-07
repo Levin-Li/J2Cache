@@ -237,7 +237,7 @@ public class RedisClient implements Closeable, AutoCloseable {
      * @param cluster Jedis 集群实例
      * @return
      */
-    private BinaryJedisCommands toBinaryJedisCommands(JedisCluster cluster) {    private BinaryJedisCommands toBinaryJedisCommands(JedisCluster cluster) {
+    private BinaryJedisCommands toBinaryJedisCommands(JedisCluster cluster) {
         return new BinaryJedisCommands() {
             @Override
             public String set(byte[] bytes, byte[] bytes1) {
