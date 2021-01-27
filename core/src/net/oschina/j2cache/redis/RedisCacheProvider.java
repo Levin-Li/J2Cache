@@ -18,7 +18,7 @@ package net.oschina.j2cache.redis;
 import net.oschina.j2cache.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import redis.clients.jedis.*;
+import redis.clients.jedis.JedisPoolConfig;
 
 import java.io.IOException;
 import java.util.Collection;
