@@ -96,6 +96,19 @@ public class CacheChannelTest {
 
     @Test
     public void set() {
+        String region = "Users";
+        String key = "ld";
+        channel.set(region, key, "Winter Lau");
+        System.out.println();
+        System.out.println();
+        Object value = channel.get(region, "key").getValue();
+        System.out.println(value);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        Object value2 = channel.get(region, key).getValue();
+        System.out.println(value2);
+
     }
 
     @Test

@@ -50,6 +50,8 @@ public class ClusterPolicyFactory {
             policy = ClusterPolicyFactory.rocketmq(props, holder);
         else if ("lettuce".equalsIgnoreCase(broadcast))
             policy = ClusterPolicyFactory.lettuce(props, holder);
+        else if ("kafka".equalsIgnoreCase(broadcast))
+            policy = ClusterPolicyFactory.kafka(props, holder);
         else if ("none".equalsIgnoreCase(broadcast))
             policy = new NoneClusterPolicy();
         else
@@ -101,6 +103,12 @@ public class ClusterPolicyFactory {
 
     private final static ClusterPolicy lettuce(Properties props, CacheProviderHolder holder) {
         LettuceCacheProvider policy = new LettuceCacheProvider();
+        policy.connect(props, holder);
+        return policy;
+    }
+
+    private final static ClusterPolicy kafka(Properties props, CacheProviderHolder holder) {
+        KafkaClusterPolicy policy = new KafkaClusterPolicy(props);
         policy.connect(props, holder);
         return policy;
     }
