@@ -2,55 +2,37 @@
 branches: {
   }
 fileChange:
-  /core:
-    newFile: !uuid '57b39d226a74bf4913db5f68e0e994f2a7d85701'
-    oldFile: !uuid 'fe18a9548df72396347df0a6bfe3e7a356d4c393'
-  /core/src:
-    newFile: !uuid 'eaae5fbd380820243640d56e08d11888a676994b'
-    oldFile: !uuid '518b52d3d0d971bc24538c16540bf1b9734541b6'
-  /core/src/net:
-    newFile: !uuid '171d6cea9e758f16f25ed2c68229ee8519e893cc'
-    oldFile: !uuid 'ef99b7f25af2ba78e72577242fde0fc2693a91cf'
-  /core/src/net/oschina:
-    newFile: !uuid '41a6d85cf22f0f51f35395d47b1eeab0eccf767d'
-    oldFile: !uuid 'd39df6e2d865c2b7bcd20e9874f69cbbe83c13ab'
-  /core/src/net/oschina/j2cache:
-    newFile: !uuid '3c6b0b09080aca9639c7a9c50390bab42f62a79a'
-    oldFile: !uuid '39ce64c1d81d0d6afa2656091be62ecc5fba483b'
-  /core/src/net/oschina/j2cache/caffeine:
-    newFile: !uuid '2d844cb0c46a51d1f9de1097069a76a4d2662d4f'
-    oldFile: !uuid '3466e63c288b2bed134f9bdf6da82e83720ef0d1'
-  /core/src/net/oschina/j2cache/caffeine/CaffeineProvider.java:
-    newFile: !uuid 'f187de84868649eb260246c7706f88cb3b0260bf'
-    oldFile: !uuid '50afd2a75749add8731c4a64616e32c063bad9e7'
-  /core/src/net/oschina/j2cache/util:
-    newFile: !uuid 'b4b9abecb245058f4c4e4018dec9cb3e1fe34552'
-    oldFile: !uuid '60ae7a7d133168b476f6a870924641923fcd4fa0'
-  /core/src/net/oschina/j2cache/util/AntPathMatcher.java:
-    newFile: !uuid '21a72ffd38841e435a0eb2781c1acd1285330fcc'
-    oldFile: null
-  /core/src/net/oschina/j2cache/util/PatternMatcher.java:
-    newFile: !uuid '303ff737f520871702f7a58a0f0f06b83b14888d'
-    oldFile: null
-  /core/src/net/oschina/j2cache/util/StringUtils.java:
-    newFile: !uuid 'fa3d4fc6faf5635a03b71300fb26acd93b81b939'
-    oldFile: null
-  /core/test:
-    newFile: !uuid '461d1ab99f26bbb86ee143d70c361ec55f2e2a91'
-    oldFile: !uuid 'b543b522965841bf87cebca531de6f00499b1fef'
-  /core/test/net:
-    newFile: !uuid '56be0fed2115ed6c7d6e34ce7ee4cc6c4cdef42c'
-    oldFile: !uuid 'e2d42a88c582af3eb5594c51249401e3f9ccf35d'
-  /core/test/net/oschina:
-    newFile: !uuid 'bc8f845690815042672c34c3117678412530a34d'
-    oldFile: !uuid '0b9b1e89a9fcd008239bd9860a469577e5ccb610'
-  /core/test/net/oschina/j2cache:
-    newFile: !uuid 'b211483c7344d0780719da89dbc38ec9909f28ca'
-    oldFile: !uuid '8a200f36dcd73bbd15508de3709513cb1cee6415'
-  /core/test/net/oschina/j2cache/PatternMatcherTest.java:
-    newFile: !uuid '4aa0582f371cb3e32016822819e1abc1f9194ba6'
-    oldFile: null
-gitCommitId: !uuid '30dabec3d09f21ac6b51622e2799fe41c71d6d9a'
+  /modules:
+    newFile: !uuid 'c8da4ff7f47b0553188712a738c2bda6eac2dbcf'
+    oldFile: !uuid 'ce47fa57d68bf4da31fb9ccc29adbd762f9f69b1'
+  /modules/spring-boot2-starter:
+    newFile: !uuid '5c80b425b56fda4a506c8937bee04643e6bbd901'
+    oldFile: !uuid '9059ba91e47064272e182221d836afa14306b112'
+  /modules/spring-boot2-starter/src:
+    newFile: !uuid '5d6fddb3737c898a664418bb7751b060ebcf02d5'
+    oldFile: !uuid '2b92a404a652f8940c903b6a0437f6817a958071'
+  /modules/spring-boot2-starter/src/net:
+    newFile: !uuid 'd9bf2022f33eaf77b7714da3e222db4f466c0980'
+    oldFile: !uuid '6556b568ccb5da51d4177a2d7a7345fb62f368ac'
+  /modules/spring-boot2-starter/src/net/oschina:
+    newFile: !uuid '75bc3f450d23eb059c0df88dea440d1aea277440'
+    oldFile: !uuid '4a2837c4f9f148e5910cd520c041b0818715bf43'
+  /modules/spring-boot2-starter/src/net/oschina/j2cache:
+    newFile: !uuid 'e9b9d9ea0e3afd95d1df2bc539988abe24dc878a'
+    oldFile: !uuid '770bf6fc7384d178719e26597cf7eb6756efa3c2'
+  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache:
+    newFile: !uuid '231997ea00f9cf58532631f897e621f50a17db50'
+    oldFile: !uuid '98cc9e943a1a3012a98a004d150f54e5859cefdf'
+  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support:
+    newFile: !uuid '8e203de67640dc782399612cced31bcfb0dcec42'
+    oldFile: !uuid '2b4ec3fe2679c78ece599044c6eeb34f2d6a9e0d'
+  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/util:
+    newFile: !uuid 'aca7da9f7925b34a1ae9eba6d331e867ec71b82a'
+    oldFile: !uuid 'f3e9c1d0266f57b26a626ea7396f1e0f0bb7a93d'
+  /modules/spring-boot2-starter/src/net/oschina/j2cache/cache/support/util/SpringJ2CacheConfigUtil.java:
+    newFile: !uuid 'e3cf870e0f5dad5beae517316e0bec0d92a84c24'
+    oldFile: !uuid 'd554ecca657e9dc089f70ae90abc32f6af5f33b8'
+gitCommitId: !uuid 'c44403fc3fd901b3d93d4051cd9d3ae17ac0a7a4'
 renames: {
   }
-revisionId: 614
+revisionId: 615
