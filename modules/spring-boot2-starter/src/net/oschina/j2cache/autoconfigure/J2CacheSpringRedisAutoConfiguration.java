@@ -46,13 +46,14 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 
 /**
  * 对spring redis支持的配置入口
- * 
+ *
  * @author zhangsaizz
  *
  */
 @Configuration
 @AutoConfigureAfter({ RedisAutoConfiguration.class })
 @AutoConfigureBefore({ J2CacheAutoConfiguration.class })
+@ConditionalOnProperty(value = "j2cache.l2-cache-open", havingValue = "true", matchIfMissing = true)
 public class J2CacheSpringRedisAutoConfiguration {
 
 	private final static int MAX_ATTEMPTS = 3;
@@ -68,7 +69,7 @@ public class J2CacheSpringRedisAutoConfiguration {
 	public JedisConnectionFactory jedisConnectionFactory(net.oschina.j2cache.J2CacheConfig j2CacheConfig) {
 		Properties l2CacheProperties = j2CacheConfig.getL2CacheProperties();
 		String hosts = l2CacheProperties.getProperty("hosts");
-		String mode = l2CacheProperties.getProperty("mode");
+		String mode = l2CacheProperties.getProperty("mode") == null ? "null" : l2CacheProperties.getProperty("mode");
 		String clusterName = l2CacheProperties.getProperty("cluster_name");
 		String password = l2CacheProperties.getProperty("password");
 		int database = l2CacheProperties.getProperty("database") == null ? 0
@@ -149,7 +150,7 @@ public class J2CacheSpringRedisAutoConfiguration {
 	public LettuceConnectionFactory lettuceConnectionFactory(net.oschina.j2cache.J2CacheConfig j2CacheConfig) {
 		Properties l2CacheProperties = j2CacheConfig.getL2CacheProperties();
 		String hosts = l2CacheProperties.getProperty("hosts");
-		String mode = l2CacheProperties.getProperty("mode");
+		String mode = l2CacheProperties.getProperty("mode") == null ? "null" : l2CacheProperties.getProperty("mode");
 		String clusterName = l2CacheProperties.getProperty("cluster_name");
 		String password = l2CacheProperties.getProperty("password");
 		int database = l2CacheProperties.getProperty("database") == null ? 0
@@ -207,6 +208,7 @@ public class J2CacheSpringRedisAutoConfiguration {
 				log.warn("Redis mode [" + mode + "] not defined. Using 'single'.");
 			break;
 		}
+		connectionFactory.setValidateConnection(true);
 		return connectionFactory;
 	}
 

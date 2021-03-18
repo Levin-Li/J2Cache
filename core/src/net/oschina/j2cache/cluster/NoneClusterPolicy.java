@@ -15,6 +15,7 @@
  */
 package net.oschina.j2cache.cluster;
 
+import net.oschina.j2cache.CacheProviderHolder;
 import net.oschina.j2cache.Command;
 
 import java.util.Properties;
@@ -25,18 +26,30 @@ import java.util.Properties;
  */
 public class NoneClusterPolicy implements ClusterPolicy {
 
-    @Override
-    public void connect(Properties props) {
+    private int LOCAL_COMMAND_ID = Command.genRandomSrc(); //命令源标识，随机生成，每个节点都有唯一标识
 
+    @Override
+    public boolean isLocalCommand(Command cmd) {
+        return cmd.getSrc() == LOCAL_COMMAND_ID;
+    }
+
+    @Override
+    public void connect(Properties props, CacheProviderHolder holder) {
     }
 
     @Override
     public void disconnect() {
-
     }
 
     @Override
     public void publish(Command cmd) {
+    }
 
+    @Override
+    public void evict(String region, String... keys) {
+    }
+
+    @Override
+    public void clear(String region) {
     }
 }

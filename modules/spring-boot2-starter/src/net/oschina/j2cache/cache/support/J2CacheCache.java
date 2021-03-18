@@ -36,7 +36,7 @@ public class J2CacheCache extends AbstractValueAdaptingCache {
 		return this.j2CacheName;
 	}
 
-	public void setJ2CacheNmae(String name) {
+	public void setJ2CacheName(String name) {
 		this.j2CacheName = name;
 	}
 
@@ -46,7 +46,12 @@ public class J2CacheCache extends AbstractValueAdaptingCache {
 	}
 
 	@Override
-	public <T> T get(Object key, Callable<T> valueLoader) {
+	public synchronized <T> T get(Object key, Callable<T> valueLoader) {
+		ValueWrapper valueWrapper = this.get(key);
+		if (valueWrapper != null) {
+			return (T) valueWrapper.get();
+		}
+
 		T value;
 		try {
 			value = valueLoader.call();
@@ -82,7 +87,7 @@ public class J2CacheCache extends AbstractValueAdaptingCache {
 
 	@Override
 	protected Object lookup(Object key) {
-		CacheObject cacheObject = cacheChannel.get(j2CacheName, String.valueOf(key), super.isAllowNullValues());
+		CacheObject cacheObject = cacheChannel.get(j2CacheName, String.valueOf(key), false);
 		if(cacheObject.rawValue() != null && cacheObject.rawValue().getClass().equals(NullObject.class) && super.isAllowNullValues()) {
 			return NullValue.INSTANCE;
 		}
