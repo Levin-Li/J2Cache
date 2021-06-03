@@ -3,27 +3,15 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid 'c516591a2ec768b0c79b223f689bf08e89c48c11'
-    oldFile: !uuid 'dab64b268cdcc8a8d92333eb811b995f3378c430'
-  /core/src:
-    newFile: !uuid 'ece5ef89053e365ccaf7b88b0b278b103e407d39'
-    oldFile: !uuid 'ed5af4e8e80b0e61db32a9b9f6ae2b6118a54cd2'
-  /core/src/net:
-    newFile: !uuid '29d9e33c2adb637ade8f8c57ce4dedf8f1e599c2'
-    oldFile: !uuid '9f5bc12e7148730db2bf3dd034442741839de1a8'
-  /core/src/net/oschina:
-    newFile: !uuid 'b6cf980bf95d4fc5d9cbe972ecb26415aa99700a'
-    oldFile: !uuid 'e371cf3d5df70267363e4df0816a7a7af16f94d2'
-  /core/src/net/oschina/j2cache:
-    newFile: !uuid '3d7bdbfc69a1bb88565146f5ccbaaefde33cb749'
-    oldFile: !uuid '6608256f471250ae70dfb208c3ec5fc0da260d86'
-  /core/src/net/oschina/j2cache/cluster:
-    newFile: !uuid 'e75db4eea21d60cd00cdcdcb444df8c946e8f7a2'
-    oldFile: !uuid '6f558f223e0ce9604c79b13ccd6a76c5e061748e'
-  /core/src/net/oschina/j2cache/cluster/RabbitMQClusterPolicy.java:
-    newFile: !uuid '32138a204b9631dec496f42c73ee02537f3e30c4'
-    oldFile: !uuid 'f6917ea851f208b0b527ea4af9c16490d2686213'
-gitCommitId: !uuid 'b1dc3b04a13b2147d5d209cf16806461179dde70'
+    newFile: !uuid '325381ba842add945d198c006e4f7d2a4cba583d'
+    oldFile: !uuid 'c516591a2ec768b0c79b223f689bf08e89c48c11'
+  /core/resources:
+    newFile: !uuid 'af242f1df299bfd381b651b319ddf4d2583674ce'
+    oldFile: !uuid '47f5e6c3dc804934e169425893f757fec07ce8ba'
+  /core/resources/j2cache.properties:
+    newFile: !uuid 'f7029b717296e60dffde6135ead5e04f54baa66d'
+    oldFile: !uuid 'dfc8d7af429351993ac6f30d072f8922b508df07'
+gitCommitId: !uuid '7465e302db9a90dac506d3e84e2128c805e88baf'
 renames: {
   }
-revisionId: 617
+revisionId: 618
