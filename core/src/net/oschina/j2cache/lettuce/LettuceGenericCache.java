@@ -147,9 +147,8 @@ public class LettuceGenericCache extends LettuceCache {
         }
     }
 
-	private Collection<String> keys(RedisKeyCommands<String, byte[]> cmd) {
+    private Collection<String> keys(RedisKeyCommands<String, byte[]> cmd) {
 		Collection<String> keys = new ArrayList<>();
-		String cursor = "0";
 		Collection<String> partKeys = null;
 		ScanCursor scanCursor = ScanCursor.INITIAL;
 		ScanArgs scanArgs = new ScanArgs();
@@ -161,13 +160,7 @@ public class LettuceGenericCache extends LettuceCache {
 			if(partKeys != null && partKeys.size() != 0) {
 				keys.addAll(partKeys);
 			}
-			cursor = keyScanCursor.getCursor();
-			if("0".equals(cursor)) {
-				scanCursor = ScanCursor.FINISHED;
-			}
-			else {
-				scanCursor = ScanCursor.of(cursor);
-			}
+			scanCursor = keyScanCursor;
 		}
 		
 		return keys;
