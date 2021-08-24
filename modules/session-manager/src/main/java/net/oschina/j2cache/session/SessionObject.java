@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.oschina.j2cache.session;
+package net.oschina.j2cache.session;  
 
 import java.io.IOException;
 import java.io.Serializable;
