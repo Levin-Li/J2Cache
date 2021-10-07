@@ -18,6 +18,8 @@ package net.oschina.j2cache;
 import java.util.Collection;
 import java.util.Map;
 
+// Hello World!
+
 /**
  * Cache Data Operation Interface
  *
