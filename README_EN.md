@@ -19,7 +19,7 @@ Since a large amount of cache reads causes  network bandwidth to become a bottle
 1. Data reading -> L1 -> L2 -> DB
 2. Data writing
 
-    1 Read latest data from the business system, updates L1 -> L2, and
+    1 Read latest data from the business system, updates L1 -> L2, and 123
     then broadcast clear event to all nodes in cluster
     2 When received the clear event, clear corresponding data in memory
 
