@@ -1,8 +1,6 @@
 package net.oschina.j2cache;
 
 import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Collection;
