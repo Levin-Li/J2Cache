@@ -7,6 +7,7 @@ import org.springframework.cache.Cache;
 import org.springframework.cache.transaction.AbstractTransactionSupportingCacheManager;
 
 import java.util.Collection;
+import java.util.Collections;
 
 /**
  * @author Chen
@@ -19,7 +20,7 @@ public class J2CacheSpringCacheManageAdapter extends AbstractTransactionSupporti
      */
     @Override
     protected Collection<? extends Cache> loadCaches() {
-        return null;
+        return Collections.emptyList();
     }
 
     private J2CacheBuilder j2CacheBuilder;
