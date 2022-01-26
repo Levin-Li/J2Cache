@@ -2,10 +2,16 @@
 branches: {
   }
 fileChange:
-  /pom.xml:
-    newFile: !uuid 'bc875501bd970436e87dca369c3b0901e62928b9'
-    oldFile: !uuid 'e41aaa564c498782059e096228d16b765bf7a179'
-gitCommitId: !uuid '5deef433ab48307c6cde1b67e695704e31be9c90'
+  /modules:
+    newFile: !uuid '5b64f60c417ace04570f359b487143c779d12352'
+    oldFile: !uuid '8fc5acfa583e88b4dd796be47a948a70c2d08611'
+  /modules/mybatis:
+    newFile: !uuid '01d96c124cb2edb102e97c0a64a1bef1e90644cd'
+    oldFile: !uuid 'af7c317b402f27e99997db303ec524389fb8c9d1'
+  /modules/mybatis/pom.xml:
+    newFile: !uuid '4140499f4a2212486ef437db0ee4797019eff64f'
+    oldFile: !uuid '7b3dd57703c6c9b883664813ed2e4ca022ade261'
+gitCommitId: !uuid 'c54eb700b05d8c67d077fd6c7d6bafe297356d90'
 renames: {
   }
-revisionId: 622
+revisionId: 623
