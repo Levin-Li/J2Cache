@@ -3,15 +3,30 @@ branches: {
   }
 fileChange:
   /modules:
-    newFile: !uuid '5b64f60c417ace04570f359b487143c779d12352'
-    oldFile: !uuid '8fc5acfa583e88b4dd796be47a948a70c2d08611'
-  /modules/mybatis:
-    newFile: !uuid '01d96c124cb2edb102e97c0a64a1bef1e90644cd'
-    oldFile: !uuid 'af7c317b402f27e99997db303ec524389fb8c9d1'
-  /modules/mybatis/pom.xml:
-    newFile: !uuid '4140499f4a2212486ef437db0ee4797019eff64f'
-    oldFile: !uuid '7b3dd57703c6c9b883664813ed2e4ca022ade261'
-gitCommitId: !uuid 'c54eb700b05d8c67d077fd6c7d6bafe297356d90'
+    newFile: !uuid 'f4cffdd956446ef6643a7d74f43a68b447fb492f'
+    oldFile: !uuid '5b64f60c417ace04570f359b487143c779d12352'
+  /modules/spring-boot2-starter:
+    newFile: !uuid '725b4ecf706c2b91957924ab2e353f1de7be41cf'
+    oldFile: !uuid '5c80b425b56fda4a506c8937bee04643e6bbd901'
+  /modules/spring-boot2-starter/src:
+    newFile: !uuid 'afb7a90cf8aa2bb0e767e515bb92b72e9b48ecf7'
+    oldFile: !uuid '5d6fddb3737c898a664418bb7751b060ebcf02d5'
+  /modules/spring-boot2-starter/src/net:
+    newFile: !uuid '1951d936a4c9b361e41407bb5e5220b69deef2d5'
+    oldFile: !uuid 'd9bf2022f33eaf77b7714da3e222db4f466c0980'
+  /modules/spring-boot2-starter/src/net/oschina:
+    newFile: !uuid '4eb01e5e19e140747d144808b782d2a0fec2fead'
+    oldFile: !uuid '75bc3f450d23eb059c0df88dea440d1aea277440'
+  /modules/spring-boot2-starter/src/net/oschina/j2cache:
+    newFile: !uuid '66aa873163e48a14e39bb13f48d216490350abc9'
+    oldFile: !uuid 'e9b9d9ea0e3afd95d1df2bc539988abe24dc878a'
+  /modules/spring-boot2-starter/src/net/oschina/j2cache/autoconfigure:
+    newFile: !uuid 'c219333c88a8c30fa19be33d554af577a6399ec5'
+    oldFile: !uuid '0875a9e52f5786c052f8ac7d7346fb5704c8d640'
+  /modules/spring-boot2-starter/src/net/oschina/j2cache/autoconfigure/J2CacheConfig.java:
+    newFile: !uuid 'd040834f565a4e63cee2c8620828be98940e2dc4'
+    oldFile: !uuid '490d68ed0a92d8a7bcfe0b3fddcdd18d2210874e'
+gitCommitId: !uuid '74a09f482cda96bb44b00037c34555fb3244f175'
 renames: {
   }
-revisionId: 623
+revisionId: 624
