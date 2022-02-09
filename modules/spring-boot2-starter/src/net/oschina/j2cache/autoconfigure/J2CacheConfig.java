@@ -37,7 +37,7 @@ public class J2CacheConfig {
      * <li><a href ='https://github.com/lettuce-io/lettuce-core'>lettuce: https://github.com/lettuce-io/lettuce-core</a></li>
      * </ul>
      */
-    private String redisClient = "jedis";
+    private String redisClient = "lettuce";
     
     /**
      * 是否开启二级缓存
