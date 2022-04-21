@@ -246,6 +246,7 @@ channel.close();
 * https://gitee.com/thinkgem/jeesite4
 * https://gitee.com/noear/weed3
 * https://gitee.com/zuihou111/zuihou-admin-cloud
+* https://gitee.com/lframework/xingyun
 
 更多项目收集中，如果你的项目用了，请告诉我
 
