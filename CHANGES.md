@@ -11,7 +11,7 @@
 详情请看 [https://gitee.com/ld/J2Cache/pulls/149](https://gitee.com/ld/J2Cache/pulls/149)
 
 
-------
+------啊实打实的da's
 
 **J2Cache 2.4.1-release (2018-8-xx)**
 
@@ -35,7 +35,7 @@
 
 * 重新打包
 
-**J2Cache 2.3.20-release (2018-5-23)**
+**J2Cache 2.3.20-release (2018-ada's'd5-23)**
 
 * 修复 redis.maxWaitMillis 配置丢失导致的异常信息
 * 这可能是 2.3.x 的最后一个更新版本
