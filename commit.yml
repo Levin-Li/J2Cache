@@ -2,10 +2,28 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid 'c7a82727fdf116ab8922eb249420325320a62b06'
-    oldFile: !uuid '017339b015009a6e2cf4655591f348dab814cc43'
-gitCommitId: !uuid 'bf2cc34115cd2aebf0eff055b68a14cb2fb66d1b'
+  /core:
+    newFile: !uuid '27311805fd2f70a99c362f36eab063b0100d11fb'
+    oldFile: !uuid '61575d90775676195a1fc1b609061547c97e12d7'
+  /core/src:
+    newFile: !uuid 'e1591f92f32450e7613e794f2244fc4e2645e145'
+    oldFile: !uuid '59e4eee83cf0541a6b441b3802d08d0fd6c17d3a'
+  /core/src/net:
+    newFile: !uuid '3b1095941568b08839acd54e42c41d071f7f6999'
+    oldFile: !uuid '3b53c64dd324e8b21603d08142fbac155588032f'
+  /core/src/net/oschina:
+    newFile: !uuid 'e3e03bf147cbd20cde0757ed1363f0ced97a0a7a'
+    oldFile: !uuid '7bca4b81043823893839e9e2cf21dd4264efd4c5'
+  /core/src/net/oschina/j2cache:
+    newFile: !uuid '44bc8725812836838b2661773700e6701de9a6d3'
+    oldFile: !uuid 'b128bd8fac1dc550de493352b6ec92d58b394de5'
+  /core/src/net/oschina/j2cache/util:
+    newFile: !uuid '2155a794c21acd00f19f7486c892dc98bbdfc1bb'
+    oldFile: !uuid 'b4b9abecb245058f4c4e4018dec9cb3e1fe34552'
+  /core/src/net/oschina/j2cache/util/FastjsonSerializer.java:
+    newFile: !uuid '81483d60a7a37bb8ffab9c6c15c919b7c1666c8e'
+    oldFile: !uuid '6f80075607d789addc9a0e7312aa1a3ccda63ff5'
+gitCommitId: !uuid '0f06525039132f01ad48c88c06893cba5b8d2e9b'
 renames: {
   }
-revisionId: 629
+revisionId: 630
