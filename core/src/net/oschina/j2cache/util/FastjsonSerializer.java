@@ -33,7 +33,7 @@ public class FastjsonSerializer implements Serializer {
 
     @Override
     public byte[] serialize(Object obj) {
-        return JSON.toJSONString(obj, SerializerFeature.WriteClassName).getBytes();
+        return JSON.toJSONString(obj, SerializerFeature.WriteMapNullValue, SerializerFeature.WriteClassName).getBytes();
     }
 
     @Override
