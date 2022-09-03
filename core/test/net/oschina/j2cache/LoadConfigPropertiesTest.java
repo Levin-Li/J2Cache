@@ -67,8 +67,6 @@ public class LoadConfigPropertiesTest {
 
     private static void testLoadCaffine() {
 
-        try{
-            //test read caffeine
             if(FULL_PATH_SWITCH){
                 config.getL1CacheProperties().setProperty("properties",CAFFEINE_FULL_PATH);
                 CacheProviderHolder holder = CacheProviderHolder.init(config,null);
@@ -77,8 +75,6 @@ public class LoadConfigPropertiesTest {
                 CacheProviderHolder holder = CacheProviderHolder.init(config,null);
                 System.out.println(holder.getL1Provider().name());
             }
-        }catch (Exception e){
-            System.out.println("l2 cache can't load is normal,so dont print errors:"+e.getMessage());
-        }
+
     }
 }
