@@ -23,8 +23,7 @@ import net.oschina.j2cache.util.PatternMatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Collection;
 import java.util.ArrayList;
 import java.util.Map;
@@ -158,10 +157,7 @@ public class CaffeineProvider implements CacheProvider {
         if (propertiesFile != null && propertiesFile.trim().length() > 0) {
             InputStream stream = null;
             try {
-                stream = getClass().getResourceAsStream(propertiesFile);
-                if (stream == null) {
-                    stream = getClass().getClassLoader().getResourceAsStream(propertiesFile);
-                }
+                stream = this.getConfigStream(propertiesFile);
                 Properties regionsProps = new Properties();
                 regionsProps.load(stream);
                 for (String region : regionsProps.stringPropertyNames()) {
@@ -180,6 +176,26 @@ public class CaffeineProvider implements CacheProvider {
                 }
             }
         }
+    }
+    /**
+     *  get caffeine properties stream
+     *  (issue:https://gitee.com/ld/J2Cache/issues/I5OOTA fix by Mori)
+     * **/
+    private InputStream getConfigStream(String propertiesFile) {
+        File resourcePath =new File(propertiesFile);
+        InputStream configStream = null;
+        try{
+            configStream = new FileInputStream(resourcePath);
+        }catch (FileNotFoundException e){
+            if(configStream == null){
+                configStream = J2Cache.class.getResourceAsStream(propertiesFile);
+            }
+
+            if (configStream == null) {
+                configStream = J2Cache.class.getClassLoader().getParent().getResourceAsStream(propertiesFile);
+            }
+        }
+        return configStream;
     }
 
     private CacheConfig findCacheConfig(String region){
