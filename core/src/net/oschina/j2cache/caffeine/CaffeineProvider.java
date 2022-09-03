@@ -188,11 +188,11 @@ public class CaffeineProvider implements CacheProvider {
             configStream = new FileInputStream(resourcePath);
         }catch (FileNotFoundException e){
             if(configStream == null){
-                configStream = J2Cache.class.getResourceAsStream(propertiesFile);
+                configStream = getClass().getResourceAsStream(propertiesFile);
             }
 
             if (configStream == null) {
-                configStream = J2Cache.class.getClassLoader().getParent().getResourceAsStream(propertiesFile);
+                configStream = getClass().getClassLoader().getParent().getResourceAsStream(propertiesFile);
             }
         }
         return configStream;
