@@ -124,18 +124,31 @@ public class J2CacheConfig {
 
     /**
      * get j2cache properties stream
+     * (issue:https://gitee.com/ld/J2Cache/issues/I5OOTA fix by Mori)
+     *
      *
      * @return config stream
      */
     private static InputStream getConfigStream(String resource) {
-        InputStream configStream = J2Cache.class.getResourceAsStream(resource);
-        if (configStream == null) {
-            configStream = J2Cache.class.getClassLoader().getParent().getResourceAsStream(resource);
-        }
-        if (configStream == null) {
-            throw new CacheException("Cannot find " + resource + " !!!");
+
+        File resourcePath =new File(resource);
+        InputStream configStream = null;
+        try{
+            configStream = new FileInputStream(resourcePath);
+        }catch (FileNotFoundException e){
+            if(configStream == null){
+                configStream = J2Cache.class.getResourceAsStream(resource);
+            }
+
+            if (configStream == null) {
+                configStream = J2Cache.class.getClassLoader().getParent().getResourceAsStream(resource);
+            }
+            if (configStream == null) {
+                throw new CacheException("Cannot find " + resource + " !!!");
+            }
         }
         return configStream;
+
     }
 
     public void dump(PrintStream writer) {
