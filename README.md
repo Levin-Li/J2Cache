@@ -159,6 +159,9 @@ channel.close();
 	</dependency>
 	```
 
+添加一点内容
+
+
 4. **如何使用 ehcache 作为一级缓存**  
 首先修改 `j2cache.properties` 中的 `j2cache.L1.provider_class` 为 ehcache 或者 ehcache3，然后拷贝 ehcache.xml 或者 ehcache3.xml 到类路径，并配置好缓存，需要在项目中引入对 ehcache 的支持：  
 
