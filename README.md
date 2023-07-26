@@ -4,7 +4,6 @@
 <p align="center">
 <h2>J2Cache —— 基于内存和 Redis 的两级 Java 缓存框架</h2>
 </p>
-专用QQ群: `379110351`
 
 JavaDoc [https://apidoc.gitee.com/ld/J2Cache/](https://apidoc.gitee.com/ld/J2Cache/)
 
