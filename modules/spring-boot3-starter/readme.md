@@ -38,7 +38,7 @@ j2cache.L2.config_section = redis (如果要使用lettuce客户端请配置为le
 * jedis 不支持
 * lettuce
 ```
-j2cache.redis-client=jedis
+j2cache.redis-client=lettuce
 ```
 在application.properties中支持关闭二级缓存
 ```
