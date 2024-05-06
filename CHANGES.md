@@ -1,5 +1,10 @@
 # J2Cache 版本更新记录
 
+**j2cache-core 2.8.6 (2024-5-6)**
+
+1. 增加 Fury 序列化器的支持
+2. 升级一些依赖包的版本
+
 **j2cache-core 2.8.2 (2020-4-26)**
 
 1. 修复在使用redis-cluster时redisClient未初始化导致NPE

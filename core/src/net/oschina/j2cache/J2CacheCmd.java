@@ -126,6 +126,7 @@ public class J2CacheCmd {
 			}
 			catch(Exception e) {
 				e.printStackTrace();
+				break;
 			}
 		}while(true);
 

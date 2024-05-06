@@ -43,6 +43,8 @@ public class SerializationUtils {
         else {
             if ("java".equals(ser)) {
                 g_serializer = new JavaSerializer();
+            } else if("fury".equals(ser)){
+                g_serializer = new FurySerializer();
             } else if ("fst".equals(ser)) {
                 g_serializer = new FSTSerializer();
             } else if ("kryo".equals(ser)) {
