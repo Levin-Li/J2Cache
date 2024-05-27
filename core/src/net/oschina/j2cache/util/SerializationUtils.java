@@ -41,30 +41,30 @@ public class SerializationUtils {
         if (ser == null || "".equals(ser.trim()))
             g_serializer = new JavaSerializer();
         else {
-            if ("java".equals(ser)) {
-                g_serializer = new JavaSerializer();
-            } else if("fury".equals(ser)){
-                g_serializer = new FurySerializer();
-            } else if ("fst".equals(ser)) {
-                g_serializer = new FSTSerializer();
-            } else if ("kryo".equals(ser)) {
-                g_serializer = new KryoSerializer();
-            } else if ("kryo-pool".equals(ser)){
-                g_serializer = new KryoPoolSerializer();
-            } else if("fst-snappy".equals(ser)){
-                g_serializer=new FstSnappySerializer();
-            } else if ("json".equals(ser)) {
-                g_serializer = new FstJSONSerializer(props);
-            } else if ("fastjson".equals(ser)) {
-                g_serializer = new FastjsonSerializer();
-            } else if ("fse".equals(ser)) {
-                g_serializer = new FseSerializer();
-            } else {
-                try {
+            try {
+                if ("java".equals(ser)) {
+                    g_serializer = new JavaSerializer();
+                } else if("fury".equals(ser)){
+                    g_serializer = Class.forName("net.oschina.j2cache.util.FurySerializer").asSubclass(Serializer.class).newInstance();
+                } else if ("fst".equals(ser)) {
+                    g_serializer = Class.forName("net.oschina.j2cache.util.FstSerializer").asSubclass(Serializer.class).newInstance();
+                } else if ("kryo".equals(ser)) {
+                    g_serializer = Class.forName("net.oschina.j2cache.util.KryoSerializer").asSubclass(Serializer.class).newInstance();
+                } else if ("kryo-pool".equals(ser)){
+                    g_serializer = Class.forName("net.oschina.j2cache.util.KryoPoolSerializer").asSubclass(Serializer.class).newInstance();
+                } else if("fst-snappy".equals(ser)){
+                    g_serializer = Class.forName("net.oschina.j2cache.util.FstSnappySerializer").asSubclass(Serializer.class).newInstance();
+                } else if ("json".equals(ser)) {
+                    g_serializer = Class.forName("net.oschina.j2cache.util.FstJSONSerializer").asSubclass(Serializer.class).getConstructor(Properties.class).newInstance(props);
+                } else if ("fastjson".equals(ser)) {
+                    g_serializer = Class.forName("net.oschina.j2cache.util.FastjsonSerializer").asSubclass(Serializer.class).newInstance();
+                } else if ("fse".equals(ser)) {
+                    g_serializer = Class.forName("net.oschina.j2cache.util.FseSerializer").asSubclass(Serializer.class).newInstance();
+                } else {
                     g_serializer = (Serializer) Class.forName(ser).newInstance();
-                } catch (Exception e) {
-                    throw new CacheException("Cannot initialize Serializer named [" + ser + ']', e);
                 }
+            } catch (Exception e) {
+                throw new CacheException("Cannot initialize Serializer named [" + ser + ']', e);
             }
         }
         log.info("Using Serializer -> [{}:{}]", g_serializer.name(), g_serializer.getClass().getName());
