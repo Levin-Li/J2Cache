@@ -3,27 +3,27 @@ branches: {
   }
 fileChange:
   /core:
-    newFile: !uuid 'd57f392597a04d8504b50f9dc5285927af216975'
-    oldFile: !uuid '589ce2578d6936d586550d436bd8138981167b59'
+    newFile: !uuid '1087c0f76533d097fe1de2497570d1ce648e9abb'
+    oldFile: !uuid 'd57f392597a04d8504b50f9dc5285927af216975'
   /core/src:
-    newFile: !uuid '45d194f02e7ff21dcf00b6a0ef98d2231ecb65fe'
-    oldFile: !uuid '29f22627bbf21d5fcdc2f7070d590aad24307f07'
+    newFile: !uuid '06563f3cbce0e3b2d32d7b14ba1e9cb0e7712235'
+    oldFile: !uuid '45d194f02e7ff21dcf00b6a0ef98d2231ecb65fe'
   /core/src/net:
-    newFile: !uuid '219b7c0242c09e6a6e147ddc8b2b044f34545e67'
-    oldFile: !uuid '705ab29d8ffb08caa6d1c9558db5b4bfd53c433e'
+    newFile: !uuid '0ad6dd6ca319c182afb79c506524b1474f5af3d4'
+    oldFile: !uuid '219b7c0242c09e6a6e147ddc8b2b044f34545e67'
   /core/src/net/oschina:
-    newFile: !uuid '80fa77b6f46359b4b2c9d7c3e32d0cf22fb05527'
-    oldFile: !uuid 'd1dbf2000cd38bb61f602cb5b4f0b20cbcfcd93c'
+    newFile: !uuid '15bb63882de9ca46c2534c506aafff161e8ff131'
+    oldFile: !uuid '80fa77b6f46359b4b2c9d7c3e32d0cf22fb05527'
   /core/src/net/oschina/j2cache:
-    newFile: !uuid '72cea6526517c7a8de664c59708a2d7f8153f338'
-    oldFile: !uuid '79cb8bd60c41867b0a0264c0c9e8dcf136aee131'
-  /core/src/net/oschina/j2cache/util:
-    newFile: !uuid 'e673885ee0927b8299938ef36773ed35e11e1bfa'
-    oldFile: !uuid '1e1efcd9d9e78e2549eb5dde1e5f15b509a1f872'
-  /core/src/net/oschina/j2cache/util/SerializationUtils.java:
-    newFile: !uuid 'b8d19a2d03d52dc9c696b0af8195ba1fc2079086'
-    oldFile: !uuid 'f377e423d587b83a0e8a20f90d1bde04c8a237d6'
-gitCommitId: !uuid '5cc7e52867ee5785fe1d7c414a7a493c6cfbf9bb'
+    newFile: !uuid 'd9489976d47f00d9db486a2690d1f87ef8228865'
+    oldFile: !uuid '72cea6526517c7a8de664c59708a2d7f8153f338'
+  /core/src/net/oschina/j2cache/cluster:
+    newFile: !uuid '2344466bba0fbca890f10d395a34a8bc838b1f53'
+    oldFile: !uuid 'e75db4eea21d60cd00cdcdcb444df8c946e8f7a2'
+  /core/src/net/oschina/j2cache/cluster/RocketMQClusterPolicy.java:
+    newFile: !uuid '677b15334c8278b2336d61f7f5702a2bb5d49810'
+    oldFile: !uuid 'ab696b2bef8170652692fc20ff936f5ee86416df'
+gitCommitId: !uuid '69e83c96b2d8e6bfa8d5cdc1e04f48f9425cf257'
 renames: {
   }
-revisionId: 635
+revisionId: 636
