@@ -39,7 +39,9 @@ public class KryoSerializer implements Serializer {
 	public byte[] serialize(Object obj) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		try (Output output = new Output(baos);){
-			new Kryo().writeClassAndObject(output, obj);
+		    Kryo kryo = new Kryo();
+            kryo.setRegistrationRequired(false);
+            kryo.writeClassAndObject(output, obj);
 			output.flush();
 			return baos.toByteArray();
 		}
@@ -50,7 +52,9 @@ public class KryoSerializer implements Serializer {
 		if(bits == null || bits.length == 0)
 			return null;
 		try (Input ois = new Input(new ByteArrayInputStream(bits))){
-			return new Kryo().readClassAndObject(ois);
+		    Kryo kryo = new Kryo();
+            kryo.setRegistrationRequired(false);
+		    return kryo.readClassAndObject(ois);
 		}
 	}
 	
