@@ -190,7 +190,9 @@ public class CaffeineProvider implements CacheProvider {
             if(configStream == null){
                 configStream = getClass().getResourceAsStream(propertiesFile);
             }
-
+            if (configStream == null) {
+                configStream = getClass().getClassLoader().getResourceAsStream(propertiesFile);
+            }
             if (configStream == null) {
                 configStream = getClass().getClassLoader().getParent().getResourceAsStream(propertiesFile);
             }

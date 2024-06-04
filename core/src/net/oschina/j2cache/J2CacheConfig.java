@@ -139,7 +139,9 @@ public class J2CacheConfig {
             if(configStream == null){
                 configStream = J2Cache.class.getResourceAsStream(resource);
             }
-
+            if (configStream == null) {
+                configStream = J2Cache.class.getClassLoader().getResourceAsStream(resource);
+            }
             if (configStream == null) {
                 configStream = J2Cache.class.getClassLoader().getParent().getResourceAsStream(resource);
             }
