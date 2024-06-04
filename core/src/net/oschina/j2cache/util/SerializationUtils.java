@@ -47,7 +47,7 @@ public class SerializationUtils {
                 } else if("fury".equals(ser)){
                     g_serializer = Class.forName("net.oschina.j2cache.util.FurySerializer").asSubclass(Serializer.class).newInstance();
                 } else if ("fst".equals(ser)) {
-                    g_serializer = Class.forName("net.oschina.j2cache.util.FstSerializer").asSubclass(Serializer.class).newInstance();
+                    g_serializer = Class.forName("net.oschina.j2cache.util.FSTSerializer").asSubclass(Serializer.class).newInstance();
                 } else if ("kryo".equals(ser)) {
                     g_serializer = Class.forName("net.oschina.j2cache.util.KryoSerializer").asSubclass(Serializer.class).newInstance();
                 } else if ("kryo-pool".equals(ser)){
