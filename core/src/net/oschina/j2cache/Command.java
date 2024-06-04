@@ -17,12 +17,10 @@ package net.oschina.j2cache;
 
 import java.security.SecureRandom;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * 命令消息封装
@@ -37,8 +35,6 @@ public class Command {
 	public final static byte OPT_EVICT_KEY = 0x02; 	//删除缓存
 	public final static byte OPT_CLEAR_KEY = 0x03; 	//清除缓存
 	public final static byte OPT_QUIT 	   = 0x04;	//退出集群
-	
-	private final static ObjectMapper MAPPER = new ObjectMapper();
 	
 	private int src;
 	private int operator;
@@ -68,22 +64,15 @@ public class Command {
 	}
 
 	public String json() {
-		try {
-            return MAPPER.writeValueAsString(this);
-        } catch (JsonProcessingException e) {
-            log.warn("Failed to processing j2cache command: {}", this, e);
-        }
-		return "{}";
+		return JSON.toJSONString(this);
 	}
 
 	public static Command parse(String json) {
 		try {
-			return MAPPER.readValue(json, Command.class);
-		} catch (JsonMappingException e) {
-		    log.warn("Failed to mapping j2cache command: {}", json, e);
-        } catch (JsonProcessingException e) {
-            log.warn("Failed to processing j2cache command: {}", json, e);
-        }
+			return JSON.parseObject(json, Command.class);
+		} catch (JSONException e) {
+			log.warn("Failed to parse j2cache command: {}", json, e);
+		}
 		return null;
 	}
 
