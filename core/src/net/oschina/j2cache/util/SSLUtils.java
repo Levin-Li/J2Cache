@@ -15,11 +15,15 @@
  */
 package net.oschina.j2cache.util;
 
+import net.oschina.j2cache.CacheException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.net.ssl.*;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.security.KeyStore;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
@@ -39,8 +43,8 @@ public class SSLUtils {
     public static SSLSocketFactory createTrustStoreSslSocketFactory(String keyStore, String keystoreFile, String keystorePassword) {
         try {
             KeyStore clientStore = KeyStore.getInstance(keyStore); //密钥库文件格式：JKS、JCEKS、PKCS12、BKS、UBER
-            clientStore.load(new FileInputStream(keystoreFile), keystorePassword.toCharArray());
-
+            InputStream inputStream = getKeystoreFileStream(keystoreFile);
+            clientStore.load(inputStream, keystorePassword.toCharArray());
             SSLContext sslContext = SSLContext.getInstance("TLS");
             KeyManagerFactory factory = KeyManagerFactory.getInstance("SunX509");
             factory.init(clientStore, keystorePassword.toCharArray());
@@ -80,5 +84,32 @@ public class SSLUtils {
         public X509Certificate[] getAcceptedIssuers() {
             return null;
         }
+    }
+
+    /**
+     * 增加获取keystoreFile证书路径支持：本地磁盘路径或resources路径
+     */
+    private static InputStream getKeystoreFileStream(String keystoreFile) {
+
+        File resourcePath = new File(keystoreFile);
+        InputStream keystoreFileStream = null;
+        try {
+            keystoreFileStream = new FileInputStream(resourcePath);
+        } catch (FileNotFoundException e) {
+            if (keystoreFileStream == null) {
+                keystoreFileStream = SSLUtils.class.getResourceAsStream(keystoreFile);
+            }
+            if (keystoreFileStream == null) {
+                keystoreFileStream = SSLUtils.class.getClassLoader().getResourceAsStream(keystoreFile);
+            }
+            if (keystoreFileStream == null) {
+                keystoreFileStream = SSLUtils.class.getClassLoader().getParent().getResourceAsStream(keystoreFile);
+            }
+            if (keystoreFileStream == null) {
+                throw new CacheException("Cannot find " + keystoreFile + " !!!");
+            }
+        }
+        return keystoreFileStream;
+
     }
 }
