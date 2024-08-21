@@ -18,12 +18,15 @@ package net.oschina.j2cache.redis;
 import net.oschina.j2cache.CacheProviderHolder;
 import net.oschina.j2cache.Command;
 import net.oschina.j2cache.cluster.ClusterPolicy;
+import net.oschina.j2cache.util.SSLUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.*;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import redis.clients.util.Pool;
 
+import javax.net.ssl.SSLParameters;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -59,6 +62,9 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
 
         int database = Integer.parseInt(props.getProperty("database", "0"));
         boolean ssl = Boolean.valueOf(props.getProperty("ssl", "false"));
+        String keystoreType = props.getProperty("ssl.keystore.type", "JKS");
+        String keystoreFile = props.getProperty("ssl.keystore.file", "");
+        String keystorePassword = props.getProperty("ssl.keystore.password", "");
 
         JedisPoolConfig config = RedisUtils.newPoolConfig(props, null);
 
@@ -87,7 +93,15 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
             String[] infos = node.split(":");
             String host = infos[0];
             int port = (infos.length > 1)?Integer.parseInt(infos[1]):6379;
-            this.client = new JedisPool(config, host, port, timeout, password, database, ssl);
+            if (ssl && StringUtils.isNotBlank(keystoreType) && StringUtils.isNotBlank(keystoreFile)) {
+                // 开启ssl通过自定义SSLSocketFactory连接redis
+                this.client = new JedisPool(config, host, port, timeout, password, database, ssl,
+                        SSLUtils.createTrustStoreSslSocketFactory(keystoreType, keystoreFile, keystorePassword),
+                        new SSLParameters(), new SSLUtils.UnverifiedHostnameVerifier());
+            } else {
+                this.client = new JedisPool(config, host, port, timeout, password, database, ssl);
+
+            }
         }
     }
 
