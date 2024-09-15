@@ -13,15 +13,14 @@ import java.util.Map;
  */
 public class FurySerializer implements Serializer {
 
-    private final ThreadSafeFury fury;
-
-    public FurySerializer(){
-        this.fury = Fury.builder().withLanguage(Language.JAVA)
+    private final static ThreadSafeFury fury = Fury.builder().withLanguage(Language.JAVA)
                 // Allow to deserialize objects unknown types, more flexible
                 // but may be insecure if the classes contains malicious code.
                 .withRefTracking(true)
                 .requireClassRegistration(false)
                 .buildThreadSafeFury();
+
+    public FurySerializer(){
     }
 
     @Override
