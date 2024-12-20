@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import net.oschina.j2cache.util.HostAndPort;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -79,10 +80,12 @@ public class J2CacheSpringRedisAutoConfiguration {
 		List<RedisNode> nodes = new ArrayList<>();
 		if (hosts != null && !"".equals(hosts)) {
 			for (String node : hosts.split(",")) {
-				String[] s = node.split(":");
-				String host = s[0];
-				int port = (s.length > 1) ? Integer.parseInt(s[1]) : 6379;
-				RedisNode n = new RedisNode(host, port);
+//				String[] s = node.split(":");
+//				String host = s[0];
+//				int port = (s.length > 1) ? Integer.parseInt(s[1]) : 6379;
+//				RedisNode n = new RedisNode(host, port);
+                HostAndPort hostAndPort = HostAndPort.fromString(node);
+                RedisNode n = new RedisNode(hostAndPort.getHost(), hostAndPort.getPort());
 				nodes.add(n);
 			}
 		} else {
@@ -162,11 +165,13 @@ public class J2CacheSpringRedisAutoConfiguration {
 		List<RedisNode> nodes = new ArrayList<>();
 		if (hosts != null && !"".equals(hosts)) {
 			for (String node : hosts.split(",")) {
-				String[] s = node.split(":");
-				String host = s[0];
-				int port = (s.length > 1) ? Integer.parseInt(s[1]) : 6379;
-				RedisNode n = new RedisNode(host, port);
-				nodes.add(n);
+//				String[] s = node.split(":");
+//				String host = s[0];
+//				int port = (s.length > 1) ? Integer.parseInt(s[1]) : 6379;
+//				RedisNode n = new RedisNode(host, port);
+                HostAndPort hostAndPort = HostAndPort.fromString(node);
+                RedisNode n = new RedisNode(hostAndPort.getHost(), hostAndPort.getPort());
+                nodes.add(n);
 			}
 		} else {
 			log.error("j2cache中的redis配置缺少hosts！！");
