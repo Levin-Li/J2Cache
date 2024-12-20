@@ -34,7 +34,7 @@ J2Cache 的两级缓存结构
 L1： 进程内缓存(caffeine\ehcache)   
 L2： Redis/Memcached 集中式缓存
 
-		 
+
 ## 数据读取
 
 1. 读取顺序  -> L1 -> L2 -> DB
@@ -70,7 +70,7 @@ J2Cache 运行时所需 jar 包请查看 core/pom.xml
 ## 示例代码
 
 详细的使用方法请看 [J2CacheCmd.java](https://gitee.com/ld/J2Cache/blob/master/core/src/net/oschina/j2cache/J2CacheCmd.java)
- 
+
 与spring cache 集成  [SpringCache 集成 J2Cache 配置案例](./modules/springcache/j2cache-springcache.md)
 ## 使用方法
 
@@ -93,7 +93,7 @@ J2Cache 默认使用 [Caffeine](https://www.oschina.net/p/ben-manes-caffeine) �
 中央仓库地址：[>>飞机](https://mvnrepository.com/artifact/net.oschina.j2cache/j2cache-core)
 
 **二. 准备配置**
- 
+
 拷贝 `j2cache.properties` 和 `caffeine.properties` 到你项目的源码目录，并确保这些文件会被编译到项目的 classpath 中。如果你选择了 ehcache 作为一级缓存，需要拷贝 `ehcache.xml` 或者 `ehcache3.xml` 到源码目录（后者对应的是 Ehcache 3.x 版本），这些配置文件的模板可以从 [https://gitee.com/ld/J2Cache/tree/master/core/resources](https://gitee.com/ld/J2Cache/tree/master/core/resources) 这里获取。
 
 使用你喜欢的文本编辑器打开 `j2cache.properties` 并找到 `redis.hosts` 项，将其信息改成你的 Redis 服务器所在的地址和端口。
@@ -254,3 +254,4 @@ channel.close();
 1. 应用重启，从 Redis 获取数据后，一级缓存的有效期大于预设值
 2. 多节点强一致性？
 3. 欢迎大家给 J2Cache 提建议
+

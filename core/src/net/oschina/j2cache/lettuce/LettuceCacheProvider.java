@@ -29,6 +29,7 @@ import io.lettuce.core.pubsub.api.sync.RedisPubSubCommands;
 import io.lettuce.core.support.ConnectionPoolSupport;
 import net.oschina.j2cache.*;
 import net.oschina.j2cache.cluster.ClusterPolicy;
+import net.oschina.j2cache.util.HostAndPort;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
@@ -105,8 +106,10 @@ public class LettuceCacheProvider extends RedisPubSubAdapter<String, String> imp
             List<RedisURI> redisURIs = new ArrayList<>();
             String[] hostArray = hosts.split(",");
             for(String host : hostArray) {
-            	String[] redisArray = host.split(":");
-            	RedisURI uri = RedisURI.create(redisArray[0], Integer.valueOf(redisArray[1]));
+//            	String[] redisArray = host.split(":");
+//            	RedisURI uri = RedisURI.create(redisArray[0], Integer.valueOf(redisArray[1]));
+                HostAndPort hostAndPort = HostAndPort.fromString(host);
+                RedisURI uri = RedisURI.create(hostAndPort.getHost(),hostAndPort.getPort());
             	uri.setDatabase(database);
             	uri.setPassword(password);
             	uri.setSentinelMasterId(sentinelMasterId);
@@ -129,17 +132,18 @@ public class LettuceCacheProvider extends RedisPubSubAdapter<String, String> imp
             RedisURI.Builder builder = null;
             boolean isFirst = true;
             for(String host : hostArray) {
-            	String[] redisArray = host.split(":");
+//            	String[] redisArray = host.split(":");
+                HostAndPort hostAndPort = HostAndPort.fromString(host);
             	if(isFirst) {
             		builder = RedisURI.Builder.sentinel(
-            				redisArray[0], 
-            				Integer.valueOf(redisArray[1]), 
+                            hostAndPort.getHost(),
+            				hostAndPort.getPort(),
             				sentinelMasterId, 
             				sentinelPassword);
             		isFirst = false;
             	}
             	else {
-            		builder.withSentinel(redisArray[0], Integer.valueOf(redisArray[1]));
+            		builder.withSentinel(hostAndPort.getHost(), hostAndPort.getPort());
             	}
             }
             builder.withDatabase(database).withPassword(password);
@@ -148,8 +152,9 @@ public class LettuceCacheProvider extends RedisPubSubAdapter<String, String> imp
             redisClient = RedisClient.create(uri);
         }
         else {
-        	String[] redisArray = hosts.split(":");
-        	RedisURI uri = RedisURI.create(redisArray[0], Integer.valueOf(redisArray[1]));
+//        	String[] redisArray = hosts.split(":");
+            HostAndPort hostAndPort = HostAndPort.fromString(hosts);
+        	RedisURI uri = RedisURI.create(hostAndPort.getHost(), hostAndPort.getPort());
         	uri.setDatabase(database);
         	uri.setPassword(password);
         	redisClient = RedisClient.create(uri);
