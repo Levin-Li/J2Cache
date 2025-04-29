@@ -132,9 +132,10 @@ public class RedisClient implements Closeable, AutoCloseable {
             case "cluster":
                 Set<HostAndPort> hps = new HashSet<>();
                 for(String node : hosts.split(",")){
-                    String[] infos = node.split(":");
-                    String host = infos[0];
-                    int port = (infos.length > 1)?Integer.parseInt(infos[1]):6379;
+//                    String[] infos = node.split(":");
+                    net.oschina.j2cache.util.HostAndPort hostAndPort = net.oschina.j2cache.util.HostAndPort.fromString(node);
+                    String host = hostAndPort.getHost();
+                    int port = hostAndPort.getPort();//(infos.length > 1)?Integer.parseInt(infos[1]):6379;
                     hps.add(new HostAndPort(host, port));
                 }
                 this.cluster = new JedisCluster(hps, CONNECT_TIMEOUT, SO_TIMEOUT, MAX_ATTEMPTS, password, poolConfig);
@@ -151,9 +152,10 @@ public class RedisClient implements Closeable, AutoCloseable {
                 break;
             default:
                 for(String node : hosts.split(",")) {
-                    String[] infos = node.split(":");
-                    String host = infos[0];
-                    int port = (infos.length > 1)?Integer.parseInt(infos[1]):6379;
+//                    String[] infos = node.split(":");
+                    net.oschina.j2cache.util.HostAndPort hostAndPort = net.oschina.j2cache.util.HostAndPort.fromString(node);
+                    String host = hostAndPort.getHost();
+                    int port = hostAndPort.getPort();//(infos.length > 1)?Integer.parseInt(infos[1]):6379;
                     this.single = new JedisPool(poolConfig, host, port, CONNECT_TIMEOUT, password, database, ssl);
                     break;
                 }

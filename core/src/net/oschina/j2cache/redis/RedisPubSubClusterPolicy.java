@@ -82,17 +82,19 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
             String[] nodeArray = node.split(",");
             Set<HostAndPort> nodeSet = new HashSet<HostAndPort>(nodeArray.length);
             for (String nodeItem : nodeArray) {
-                String[] arr = nodeItem.split(":");
-                nodeSet.add(new HostAndPort(arr[0], Integer.valueOf(arr[1])));
+//                String[] arr = nodeItem.split(":");
+                net.oschina.j2cache.util.HostAndPort hostAndPort = net.oschina.j2cache.util.HostAndPort.fromString(nodeItem);
+                nodeSet.add(new HostAndPort(hostAndPort.getHost(), hostAndPort.getPort()));
             }
             JedisPoolConfig poolConfig = RedisUtils.newPoolConfig(props, null);
             this.cluster = new JedisCluster(nodeSet, CONNECT_TIMEOUT, SO_TIMEOUT, MAX_ATTEMPTS, password, poolConfig);
             this.clusterMode = true;
         } else {
             node = node.split(",")[0]; //取第一台主机
-            String[] infos = node.split(":");
-            String host = infos[0];
-            int port = (infos.length > 1)?Integer.parseInt(infos[1]):6379;
+//            String[] infos = node.split(":");
+            net.oschina.j2cache.util.HostAndPort hostAndPort = net.oschina.j2cache.util.HostAndPort.fromString(node);
+            String host = hostAndPort.getHost();
+            int port = hostAndPort.getPort();//(infos.length > 1)?Integer.parseInt(infos[1]):6379;
             if (ssl && StringUtils.isNotBlank(keystoreType) && StringUtils.isNotBlank(keystoreFile)) {
                 // 开启ssl通过自定义SSLSocketFactory连接redis
                 this.client = new JedisPool(config, host, port, timeout, password, database, ssl,

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import net.oschina.j2cache.util.HostAndPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -64,10 +65,11 @@ public class J2CacheSpringRedisAutoConfiguration {
 		List<RedisNode> nodes = new ArrayList<>();
 		if (hosts != null && !"".equals(hosts)) {
 			for (String node : hosts.split(",")) {
-				String[] s = node.split(":");
-				String host = s[0];
-				int port = (s.length > 1) ? Integer.parseInt(s[1]) : 6379;
-				RedisNode n = new RedisNode(host, port);
+//				String[] s = node.split(":");
+//				String host = s[0];
+//				int port = (s.length > 1) ? Integer.parseInt(s[1]) : 6379;
+				HostAndPort hostAndPort = HostAndPort.fromString(node);
+				RedisNode n = new RedisNode(hostAndPort.getHost(), hostAndPort.getPort());
 				nodes.add(n);
 			}
 		} else {
