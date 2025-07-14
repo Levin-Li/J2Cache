@@ -76,10 +76,9 @@ public class EhCacheProvider implements CacheProvider {
     	return caches.computeIfAbsent(regionName, v -> {
 			net.sf.ehcache.Cache cache = manager.getCache(regionName);
 			if (cache == null) {
-				log.warn("Could not find configuration [" + regionName + "]; using defaults.");
 				manager.addCache(regionName);
 				cache = manager.getCache(regionName);
-				log.info("started Ehcache region: " + regionName);
+				log.warn("Could not find configuration [{}]; using defaults (TTL:{} seconds).", regionName, cache.getCacheConfiguration().getTimeToLiveSeconds());
 			}
 			return new EhCache(cache, listener);
 		});
@@ -99,7 +98,7 @@ public class EhCacheProvider implements CacheProvider {
 			net.sf.ehcache.Cache cache = new net.sf.ehcache.Cache(cfg);
 			manager.addCache(cache);
 
-			log.info(String.format("Started Ehcache region [%s] with TTL: %d", region, timeToLiveInSeconds));
+			log.info("Started Ehcache region [{}] with TTL: {}", region, timeToLiveInSeconds);
 
 			return new EhCache(cache, listener);
 		});
@@ -134,7 +133,7 @@ public class EhCacheProvider implements CacheProvider {
 		if (manager == null) {
 			// 指定了配置文件路径? 加载之
 			if (props.containsKey(KEY_EHCACHE_CONFIG_XML)) {
-				URL url = getClass().getResource(props.getProperty(KEY_EHCACHE_CONFIG_XML));
+				URL url = getClass().getClassLoader().getResource(props.getProperty(KEY_EHCACHE_CONFIG_XML));
 				manager = CacheManager.newInstance(url);
 			} else {
 				// 加载默认实例

@@ -15,6 +15,7 @@
  */
 package net.oschina.j2cache.redis;
 
+import net.oschina.j2cache.CacheProviderHolder;
 import net.oschina.j2cache.cluster.ClusterPolicy;
 import net.oschina.j2cache.Command;
 import org.slf4j.Logger;
@@ -37,8 +38,11 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
 
     private final static Logger log = LoggerFactory.getLogger(RedisPubSubClusterPolicy.class);
 
+    private int LOCAL_COMMAND_ID = Command.genRandomSrc(); //命令源标识，随机生成，每个节点都有唯一标识
+
     private Pool<Jedis> client;
     private String channel;
+    private CacheProviderHolder holder;
 
     public RedisPubSubClusterPolicy(String channel, Properties props){
         this.channel = channel;
@@ -70,24 +74,50 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
         }
     }
 
+    @Override
+    public boolean isLocalCommand(Command cmd) {
+        return cmd.getSrc() == LOCAL_COMMAND_ID;
+    }
+
+    /**
+     * 删除本地某个缓存条目
+     * @param region 区域名称
+     * @param keys   缓存键值
+     */
+    @Override
+    public void evict(String region, String... keys) {
+        holder.getLevel1Cache(region).evict(keys);
+    }
+
+    /**
+     * 清除本地整个缓存区域
+     * @param region 区域名称
+     */
+    @Override
+    public void clear(String region) {
+        holder.getLevel1Cache(region).clear();
+    }
+
     /**
      * 加入 Redis 的发布订阅频道
      */
     @Override
-    public void connect(Properties props) {
+    public void connect(Properties props, CacheProviderHolder holder) {
         long ct = System.currentTimeMillis();
+        this.holder = holder;
 
         this.publish(Command.join());
 
         Thread subscribeThread = new Thread(()-> {
             //当 Redis 重启会导致订阅线程断开连接，需要进行重连
-            while(true) {
+            while(!client.isClosed()) {
                 try (Jedis jedis = client.getResource()){
                     jedis.subscribe(this, channel);
-                    log.info("Disconnect to redis channel: " + channel);
+                    log.info("Disconnect to redis channel: {}", channel);
                     break;
                 } catch (JedisConnectionException e) {
                     log.error("Failed connect to redis, reconnect it.", e);
+                    if(!client.isClosed())
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException ie){
@@ -100,7 +130,7 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
         subscribeThread.setDaemon(true);
         subscribeThread.start();
 
-        log.info("Connected to redis channel:" + channel + ", time " + (System.currentTimeMillis()-ct) + " ms.");
+        log.info("Connected to redis channel:{}, time {} ms.", channel, (System.currentTimeMillis()-ct));
     }
 
     /**
@@ -120,6 +150,7 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
 
     @Override
     public void publish(Command cmd) {
+    	cmd.setSrc(LOCAL_COMMAND_ID);
         try (Jedis jedis = client.getResource()) {
             jedis.publish(channel, cmd.json());
         }

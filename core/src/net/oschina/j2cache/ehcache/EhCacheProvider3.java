@@ -78,7 +78,9 @@ public class EhCacheProvider3 implements CacheProvider {
                 CacheConfiguration defaultCacheConfig = manager.getRuntimeConfiguration().getCacheConfigurations().get(DEFAULT_TPL);
                 CacheConfiguration<String, Serializable> cacheCfg = CacheConfigurationBuilder.newCacheConfigurationBuilder(defaultCacheConfig).build();
                 cache = manager.createCache(region, cacheCfg);
-                log.info("Could not find configuration [" + region + "]; using defaults.");
+                Duration dura = cache.getRuntimeConfiguration().getExpiry().getExpiryForCreation(null, null);
+                long ttl = dura.isInfinite()?-1:dura.getTimeUnit().toSeconds(dura.getLength());
+                log.warn("Could not find configuration [{}]; using defaults (TTL:{} seconds).", region, ttl);
             }
             return new EhCache3(region, cache, listener);
         });
@@ -92,7 +94,7 @@ public class EhCacheProvider3 implements CacheProvider {
                     .withExpiry(Expirations.timeToLiveExpiration(Duration.of(timeToLiveInSeconds, TimeUnit.SECONDS)))
                     .build();
             org.ehcache.Cache cache = manager.createCache(region, conf);
-            log.info(String.format("Started Ehcache region [%s] with TTL: %d", region, timeToLiveInSeconds));
+            log.info("Started Ehcache region [{}] with TTL: {}", region, timeToLiveInSeconds);
             return new EhCache3(region, cache, listener);
         });
 
@@ -114,12 +116,12 @@ public class EhCacheProvider3 implements CacheProvider {
         try {
             this.defaultHeapSize = Long.parseLong(sDefaultHeapSize);
         }catch(Exception e) {
-            log.warn(String.format("Failed to read ehcache3.defaultHeapSize = %s , use default %d", sDefaultHeapSize, defaultHeapSize));
+            log.warn("Failed to read ehcache3.defaultHeapSize = {} , use default {}", sDefaultHeapSize, defaultHeapSize);
         }
         String configXml = props.getProperty("configXml");
         if(configXml == null || configXml.trim().length() == 0)
             configXml = "/ehcache3.xml";
-        URL myUrl = getClass().getResource(configXml);
+        URL myUrl = getClass().getClassLoader().getResource(configXml);
         Configuration xmlConfig = new XmlConfiguration(myUrl);
         manager = CacheManagerBuilder.newCacheManager(xmlConfig);
         manager.init();
