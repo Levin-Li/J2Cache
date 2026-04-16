@@ -4,12 +4,20 @@
 
     <groupId>net.oschina.j2cache</groupId>
     <artifactId>j2cache</artifactId>
-    <version>4.0.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <name>j2cache</name>
     <description>J2Cache is a 2 level Cache system, Using ehcache + redis</description>
     <url>https://gitee.com/ld/J2Cache</url>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>17</maven.compiler.release>
+        <revision>4.0.0-SNAPSHOT</revision>
+        <gpg.skip>true</gpg.skip>
+    </properties>
 
     <licenses>
         <license>
@@ -18,29 +26,20 @@
         </license>
     </licenses>
 
-    <scm>
-        <connection>scm:git:git@gitee.com:ld/J2Cache.git</connection>
-        <developerConnection>scm:git:git@gitee.com:ld/J2Cache.git</developerConnection>
-        <url>git@gitee.com:ld/J2Cache.git</url>
-    </scm>
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>snapshot</id>
-            <name>J2Cache SnapShot</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
+        <!--具体变量来自 Setting 文件-->
         <repository>
-            <id>release</id>
-            <name>J2Cache Release</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>${dist-repo}</id>
+            <url>${dist-repo.releases.url}</url>
         </repository>
-    </distributionManagement>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>17</maven.compiler.release>
-    </properties>
+        <snapshotRepository>
+            <id>${dist-repo}</id>
+            <url>${dist-repo.snapshots.url}</url>
+        </snapshotRepository>
+
+    </distributionManagement>
 
     <build>
         <sourceDirectory>src</sourceDirectory>
@@ -87,7 +86,7 @@
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>1.5</version>
                 <configuration>
-                    <skip>false</skip>
+                    <skip>${gpg.skip}</skip>
                 </configuration>
                 <executions>
                     <execution>
