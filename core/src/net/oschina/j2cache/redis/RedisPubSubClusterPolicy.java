@@ -24,7 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.*;
 import redis.clients.jedis.exceptions.JedisConnectionException;
-import redis.clients.util.Pool;
+import redis.clients.jedis.util.Pool;
 
 import javax.net.ssl.SSLParameters;
 import java.io.IOException;
@@ -87,7 +87,12 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
                 nodeSet.add(new HostAndPort(hostAndPort.getHost(), hostAndPort.getPort()));
             }
             JedisPoolConfig poolConfig = RedisUtils.newPoolConfig(props, null);
-            this.cluster = new JedisCluster(nodeSet, CONNECT_TIMEOUT, SO_TIMEOUT, MAX_ATTEMPTS, password, poolConfig);
+            DefaultJedisClientConfig clientConfig = DefaultJedisClientConfig.builder()
+                .password(password)
+                .connectionTimeoutMillis(CONNECT_TIMEOUT)
+                .socketTimeoutMillis(SO_TIMEOUT)
+                .build();
+            this.cluster = new JedisCluster(nodeSet, clientConfig, MAX_ATTEMPTS, (org.apache.commons.pool2.impl.GenericObjectPoolConfig) poolConfig);
             this.clusterMode = true;
         } else {
             node = node.split(",")[0]; //取第一台主机
@@ -96,13 +101,11 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
             String host = hostAndPort.getHost();
             int port = hostAndPort.getPort();//(infos.length > 1)?Integer.parseInt(infos[1]):6379;
             if (ssl && StringUtils.isNotBlank(keystoreType) && StringUtils.isNotBlank(keystoreFile)) {
-                // 开启ssl通过自定义SSLSocketFactory连接redis
                 this.client = new JedisPool(config, host, port, timeout, password, database, ssl,
                         SSLUtils.createTrustStoreSslSocketFactory(keystoreType, keystoreFile, keystorePassword),
                         new SSLParameters(), new SSLUtils.UnverifiedHostnameVerifier());
             } else {
-                this.client = new JedisPool(config, host, port, timeout, password, database, ssl);
-
+                this.client = new JedisPool(config, host, port, timeout, password, database);
             }
         }
     }
@@ -225,13 +228,6 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
         handleCommand(cmd);
     }
 
-    @Override
-    public void unsubscribe() {
-        if (!this.clusterMode) {
-            super.unsubscribe();
-        }
-    }
-
     private void close() {
         try {
             if (this.client != null) {
@@ -245,7 +241,7 @@ public class RedisPubSubClusterPolicy extends JedisPubSub implements ClusterPoli
                 this.cluster.close();
             }
             this.cluster = null;
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

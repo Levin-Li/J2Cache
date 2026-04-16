@@ -17,24 +17,19 @@ package net.oschina.j2cache.redis;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.oschina.j2cache.CacheException;
 import net.oschina.j2cache.Level2Cache;
-import redis.clients.jedis.BinaryJedis;
-import redis.clients.jedis.BinaryJedisCommands;
-import redis.clients.jedis.MultiKeyBinaryCommands;
-import redis.clients.jedis.MultiKeyCommands;
-import redis.clients.jedis.ScanParams;
-import redis.clients.jedis.ScanResult;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.params.ScanParams;
+import redis.clients.jedis.resps.ScanResult;
 
 /**
  * Redis 缓存操作封装，基于 region+_key 实现多个 Region 的缓存（
@@ -103,11 +98,7 @@ public class RedisGenericCache implements Level2Cache {
     @Override
     public List<byte[]> getBytes(Collection<String> keys) {
         try {
-            BinaryJedisCommands cmd = client.get();
-            if(cmd instanceof MultiKeyBinaryCommands) {
-                byte[][] bytes = keys.stream().map(k -> _key(k)).toArray(byte[][]::new);
-                return ((MultiKeyBinaryCommands)cmd).mget(bytes);
-            }
+            Jedis cmd = client.get();
             return keys.stream().map(k -> getBytes(k)).collect(Collectors.toList());
         } finally {
             client.release();
@@ -126,18 +117,8 @@ public class RedisGenericCache implements Level2Cache {
     @Override
     public void setBytes(Map<String,byte[]> bytes) {
         try {
-            BinaryJedisCommands cmd = client.get();
-            if(cmd instanceof MultiKeyBinaryCommands) {
-                byte[][] data = new byte[bytes.size() * 2][];
-                int idx = 0;
-                for(String key : bytes.keySet()){
-                    data[idx++] = _key(key);
-                    data[idx++] = bytes.get(key);
-                }
-                ((MultiKeyBinaryCommands)cmd).mset(data);
-            }
-            else
-                bytes.forEach((k,v) -> setBytes(k, v));
+            Jedis cmd = client.get();
+            bytes.forEach((k,v) -> cmd.set(_key(k), v));
         } finally {
             client.release();
         }
@@ -204,33 +185,24 @@ public class RedisGenericCache implements Level2Cache {
     @Override
     public Collection<String> keys() {
         try {
-            BinaryJedisCommands cmd = client.get();
-            if (cmd instanceof MultiKeyCommands) {
-                Collection<String> keys = keys(cmd);
-
-                return keys.stream().map(k -> k.substring(this.region.length()+1)).collect(Collectors.toList());
-            }
+            Jedis cmd = client.get();
+            Collection<String> keys = keys(cmd);
+            return keys.stream().map(k -> k.substring(this.region.length()+1)).collect(Collectors.toList());
         } finally {
             client.release();
         }
-        throw new CacheException("keys() not implemented in Redis Generic Mode");
     }
 
-    private Collection<String> keys(BinaryJedisCommands cmd) {
+    private Collection<String> keys(Jedis cmd) {
         Collection<String> keys = new ArrayList<>();
         String cursor = "0";
         ScanParams scanParams = new ScanParams();
         scanParams.match(this.region + ":*");
-        scanParams.count(scanCount); // 这个不是返回结果的数量，应该是每次scan的数量
-        ScanResult<String> scan = ((MultiKeyCommands) cmd).scan(cursor, scanParams);
-        while (null != scan.getStringCursor()) {
-            keys.addAll(scan.getResult()); // 这一次scan match到的结果
-            if (!StringUtils.equals(cursor, scan.getStringCursor())) { // 不断拿着新的cursor scan，最终会拿到所有匹配的值
-                scan = ((MultiKeyCommands) cmd).scan(scan.getStringCursor(), scanParams);
-                continue;
-            } else {
-                break;
-            }
+        scanParams.count(scanCount);
+        ScanResult<String> scan = cmd.scan(cursor, scanParams);
+        while (!scan.isCompleteIteration()) {
+            keys.addAll(scan.getResult());
+            scan = cmd.scan(scan.getCursor(), scanParams);
         }
         return keys;
     }
@@ -238,15 +210,9 @@ public class RedisGenericCache implements Level2Cache {
     @Override
     public void evict(String...keys) {
         try {
-            BinaryJedisCommands cmd = client.get();
-            if (cmd instanceof BinaryJedis) {
-                byte[][] bytes = Arrays.stream(keys).map(k -> _key(k)).toArray(byte[][]::new);
-                ((BinaryJedis)cmd).del(bytes);
-            }
-            else {
-                for (String key : keys)
-                    cmd.del(_key(key));
-            }
+            Jedis cmd = client.get();
+            for (String key : keys)
+                cmd.del(_key(key));
         } finally {
             client.release();
         }
@@ -258,15 +224,11 @@ public class RedisGenericCache implements Level2Cache {
     @Override
     public void clear() {
         try {
-            BinaryJedisCommands cmd = client.get();
-            if (cmd instanceof MultiKeyCommands) {
-                Collection<String> keysCollection = keys(cmd);
-                String[] keys = keysCollection.stream().toArray(String[]::new);
-                if (keys != null && keys.length > 0)
-                    ((MultiKeyCommands) cmd).del(keys);
-            }
-            else
-                throw new CacheException("clear() not implemented in Redis Generic Mode");
+            Jedis cmd = client.get();
+            Collection<String> keysCollection = keys(cmd);
+            String[] keys = keysCollection.stream().toArray(String[]::new);
+            if (keys != null && keys.length > 0)
+                cmd.del(keys);
         } finally {
             client.release();
         }
