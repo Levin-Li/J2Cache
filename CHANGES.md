@@ -1,5 +1,12 @@
 # J2Cache 版本更新记录
 
+**j2cache 4.0.0-SNAPSHOT (2026-04-16)**
+
+1. 主线升级到 Spring Boot 4，并只保留 Hibernate 7 集成
+2. 仓库构建基线提升到 Java 17
+3. Starter 构件更名为 `j2cache-spring-boot4-starter`
+4. 删除旧的 Spring Boot 1/2 与 Hibernate 3/4/5 支持线
+
 **j2cache-core 2.8.6 (2024-5-6)**
 
 1. 增加 Fury 序列化器的支持

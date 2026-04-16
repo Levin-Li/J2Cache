@@ -92,6 +92,18 @@ J2Cache 默认使用 [Caffeine](https://www.oschina.net/p/ben-manes-caffeine) �
 ```
 中央仓库地址：[>>飞机](https://mvnrepository.com/artifact/net.oschina.j2cache/j2cache-core)
 
+**Spring Boot 4 Starter**
+
+当前主线同时提供 Spring Boot 4 Starter，可直接引用：
+
+```xml
+<dependency>
+  <groupId>net.oschina.j2cache</groupId>
+  <artifactId>j2cache-spring-boot4-starter</artifactId>
+  <version>4.0.0-SNAPSHOT</version>
+</dependency>
+```
+
 **二. 准备配置**
 
 拷贝 `j2cache.properties` 和 `caffeine.properties` 到你项目的源码目录，并确保这些文件会被编译到项目的 classpath 中。如果你选择了 ehcache 作为一级缓存，需要拷贝 `ehcache.xml` 或者 `ehcache3.xml` 到源码目录（后者对应的是 Ehcache 3.x 版本），这些配置文件的模板可以从 [https://gitee.com/ld/J2Cache/tree/master/core/resources](https://gitee.com/ld/J2Cache/tree/master/core/resources) 这里获取。
@@ -254,4 +266,3 @@ channel.close();
 1. 应用重启，从 Redis 获取数据后，一级缓存的有效期大于预设值
 2. 多节点强一致性？
 3. 欢迎大家给 J2Cache 提建议
-

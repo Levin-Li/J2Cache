@@ -30,6 +30,21 @@
 - GIVEN 开发者查看根模块列表
 - WHEN 检查 Spring Boot 支持模块
 - THEN Spring Boot 4 Starter 模块 SHALL 出现在 Reactor 构建中
+- AND `spring-boot-starter` 与 `spring-boot2-starter` SHALL 不再出现在主 Reactor 中
+
+### Requirement: Hibernate 7 主线支持
+主 Reactor 构建 SHALL 提供 Hibernate 7 集成，并移除低于 Hibernate 7 的历史模块。
+
+#### Scenario: Hibernate 7 模块进入主线
+- GIVEN 开发者查看根模块列表
+- WHEN 检查 Hibernate 集成模块
+- THEN `modules/hibernate7` SHALL 出现在主 Reactor 构建中
+- AND `modules/hibernate3`、`modules/hibernate4`、`modules/hibernate5` SHALL 不再出现在主 Reactor 中
+
+#### Scenario: Hibernate 7 构件可编译
+- GIVEN Hibernate 7 模块及其依赖
+- WHEN 执行模块构建命令
+- THEN Hibernate 7 模块 SHALL 编译成功
 
 ### Requirement: Boot 4 Starter 可验证性
 Spring Boot 4 Starter SHALL 能在 Boot 4 依赖栈下通过编译并通过自动化测试。

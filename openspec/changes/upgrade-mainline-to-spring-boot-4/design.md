@@ -1,14 +1,18 @@
-# 设计：主线升级到 Spring Boot 4
+# 设计：重建 Spring Boot 4 / Hibernate 7 主线
 
 ## 技术方案
 
-本次升级将继续以现有 Spring Boot Starter 实现作为基础，不做功能性重写，重点完成依赖、模块命名、构件坐标和兼容性提升。
+本次升级将继续以现有 Spring Boot Starter 实现作为基础，不做功能性重写，重点完成主线裁剪、模块命名、构件坐标和兼容性提升。Hibernate 集成不再延续历史分线，主线只保留 Hibernate 7 支持。
 
 ## 架构决策
 
-### 决策：直接替换 Boot 3 支持线，而不是并行维护 Boot 3 与 Boot 4
+### 决策：主线只保留 Spring Boot 4，不并行维护旧 Boot 支持线
 
-仓库当前已经按 Boot 代际拆分 Starter。由于本次明确不保留旧用户兼容，因此最清晰的方案就是直接把当前 Boot 3 支持线升级并重命名为 Boot 4，使模块名、构件名和实际支持能力保持一致。
+由于本次明确不保留旧用户兼容，因此 `spring-boot-starter`、`spring-boot2-starter` 都应从主线移除，仅保留 `spring-boot4-starter`。这样 Reactor、文档和发布物只表达当前真实支持能力。
+
+### 决策：Hibernate 相关支持只保留 Hibernate 7
+
+Spring Boot 4 的主线依赖生态应与 Hibernate 7 对齐，因此 `hibernate3`、`hibernate4`、`hibernate5` 模块都应从主线移除。仓库应改为提供 `hibernate7` 模块，避免继续维护与主线不一致的历史集成。
 
 ### 决策：仓库主线统一提升到 Java 17
 
@@ -27,6 +31,8 @@ Spring Boot 4 要求 Java 17 及以上版本。相比只在单个子模块上单
 - 将 Java 构建基线提升到 17
 - 将 `maven-compiler-plugin` 的 `source` 和 `target` 更新为 17
 - 将 Boot 4 Starter 模块加入 Reactor 构建
+- 从 Reactor 中移除旧 Boot 与旧 Hibernate 模块
+- 将 Hibernate 7 模块加入 Reactor 构建
 
 ### Starter 模块
 
@@ -36,6 +42,20 @@ Spring Boot 4 要求 Java 17 及以上版本。相比只在单个子模块上单
 - 构件：`j2cache-spring-boot3-starter` -> `j2cache-spring-boot4-starter`
 - parent 和内部 J2Cache 依赖版本与当前根项目版本保持一致
 - Spring Boot BOM 升级到 4.x 版本线
+
+### Hibernate 模块
+
+仓库将删除：
+
+- `modules/hibernate3`
+- `modules/hibernate4`
+- `modules/hibernate5`
+
+仓库将新增或迁移得到：
+
+- `modules/hibernate7`
+
+`hibernate7` 模块应使用 Jakarta 命名空间和 Hibernate 7 兼容 API，不保留旧 `javax.*` 时代的适配代码。
 
 ## 需要重点验证的兼容区域
 
@@ -76,11 +96,14 @@ Spring Data Redis API 演进是本次升级最容易出问题的区域，需要�
 - `CHANGES.md`
 - `docs/UPGRADE.md`
 
+同时需要移除所有对旧 Boot / 旧 Hibernate 支持线的对外说明。
+
 ## 验证标准
 
 以下条件全部满足时，视为本次变更完成：
 
-1. Boot 4 Starter 能在 Reactor 中成功编译
-2. Starter 测试能在 Boot 4 依赖栈下通过
-3. 仓库能够在 Java 17 环境下成功打包
-4. 文档中的构件坐标与实际实现保持一致
+1. Boot 4 Starter 能在 Reactor 中成功编译并通过测试
+2. Hibernate 7 模块已纳入 Reactor 并能成功编译
+3. 旧 Boot / 旧 Hibernate 模块已从主线 Reactor 中移除
+4. 仓库能够在 Java 17 环境下完成主线构建
+5. 文档中的模块与构件坐标与实际实现保持一致
