@@ -2,7 +2,6 @@ package net.oschina.j2cache.springcache;
 
 import net.oschina.j2cache.J2CacheBuilder;
 import net.oschina.j2cache.J2CacheConfig;
-import net.oschina.j2cache.util.SerializationUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.cache.Cache;
@@ -13,8 +12,6 @@ public class TestJ2CacheSpringCacheManageAdapter {
 
     @Test
     public void testCache() throws IOException {
-
-        SerializationUtils.init("fst", null);
 
         J2CacheConfig config = J2CacheConfig.initFromConfig("/j2cache.properties");
         J2CacheBuilder j2CacheBuilder = J2CacheBuilder.init(config);
@@ -32,7 +29,8 @@ public class TestJ2CacheSpringCacheManageAdapter {
 
 
         valueWrapper = cache.get(key);
-        Assert.assertNull(valueWrapper); //允许存 null, 存 null 之后再取  是 null
+        Assert.assertNotNull(valueWrapper); // Spring Cache 返回 ValueWrapper
+        Assert.assertNull(valueWrapper.get()); // 包装后的值仍然是 null
         cache.evict(key); // 失效
         valueWrapper = cache.get(key);
         Assert.assertNull(valueWrapper); // 失效后再取  是null

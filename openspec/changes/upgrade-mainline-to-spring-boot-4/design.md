@@ -57,6 +57,28 @@ Spring Boot 4 要求 Java 17 及以上版本。相比只在单个子模块上单
 
 `hibernate7` 模块应使用 Jakarta 命名空间和 Hibernate 7 兼容 API，不保留旧 `javax.*` 时代的适配代码。
 
+### 集成测试模块
+
+仓库将新增：
+
+- `modules/integration-tests`
+
+该模块只承担主线验证职责，不作为对外发布给业务方使用的能力模块。它将统一覆盖两组测试：
+
+- Hibernate 7 + H2 内存数据库的二级缓存集成测试
+- Spring Cache + J2Cache 适配层的缓存行为测试
+
+测试模块应独立依赖：
+
+- `j2cache-core`
+- `j2cache-hibernate7`
+- `j2cache-springcache`
+- `j2cache-spring-boot4-starter`（如用于复用现有自动配置或行为验证）
+- `hibernate-core`
+- `spring-context-support`
+- `h2`
+- `junit-jupiter`
+
 ## 需要重点验证的兼容区域
 
 ### 自动配置装配
@@ -88,6 +110,12 @@ Spring Data Redis API 演进是本次升级最容易出问题的区域，需要�
 - 更新断言和测试注解
 - 去掉 `System.in.read()` 这类阻塞自动化执行的代码
 
+新增集成测试模块需要满足：
+
+- Hibernate 7 测试使用 H2，不依赖外部 MySQL 或 Redis 环境
+- Spring Cache 测试验证 `@Cacheable` 与 `@CacheEvict` 的基本行为
+- 测试模块可以通过单独命令执行，例如 `mvn -pl modules/integration-tests test`
+
 ## 文档调整
 
 需要同步更新以下文档中的对外使用说明：
@@ -105,5 +133,6 @@ Spring Data Redis API 演进是本次升级最容易出问题的区域，需要�
 1. Boot 4 Starter 能在 Reactor 中成功编译并通过测试
 2. Hibernate 7 模块已纳入 Reactor 并能成功编译
 3. 旧 Boot / 旧 Hibernate 模块已从主线 Reactor 中移除
-4. 仓库能够在 Java 17 环境下完成主线构建
-5. 文档中的模块与构件坐标与实际实现保持一致
+4. 独立集成测试模块已纳入 Reactor，并能验证 Hibernate 7 与 Spring Cache 主线能力
+5. 仓库能够在 Java 17 环境下完成主线构建
+6. 文档中的模块与构件坐标与实际实现保持一致

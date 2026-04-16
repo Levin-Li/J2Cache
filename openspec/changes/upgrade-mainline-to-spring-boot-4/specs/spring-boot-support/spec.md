@@ -55,6 +55,26 @@ Spring Boot 4 Starter SHALL 能在 Boot 4 依赖栈下通过编译并通过自�
 - THEN Starter SHALL 编译成功
 - AND 其自动化测试 SHALL 在无人工交互的情况下通过
 
+### Requirement: 主线集成测试模块
+仓库 SHALL 提供一个独立集成测试模块，用于统一验证 Hibernate 7 与 Spring Cache 的主线支持。
+
+#### Scenario: 集成测试模块进入主线
+- GIVEN 开发者查看根模块列表
+- WHEN 检查测试相关模块
+- THEN `modules/integration-tests` SHALL 出现在主 Reactor 构建中
+
+#### Scenario: Hibernate 7 集成测试使用 H2
+- GIVEN 独立集成测试模块
+- WHEN 执行 Hibernate 7 相关测试
+- THEN 测试 SHALL 使用 H2 内存数据库
+- AND SHALL 不依赖外部 MySQL 环境
+
+#### Scenario: Spring Cache 行为被验证
+- GIVEN 独立集成测试模块
+- WHEN 执行 Spring Cache 相关测试
+- THEN 测试 SHALL 覆盖 `@Cacheable` 的命中行为
+- AND SHALL 覆盖 `@CacheEvict` 的失效行为
+
 ### Requirement: Boot 4 文档一致性
 项目文档 SHALL 引用 Spring Boot 4 Starter 的构件坐标与支持说明。
 

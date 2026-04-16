@@ -12,6 +12,7 @@
 - 删除旧的 Spring Boot 1/2 支持线
 - 删除低于 Hibernate 7 的 Hibernate 集成模块
 - 新增或迁移到 Hibernate 7 支持模块
+- 新增一个独立集成测试模块，用于验证 Hibernate 7 与 Spring Cache 支持
 - 将仓库 Java 基线从 8 提升到 17
 - 重命名 Boot Starter 模块及其发布构件，以准确反映 Spring Boot 4 支持
 - 更新测试和文档，确保新的支持线可以稳定构建和发布
@@ -26,3 +27,8 @@
 ## 方案
 
 将当前 `spring-boot3-starter` 直接重命名为 `spring-boot4-starter`，移除 `spring-boot-starter`、`spring-boot2-starter`、`hibernate3`、`hibernate4`、`hibernate5` 这些旧支持线，并补入 `hibernate7` 模块。仓库构建基线统一提升到 Java 17，之后只做 Spring Boot 4、Spring Framework 7、Hibernate 7 所必需的最小代码与测试改造。
+
+同时新增一个独立的 `modules/integration-tests` 模块，统一承载两类主线验证：
+
+- 基于 H2 的 Hibernate 7 二级缓存集成测试
+- 基于 Spring Cache 抽象的 J2Cache 集成测试

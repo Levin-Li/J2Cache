@@ -134,6 +134,7 @@
         <module>core</module>
         <module>modules/hibernate7</module>
         <module>modules/spring-boot4-starter</module>
+        <module>modules/integration-tests</module>
         <module>modules/mybatis</module>
         <module>modules/springcache</module>
         <module>modules/session-manager</module>
