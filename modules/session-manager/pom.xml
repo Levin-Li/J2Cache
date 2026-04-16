@@ -12,7 +12,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>j2cache-session-manager</artifactId>
-    <version>1.0.0-beta4</version>
 
     <dependencies>
 

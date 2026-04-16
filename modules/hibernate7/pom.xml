@@ -5,8 +5,7 @@
     <parent>
         <artifactId>j2cache</artifactId>
         <groupId>net.oschina.j2cache</groupId>
-        <version>${revision}</version>
-        <relativePath>../../pom.xml</relativePath>
+        <version>${revision}</version>        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
