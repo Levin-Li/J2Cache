@@ -16,15 +16,12 @@
 package net.oschina.j2cache;
 
 import net.oschina.j2cache.caffeine.CaffeineProvider;
-import net.oschina.j2cache.ehcache.EhCacheProvider3;
 import net.oschina.j2cache.lettuce.LettuceCacheProvider;
 import net.oschina.j2cache.memcached.XmemcachedCacheProvider;
 import net.oschina.j2cache.redis.ReadonlyRedisCacheProvider;
+import net.oschina.j2cache.redis.RedisCacheProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import net.oschina.j2cache.ehcache.EhCacheProvider;
-import net.oschina.j2cache.redis.RedisCacheProvider;
 
 import java.util.Collection;
 
@@ -82,10 +79,6 @@ public class CacheProviderHolder {
 
     private static CacheProvider loadProviderInstance(String cacheIdent) {
         switch (cacheIdent.toLowerCase()) {
-            case "ehcache":
-                return new EhCacheProvider();
-            case "ehcache3":
-                return new EhCacheProvider3();
             case "caffeine":
                 return new CaffeineProvider();
             case "redis":
