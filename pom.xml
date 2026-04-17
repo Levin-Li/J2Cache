@@ -13,9 +13,11 @@
 
 
     <properties>
+        <revision>4.0.0-SNAPSHOT</revision>
+
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
-        <revision>4.0.0-SNAPSHOT</revision>
         <gpg.skip>true</gpg.skip>
 
         <spring-boot.version>4.0.5</spring-boot.version>
@@ -64,9 +66,7 @@
         <plugins>
             <!-- Source -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -78,9 +78,7 @@
             </plugin>
             <!-- Javadoc -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.12.0</version>
                 <configuration>
                     <failOnError>false</failOnError>
                 </configuration>
@@ -97,7 +95,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
                 <configuration>
                     <skip>${gpg.skip}</skip>
                 </configuration>
@@ -113,10 +110,9 @@
             </plugin>
             <!-- Compiler -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
                 <configuration>
+                    <parameters>true</parameters>
                     <release>${maven.compiler.release}</release>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
