@@ -3,10 +3,10 @@ package net.oschina.j2cache.autoconfigure;
 import net.oschina.j2cache.CacheChannel;
 import net.oschina.j2cache.J2Cache;
 import net.oschina.j2cache.cache.support.J2CacheCacheManger;
-import org.springframework.boot.cache.autoconfigure.CacheProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.cache.autoconfigure.CacheProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -16,34 +16,34 @@ import java.util.List;
 
 /**
  * 开启对spring cache支持的配置入口
- * @author zhangsaizz
  *
+ * @author zhangsaizz
  */
 @Configuration
 @ConditionalOnClass(J2Cache.class)
-@EnableConfigurationProperties({ J2CacheConfig.class, CacheProperties.class })
+@EnableConfigurationProperties({J2CacheBootConfig.class, CacheProperties.class})
 @ConditionalOnProperty(name = "j2cache.open-spring-cache", havingValue = "true")
 @EnableCaching
 public class J2CacheSpringCacheAutoConfiguration {
 
-	private final CacheProperties cacheProperties;
-	
-	private final J2CacheConfig j2CacheConfig;
+    private final CacheProperties cacheProperties;
 
-	J2CacheSpringCacheAutoConfiguration(CacheProperties cacheProperties, J2CacheConfig j2CacheConfig) {
-		this.cacheProperties = cacheProperties;
-		this.j2CacheConfig = j2CacheConfig;
-	}
+    private final J2CacheBootConfig j2CacheBootConfig;
 
-	@Bean
-	@ConditionalOnBean(CacheChannel.class)
-	public J2CacheCacheManger cacheManager(CacheChannel cacheChannel) {
-		List<String> cacheNames = cacheProperties.getCacheNames();
-		J2CacheCacheManger cacheCacheManger = new J2CacheCacheManger(cacheChannel);
-		cacheCacheManger.setAllowNullValues(j2CacheConfig.isAllowNullValues());
-		cacheCacheManger.setCacheNames(cacheNames);
-		return cacheCacheManger;
-	}
+    J2CacheSpringCacheAutoConfiguration(CacheProperties cacheProperties, J2CacheBootConfig j2CacheBootConfig) {
+        this.cacheProperties = cacheProperties;
+        this.j2CacheBootConfig = j2CacheBootConfig;
+    }
 
+    @Bean
+    @ConditionalOnBean(CacheChannel.class)
+    //@ConditionalOnMissingBean(CacheManager.class)
+    public J2CacheCacheManger cacheManager(CacheChannel cacheChannel) {
+        List<String> cacheNames = cacheProperties.getCacheNames();
+        J2CacheCacheManger cacheCacheManger = new J2CacheCacheManger(cacheChannel);
+        cacheCacheManger.setAllowNullValues(j2CacheBootConfig.isAllowNullValues());
+        cacheCacheManger.setCacheNames(cacheNames);
+        return cacheCacheManger;
+    }
 
 }

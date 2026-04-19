@@ -235,7 +235,7 @@ public class J2CacheSpringRedisAutoConfiguration {
     @Bean("j2CahceRedisConnectionFactory")
     @ConditionalOnMissingBean(name = "j2CahceRedisConnectionFactory")
     @ConditionalOnProperty(name = "j2cache.redis-client", havingValue = "jedis", matchIfMissing = true)
-    public JedisConnectionFactory jedisConnectionFactory(net.oschina.j2cache.J2CacheConfig j2CacheConfig) {
+    public JedisConnectionFactory jedisConnectionFactory(net.oschina.j2cache.J2CacheConfig j2CacheBootConfig) {
         throw new UnsupportedOperationException("replace with Boot 4 compatible implementation");
     }
 
@@ -243,7 +243,7 @@ public class J2CacheSpringRedisAutoConfiguration {
     @Bean("j2CahceRedisConnectionFactory")
     @ConditionalOnMissingBean(name = "j2CahceRedisConnectionFactory")
     @ConditionalOnProperty(name = "j2cache.redis-client", havingValue = "lettuce")
-    public LettuceConnectionFactory lettuceConnectionFactory(net.oschina.j2cache.J2CacheConfig j2CacheConfig) {
+    public LettuceConnectionFactory lettuceConnectionFactory(net.oschina.j2cache.J2CacheConfig j2CacheBootConfig) {
         throw new UnsupportedOperationException("replace with Boot 4 compatible implementation");
     }
 }
@@ -266,14 +266,14 @@ public class J2CacheAutoConfiguration {
     private StandardEnvironment standardEnvironment;
 
     @Bean
-    public net.oschina.j2cache.J2CacheConfig j2CacheConfig() throws IOException {
+    public net.oschina.j2cache.J2CacheConfig j2CacheBootConfig() throws IOException {
         return SpringJ2CacheConfigUtil.initFromConfig(standardEnvironment);
     }
 
     @Bean
-    @DependsOn({ "springUtil", "j2CacheConfig" })
-    public CacheChannel cacheChannel(net.oschina.j2cache.J2CacheConfig j2CacheConfig) throws IOException {
-        return J2CacheBuilder.init(j2CacheConfig).getChannel();
+    @DependsOn({ "springUtil", "j2CacheBootConfig" })
+    public CacheChannel cacheChannel(net.oschina.j2cache.J2CacheConfig j2CacheBootConfig) throws IOException {
+        return J2CacheBuilder.init(j2CacheBootConfig).getChannel();
     }
 
     @Bean
@@ -294,11 +294,11 @@ public class J2CacheAutoConfiguration {
 public class J2CacheSpringCacheAutoConfiguration {
 
     private final CacheProperties cacheProperties;
-    private final J2CacheConfig j2CacheConfig;
+    private final J2CacheConfig j2CacheBootConfig;
 
-    J2CacheSpringCacheAutoConfiguration(CacheProperties cacheProperties, J2CacheConfig j2CacheConfig) {
+    J2CacheSpringCacheAutoConfiguration(CacheProperties cacheProperties, J2CacheConfig j2CacheBootConfig) {
         this.cacheProperties = cacheProperties;
-        this.j2CacheConfig = j2CacheConfig;
+        this.j2CacheBootConfig = j2CacheBootConfig;
     }
 
     @Bean
@@ -306,7 +306,7 @@ public class J2CacheSpringCacheAutoConfiguration {
     public J2CacheCacheManger cacheManager(CacheChannel cacheChannel) {
         List<String> cacheNames = cacheProperties.getCacheNames();
         J2CacheCacheManger cacheManager = new J2CacheCacheManger(cacheChannel);
-        cacheManager.setAllowNullValues(j2CacheConfig.isAllowNullValues());
+        cacheManager.setAllowNullValues(j2CacheBootConfig.isAllowNullValues());
         cacheManager.setCacheNames(cacheNames);
         return cacheManager;
     }
@@ -366,7 +366,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
                 "j2cache.config-location=classpath:/com/test/j2cache-test.properties",
                 "spring.cache.type=GENERIC",
                 "j2cache.open-spring-cache=true",
-                "j2cache.j2CacheConfig.serialization=json",
+                "j2cache.j2CacheBootConfig.serialization=json",
                 "j2cache.redis-client=jedis",
                 "j2cache.cache-clean-mode=active",
                 "j2cache.allow-null-values=true",
