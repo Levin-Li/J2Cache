@@ -3,6 +3,7 @@ package net.oschina.j2cache.autoconfigure;
 import net.oschina.j2cache.CacheChannel;
 import net.oschina.j2cache.J2Cache;
 import net.oschina.j2cache.cache.support.J2CacheCacheManger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -38,7 +39,7 @@ public class J2CacheSpringCacheAutoConfiguration {
     @Bean
     @ConditionalOnBean(CacheChannel.class)
     //@ConditionalOnMissingBean(CacheManager.class)
-    public J2CacheCacheManger cacheManager(CacheChannel cacheChannel) {
+    public J2CacheCacheManger cacheManager(@Autowired CacheChannel cacheChannel) {
         List<String> cacheNames = cacheProperties.getCacheNames();
         J2CacheCacheManger cacheCacheManger = new J2CacheCacheManger(cacheChannel);
         cacheCacheManger.setAllowNullValues(j2CacheBootConfig.isAllowNullValues());

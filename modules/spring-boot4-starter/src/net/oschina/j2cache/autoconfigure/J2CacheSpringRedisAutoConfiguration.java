@@ -5,6 +5,7 @@ import net.oschina.j2cache.redis.RedisUtils;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -54,7 +55,7 @@ public class J2CacheSpringRedisAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean(RedisConnectionFactory.class)
     @ConditionalOnProperty(name = "j2cache.redis-client", havingValue = "jedis", matchIfMissing = true)
-    public JedisConnectionFactory jedisConnectionFactory(net.oschina.j2cache.J2CacheConfig j2CacheConfig) {
+    public JedisConnectionFactory jedisConnectionFactory(@Autowired net.oschina.j2cache.J2CacheConfig j2CacheConfig) {
         Properties l2CacheProperties = j2CacheConfig.getL2CacheProperties();
         String hosts = l2CacheProperties.getProperty("hosts");
         String mode = l2CacheProperties.getProperty("mode") == null ? "null" : l2CacheProperties.getProperty("mode");
@@ -134,7 +135,7 @@ public class J2CacheSpringRedisAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean(RedisConnectionFactory.class)
     @ConditionalOnProperty(name = "j2cache.redis-client", havingValue = "lettuce")
-    public LettuceConnectionFactory lettuceConnectionFactory(net.oschina.j2cache.J2CacheConfig j2CacheConfig) {
+    public LettuceConnectionFactory lettuceConnectionFactory(@Autowired net.oschina.j2cache.J2CacheConfig j2CacheConfig) {
         Properties l2CacheProperties = j2CacheConfig.getL2CacheProperties();
         String hosts = l2CacheProperties.getProperty("hosts");
         String mode = l2CacheProperties.getProperty("mode") == null ? "null" : l2CacheProperties.getProperty("mode");
@@ -209,8 +210,8 @@ public class J2CacheSpringRedisAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean(type = "org.springframework.data.redis.core.RedisTemplate<java.lang.String, java.io.Serializable>")
     public RedisTemplate<String, Serializable> j2CacheRedisTemplate(
-            RedisConnectionFactory redisConnectionFactory,
-            RedisSerializer<Object> redisSerializer) {
+            @Autowired RedisConnectionFactory redisConnectionFactory,
+            @Autowired RedisSerializer<Object> redisSerializer) {
         RedisTemplate<String, Serializable> template = new RedisTemplate<String, Serializable>();
         template.setKeySerializer(new StringRedisSerializer());
         template.setHashKeySerializer(new StringRedisSerializer());
@@ -222,7 +223,7 @@ public class J2CacheSpringRedisAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(RedisMessageListenerContainer.class)
-    RedisMessageListenerContainer container(RedisConnectionFactory redisConnectionFactory) {
+    RedisMessageListenerContainer container(@Autowired RedisConnectionFactory redisConnectionFactory) {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(redisConnectionFactory);
         return container;
