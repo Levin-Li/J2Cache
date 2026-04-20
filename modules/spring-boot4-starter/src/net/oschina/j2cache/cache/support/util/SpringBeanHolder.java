@@ -1,7 +1,10 @@
 package net.oschina.j2cache.cache.support.util;
 
+import jakarta.annotation.PostConstruct;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.Accessors;
+import lombok.extern.slf4j.Slf4j;
 import net.oschina.j2cache.J2CacheConfig;
 import net.oschina.j2cache.autoconfigure.J2CacheBootConfig;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +20,9 @@ import java.io.Serializable;
  * @author zhangsaizz
  */
 @Getter
-//@Accessors(chain = true)
+@Setter
+@Accessors(chain = true)
+@Slf4j
 public class SpringBeanHolder {
 
     public final static SpringBeanHolder instance = new SpringBeanHolder();
@@ -37,9 +42,20 @@ public class SpringBeanHolder {
     @Autowired
     J2CacheConfig config;
 
-//    J2CacheConfig
+    @PostConstruct
+    public void init() {
+        log.debug("SpringBeanHolder init");
+    }
 
-    private SpringBeanHolder() {
+    public SpringBeanHolder() {
+    }
+
+    public static SpringBeanHolder getInstance() {
+        return instance;
+    }
+
+    public <T> T getBean(Class<T> clazz) {
+        return applicationContext.getBean(clazz);
     }
 
 }

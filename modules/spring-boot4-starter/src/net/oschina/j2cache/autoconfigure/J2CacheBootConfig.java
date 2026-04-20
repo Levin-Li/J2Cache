@@ -9,7 +9,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 
 @ConfigurationProperties(prefix = "j2cache")
-
 public class J2CacheBootConfig {
 
     private String configLocation = "/j2cache.properties";
