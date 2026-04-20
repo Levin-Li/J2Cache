@@ -47,7 +47,7 @@ public class SpringBeanHolder {
         log.debug("SpringBeanHolder init");
     }
 
-    public SpringBeanHolder() {
+    private SpringBeanHolder() {
     }
 
     public static SpringBeanHolder getInstance() {
