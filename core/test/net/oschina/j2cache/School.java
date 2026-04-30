@@ -7,6 +7,9 @@ public class School implements Serializable {
     private String name;
     private int random = (int)(Math.random() * 1000);
 
+    public School() {
+    }
+
     public School(String name) {
         this.name = name;
     }

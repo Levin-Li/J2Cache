@@ -39,7 +39,7 @@ public class SerializationUtils {
      */
     public static void init(String ser, Properties props) {
         if (ser == null || "".equals(ser.trim()))
-            g_serializer = new JavaSerializer();
+            g_serializer = new Fastjson2Serializer();
         else {
             try {
                 if ("java".equals(ser)) {
@@ -58,6 +58,12 @@ public class SerializationUtils {
                     g_serializer = Class.forName("net.oschina.j2cache.util.FstJSONSerializer").asSubclass(Serializer.class).getConstructor(Properties.class).newInstance(props);
                 } else if ("fastjson".equals(ser)) {
                     g_serializer = Class.forName("net.oschina.j2cache.util.FastjsonSerializer").asSubclass(Serializer.class).newInstance();
+                } else if ("fastjson2".equals(ser)) {
+                    g_serializer = Class.forName("net.oschina.j2cache.util.Fastjson2Serializer").asSubclass(Serializer.class).newInstance();
+                } else if ("jackson".equals(ser)) {
+                    g_serializer = Class.forName("net.oschina.j2cache.util.JacksonSerializer").asSubclass(Serializer.class).newInstance();
+                } else if ("jackson3".equals(ser)) {
+                    g_serializer = Class.forName("net.oschina.j2cache.util.Jackson3Serializer").asSubclass(Serializer.class).newInstance();
                 } else if ("fse".equals(ser)) {
                     g_serializer = Class.forName("net.oschina.j2cache.util.FseSerializer").asSubclass(Serializer.class).newInstance();
                 } else {
